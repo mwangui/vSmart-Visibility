@@ -1,6 +1,7 @@
 import svgPaths from "../imports/4LogOmpStatistics-1/svg-xu79yoskty";
 import imgHeader from "figma:asset/73ec653e128edda67501b4df083e58e8150cd4b3.png";
 import { imgWarningBorder, imgWarningBorder1 } from "../imports/4LogOmpStatistics-1/svg-w8riy";
+import { OmpStatistics } from "./omp/OmpStatistics";
 
 function Left() {
   return (
@@ -5071,55 +5072,7 @@ function Container() {
             </div>
           </div>
         </div>
-        <Chart />
-        <Chart2 />
-        <div className="content-stretch flex gap-[8px] items-start relative shrink-0 w-full" data-name="Filter bar">
-          <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[240px]" data-name="Search input">
-            <div className="bg-[var(--color-bg-primary)] h-[34px] relative rounded-[6px] shrink-0 w-full" data-name=".Field">
-              <div className="content-stretch flex isolate items-start overflow-clip relative rounded-[inherit] size-full">
-                <div className="flex-[1_0_0] min-w-px relative rounded-[6px] self-stretch z-[2]" data-name=".Input">
-                  <div className="overflow-clip rounded-[inherit] size-full">
-                    <div className="content-stretch flex gap-[2px] isolate items-start pl-[10px] pr-[20px] py-[6px] relative size-full">
-                      <Icon6 />
-                      <Text20 />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div aria-hidden="true" className="absolute border-2 border-[var(--color-text-muted)] border-solid inset-0 pointer-events-none rounded-[6px]" />
-            </div>
-          </div>
-          <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-name=".Filters">
-            <div className="content-stretch flex flex-col gap-[4px] isolate items-start relative rounded-[6px] shrink-0" data-name="Select input">
-              <Field2 />
-            </div>
-            <div className="content-stretch flex flex-col gap-[4px] isolate items-start relative rounded-[6px] shrink-0" data-name="Select input">
-              <Field3 />
-            </div>
-            <div className="content-stretch flex flex-col gap-[4px] isolate items-start relative rounded-[6px] shrink-0" data-name="Select input">
-              <Field4 />
-            </div>
-          </div>
-          <AdvanceFilters />
-          <div className="flex-[1_0_0] min-w-px relative" data-name="Button group">
-            <div className="flex flex-row items-center justify-end size-full">
-              <div className="content-stretch flex gap-[16px] items-center justify-end pl-[36px] relative size-full">
-                <div className="content-stretch flex items-center pr-[8px] relative shrink-0" data-name="Text">
-                  <p className="font-['Inter:Regular',sans-serif] font-normal leading-[18px] not-italic relative shrink-0 text-[var(--color-text-secondary)] text-[12px] whitespace-nowrap">Optional context message</p>
-                </div>
-                <PrimaryAndSecondaryButtons />
-              </div>
-            </div>
-          </div>
-        </div>
-        <Table />
-        <div className="content-stretch flex gap-[8px] items-center justify-end relative shrink-0 w-full" data-name="Pagination">
-          <RowsPerPage />
-          <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[var(--color-text-secondary)] text-[14px] text-center whitespace-nowrap">
-            <p className="leading-[20px]">1-10 of 200</p>
-          </div>
-          <PageSelection />
-        </div>
+        <OmpStatistics />
       </div>
     </div>
   );
