@@ -1,0 +1,993 @@
+WEBVTT
+
+1 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:00:00.000 --> 00:00:06.144
+Yeah ok yeah for.
+
+2 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:00:06.144 --> 00:00:09.500
+We change we have to change that.
+
+3 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:00:09.500 --> 00:00:18.302
+Yeah. Would you mind coming here and put the notes right here, like, put the notes? Tell me what I'm gonna to put it here.
+
+4 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:00:18.302 --> 00:00:23.684
+Okay, we can directly update here, right? So you'll take that. Okay, yeah, I'll do that.
+
+5 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:00:23.684 --> 00:00:36.759
+The 12I only need 12345 system or 1010, just for the demo.
+
+6 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:00:36.759 --> 00:00:41.629
+Yeah, all of them, they're correct except the policy change. That is what we need to update.
+
+7 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:00:41.629 --> 00:01:00.165
+Oh ok sure let me Ping if he can join. So today we I wanted to get the update and try to close.
+
+8 "Falgun Bhagavatula" (461636096)
+00:01:00.165 --> 00:01:16.360
+Sure Yeah I think this is the only open item right now, right? The details part, the other, the other aspects of the UI UX are all closed.
+
+9 "Falgun Bhagavatula" (461636096)
+00:01:16.962 --> 00:01:20.660
+Is there anything open?
+
+10 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:01:20.660 --> 00:01:32.704
+One thing need actually one thing is open for you guys. Do you guys remember we're talking about the CPU?
+
+11 "Falgun Bhagavatula" (461636096)
+00:01:32.704 --> 00:01:34.085
+Yeah.
+
+12 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:01:34.085 --> 00:01:46.786
+The CPU, if it's over, should we showing the warning side here? If this is over?
+
+13 "Falgun Bhagavatula" (461636096)
+00:01:47.641 --> 00:01:59.046
+If it goes at that time NO let's not let's not put that there exclamation because Okay don't.
+
+14 "Falgun Bhagavatula" (461636096)
+00:02:00.600 --> 00:02:04.444
+If it is, you know, it's it's visible on the chart there, right?
+
+15 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:02:04.444 --> 00:02:06.361
+Right so it should be.
+
+16 "Falgun Bhagavatula" (461636096)
+00:02:06.361 --> 00:02:12.544
+Very good, I don't want to raise too many alarms. Of course it is it is it is a valid alarm, but.
+
+17 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:02:14.242 --> 00:02:17.344
+Sorry were in a call.
+
+18 "Falgun Bhagavatula" (461636096)
+00:02:17.344 --> 00:02:26.524
+So yeah, so one of the, you know, one of the topics we were discussing right now.
+
+19 "SJC24-2-SR8/speaker_2" (3170990592_2)
+00:02:26.524 --> 00:02:29.882
+Now is when we hover over the 1st chart and.
+
+20 "Falgun Bhagavatula" (461636096)
+00:02:29.882 --> 00:02:42.699
+If if there is, if there is a point where the memory goes above 80 %, which is the threshold that we have, do we need to show that exclamation mark over there?
+
+21 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:02:42.699 --> 00:02:45.784
+I mean it will show up above the line as well, right?
+
+22 "Falgun Bhagavatula" (461636096)
+00:02:45.784 --> 00:02:51.960
+Yeah, yeah. We don't need to. Yeah, that that's what I was leaning towards too.
+
+23 "SJC24-2-SR8/speaker_2" (3170990592_2)
+00:02:51.960 --> 00:02:53.710
+Let's not do that. Let's keep.
+
+24 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:02:53.710 --> 00:03:02.783
+This is a hover like you hover over it it will tell you why, right? But then you can't have a hover over hover.
+
+25 "Falgun Bhagavatula" (461636096)
+00:03:02.783 --> 00:03:06.399
+Right, right, Correct. Yeah.
+
+26 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:03:06.399 --> 00:03:10.302
+Anyway, the warning is there on the line in the background.
+
+27 "Falgun Bhagavatula" (461636096)
+00:03:10.302 --> 00:03:29.244
+Right yeah the that's going to be enough indication for the customers anyway. Yeah so that's it mean we can we can close that. So total CPU and total memory, NO need for an exclamation over there just the absolute value that's it.
+
+28 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:03:29.244 --> 00:03:42.524
+Okay, so second question is some people say put total CPU, total memory on the top, and some people say put it underneath, so I'm actually confused now.
+
+29 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:03:42.524 --> 00:03:49.000
+What is the guidance? Oh yeah. Who saying put it on the top?
+
+30 "SJC24-2-SR8/speaker_3" (3170990592_3)
+00:03:49.000 --> 00:03:51.119
+U.
+
+31 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:03:51.119 --> 00:03:54.302
+Allows allows too many people in the meeting, I forgot.
+
+32 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:03:54.302 --> 00:03:58.399
+See this CPU memory, we don't show it in the chart right.
+
+33 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:03:58.399 --> 00:04:00.679
+Right.
+
+34 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:04:00.679 --> 00:04:25.185
+So then there will be a big confusion if you don't show port it in that put something red that the 1st thing will be NO they'll be confused. I don't see those ranges or numbers in the chart, but in the because the chart is all about CPU OMP or whatever it is, right? Those four metrics, right? And then you know so if you ask me, I would say put it in the bottom to avoid confusion in the 1st standard. Okay.
+
+35 "Falgun Bhagavatula" (461636096)
+00:04:25.185 --> 00:04:29.721
+Yeah, the bottom bottom is more, more better.
+
+36 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:04:29.721 --> 00:04:35.863
+And after the line, yeah. Totally for that timeline, right?
+
+37 "Falgun Bhagavatula" (461636096)
+00:04:35.863 --> 00:04:39.364
+For that time, yeah.
+
+38 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:04:39.364 --> 00:04:44.454
+Total is the total CPU, not the OMP process CPU.
+
+39 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:04:46.559 --> 00:04:48.671
+Total CPU.
+
+40 "SJC24-2-SR8/default" (3170990592)
+00:04:48.671 --> 00:04:49.899
+U.
+
+41 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:04:49.899 --> 00:04:50.644
+You mean I'm.
+
+42 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:04:50.644 --> 00:05:03.969
+So basically they won't be able to derive that number from the this other CPU right? Because the understanding is total CPU is 52 OMP CPU is taking 40. OMP.
+
+43 "SJC24-2-SR8/default" (3170990592)
+00:05:03.969 --> 00:05:04.803
+Yes.
+
+44 "Falgun Bhagavatula" (461636096)
+00:05:04.803 --> 00:05:21.024
+Yeah, so, yeah, I mean you can move that to the bottom one. So you had another yeah this one and can you add a line after the OMP memory usage so that there is a there is a partition. Yes, exactly.
+
+45 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:05:21.024 --> 00:05:30.627
+Okay, and also should we show average at the beginning and then the actual or since we are talking about ordering rate.
+
+46 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:05:30.627 --> 00:05:33.050
+So you mean 2nd title here?
+
+47 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:05:33.700 --> 00:05:51.299
+Yeah, so if you ask me the chart main thing is, you know, what is the usage at the particular point of time, right? When they hover over a particular point of time, they want to see what exactly at that time, right? Why to show average and because average will be averaged 40 across this time, right?
+
+48 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:05:51.299 --> 00:05:56.707
+Yeah, so what he's saying show the current on the top and average below.
+
+49 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:05:56.707 --> 00:06:04.519
+Yes. So usage metrics at the top and followed by average, then the divider, then the total CPN memory.
+
+50 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:06:04.519 --> 00:06:08.770
+I apologize a little bit confused. Can some.
+
+51 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:06:08.770 --> 00:06:18.470
+Right. Followed by actual OMP CPU usage and OMP memory usage, right?
+
+52 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:06:19.843 --> 00:06:23.708
+Put that you know actual data 1st and then the average. Yeah.
+
+53 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:06:23.708 --> 00:06:25.089
+I I got.
+
+54 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:06:25.089 --> 00:06:31.480
+Thank you so much. Right.
+
+55 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:06:31.480 --> 00:06:32.029
+Sorry?
+
+56 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:06:32.029 --> 00:06:33.847
+Also on the legend.
+
+57 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:06:33.847 --> 00:06:34.522
+Also in the legend.
+
+58 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:06:34.522 --> 00:06:37.500
+Yes.
+
+59 "Falgun Bhagavatula" (461636096)
+00:06:37.500 --> 00:06:38.528
+Okay.
+
+60 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:06:39.760 --> 00:06:47.140
+Are we good for now? Or can I go over for demo orders?
+
+61 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:06:47.140 --> 00:06:57.186
+So I don't know, sorry we were better late, bit late, so 1st screen is still going to be on the main page where you'll just show a graph and clicking on view details will bring it, right?
+
+62 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:06:57.186 --> 00:07:01.662
+The 1st screen we're talking about is this one, right?
+
+63 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:07:01.662 --> 00:07:05.660
+Yes. E.g..
+
+64 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:07:05.660 --> 00:07:09.739
+Nothing gonna change on this page.
+
+65 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:07:09.739 --> 00:07:14.463
+No, so I thought we said we are going to have a OMP utilization here.
+
+66 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:07:14.463 --> 00:07:35.709
+Yeah, so because you was sorry that you're missing the meetings meetings that will make decisions that nothing gonna change here because the reason being is we'll have a CPU and then now you're gonna have OMP CPU, people gonna be confused. So that's why.
+
+67 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:07:35.709 --> 00:07:36.808
+Go ahead.
+
+68 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:07:36.808 --> 00:07:39.908
+Okay, that's ok. So.
+
+69 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:07:39.908 --> 00:08:00.109
+I'm going to go through one more questions before we start the demo. I just chat with our teams. They provide one of the solutions to combine those two charts is to have a containers to cover those two charts.
+
+70 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:08:00.109 --> 00:08:22.571
+And then inside that container and then we can use one times case and why we can use the timing for the Y and then and others, other subject for the X that's how we can make those two charts like a one component and when we hover, every.
+
+71 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:08:22.571 --> 00:08:40.249
+You can be a lot I'm going through the message, I'm going through the message. Okay. So yeah, I see Sheldon and someone you know responded Jingkai also created a discussion. I'll have some one of my engineers look at it, right? Because good that you know they have some solutions so we can sometimes, you know, yeah, their solution is some.
+
+72 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:08:40.249 --> 00:08:54.479
+You know give a try and then see most like most of the time it works, sometimes it may not. So that's why you know, I will have one engineer explore that and see whether it's really working then only we can confirm. Don't want to go with their road that, you know, give a try.
+
+73 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:08:54.479 --> 00:09:01.721
+If you let me know because once you success and then I can modify, we don't need to double double the time.
+
+74 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:09:01.721 --> 00:09:08.484
+Exactly, yeah. We now we will explore and we can now we'll come back, ok?
+
+75 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:09:08.484 --> 00:09:12.408
+Sure. So the minor comment I had is.
+
+76 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:09:12.408 --> 00:09:26.085
+It's you know in the line chart about right? Why do we have this, you know, lines, you know, each and every point, right? You know the lines, the gray lines I'm talking about. I'm not talking about the actual actual chart lines. Yeah, this.
+
+77 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:09:26.085 --> 00:09:44.708
+You asked me this one. So that actually lines coming from the harbor component. So if I remove those and then hey mean your mock up not match with the harvard's components and asked me to put it there.
+
+78 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:09:44.708 --> 00:09:57.559
+See those those in the I see you. Okay, I see very minor ok but I don't see a straight lines on the lines are fine, but I don't see a straight line.
+
+79 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:09:57.559 --> 00:10:08.645
+Okay straight lines if ok everybody take a look here. If NO vertical lines, are your eyes be able to align with the 01:00 02:00?
+
+80 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:10:08.645 --> 00:10:11.482
+Yeah. Yeah.
+
+81 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:10:11.482 --> 00:10:13.924
+Okay, ok, I I totally.
+
+82 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:10:13.924 --> 00:10:17.927
+Can I share and show the samples for everyone understanding so that you know.
+
+83 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:10:17.927 --> 00:10:22.648
+Yeah, I mean it should be the same way we have on the other graphs. So if it's.
+
+84 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:10:22.648 --> 00:10:38.530
+So this is what our chart is, right? Similarly, like we are gonna have multiple lines, so by default you will only see horizontal dotted lines. But when you hover our particular time you put the line there to let user know, hey, this is the exact time your point you are trying to hover over there you will see the line.
+
+85 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:10:38.530 --> 00:10:40.442
+Very smart, sorry, yeah.
+
+86 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:10:40.442 --> 00:10:59.119
+And you know if you see that we have current implementation using the same thing, so this is data plane drafts which is when you hover over it comes. And if you see, you know, in your sample meaning you have to put the time at the top, the tooltip, the tooltip you are just having the metrics, but you should have a time.
+
+87 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:10:59.119 --> 00:11:03.780
+Hi on the time, but asked me to remove that time.
+
+88 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:11:03.780 --> 00:11:07.280
+I think the comment was you had a time range.
+
+89 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:11:07.280 --> 00:11:09.190
+Ah, ok.
+
+90 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:11:09.190 --> 00:11:20.840
+But we are not so in this example, right? We can hover over any time, right? Like if you.
+
+91 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:11:20.840 --> 00:11:24.416
+Okay, it keeps changing.
+
+92 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:11:24.416 --> 00:11:25.666
+Yeah, yeah, ok.
+
+93 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:11:27.219 --> 00:11:28.284
+Okay, yep.
+
+94 "Falgun Bhagavatula" (461636096)
+00:11:28.284 --> 00:11:32.119
+Yeah, but it's still oh, it's still 30 min, right?
+
+95 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:11:32.119 --> 00:11:34.424
+Yeah. Yeah.
+
+96 "Falgun Bhagavatula" (461636096)
+00:11:34.424 --> 00:11:47.581
+In our example I think it is for 1 h, but it it it's the same thing, right? Why do we need to show it twice? We can see the time below as well.
+
+97 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:11:47.581 --> 00:11:56.088
+No NO see if you are covering in the exact time, e.g., if you see we don't see, so each and every slot in the X axis.
+
+98 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:11:56.088 --> 00:11:56.986
+From the.
+
+99 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:11:56.986 --> 00:12:04.350
+When you hover over 21, you know it's 21 but if you just want one slack below, you don't know whether it's what time you are covering into. That's why we needed.
+
+100 "Falgun Bhagavatula" (461636096)
+00:12:04.350 --> 00:12:12.840
+So it goes to 1930, so it's it's 1 h split in 30 min.
+
+101 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:12:12.840 --> 00:12:15.067
+Yeah, so this one is at 24 h, yeah.
+
+102 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:12:15.067 --> 00:12:17.352
+And then you have every hour. Yeah.
+
+103 "Falgun Bhagavatula" (461636096)
+00:12:17.352 --> 00:12:27.719
+And it is split in 30 min. If we go into our example, I think the the average is for 1 h and to me it feels like.
+
+104 "Falgun Bhagavatula" (461636096)
+00:12:27.719 --> 00:12:44.900
+Okay, between between 2100 and and midnight, it will be, you know, the time range is is pretty much, you know, I I can see, I can make sense of it. It it's between 11:00 P.M. and midnight.
+
+105 "SJC24-2-SR8/speaker_2" (3170990592_2)
+00:12:44.900 --> 00:12:46.650
+So that's why I feel it is.
+
+106 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:12:46.650 --> 00:12:48.927
+I think Let's just for consistency.
+
+107 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:12:48.927 --> 00:13:01.669
+We should be able to show the time you know the user is forwarding in the that's that's what we are following, yeah, I'm good with it.
+
+108 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:13:01.669 --> 00:13:13.082
+Okay, so we gonna have a title plus the timeframe, right? OMP plus time.
+
+109 "Falgun Bhagavatula" (461636096)
+00:13:13.082 --> 00:13:17.580
+Yeah, about that the time.
+
+110 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:13:17.580 --> 00:13:28.049
+Sure Remove the vertical. The next one is the color. I actually do user testing with my manager and my team.
+
+111 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:13:28.049 --> 00:13:46.109
+Members and they mention about because you have legions at the top ok all MP CPU memory, and you have a policy control connections. Original the colors are exactly the same and then make user think about, ok.
+
+112 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:13:46.109 --> 00:14:06.109
+Color on the top is exactly the same, the topic subjects underneath. They think everything's match. However, the is not, that's why I actually changed the color. So on the top we're using the primary color. Underneath is all everything is elevat.
+
+113 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:14:06.109 --> 00:14:13.921
+Alert color, so I want asking you, is that ok or not? So.
+
+114 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:14:13.921 --> 00:14:18.883
+Yeah I'm not able to differentiate I think you know all the colors are same, right?
+
+115 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:14:18.883 --> 00:14:23.525
+Okay, let me show.
+
+116 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:14:23.525 --> 00:14:43.280
+But it's on the similar lines you know user will be as you said, right? I will be you know trying to match this, you know, data, but it is not right about this CPU, these are state changes, right? So we should have a more different colors than similar plus.
+
+117 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:14:43.280 --> 00:14:44.127
+More car.
+
+118 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:14:44.127 --> 00:15:01.429
+There is a blue line or a purple line, right? Purple line and also a purple, you know, box in the bar chart. There is a light green or I don't know light blue whatever maybe looking different. So there is a light blue line and there's a light blue box in the you know bar chart.
+
+119 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:15:01.429 --> 00:15:08.460
+Right so that's what I'm trying to say. We have to have a different color pattern.
+
+120 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:15:08.460 --> 00:15:20.190
+Let me share you carlo patterns now. 1 s, when I think.
+
+121 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:15:30.159 --> 00:15:43.041
+Okay, please watch here. So we have two different color sets. One is for primary, so that is a purple. Okay, you see two lines is because live more dark mode, ok?
+
+122 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:15:43.041 --> 00:15:45.146
+Okay underneath.
+
+123 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:15:45.146 --> 00:16:00.007
+This is an alternative start with green. So that's why I'm using the 1st one, 1st chart using the primary, second chart using 2nd.
+
+124 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:16:00.007 --> 00:16:06.041
+Okay. I understand but still from the.
+
+125 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:16:06.041 --> 00:16:10.020
+Yeah, go to go to the 1st primary sequence.
+
+126 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:16:10.020 --> 00:16:12.568
+Can you speak a little bit closer?
+
+127 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:16:12.568 --> 00:16:20.020
+Go back to the primary sequence colors. Yeah scroll up.
+
+128 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:16:20.020 --> 00:16:26.179
+Oh, go by sequence, right? No, it has to be always from the 1st.
+
+129 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:16:26.179 --> 00:16:50.780
+No, NO, but I'm saying, I wanted you to scroll to this part, ok. So, I mean, I don't say a concern with using the same color, right? I don't think people will, the titles are different, right? The title for one says, it's, I forgot. It's the utilization, the other one is the number of events.
+
+130 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:16:50.780 --> 00:16:58.146
+When when we are trying to combine two charts where you know she has to know when you hover our own chart you know show.
+
+131 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:16:58.146 --> 00:17:01.289
+Then it will have confusion.
+
+132 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:17:01.289 --> 00:17:06.624
+No, NO, but are we going to also combine the lines for both?
+
+133 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:17:06.624 --> 00:17:12.927
+That's what you know the ask is, you know, if you ask fine, I'm not in favor of that, but looks like that's task come.
+
+134 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:17:12.927 --> 00:17:27.480
+Yeah, is that true? Like we want to tie in the two graphs together like you hover over on the top, it will also show you the events at the same time. Yeah, so basically NO cpus usage as well as.
+
+135 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:17:27.480 --> 00:17:31.005
+What kind of state change happening at that exact time is what you know the proposal.
+
+136 "Falgun Bhagavatula" (461636096)
+00:17:31.005 --> 00:17:35.400
+Coming from. Right, so 2nd chart and the 3rd one.
+
+137 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:17:35.400 --> 00:17:36.923
+Okay.
+
+138 "Falgun Bhagavatula" (461636096)
+00:17:36.923 --> 00:17:49.410
+I mean not the 3rd chart, but the 3rd one is the table, right? So second chart, when we, when we click on a particular time event, it should reflect the, the table below.
+
+139 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:17:49.410 --> 00:17:54.359
+Okay, so the 3rd table is not coming on the screen at all.
+
+140 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:17:54.359 --> 00:17:57.409
+That table, the table cannot be combined with the chart.
+
+141 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:17:57.409 --> 00:18:13.579
+And also what I'm saying is like when you put it on an actual screen, what you see on the left, right, explore, that is what you will see in a single screen. So in in order to see 2nd graph completely and the 3rd table, you have to scroll, then.
+
+142 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:18:13.579 --> 00:18:21.340
+That means the 1st screen, the 1st graph will not show on the screen, right?
+
+143 "Falgun Bhagavatula" (461636096)
+00:18:21.340 --> 00:18:24.025
+Okay now I.
+
+144 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:18:24.025 --> 00:18:27.001
+I mean if you look at if you look at the laptop screen, right?
+
+145 "Falgun Bhagavatula" (461636096)
+00:18:27.001 --> 00:18:30.682
+This is not gonna show up, right? You have to scroll.
+
+146 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:18:30.682 --> 00:18:32.063
+Sure.
+
+147 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:18:32.063 --> 00:18:41.305
+So whatever you have till report or whatever that is on the left right? Report. That is all your laptop is gonna show. Everything else below that is not even on the screen.
+
+148 "Falgun Bhagavatula" (461636096)
+00:18:41.305 --> 00:18:47.579
+Got it, ok. So you're scrolling down below. Okay.
+
+149 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:18:47.579 --> 00:18:55.962
+And yeah. And I don't think we support clicking on the 1st one, right? Clicking will not filter anything. It's hover, right?
+
+150 "Falgun Bhagavatula" (461636096)
+00:18:55.962 --> 00:19:04.644
+Not the 1st one, not the 1st one. 2nd one is where we are asking for the click. So click and then down below.
+
+151 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:19:04.644 --> 00:19:29.146
+So click on see second chart is the bar chart and filtering in the table that is separate. That can be done. But the other point we are discussing is when you hover over the one of those charts, right? You know, it should show the combined data for that particular point, like what are the state change and what is the CP usages e.g., right?
+
+152 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:19:29.146 --> 00:19:31.649
+So is that the ask or not?
+
+153 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:19:31.649 --> 00:19:33.183
+Yeah, that's us.
+
+154 "Falgun Bhagavatula" (461636096)
+00:19:33.183 --> 00:19:35.264
+Yeah, that's the ask, right? I mean.
+
+155 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:19:36.000 --> 00:19:38.361
+I didn't get you like what what do.
+
+156 "Falgun Bhagavatula" (461636096)
+00:19:38.361 --> 00:19:40.161
+What is your concern?
+
+157 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:19:40.161 --> 00:19:44.861
+No, NO, but because if you see right the times do not line up, right? Zero.
+
+158 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:19:45.939 --> 00:19:49.189
+On the top one and zero on the below is at a different.
+
+159 "SJC24-2-SR8/speaker_2" (3170990592_2)
+00:19:49.189 --> 00:19:53.020
+Oh, ok. Right.
+
+160 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:19:53.020 --> 00:19:53.567
+Yeah.
+
+161 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:19:53.567 --> 00:20:00.325
+Yeah showing the data differently, we can't so like their data, right? They are not in the same line.
+
+162 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:20:01.129 --> 00:20:06.989
+That means everything has to be moved over, then again, I mean you need to come up with a.
+
+163 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:20:06.989 --> 00:20:34.427
+New UX. But yeah, I think I don't think we should combine that two. I mean if a user needs to look at the specific time there is NO value in seeing the hover over below, right? Because its number only which we see there, 2725, so there is NO value showing that, right? User is there at 02:00 P.M. and what it's at 2pM. Okay.
+
+164 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:20:34.427 --> 00:20:47.545
+I see. So I have another point so if user click 2nd charts and then a table will be updates, right? So, in this use case we should not combine those two charts.
+
+165 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:20:48.444 --> 00:20:52.928
+Yeah, that's one of my feedback, but yeah, again.
+
+166 "Falgun Bhagavatula" (461636096)
+00:20:52.928 --> 00:21:00.062
+Yeah I mean, I I'm sorry where is it coming from? Like combining the charts? I I don't think.
+
+167 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:21:00.062 --> 00:21:07.322
+Oh, that was original long time ago, a few weeks back, somebody asking, can we actually do compliance.
+
+168 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:21:07.322 --> 00:21:27.265
+No such a requirement of for showing in the table about I mean when you hover over it, right? Bar graph and also time series graph, it just the intention was always the events when we click on the bar graph. Yeah.
+
+169 "Falgun Bhagavatula" (461636096)
+00:21:27.265 --> 00:21:56.599
+Okay. Yeah, I think how it is set up right now seems ok to me. I don't think we need to combine or do anything. I see if we are looking at the laptop, then we'll see only the 1st chart and then scroll down, go to the events base section. All all I'm saying is if we click on any of those events, the table below should automatically get updated, even though they scroll it, that's fine. If the I mean if it if it falls.
+
+170 "Falgun Bhagavatula" (461636096)
+00:21:56.599 --> 00:22:01.479
+Under design guidelines and if that is possible, then we should do it otherwise that's fine.
+
+171 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:22:01.479 --> 00:22:06.305
+Yeah, I think the middle two makes sense, sorry, the middle and the bottom one can be combined I think that's ok.
+
+172 "Falgun Bhagavatula" (461636096)
+00:22:06.305 --> 00:22:28.699
+Yeah. That that's fine. We don't need because anyway we we are scrolling it down, right? I understand where when we are scrolling it down, it doesn't really make sense to kind of align it when they go down below, they'll look at those events numbers and if they want to dive deep dive into it, they can do that. That's it.
+
+173 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:22:28.699 --> 00:22:33.241
+Yeah, then we are good. Yeah. Okay.
+
+174 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:22:33.241 --> 00:22:58.719
+We almost run out of time, so 1 min left. I actually wanted to propose for this style, so because I think user wanted to see the details of the contents. That's why if this is over one lines, minimum one lines maximum four lines. Can we do this way?
+
+175 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:22:58.719 --> 00:23:00.604
+You want if it goes beyond four length?
+
+176 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:23:00.604 --> 00:23:08.826
+Okay, so take a look here, right? We do not know how many contents it won't be, but.
+
+177 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:23:08.826 --> 00:23:35.362
+I mean if the question is if we can, you know, show the details column, you know, without having any truncation, that full content right yes it's doable. The latest version of table supports that. So this can be done. I'm good with this. So the details will not be truncated. If it is go beyond four lines or five lines, the row will be, you know, you know, expanded now to accommodate that. If it is just one line, it will be a short row, that's it.
+
+178 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:23:35.362 --> 00:23:48.805
+If in last use case everything will be pushed, so user might not see system IP because everything will be scored scrolling part.
+
+179 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:23:48.805 --> 00:23:53.959
+No, NO, I'm saying whatever you are having in the Figma can be achieved.
+
+180 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:23:53.959 --> 00:23:57.149
+Oh, in, in Figma.
+
+181 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:23:57.149 --> 00:24:02.699
+Yeah, so this this design you are showing right this can be done.
+
+182 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:24:02.699 --> 00:24:09.503
+But do we have, are we going to use 4th lines? It's just going to increase the size of the column.
+
+183 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:24:09.503 --> 00:24:20.170
+You see it's up to ask here, right? If you want to have the details should be completely shown for each and everything, it can be done, but it will have a different height for each and every row.
+
+184 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:24:20.170 --> 00:24:22.280
+Right.
+
+185 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:24:22.280 --> 00:24:29.520
+Are it's doable, but what is the ask here? Whether we need to truncate or not truncate.
+
+186 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:24:29.520 --> 00:24:55.160
+Okay depending user need to see the detail or not. If it, they will just. If not truncates, this is going to happen. It's not guaranteed every, every details will be have the same amount of the rights, right? So sometime will be one line, two lines, sometimes three lines, four lines, so the table won't look clean.
+
+187 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:24:55.160 --> 00:25:04.680
+I think it's better to present all the data, not worrying too much about the length of each size of each row.
+
+188 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:25:04.680 --> 00:25:10.725
+Not worry as in it's ok to just have everything in a single row or we should show everything.
+
+189 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:25:10.725 --> 00:25:31.645
+My way it is shown here, I mean, I think the concern from was that the height of each row will change depending on the text, how much text that event is carrying, how much payload, but I think it's ok to have a variable size variable you know row row size.
+
+190 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:25:31.645 --> 00:25:38.900
+Okay, and do we know if you would have a longer message or this is the maximum length it will be?
+
+191 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:25:38.900 --> 00:25:42.521
+E.g., for policy change it might be shorter, right?
+
+192 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:25:42.521 --> 00:25:43.383
+Oh.
+
+193 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:25:43.383 --> 00:25:50.522
+Yeah, it will be shorter only it depends on how how long the hosting and.
+
+194 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:25:50.522 --> 00:25:59.329
+And what's the relevance of the host name here, right? This is all in. What hostname are we going to show?
+
+195 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:26:01.311 --> 00:26:02.561
+Yeah, right, actually.
+
+196 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:26:02.561 --> 00:26:03.660
+Three.
+
+197 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:26:03.660 --> 00:26:23.848
+Can can you put an actual message, right? I know this is all made up, like an actual message that you would expect to see just so it's easier for us to, like personality be smart I mean, it will be smart only, right? We are on the page. I don't know. Maybe it shows up something else as well, so.
+
+198 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:26:23.848 --> 00:26:24.598
+Yeah.
+
+199 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:26:24.598 --> 00:26:25.098
+Need.
+
+200 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:26:25.098 --> 00:26:42.619
+To show personality. Yeah post name we can remove any personality also then we don't even need to show that also.
+
+201 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:26:42.619 --> 00:26:46.880
+Yeah, which one is you don't even show. Can you repeat one?
+
+202 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:26:46.880 --> 00:27:02.280
+Host name, personality field type, they will be in the details, details part, the text under details, host name, personality, field type.
+
+203 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:27:03.645 --> 00:27:07.895
+Yeah, those three can be removed from the.
+
+204 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:27:07.895 --> 00:27:10.785
+Display. Okay, I'll update that.
+
+205 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:27:10.785 --> 00:27:39.770
+Yeah. So update 1st and then let's take a look offline. So today is the EC with because everybody passed the project so besides you, so we wanted to know how we doing. Are we ok to pursue or are we these two improve?
+
+206 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:27:39.770 --> 00:27:45.181
+20 six.so actually 20 six.three are two this one we are targeting.
+
+207 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:27:45.181 --> 00:27:49.244
+This is.three, right? Not three.
+
+208 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:27:49.244 --> 00:27:52.022
+What's the release for this one?
+
+209 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:27:52.022 --> 00:27:55.004
+But 20 six.three it's not easy time, right?
+
+210 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:27:57.754 --> 00:28:00.281
+Yeah, this is a 20 seven.one feature, right?
+
+211 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:28:00.281 --> 00:28:04.452
+It's a 20 seven.one which aligns with 20 six.2r framewor.
+
+212 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:28:04.452 --> 00:28:28.429
+Not sure so we are not in the EC yet, but overall the design looks, you know, good to me. So this is a new page we are adding for and you know I'm ok with the charts, bar charts, and the tables and we are not gonna combine two charts. That was the only challenge I had, but that is not going to be the case so we are good.
+
+213 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:28:28.429 --> 00:28:35.328
+Yeah. Do you have any any comments because I'm ok with that.
+
+214 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:28:35.328 --> 00:28:49.310
+Yeah, the only thing is that we would need the export capability. I know there are other tables as well, right, wherein it was said it's a limitation on the device side that we can't do it. So we want to make sure that's all.
+
+215 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:28:49.310 --> 00:28:52.765
+Export table, you are talking about export table export chart, we will be able to.
+
+216 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:28:52.765 --> 00:28:59.015
+Yeah, but the table, right? We need support for like device side work needs to be done for the table.
+
+217 "SJC24-2-SR8/speaker_3" (3170990592_3)
+00:28:59.015 --> 00:28:59.750
+Okay.
+
+218 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:28:59.750 --> 00:29:10.682
+Okay, so I thought export whatever we display in the UI that can be exported, but looks like this is export coming from the device itself, right? Because it could be hundreds, thousands. Correct.
+
+219 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:29:10.682 --> 00:29:16.921
+So the expectation would be there are ten pages and hundreds. You click on export It's.
+
+220 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:29:16.921 --> 00:29:18.327
+Export events.
+
+221 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:29:18.327 --> 00:29:33.241
+So I don't know whether this so Jeffrey, I need to check with him whether this API is going to send everything or it is going to send paginated data. If it sends everything, you already has it for export to be done.
+
+222 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:29:33.241 --> 00:29:36.619
+Okay.
+
+223 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:29:36.619 --> 00:29:41.629
+Okay, but again export data so we just have export, we don't show export.
+
+224 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:29:41.629 --> 00:29:43.203
+Data export data.
+
+225 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:29:43.203 --> 00:29:48.040
+Just say export in the all three buttons main.
+
+226 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:29:48.040 --> 00:29:49.984
+Where?
+
+227 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:29:49.984 --> 00:29:51.802
+All the buttons should be just called.
+
+228 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:29:51.802 --> 00:29:57.926
+Export, just export. No export suffix there shouldn't be any suffixes data event or table, just say export.
+
+229 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:29:57.926 --> 00:30:05.283
+Okay that ok that was my question my co worker people think about, ok, you have this phone.
+
+230 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:30:06.479 --> 00:30:09.786
+Duplicate three times and.
+
+231 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:30:09.786 --> 00:30:15.331
+That's, that's what it is because you know user may want to export things separately, so they'll let them know.
+
+232 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:30:15.331 --> 00:30:26.905
+And none of these exports they go to the device, so it's all like data is already available at the manager and it will listen, right?
+
+233 "Falgun Bhagavatula" (461636096)
+00:30:26.905 --> 00:30:30.621
+Whatever is in the charts is what is exported, right? It's.
+
+234 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:30:30.621 --> 00:30:31.384
+Yeah.
+
+235 "Falgun Bhagavatula" (461636096)
+00:30:31.384 --> 00:30:32.760
+Going to the devices.
+
+236 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:30:32.760 --> 00:31:05.270
+Yeah, but there is an issue on some exports on some like real time command outputs, right? Wherein when you do an export, it's just going to export what you see on the screen because the API response does not send all the data. Problem so maybe check with them if that data is coming here or not. Because when we do an export, the expectation would be that we export everything, not just this one page right or NO, right? I don't know.
+
+237 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:31:08.719 --> 00:31:19.580
+No, so you the export that you were talking about we had it on the CH for the, e.g., for routes.
+
+238 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:31:19.580 --> 00:31:22.462
+Yeah yeah like 3001 only, right?
+
+239 "SJC24-2-TR30/speaker_2" (2543862784_2)
+00:31:22.462 --> 00:31:23.212
+Right.
+
+240 "SJC24-2-TR30/speaker_1" (2543862784_1)
+00:31:23.212 --> 00:31:29.922
+Yeah that there's a limit of 4000 but that is because of the there's a limitation on the.
+
+241 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:31:29.922 --> 00:31:38.203
+But, this one is totally on the So there is not going to be any. No. Okay, then it's ok. I'm just making sure that.
+
+242 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:31:38.203 --> 00:31:56.449
+Yeah if we the API gonna send us like anyways for the past 12 h, right? Like 24 h, whatever it is, so it's gonna get all the events then UI already has it. Only thing showed, but when you already has all the data, so when you click on export, just like just the table export actually.
+
+243 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:31:56.449 --> 00:32:13.859
+So table now we are gonna rely on the table export functionality that is gonna export everything. It may not it maybe showing ten events here in the table, but it's there are ten pages having ten rows, it will total hundred events so hundred events will be in that exported CSV file.
+
+244 "SJC24-2-SR8/speaker_1" (3170990592_1)
+00:32:13.859 --> 00:32:14.781
+Okay, this is good.
+
+245 "RTP6P-2-APR220/speaker_1" (484294144_1)
+00:32:14.781 --> 00:32:17.243
+Yeah, just rename the buttons then.
+
+246 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:32:17.243 --> 00:32:21.572
+Yeah. Thank you. Thank you, bye. Thank you.
+
+247 "SJC23-2-TR18/speaker_1" (2554165760_1)
+00:32:23.907 --> 00:32:28.866
+Thank you. Thank you Rahul and Roma.
+
+248 "Falgun Bhagavatula" (461636096)
+00:32:28.866 --> 00:32:31.424
+Thanks. Thanks me, thanks everyone.

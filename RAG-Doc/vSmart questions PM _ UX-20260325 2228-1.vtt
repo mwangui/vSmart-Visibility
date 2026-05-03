@@ -1,0 +1,1437 @@
+WEBVTT
+
+1 "Mingchieh Wang" (1517345024)
+00:00:09.398 --> 00:00:34.740
+Today's agenda is to go over what we have already and then I will post questions and learn from your feedback. If you have questions, feel free to stop me anytime. So 1st we will go over the markup, and then I have some proposals and wants to hear from your opinions. 1st of all.
+
+2 "Mingchieh Wang" (1517345024)
+00:00:34.740 --> 00:00:51.870
+For a back engineer and Rahul's, we already aligned this information, the data is the final. Okay, we have these controllers information on the left.
+
+3 "Mingchieh Wang" (1517345024)
+00:00:51.870 --> 00:01:15.892
+However, some of the informations site ID helps chassis number because it's not device is a virtual. The most is not a catable. That's why I will put, for now, those information needs PM to verify and see what else we are missing.
+
+4 "Akshay Kaul" (2068347904)
+00:01:15.892 --> 00:01:22.392
+So we are not changing anything as part of this feature, right? That's their outside of this, right? Yes.
+
+5 "RTP6P-2-APR220" (1580723200)
+00:01:22.392 --> 00:01:25.015
+That's correct. That's what my comment as well.
+
+6 "Akshay Kaul" (2068347904)
+00:01:25.015 --> 00:01:29.333
+Okay let so let's not spend time on this right now, right?
+
+7 "Mingchieh Wang" (1517345024)
+00:01:29.333 --> 00:01:32.393
+Okay, can I.
+
+8 "RTP6P-2-APR220" (1580723200)
+00:01:32.393 --> 00:02:03.199
+This left side part is common for all the devices, right? So I I don't see the map snippet also, I'm not sure why that needs to be there. It should exactly look similar and whatever the information that are not applicable will end up not showing or showing not NA for those things. So it should not look any different. So you will end up, you know, adding US three 60 you know Figma for future you know feature that is coming to you, but this tabs and you know the left side part should not change.
+
+9 "Mingchieh Wang" (1517345024)
+00:02:03.199 --> 00:02:11.377
+Sounds good. So the feedback I got is because this virtual machine, there's NO address.
+
+10 "RTP6P-2-APR220" (1580723200)
+00:02:11.377 --> 00:02:26.551
+No others means it will just show you know empty because we don't want to have a difference, you know, we have spent a lot of, you know how much time we spent for this device going to have to you know again create inconsistency.
+
+11 "Mingchieh Wang" (1517345024)
+00:02:26.551 --> 00:02:42.709
+Agree agree. I put it back and then put placeholders image over there. Okay, the next one is our focus on OMP usage.
+
+12 "RTP6P-2-APR220" (1580723200)
+00:02:42.709 --> 00:02:43.599
+Sure.
+
+13 "Mingchieh Wang" (1517345024)
+00:02:43.599 --> 00:03:11.993
+What has been updated is one, they're asking for the maximums, but the maximum is like a reference depending on the settings. If the settings says hot cut, after 80 80 % it will, it will totally stop. But however, if user would like to pursue it on the back end settings, right? And then we still allow them to go over.
+
+14 "Mingchieh Wang" (1517345024)
+00:03:12.540 --> 00:03:15.035
+That's why I will.
+
+15 "RTP6P-2-APR220" (1580723200)
+00:03:15.035 --> 00:03:21.817
+Okay so before graph, right? Why it is placed under logs and insights?
+
+16 "Mingchieh Wang" (1517345024)
+00:03:21.817 --> 00:03:26.030
+Okay, that will be the next subject we're gonna talk.
+
+17 "RTP6P-2-APR220" (1580723200)
+00:03:26.030 --> 00:03:30.610
+Oh, ok. Okay fine.
+
+18 "Akshay Kaul" (2068347904)
+00:03:30.610 --> 00:03:36.798
+So I'm I'm not following what, what that exclamation and what that thing is right.
+
+19 "Mingchieh Wang" (1517345024)
+00:03:36.798 --> 00:03:58.512
+Okay, so I tried to explain, see we have five objects. CPU source four sorry CPU memory, source four, maximums, right? The maximums, that was rate. Let me show you here. You see that was rate.
+
+20 "RTP6P-2-APR220" (1580723200)
+00:03:58.512 --> 00:03:59.276
+Right.
+
+21 "Mingchieh Wang" (1517345024)
+00:03:59.276 --> 00:04:23.753
+However, the reasons I'm showing yellow is because it's depending on the backend user setting, if the settings are allowed to go over eighties, right? And then use and then we the, ok, the CPU will go like this. So if we put the red lines, people will question.
+
+22 "Akshay Kaul" (2068347904)
+00:04:25.014 --> 00:04:31.158
+Okay, that's fine but why do we have that exclamation symbol on the right?
+
+23 "Mingchieh Wang" (1517345024)
+00:04:31.158 --> 00:04:39.475
+Yes, we actually need your help to have a better descriptions here.
+
+24 "Falgun Bhagavatula" (2526124032)
+00:04:39.475 --> 00:04:42.415
+Yeah.
+
+25 "RTP6P-2-APR220" (1580723200)
+00:04:42.415 --> 00:04:47.156
+So NO when ok so we already cover coding.
+
+26 "RTP6P-2-APR220" (1580723200)
+00:04:47.156 --> 00:05:07.035
+The different lines and also with the dotted lines to represent this average or threshold but and also we have the legends on top of that, do we need to have show this you know warning message, so I think actually your point is about that. Yeah, so if you see that.
+
+27 "Falgun Bhagavatula" (2526124032)
+00:05:07.035 --> 00:05:28.185
+Yeah, the triangle exclamation what you mentioned there, right? I think that that is not necessary. Why why do we even need to keep it, right? Yeah. The legend already shows what that yellow line represents, which is the threshold 80 %. We should not even put like warning threshold 80 %. We should just put it in memory memory thresholds, that's it.
+
+28 "Akshay Kaul" (2068347904)
+00:05:28.794 --> 00:05:36.434
+Yeah. I mean yeah even the 80 % is not needed because we are showing it on the graph, like if we were not showing it on.
+
+29 "Falgun Bhagavatula" (2526124032)
+00:05:36.434 --> 00:05:39.739
+Yeah.
+
+30 "RTP6P-2-APR220" (1580723200)
+00:05:39.739 --> 00:05:45.197
+The legend, right? So the legend text, yeah, we don't want to show the number there, yeah, percentage there.
+
+31 "Mingchieh Wang" (1517345024)
+00:05:45.197 --> 00:05:52.659
+I I cannot hear you remove that. Totally agree.
+
+32 "Falgun Bhagavatula" (2526124032)
+00:05:52.659 --> 00:06:07.698
+And the warning warning. Okay, the icons. Yeah. And even the text that that's there on CPU and memory warning threshold, right? Remove the text warning.
+
+33 "Akshay Kaul" (2068347904)
+00:06:07.698 --> 00:06:11.038
+Yeah, just a CPU and memory threshold.
+
+34 "Mingchieh Wang" (1517345024)
+00:06:11.038 --> 00:06:13.499
+Okay.
+
+35 "Akshay Kaul" (2068347904)
+00:06:13.499 --> 00:06:22.393
+So this is not actually the threshold. So it's a warning threshold that you would configure, right?
+
+36 "Falgun Bhagavatula" (2526124032)
+00:06:22.393 --> 00:06:27.004
+So, yes, that's a configurable threshold.
+
+37 "Akshay Kaul" (2068347904)
+00:06:27.970 --> 00:06:32.119
+Okay, but it's configurable for warning level, right?
+
+38 "Falgun Bhagavatula" (2526124032)
+00:06:32.119 --> 00:06:44.279
+Yes, that is for warning level and there are guardrails which is different, so we'll not talk about the guardrails here. It's just, you know, it'll, it'll send a notification. That's it.
+
+39 "Akshay Kaul" (2068347904)
+00:06:44.279 --> 00:06:48.053
+Okay, so then I think warning is needed.
+
+40 "Falgun Bhagavatula" (2526124032)
+00:06:48.053 --> 00:06:53.909
+But, but see someone someone who has configured it.
+
+41 "Falgun Bhagavatula" (2526124032)
+00:06:53.909 --> 00:07:13.909
+We will know ok that's that's, you know, then they have configured that 80 % threshold, right? Again, but someone like an operator who's looking at just the overview, they might, they might have a different understanding why warning they they need to, you know, automatically those logs would be sent because they're.
+
+42 "Falgun Bhagavatula" (2526124032)
+00:07:13.909 --> 00:07:25.753
+They must have said it accordingly, but for most of the people who are looking at it, warning I I don't feel that that's a good, good way of showing it there.
+
+43 "Akshay Kaul" (2068347904)
+00:07:25.753 --> 00:07:27.957
+So just say CPU and memory threshold.
+
+44 "Falgun Bhagavatula" (2526124032)
+00:07:27.957 --> 00:07:29.714
+Yeah.
+
+45 "Akshay Kaul" (2068347904)
+00:07:29.714 --> 00:07:34.039
+And threshold would not be interpreted as like a limit or something.
+
+46 "Falgun Bhagavatula" (2526124032)
+00:07:34.039 --> 00:07:38.510
+That's the configured one, right? Yeah, even if it goes above.
+
+47 "Akshay Kaul" (2068347904)
+00:07:41.295 --> 00:07:42.238
+Oh.
+
+48 "Falgun Bhagavatula" (2526124032)
+00:07:42.238 --> 00:07:46.353
+It's fine to go above. It's a configured value, right?
+
+49 "Akshay Kaul" (2068347904)
+00:07:46.353 --> 00:07:59.030
+Okay. No I I simply mean that right when you say threshold, that means that it's a limit or something, right? If we don't say it's a warning limit, what kind of a threshold is it.
+
+50 "Falgun Bhagavatula" (2526124032)
+00:07:59.030 --> 00:08:01.340
+I'm.
+
+51 "Akshay Kaul" (2068347904)
+00:08:01.340 --> 00:08:06.996
+Maximum or something that's why I thought maybe warning would be useful here.
+
+52 "Falgun Bhagavatula" (2526124032)
+00:08:06.996 --> 00:08:09.838
+Okay.
+
+53 "RTP6P-2-APR220" (1580723200)
+00:08:09.838 --> 00:08:10.475
+Okay.
+
+54 "Falgun Bhagavatula" (2526124032)
+00:08:10.475 --> 00:08:12.177
+And I would think that's.
+
+55 "Akshay Kaul" (2068347904)
+00:08:12.177 --> 00:08:18.637
+CLI equivalent CLI for configuring the threshold would also have a keyword of warning or something, right? Or NO?
+
+56 "Falgun Bhagavatula" (2526124032)
+00:08:18.637 --> 00:08:33.935
+I'll have to check what that what that configuration means like what does that say? Ok. Do we have a v manage? Can you check? I don't.
+
+57 "Akshay Kaul" (2068347904)
+00:08:33.935 --> 00:08:37.838
+No, I don't have a CLI. I mean I don't have one which has.
+
+58 "Falgun Bhagavatula" (2526124032)
+00:08:37.838 --> 00:08:40.012
+Oh Max.
+
+59 "Falgun Bhagavatula" (2526124032)
+00:08:41.659 --> 00:08:51.321
+Okay, if you think it it would be fine to show that warning threshold, that's fine. I think.
+
+60 "Akshay Kaul" (2068347904)
+00:08:51.321 --> 00:08:56.063
+Maybe you can leave a note that revisit later, right?
+
+61 "Falgun Bhagavatula" (2526124032)
+00:08:57.170 --> 00:09:05.615
+Yeah, remove the 80 % 80 % for sure is not required, but the warning should be put there or NO, yeah.
+
+62 "Falgun Bhagavatula" (2526124032)
+00:09:08.495 --> 00:09:09.715
+Yeah.
+
+63 "RTP6P-2-APR220" (1580723200)
+00:09:09.715 --> 00:09:10.797
+Yeah.
+
+64 "Mingchieh Wang" (1517345024)
+00:09:10.797 --> 00:09:12.694
+So.
+
+65 "RTP6P-2-APR220" (1580723200)
+00:09:12.694 --> 00:09:13.328
+Okay.
+
+66 "Mingchieh Wang" (1517345024)
+00:09:13.328 --> 00:09:29.679
+Next question is, see CPU average and memory average, so that question will be engineered. Currently we're showing 12 h, right? Does it means the average is based on the 12 h or what will be the default?
+
+67 "Falgun Bhagavatula" (2526124032)
+00:09:32.338 --> 00:09:49.729
+The hours is every 1 h, right? So 12 h, I believe the, the scale would increase, so it would it would show let's say at at at, you know, at at midnight and then again at, at noon and then again at mid.
+
+68 "Falgun Bhagavatula" (2526124032)
+00:09:49.729 --> 00:09:54.513
+Like that and that would be the case.
+
+69 "Falgun Bhagavatula" (2526124032)
+00:09:56.013 --> 00:10:05.616
+Because, because the time frame that we are looking at here, is it the last 12 h or 12 h of iteration?
+
+70 "Mingchieh Wang" (1517345024)
+00:10:05.616 --> 00:10:07.215
+Last 12 h.
+
+71 "Falgun Bhagavatula" (2526124032)
+00:10:07.215 --> 00:10:24.754
+And and and 1 h 1 h is default, right? For everything we show 1 h. Is this is that the case? Oh yeah, then it's fine. Yeah. 12 h is fine then. Okay. Okay. And the average, yeah, the average would be every hour. What is the average?
+
+72 "Mingchieh Wang" (1517345024)
+00:10:24.754 --> 00:10:30.156
+So is that ok for you? That average number how we calculate?
+
+73 "Mingchieh Wang" (1517345024)
+00:10:31.797 --> 00:10:34.738
+Because that will be from any.
+
+74 "RTP6P-2-APR220" (1580723200)
+00:10:34.738 --> 00:10:41.079
+Average will be average for the time duration selected, right?
+
+75 "Falgun Bhagavatula" (2526124032)
+00:10:41.079 --> 00:10:43.896
+Is that the 12 h average?
+
+76 "RTP6P-2-APR220" (1580723200)
+00:10:43.896 --> 00:10:45.879
+What are the time that you selected?
+
+77 "Falgun Bhagavatula" (2526124032)
+00:10:45.879 --> 00:11:00.560
+Yeah, so I I think from the graphs I can follow it, right? So CPU average is the blue dotted line, which is for the 12 h, which is at 40 % and CPU usage at every hour is fluctuated.
+
+78 "RTP6P-2-APR220" (1580723200)
+00:11:00.560 --> 00:11:06.159
+Thing yes yeah that's that's that's that's the expectation, right? Yeah.
+
+79 "Falgun Bhagavatula" (2526124032)
+00:11:06.159 --> 00:11:08.111
+I mean that that looks good to me.
+
+80 "Mingchieh Wang" (1517345024)
+00:11:08.111 --> 00:11:09.397
+Okay.
+
+81 "RTP6P-2-APR220" (1580723200)
+00:11:09.397 --> 00:11:20.959
+So we have the same thing for energy management, right? So energy management also we have our average line, like for this energy usage cost emission. So we are just doing the same here so yeah.
+
+82 "Akshay Kaul" (2068347904)
+00:11:20.959 --> 00:11:30.356
+So far the others, other graphs like on the main page, do we also show the average and.
+
+83 "RTP6P-2-APR220" (1580723200)
+00:11:30.356 --> 00:11:46.997
+No, see for energy management we got this 1st requirement of showing some average which we already shown in energy management. So right now we are waiting for OMP usage for this one. So we are showing it but in future if you want to put average for everything, then if data is sent you know we can do the same.
+
+84 "Akshay Kaul" (2068347904)
+00:11:46.997 --> 00:11:52.339
+No, so for CPU and the memory, do we show the average as well?
+
+85 "RTP6P-2-APR220" (1580723200)
+00:11:52.339 --> 00:11:56.849
+No, not. No.
+
+86 "RTP6P-2-APR220" (1580723200)
+00:11:57.441 --> 00:12:09.011
+If that needs to be a requirement across all the, you know, charts, then you know we need to have the data coming from the respective APs for you to show it. We can make it as a requirement 1 s.
+
+87 "Akshay Kaul" (2068347904)
+00:12:09.654 --> 00:12:17.439
+And I'm just trying to understand from this one, right? So the threshold is again the average level.
+
+88 "RTP6P-2-APR220" (1580723200)
+00:12:17.439 --> 00:12:29.560
+Right is something user setting that, you know, hey, if it goes beyond this 80 % threshold, something is wrong, so that's the threshold, right? Average is whatever.
+
+89 "Akshay Kaul" (2068347904)
+00:12:29.560 --> 00:12:34.401
+If the does if the average goes beyond or if the CPU spikes beyond that?
+
+90 "Falgun Bhagavatula" (2526124032)
+00:12:34.401 --> 00:12:37.432
+That's the CPU when it spikes beyond that.
+
+91 "Akshay Kaul" (2068347904)
+00:12:37.432 --> 00:12:48.053
+Not the average is right? So is there any use, use usefulness of the average here, right? Because we would care about.
+
+92 "Akshay Kaul" (2068347904)
+00:12:48.053 --> 00:13:12.853
+The actual usage, not the average, right? If let's assume within an hour, we were high above 80 % for like 25 min and then 10 % for 5030 5 min, right? The average I'm sure would be what 50, right? Or whatever it could be a very low number. So do we really would we really care about the average?
+
+93 "Falgun Bhagavatula" (2526124032)
+00:13:12.853 --> 00:13:35.909
+Yeah, so one of the points that was raised was see for 12 h we see this as an average, so you look at the data for the last maybe 15 days or 20 days or one month and you look at the average like what's what's coming out over the last one month if my average is consistently close to like 80 % or something.
+
+94 "Falgun Bhagavatula" (2526124032)
+00:13:35.909 --> 00:13:55.909
+Then something's wrong. I mean, that is when they have to look at, you know, what is causing that average to be running that high. Some some spikes are fine, right? Because of some some config pushes or OMP churn. Some spikes are ok and expected, but average if it is consistent.
+
+95 "Falgun Bhagavatula" (2526124032)
+00:13:55.909 --> 00:14:01.398
+Be high, that is when they may want to, to get scaling up.
+
+96 "Akshay Kaul" (2068347904)
+00:14:01.398 --> 00:14:07.220
+Okay, so is then average useful at our lower time frame? Do we should we just show it there?
+
+97 "Falgun Bhagavatula" (2526124032)
+00:14:07.220 --> 00:14:09.818
+I'm sorry go lower timeframe as in.
+
+98 "Akshay Kaul" (2068347904)
+00:14:09.818 --> 00:14:15.638
+Are we at a higher time frame like are we all going beyond seven days? Because I thought we just show.
+
+99 "Falgun Bhagavatula" (2526124032)
+00:14:15.638 --> 00:14:34.999
+Seven days of days. No, NO, so seven days, but I believe the the through reports or something we can even even get it for larger timeframe. That was the discussion we had with the engineering.
+
+100 "Akshay Kaul" (2068347904)
+00:14:34.999 --> 00:14:47.857
+Okay, then it's needed in a report, right? Or here. I'm just trying to understand right if if it is needed for a higher time frame, then maybe it does not belong on a.
+
+101 "Falgun Bhagavatula" (2526124032)
+00:14:47.857 --> 00:14:49.595
+Graph?
+
+102 "Akshay Kaul" (2068347904)
+00:14:49.595 --> 00:15:00.278
+It does not belong on a lower time frame, right? Because, average over 12 h so what are the iterations we.
+
+103 "Falgun Bhagavatula" (2526124032)
+00:15:00.278 --> 00:15:05.616
+Can go for maybe 1 h of what are the options?
+
+104 "Akshay Kaul" (2068347904)
+00:15:05.616 --> 00:15:10.401
+So we have 1 h six, 3 h 61224, and seven days.
+
+105 "Falgun Bhagavatula" (2526124032)
+00:15:10.401 --> 00:15:12.795
+And also.
+
+106 "Mingchieh Wang" (1517345024)
+00:15:12.795 --> 00:15:13.601
+Custom also will come.
+
+107 "Akshay Kaul" (2068347904)
+00:15:13.601 --> 00:15:18.090
+Custom, but custom also lets you choose seven days, right? Or does it let you choose 30 days?
+
+108 "Falgun Bhagavatula" (2526124032)
+00:15:18.090 --> 00:15:24.475
+So what it can, it does let let us choose up to 30 days custom that that's where it can go beyond.
+
+109 "Akshay Kaul" (2068347904)
+00:15:24.475 --> 00:15:33.558
+No, I'm trying to do it. It says time range is too large, but that's for the CPU and memory. I don't know about the interfaces.
+
+110 "Mingchieh Wang" (1517345024)
+00:15:34.580 --> 00:15:37.916
+So 30 day is the maximum?
+
+111 "Falgun Bhagavatula" (2526124032)
+00:15:37.916 --> 00:15:53.079
+Then, I mean that was the plan. Anything beyond 30 days was going to be purged as per Sanjeev. In the latest release, but not not not more than seven days like at least 30 days data we, we.
+
+112 "RTP6P-2-APR220" (1580723200)
+00:15:53.079 --> 00:15:59.699
+Customer option, right? The custom option will so I think so what is the maximum? It's on.
+
+113 "Akshay Kaul" (2068347904)
+00:15:59.699 --> 00:16:04.911
+I'm looking at CPU and memory graph.
+
+114 "Falgun Bhagavatula" (2526124032)
+00:16:04.911 --> 00:16:05.494
+Off.
+
+115 "Akshay Kaul" (2068347904)
+00:16:05.494 --> 00:16:08.117
+And it does not let me choose an older type.
+
+116 "Falgun Bhagavatula" (2526124032)
+00:16:08.117 --> 00:16:10.935
+Like 30 days you can't do 30 days?
+
+117 "Akshay Kaul" (2068347904)
+00:16:10.935 --> 00:16:28.020
+Yeah, let me let me try again cause I see it works on the interface, let me just try on the this thing.
+
+118 "Akshay Kaul" (2068347904)
+00:16:28.797 --> 00:16:42.796
+Yeah, yeah, I think it let me go two weeks back so maybe it was a different wrong time actually. Okay.
+
+119 "Akshay Kaul" (2068347904)
+00:16:42.796 --> 00:16:56.655
+Okay. So anyways my what my point was like for CPU memory today we do not show it for the others. So are we saying it was never needed to show the average there and it's needed to show the average here?
+
+120 "Falgun Bhagavatula" (2526124032)
+00:16:56.655 --> 00:17:22.072
+And that was the discussion like showing the average the customer or even for us like when when engineering is troubleshooting troubleshooting, they want to know like what the average is running on the device. If it is consistently high, then they can like drill down a little bit more, you know, if they go back like maybe a week or ten days wherever the averages have been high, then that will give them a pattern.
+
+121 "Akshay Kaul" (2068347904)
+00:17:22.072 --> 00:17:31.633
+Okay, and that threshold is also going to be triggered if the average goes beyond or is it if the current one goes beyond.
+
+122 "Falgun Bhagavatula" (2526124032)
+00:17:31.633 --> 00:17:49.718
+So when the current one is, so if average is beyond, that means the current one is also going a little bit beyond like fluctu fluctuating, but but the trigger is only going to be with the, with the current, it's not the average that is going to be triggering the warning.
+
+123 "Akshay Kaul" (2068347904)
+00:17:49.718 --> 00:18:01.877
+Okay, so it's going to be even if there's a spike for a minute, that thing is going to block or prevent any more routes or anything more happening, right?
+
+124 "Falgun Bhagavatula" (2526124032)
+00:18:01.877 --> 00:18:11.958
+No, it won't prevent the guardrails when they kick in that is when it's going to prevent, but it's the warning threshold will not start preventing anything.
+
+125 "Akshay Kaul" (2068347904)
+00:18:11.958 --> 00:18:13.979
+Oh, so this is not the guardrails.
+
+126 "Falgun Bhagavatula" (2526124032)
+00:18:13.979 --> 00:18:26.256
+No, NO, this is not the guardrail. The 80 % is the threshold, so there are two things. One is threshold and the other is guardrail. Guardrail kicks in after maybe 90 or 95 % is to keep to keep the system running.
+
+127 "Akshay Kaul" (2068347904)
+00:18:26.256 --> 00:18:35.836
+Okay, and there is NO requirement to show battery value as well? No, I mean, not today or it won't be.
+
+128 "Falgun Bhagavatula" (2526124032)
+00:18:35.836 --> 00:18:47.739
+Yeah, we did not there'll be like too much information, right? Guardrails is something that should be kicked in that that's us protecting our resource, right?
+
+129 "Falgun Bhagavatula" (2526124032)
+00:18:50.478 --> 00:18:58.739
+Okay, it's something that customer has configured. So it makes sense to just show them ok what they have configured.
+
+130 "Akshay Kaul" (2068347904)
+00:19:00.113 --> 00:19:16.209
+Okay, right? And this is different from like, oh, so this is just for the OMP process because we have the usage logs anyways today, right? So they would still be triggered in the same way, right?
+
+131 "Falgun Bhagavatula" (2526124032)
+00:19:16.209 --> 00:19:39.200
+That level here, ok. Right, right. But again, yeah, that that brings me to another point, I mean about about the heading here like the OMP usage, we say OMP usage, but all we are showing is CPU average CPU memory and everything. So I think we should just put it as CPU and memory usage.
+
+132 "Akshay Kaul" (2068347904)
+00:19:39.200 --> 00:19:43.317
+No, but this is OMP process only, right? Not the whole CPU.
+
+133 "Falgun Bhagavatula" (2526124032)
+00:19:43.317 --> 00:19:51.540
+OMP, that is true, but.
+
+134 "Akshay Kaul" (2068347904)
+00:19:51.540 --> 00:19:52.714
+Because.
+
+135 "Falgun Bhagavatula" (2526124032)
+00:19:52.714 --> 00:19:54.640
+It's under vsmart.
+
+136 "Akshay Kaul" (2068347904)
+00:19:54.640 --> 00:20:07.514
+No, but overall CPN memory is a different place already and that utilization is completely indepth I mean, this OMP would go in there as one of the processes, but there would be other processes as well.
+
+137 "Falgun Bhagavatula" (2526124032)
+00:20:07.514 --> 00:20:13.560
+But there is a OMP CPU, NO, right? There is NO OMP CPU or OMP memory as such.
+
+138 "Akshay Kaul" (2068347904)
+00:20:13.560 --> 00:20:21.175
+Note that I mean every process has CPU utilization and a memory utilization, right?
+
+139 "Akshay Kaul" (2068347904)
+00:20:22.037 --> 00:20:30.714
+So it's like a process utilization of CPU and memory, like it's not every process will consume some CPU memory.
+
+140 "Falgun Bhagavatula" (2526124032)
+00:20:30.714 --> 00:20:36.532
+Right, so where do we show the overall that that goes under event are we not showing that here?
+
+141 "Akshay Kaul" (2068347904)
+00:20:36.532 --> 00:20:46.158
+That is on the overview page, right? Where we have, we show the CPU and memory today. Okay.
+
+142 "Falgun Bhagavatula" (2526124032)
+00:20:46.158 --> 00:20:46.898
+Okay.
+
+143 "Akshay Kaul" (2068347904)
+00:20:46.898 --> 00:21:02.030
+Can maybe share my screen real quick? Yeah. Like if I go to If I go to a V smart here.
+
+144 "Akshay Kaul" (2068347904)
+00:21:02.030 --> 00:21:07.260
+This is my CPU and memory.
+
+145 "Falgun Bhagavatula" (2526124032)
+00:21:07.260 --> 00:21:10.715
+This is the overall CPU and memo.
+
+146 "Akshay Kaul" (2068347904)
+00:21:10.715 --> 00:21:13.813
+Yeah, this is the CPU.
+
+147 "Falgun Bhagavatula" (2526124032)
+00:21:13.813 --> 00:21:19.478
+CPU, data plane CPU, control plane memory and data plane memory. Yes.
+
+148 "Akshay Kaul" (2068347904)
+00:21:19.478 --> 00:21:38.359
+And I, I would think that OMP process would be one of the processes, right? And then since OMP is the important one, that is why we are building a different utilization page for it, right?
+
+149 "Akshay Kaul" (2068347904)
+00:21:39.698 --> 00:21:49.875
+So this would still belong, so last time what we discussed was in the new design we'll have tiles for this. We'll add an extra tile which just shows you the OMP usage and.
+
+150 "Falgun Bhagavatula" (2526124032)
+00:21:49.875 --> 00:21:56.858
+And when you click here. Oh, ok. Yeah, that makes sense.
+
+151 "Mingchieh Wang" (1517345024)
+00:21:56.858 --> 00:22:09.877
+Okay, so we, we only have a 4 min. I just wanted to confirm, does everybody available tomorrow at 1230 if we over the time we need to continue?
+
+152 "Falgun Bhagavatula" (2526124032)
+00:22:09.877 --> 00:22:12.692
+1230 should be fine.
+
+153 "Mingchieh Wang" (1517345024)
+00:22:12.692 --> 00:22:19.359
+Okay, because only available 1230. Yeah. Okay.
+
+154 "Falgun Bhagavatula" (2526124032)
+00:22:19.359 --> 00:22:23.512
+A little later, can you do a little later? Maybe at the same time?
+
+155 "Mingchieh Wang" (1517345024)
+00:22:23.512 --> 00:22:32.172
+Venkat when will you available because you are the ones fully booking.
+
+156 "RTP6P-2-APR220" (1580723200)
+00:22:32.172 --> 00:22:36.797
+So returns what time so.
+
+157 "Mingchieh Wang" (1517345024)
+00:22:36.797 --> 00:22:39.417
+Tomorrow.
+
+158 "RTP6P-2-APR220" (1580723200)
+00:22:39.417 --> 00:22:43.571
+Tomorrow, what time, 33012.
+
+159 "Mingchieh Wang" (1517345024)
+00:22:44.176 --> 00:22:46.740
+Yeah, 03:30, we can do 03:30.
+
+160 "Akshay Kaul" (2068347904)
+00:22:46.740 --> 00:22:50.040
+Pacific or Eastern?
+
+161 "Mingchieh Wang" (1517345024)
+00:22:50.040 --> 00:22:52.015
+A Pacific time.
+
+162 "RTP6P-2-APR220" (1580723200)
+00:22:54.076 --> 00:22:57.599
+I'm available at 03:00, you can do 03:00.
+
+163 "Akshay Kaul" (2068347904)
+00:22:57.599 --> 00:23:01.294
+Which is twelve for us, right? So yeah, I'm ok with twelve.
+
+164 "Mingchieh Wang" (1517345024)
+00:23:01.294 --> 00:23:02.933
+12:00.
+
+165 "Mingchieh Wang" (1517345024)
+00:23:03.639 --> 00:23:05.939
+How about you Faqu?
+
+166 "Falgun Bhagavatula" (2526124032)
+00:23:05.939 --> 00:23:11.789
+Yeah, that's fine, I can take it. Yeah.
+
+167 "Mingchieh Wang" (1517345024)
+00:23:11.789 --> 00:23:16.792
+Okay, last continue. Can we repeat what was this conclusions for title?
+
+168 "Falgun Bhagavatula" (2526124032)
+00:23:16.792 --> 00:23:32.715
+Yeah, so earlier we were thinking whether to change that but yeah if if OMP specifically OMP process usage maybe. Yeah.
+
+169 "Mingchieh Wang" (1517345024)
+00:23:32.715 --> 00:23:53.460
+Sure. Okay, so next question will be Venkay see here because we are actually across two different charts, right? How we showing the Harbor event to let user know the top chart and bottom chart is actually connecting to each art.
+
+170 "RTP6P-2-APR220" (1580723200)
+00:23:53.460 --> 00:23:55.219
+There is NO correcting.
+
+171 "Mingchieh Wang" (1517345024)
+00:23:55.219 --> 00:23:58.260
+It's not connecting? There is NO connecting charts.
+
+172 "RTP6P-2-APR220" (1580723200)
+00:23:58.260 --> 00:24:07.354
+By harbor or user can hover over one chart, look at it and then you know the other chart to the same time and you know figure it out.
+
+173 "Mingchieh Wang" (1517345024)
+00:24:07.354 --> 00:24:16.139
+Okay, then that would be the question will be easy. So, I was, I was trying to connect in both but you say NO, right?
+
+174 "Mingchieh Wang" (1517345024)
+00:24:16.139 --> 00:24:35.640
+So when user hovering, we also have some others agents is hidings, right? We we decide not to show. So should we show the others while for offering the 1st shot or offering both charts?
+
+175 "RTP6P-2-APR220" (1580723200)
+00:24:35.640 --> 00:24:43.438
+No, why this will cause confusion, right? You know, other.
+
+176 "Mingchieh Wang" (1517345024)
+00:24:43.438 --> 00:24:44.178
+Yeah.
+
+177 "RTP6P-2-APR220" (1580723200)
+00:24:44.178 --> 00:24:58.513
+Yes, we will see, if you hover over, user will expect for those data values, right? And then if you want to show something extra, you can show it but it creates confusion. So why am I not able to see it in the chart, right? To begin with.
+
+178 "Mingchieh Wang" (1517345024)
+00:24:58.513 --> 00:25:03.195
+Because it's dynamic it might be more than.
+
+179 "Akshay Kaul" (2068347904)
+00:25:03.195 --> 00:25:25.752
+No, NO NO. So these are not percentages. These are actual going to be numbers so routes sent would be 20000 or something. Would be a number. OMP uptime would be again a time control connection uptime would also be a time. So it would be like, I don't know. When we are in the line time chart, why do we need to show time?
+
+180 "Akshay Kaul" (2068347904)
+00:25:26.293 --> 00:25:33.616
+No, this is the control connection uptime number, like.
+
+181 "RTP6P-2-APR220" (1580723200)
+00:25:33.616 --> 00:25:45.330
+Okay see maybe the.is for a particular time like I don't think you know seen the tooltip, you know, it doesn't show time range of the time range in the bottom yes.
+
+182 "Akshay Kaul" (2068347904)
+00:25:45.330 --> 00:25:51.096
+It's uptime like this again I don't know what that specific.
+
+183 "RTP6P-2-APR220" (1580723200)
+00:25:51.096 --> 00:26:07.799
+Time range at the bottom of the tooltip, which now we don't show like this like it's one when you hover over that time range rate 05:00, it's for the 05:00, there is NO such thing as a time range we show. Are you following there is a time range in the tooltip? You need to remove that.
+
+184 "Mingchieh Wang" (1517345024)
+00:26:07.799 --> 00:26:12.019
+Okay, time to watch.
+
+185 "RTP6P-2-APR220" (1580723200)
+00:26:12.019 --> 00:26:22.260
+Just look at any other time chart, right? You know, you will see how we display the time you just need to do the same display the tooltip, right? We have to do the same.
+
+186 "Falgun Bhagavatula" (2526124032)
+00:26:22.260 --> 00:26:33.235
+Actually I have a question though why why I, I see why why do we need to even put others in here? The others can go in in the bottom chart, right?
+
+187 "Mingchieh Wang" (1517345024)
+00:26:33.235 --> 00:26:40.215
+Yeah, it can go view detail and then showing on the sidebar. Those are duplicate.
+
+188 "Falgun Bhagavatula" (2526124032)
+00:26:40.215 --> 00:26:42.200
+Those are duplicate, ok.
+
+189 "Mingchieh Wang" (1517345024)
+00:26:42.200 --> 00:26:43.636
+Yeah, that was.
+
+190 "Falgun Bhagavatula" (2526124032)
+00:26:43.636 --> 00:27:00.139
+Yeah, so why why duplicate there? So other, because as as we mentioned, right? We are seeing only four things on the chart. If we have other and if we are showing some.
+
+191 "Falgun Bhagavatula" (2526124032)
+00:27:00.139 --> 00:27:25.159
+More things there, they, they might want to find a filter to see that on the chart as well. So the other part of it, because it's the number of routes and number of routes received OMP and CC that that can that can very well be hovered over in the event events based on selection, the bottom chart that that graph and we can show those details over there.
+
+192 "Mingchieh Wang" (1517345024)
+00:27:25.159 --> 00:27:32.156
+Okay those sends.
+
+193 "Falgun Bhagavatula" (2526124032)
+00:27:32.156 --> 00:27:39.577
+Yeah, you don't have to put the legend or anything, but if we want to show others we need to show it in there.
+
+194 "Mingchieh Wang" (1517345024)
+00:27:39.577 --> 00:27:41.361
+Okay, shall we combine with.
+
+195 "Falgun Bhagavatula" (2526124032)
+00:27:41.361 --> 00:27:53.590
+Yeah yes yes yes, because these are the number of events, right? Even the number of the route sent will be a number route received is the number their uptime and control connection uptime, it makes sense to put it dow.
+
+196 "Akshay Kaul" (2068347904)
+00:27:53.590 --> 00:27:54.320
+Yeah.
+
+197 "RTP6P-2-APR220" (1580723200)
+00:27:54.320 --> 00:27:58.516
+Okay, sounds good. But we need to show the legends also for don't to be.
+
+198 "Falgun Bhagavatula" (2526124032)
+00:28:03.114 --> 00:28:16.220
+Yeah, as long as as long as we are putting those in the chart as well, right? Right, right now I see only control connection policy change and OMP pairing change. Yeah. If you want to add additional legends there, I'm ok with that.
+
+199 "RTP6P-2-APR220" (1580723200)
+00:28:16.220 --> 00:28:20.438
+Yeah what I heard from device folks are look like seven or 80 ones only, right? Because.
+
+200 "Falgun Bhagavatula" (2526124032)
+00:28:20.438 --> 00:28:25.073
+Yeah, that's fine then yeah if that's all then we can put everything in the events.
+
+201 "Mingchieh Wang" (1517345024)
+00:28:25.073 --> 00:28:39.197
+Watch here, we have 12344 different subjects, right? So we have total seven objects. You can how many colored box here.
+
+202 "RTP6P-2-APR220" (1580723200)
+00:28:39.197 --> 00:28:57.815
+That's ok, right? Because see, not all the events occur at the same time, but if it's occurring, that's what user want to see, right? You know, they want to, they are coming here to see the insights and you know if an event is happening, like all the events are happening in one particular time range, you know, then something wrong, they can see that and figure out and take the next set of actions, right?
+
+203 "Falgun Bhagavatula" (2526124032)
+00:28:57.815 --> 00:29:04.275
+I believe so Ming, is your question about the coloring scheme for all the seven?
+
+204 "Mingchieh Wang" (1517345024)
+00:29:04.275 --> 00:29:06.680
+Okay, C123 yes.
+
+205 "Falgun Bhagavatula" (2526124032)
+00:29:06.680 --> 00:29:13.970
+I see we need to we need to make sure that they they all follow different different colors if you are putting in the legends.
+
+206 "Mingchieh Wang" (1517345024)
+00:29:13.970 --> 00:29:24.500
+The color is ok but when you're lending to this page, you got like he map box over there over here, overwhere, everywhere.
+
+207 "RTP6P-2-APR220" (1580723200)
+00:29:24.500 --> 00:29:35.215
+No, for me she's saying that, you know, there will be seven different boxes for if all seven different events occur in the time.
+
+208 "Falgun Bhagavatula" (2526124032)
+00:29:35.215 --> 00:29:37.496
+The timeline. But yes.
+
+209 "RTP6P-2-APR220" (1580723200)
+00:29:37.496 --> 00:29:44.179
+You know it for my answer is yes, it's ok because that is what user want to see, we are saying insights and you know if in a worst case where you know.
+
+210 "RTP6P-2-APR220" (1580723200)
+00:29:44.179 --> 00:30:03.419
+At 05:00 someday, you know, all seven events are happening. That means, you know, that bar is going to show those seven different colors which will give you that ok hey something is happening at the time, right? So her question is, you know, will you be ok with seven different bars with seven different colors? My answer is yes.
+
+211 "Falgun Bhagavatula" (2526124032)
+00:30:03.419 --> 00:30:27.920
+Or I would say if if there are like if you hover over it, look at, look at the top three or four items that are causing taking the most churn that have the most value which are taking the larger chunk of that bar bar graph, and then you can put it in others, you know, without having it. I mean that that'll be even complicated.
+
+212 "RTP6P-2-APR220" (1580723200)
+00:30:27.920 --> 00:30:43.375
+I'll go with that. No others will be complicated because it's not just one slot you know some event maybe at the top right and the other yeah so see last time they said it's only seven type NO just put it there and you know show that it's not a big deal.
+
+213 "Mingchieh Wang" (1517345024)
+00:30:43.375 --> 00:30:50.718
+Okay let me let me make a mock up, let's review tomorrow, see everybody's opinions.
+
+214 "Falgun Bhagavatula" (2526124032)
+00:30:50.718 --> 00:31:02.351
+Sure and so is is there a limit to using certain number of colors in a bar chart little that that's my question.
+
+215 "Mingchieh Wang" (1517345024)
+00:31:02.351 --> 00:31:15.758
+Yeah, that was original suggestions high to control within within five because over three years my heart digest.
+
+216 "RTP6P-2-APR220" (1580723200)
+00:31:15.758 --> 00:31:25.290
+So you are you are talking in terms of magnetic designs, right? Yeah. So yeah, so yes, there is NO limit from the magnetic.
+
+217 "Falgun Bhagavatula" (2526124032)
+00:31:25.290 --> 00:31:26.417
+Right.
+
+218 "RTP6P-2-APR220" (1580723200)
+00:31:26.417 --> 00:31:38.297
+Yes mental model will be too much color will be, you know, yes, some user may, you know, see it, you know, confusing but you know, if there is NO scenario where all of the events are occurring.
+
+219 "Falgun Bhagavatula" (2526124032)
+00:31:38.297 --> 00:31:39.418
+At each and every time.
+
+220 "RTP6P-2-APR220" (1580723200)
+00:31:39.418 --> 00:31:45.118
+That's what we need to worry, right? So we are talking about the worst case.
+
+221 "Falgun Bhagavatula" (2526124032)
+00:31:45.118 --> 00:32:02.517
+Yeah, yeah, makes sense, you know having having it there might be easier for customers to because otherwise they will they will try to figure out why am I not seeing that particular thing on the events chart. So yeah, let's put all those seven in, in the bottom one.
+
+222 "Mingchieh Wang" (1517345024)
+00:32:02.517 --> 00:32:08.758
+Sure ok let's talk about other topics like.
+
+223 "RTP6P-2-APR220" (1580723200)
+00:32:08.758 --> 00:32:19.280
+I saw a sidebar, that side that details, right? What is that sidebar? You said something duplicate, right? The sidebar, not, not this one, the sidebar showing the event type route and all, what is that?
+
+224 "Mingchieh Wang" (1517345024)
+00:32:19.280 --> 00:32:29.709
+Okay, so this one is actually people click device detail, see the device detail and then it shows up.
+
+225 "RTP6P-2-APR220" (1580723200)
+00:32:29.709 --> 00:32:31.211
+Why?
+
+226 "Mingchieh Wang" (1517345024)
+00:32:31.211 --> 00:32:33.878
+You're already.
+
+227 "RTP6P-2-APR220" (1580723200)
+00:32:33.878 --> 00:32:41.080
+In the context of device, right? Again detail why device details, you know, we are device three 60 now.
+
+228 "Mingchieh Wang" (1517345024)
+00:32:41.080 --> 00:32:44.016
+Why?
+
+229 "RTP6P-2-APR220" (1580723200)
+00:32:44.016 --> 00:32:49.881
+Oh, it's kind of in the different which device the event is being sent.
+
+230 "Mingchieh Wang" (1517345024)
+00:32:49.881 --> 00:32:59.838
+I, I apologize, I cannot answer you, but I will call Rahul to join us tomorrow because this is the requirements from Rahul.
+
+231 "RTP6P-2-APR220" (1580723200)
+00:32:59.838 --> 00:33:12.592
+Yeah, so if you can answer right? So basically in the last table, event table, there is a button below link for each and every event type which says device details, which device it is referring to?
+
+232 "Mingchieh Wang" (1517345024)
+00:33:12.592 --> 00:33:23.292
+Yeah, we can put in years, right? Why we click see 12345. We can pull those files into the table.
+
+233 "Falgun Bhagavatula" (2526124032)
+00:33:23.292 --> 00:33:27.914
+Into the table into, ok, ok.
+
+234 "Mingchieh Wang" (1517345024)
+00:33:27.914 --> 00:33:31.218
+Yeah, those can be why we why barter.
+
+235 "Falgun Bhagavatula" (2526124032)
+00:33:31.218 --> 00:33:34.457
+So why have another click, right? Yeah.
+
+236 "Mingchieh Wang" (1517345024)
+00:33:34.457 --> 00:33:36.110
+Yeah.
+
+237 "Falgun Bhagavatula" (2526124032)
+00:33:36.110 --> 00:33:48.915
+Makes sense. We are, we are taking up device details as one of the columns, we can just remove that device details columns and request sent route received with the time and devices, that's it ok.
+
+238 "RTP6P-2-APR220" (1580723200)
+00:33:48.915 --> 00:33:54.235
+And again why we are using site ID Folgan it should be site name, right? Everywhere, you know, we wanted to go with the.
+
+239 "Falgun Bhagavatula" (2526124032)
+00:33:54.235 --> 00:34:03.837
+Site name. Yeah, site name is good why let me see. Where is site ID? Oh, site ID. No, it doesn't make sense, site name.
+
+240 "RTP6P-2-APR220" (1580723200)
+00:34:03.837 --> 00:34:08.796
+Yeah, it should be site name and put some values as San jose, you know, maybe doesn't.
+
+241 "Falgun Bhagavatula" (2526124032)
+00:34:08.796 --> 00:34:09.917
+Yeah, yeah, yeah.
+
+242 "Mingchieh Wang" (1517345024)
+00:34:09.917 --> 00:34:15.438
+Okay, ok, sign in because people aren't able to recognize site ID, that's for.
+
+243 "Falgun Bhagavatula" (2526124032)
+00:34:15.438 --> 00:34:18.959
+Yeah, that that makes NO sense, yeah. So let's do.
+
+244 "RTP6P-2-APR220" (1580723200)
+00:34:18.959 --> 00:34:23.760
+Name and do we have description for an event?
+
+245 "Falgun Bhagavatula" (2526124032)
+00:34:23.760 --> 00:34:35.750
+I believe so, yeah. Description will be there. Control connection like is it up? Is it down? Policy change, what, what pushed word.
+
+246 "RTP6P-2-APR220" (1580723200)
+00:34:35.750 --> 00:34:51.700
+Right now see that ok you know such a state change, right? But this seems like a description. That's why I wanted to ask but still you know see maybe even if there are ten attributes to show, you know, we can show six or seven which are really important.
+
+247 "Falgun Bhagavatula" (2526124032)
+00:34:51.700 --> 00:34:54.157
+Can be enabled by the user.
+
+248 "RTP6P-2-APR220" (1580723200)
+00:34:54.157 --> 00:35:04.019
+From the table column settings, right? Yeah. Let's not encourage this simple sidebar which is mostly empty, right? And.
+
+249 "Falgun Bhagavatula" (2526124032)
+00:35:04.019 --> 00:35:07.199
+I agree. Okay.
+
+250 "Mingchieh Wang" (1517345024)
+00:35:07.199 --> 00:35:13.775
+Can you repeat one more time? What's the reason for description? I wanna pull some dummy data here.
+
+251 "Falgun Bhagavatula" (2526124032)
+00:35:13.775 --> 00:35:19.922
+There will be description, right? Yeah, so your your question was what would be the description, right.
+
+252 "RTP6P-2-APR220" (1580723200)
+00:35:19.922 --> 00:35:30.555
+Right, NO, my my question is see the what you are saying is I understand that it looks like a state change, right? It's like state change, but this description it looks like something more about that event itself.
+
+253 "Falgun Bhagavatula" (2526124032)
+00:35:30.555 --> 00:35:39.159
+Yeah, yeah, yeah. That is going to be there like the the description about the event will be there.
+
+254 "Mingchieh Wang" (1517345024)
+00:35:39.159 --> 00:35:41.881
+Okay, but is that an important.
+
+255 "RTP6P-2-APR220" (1580723200)
+00:35:41.881 --> 00:35:43.277
+Column to show by default.
+
+256 "Falgun Bhagavatula" (2526124032)
+00:35:43.277 --> 00:35:55.670
+Yes yes, I would say yes. Okay. Because if we don't show that description like they'll have to figure out what what what happened, right? Okay.
+
+257 "RTP6P-2-APR220" (1580723200)
+00:35:55.670 --> 00:35:59.513
+That's fine you know yeah let's I'm trying to you know find out C.
+
+258 "Falgun Bhagavatula" (2526124032)
+00:35:59.513 --> 00:36:04.859
+I'm ok to show seven eight columns, but you know sometimes the space when we pick you know.
+
+259 "RTP6P-2-APR220" (1580723200)
+00:36:04.859 --> 00:36:08.157
+Timestamp.
+
+260 "Falgun Bhagavatula" (2526124032)
+00:36:08.157 --> 00:36:18.833
+The system IP, site id you know the site ID, not the ID but site name, and then routes send routes received.
+
+261 "Falgun Bhagavatula" (2526124032)
+00:36:19.598 --> 00:36:25.813
+We can remove the details, right? The details column will be gone. Yeah. And.
+
+262 "Mingchieh Wang" (1517345024)
+00:36:25.813 --> 00:36:38.578
+Okay, questions here. You have OMP time uptime CC uptimes, and then you have another timestamp here. So you got three different times.
+
+263 "RTP6P-2-APR220" (1580723200)
+00:36:38.578 --> 00:36:41.433
+Yeah, that's what I had like some it's fusing, right?
+
+264 "Falgun Bhagavatula" (2526124032)
+00:36:41.433 --> 00:36:43.960
+Right, we should have only two types.
+
+265 "RTP6P-2-APR220" (1580723200)
+00:36:43.960 --> 00:36:46.619
+OMP up.
+
+266 "Falgun Bhagavatula" (2526124032)
+00:36:46.619 --> 00:37:11.969
+Time and control connection uptime could be, could be a filter option if they want to see that. Yeah. Because timestamp for that particular event makes sense like at what time something's occurring, and if they want to look at the OMP uptime CC uptime, they can they can you know filter it out and and maybe drill down and to see what what was the uptime.
+
+267 "Mingchieh Wang" (1517345024)
+00:37:11.969 --> 00:37:14.197
+Can you repeat one time? Sorry I.
+
+268 "Falgun Bhagavatula" (2526124032)
+00:37:14.197 --> 00:37:18.893
+Yeah, so so what I'm saying is, the OMB uptime and CC uptime.
+
+269 "Mingchieh Wang" (1517345024)
+00:37:18.893 --> 00:37:20.020
+Yeah.
+
+270 "Falgun Bhagavatula" (2526124032)
+00:37:20.020 --> 00:37:23.437
+Does not have to be in the 1st few columns.
+
+271 "Mingchieh Wang" (1517345024)
+00:37:23.437 --> 00:37:24.658
+Okay?
+
+272 "Falgun Bhagavatula" (2526124032)
+00:37:24.658 --> 00:37:27.155
+It could be a filter option if.
+
+273 "RTP6P-2-APR220" (1580723200)
+00:37:27.155 --> 00:37:31.953
+Not means I think she gets so so we have column settings, yeah.
+
+274 "Falgun Bhagavatula" (2526124032)
+00:37:31.953 --> 00:37:48.492
+Yeah, the column settings Yes. Yeah. So yeah, it would be under there but what we want to show is event description, timestamp, system IP, site name, route sent and routes received.
+
+275 "Mingchieh Wang" (1517345024)
+00:37:48.492 --> 00:37:58.734
+Those. Sure sure I need your help to fill out those that dummy data. Can you type something here?
+
+276 "Falgun Bhagavatula" (2526124032)
+00:37:58.734 --> 00:38:13.050
+I sure I'll I'll have to check with you know let's let's also check with Raghu and Srini to give us that data like what kind of data will be shown here, and then we can do that.
+
+277 "Mingchieh Wang" (1517345024)
+00:38:13.050 --> 00:38:24.273
+Sounds good. I don't think we are ok to talk about the homepage because not here.
+
+278 "Falgun Bhagavatula" (2526124032)
+00:38:24.273 --> 00:38:28.870
+Yeah yeah let's let's reconvene again.
+
+279 "RTP6P-2-APR220" (1580723200)
+00:38:28.870 --> 00:38:33.293
+But the other question I had, right, why to put under logs?
+
+280 "Falgun Bhagavatula" (2526124032)
+00:38:33.293 --> 00:38:37.434
+Correct yeah let's let's close on that one.
+
+281 "Mingchieh Wang" (1517345024)
+00:38:37.434 --> 00:38:49.950
+Sure can you open that one again? Yeah sure lots. Okay.
+
+282 "Mingchieh Wang" (1517345024)
+00:38:49.950 --> 00:39:06.300
+Yeah, the originals engineer was mentioned about everything here is a lot. That's why they think it will belong to locks.
+
+283 "Mingchieh Wang" (1517345024)
+00:39:06.300 --> 00:39:21.998
+Okay, let me show you what's the category and then maybe helping you to decide. That's what we have here.
+
+284 "RTP6P-2-APR220" (1580723200)
+00:39:21.998 --> 00:39:38.571
+See under logs we have alarms even logs that see my understanding was we wanted to give this something you know we want to for the devices, right? So it should be 1 s 1 s.
+
+285 "Falgun Bhagavatula" (2526124032)
+00:39:38.571 --> 00:39:39.216
+And we didn't call.
+
+286 "RTP6P-2-APR220" (1580723200)
+00:39:39.216 --> 00:39:50.418
+We can put it as, you know, after overview we can say put insights, right? Because inside.
+
+287 "Falgun Bhagavatula" (2526124032)
+00:39:50.418 --> 00:40:07.153
+Yeah. So Ming, one of the, one of the things that now we were discussing the other day was whether we need to call this as insights, right? Because we have yeah.
+
+288 "Mingchieh Wang" (1517345024)
+00:40:07.153 --> 00:40:10.553
+Yeah well we cannot call it inside. We have.
+
+289 "Falgun Bhagavatula" (2526124032)
+00:40:10.553 --> 00:40:18.400
+Yeah. Yeah, so it has to be something different like controller statistics.
+
+290 "Mingchieh Wang" (1517345024)
+00:40:18.400 --> 00:40:21.714
+Exactly. More are like be smart.
+
+291 "Falgun Bhagavatula" (2526124032)
+00:40:21.714 --> 00:40:37.860
+Yeah, so we, we, we are not calling it we smart anymore, so we will have to call it like the SD WAN controller. And this is not for the manager, SD WAN manager or SD WAN.
+
+292 "Falgun Bhagavatula" (2526124032)
+00:40:37.860 --> 00:41:02.234
+What, SD WAN orchestrator or we want right? It's specific to vsmart, which is SD WAN controller. So we'll have to call it as controller statistics. We are, we are looking at the statistics and yeah, insights might be, might not be the right word, so let's call it controller statistics right now.
+
+293 "Mingchieh Wang" (1517345024)
+00:41:02.234 --> 00:41:07.316
+Sure, sure. Can you type the, the whole sentence for me? I can copy paste?
+
+294 "Falgun Bhagavatula" (2526124032)
+00:41:07.316 --> 00:41:14.310
+Yeah, it's it's just this one. Okay. Let me.
+
+295 "Venkateswaran Mohanasundaram" (1909040640)
+00:41:14.310 --> 00:41:18.073
+So naming is fine, but the position of the tab, right? Yeah.
+
+296 "Mingchieh Wang" (1517345024)
+00:41:18.073 --> 00:41:32.640
+Hello yeah. I I pinged you, controller stats. Okay, controller stats.
+
+297 "Mingchieh Wang" (1517345024)
+00:41:32.640 --> 00:41:49.170
+Okay, I have it. Thank you. So if this is the controllers it's more about.
+
+298 "Mingchieh Wang" (1517345024)
+00:41:49.170 --> 00:41:52.757
+Oh Troubleshootings right.
+
+299 "Venkateswaran Mohanasundaram" (1909040640)
+00:41:52.757 --> 00:42:10.380
+No, it's not about you know some of the tabs, right? See th this one is for a van edge device, right? So all these interfaces applicable, but for a vsmart or controller, we call it now, right? So that will not have all this.
+
+300 "Venkateswaran Mohanasundaram" (1909040640)
+00:42:10.380 --> 00:42:29.130
+You know, tabs I believe, but still if we want to propagate this data because the stats information is needed, right? So I I my understanding was, you know, we can call it after overview tab, we can have the statistics tab.
+
+301 "Falgun Bhagavatula" (2526124032)
+00:42:29.130 --> 00:42:31.958
+But it will only under logs is two.
+
+302 "Venkateswaran Mohanasundaram" (1909040640)
+00:42:31.958 --> 00:42:53.496
+Too low, two below, you know, because every time they go to device three 60 for this the smart device, you know, 2nd level tabs will not be visible, right? So they have to go to logs to see it. So.
+
+303 "Falgun Bhagavatula" (2526124032)
+00:42:53.496 --> 00:42:58.563
+You're saying under overview systems and widgets there will be all these van and interface app.
+
+304 "Venkateswaran Mohanasundaram" (1909040640)
+00:42:58.563 --> 00:43:07.974
+Applications and everything, right? No, NO NO. So the tabs, so can you go back to the link? You see the bunch of tabs, right?
+
+305 "Falgun Bhagavatula" (2526124032)
+00:43:07.974 --> 00:43:10.076
+Can you, can you go to a.
+
+306 "Venkateswaran Mohanasundaram" (1909040640)
+00:43:10.076 --> 00:43:12.957
+Can you go to the Figma decents? Sure.
+
+307 "Mingchieh Wang" (1517345024)
+00:43:12.957 --> 00:43:16.319
+Let's let's take a look here.
+
+308 "Falgun Bhagavatula" (2526124032)
+00:43:16.319 --> 00:43:24.673
+Yeah, so last I heard was, you know, adding one more tab there was.
+
+309 "Venkateswaran Mohanasundaram" (1909040640)
+00:43:24.673 --> 00:43:31.530
+So, and if you put it on the logs, right, then you know user has to go to logs and then only they'll see the stats, right?
+
+310 "Venkateswaran Mohanasundaram" (1909040640)
+00:43:31.530 --> 00:43:53.400
+So if it's in the 1st level, you know, they will see, ok, there is something, you know, e.g., you know, security, right? If something security will click and see that, ok, there is something related to security, but if it's put under log, then they have to go until they go to log, they will not see that there are some more statistics or something.
+
+311 "Falgun Bhagavatula" (2526124032)
+00:43:53.400 --> 00:43:58.714
+Okay, and how about overview when we click on the overview, what all things do.
+
+312 "Venkateswaran Mohanasundaram" (1909040640)
+00:43:58.714 --> 00:44:09.813
+What we will show just the CPU memory dashlets CPU memory, the basic, you know, information about the device, right? CPU memory energy consumption, all these things.
+
+313 "Mingchieh Wang" (1517345024)
+00:44:09.813 --> 00:44:15.900
+So this is overview.
+
+314 "Falgun Bhagavatula" (2526124032)
+00:44:15.900 --> 00:44:34.573
+Oh, this is the overview, right? Yeah, so it'll basically have the widgets and everything. We are not doing a widget here. So then yeah that goes it won't be under overview. So, yeah Venkat I'm I'm ok the the only problem is, you know, we do not want to overcrowd the tabs that we have on top.
+
+315 "Venkateswaran Mohanasundaram" (1909040640)
+00:44:34.573 --> 00:44:50.140
+That that's you know I'm I'm I'm with you on that part but what my point is, you know, for this one device, not all these tabs are applicable, right? So these tabs are more of the devices, right?
+
+316 "Falgun Bhagavatula" (2526124032)
+00:44:50.140 --> 00:45:00.972
+But I, I still think under logs, having, having controller stats here may still make sense.
+
+317 "Venkateswaran Mohanasundaram" (1909040640)
+00:45:00.972 --> 00:45:03.901
+That's fine. I'm just debating, but yeah, if you don't be.
+
+318 "Falgun Bhagavatula" (2526124032)
+00:45:03.901 --> 00:45:15.697
+Yeah, we have alarms, we have events, AC logs and then controller controller stacks, which is.
+
+319 "Venkateswaran Mohanasundaram" (1909040640)
+00:45:15.697 --> 00:45:19.738
+Again, like correlation of all the events and alarms that.
+
+320 "Falgun Bhagavatula" (2526124032)
+00:45:19.738 --> 00:45:29.941
+That goes, right? So let me let me have a quick word with this one and confirm whether we want to put it on top or, you know, under lock is fine.
+
+321 "Mingchieh Wang" (1517345024)
+00:45:29.941 --> 00:46:09.281
+Sure please also communicate with the for this one. Let me give you a summarize what's the issues. So last time someone mentioned, hey, we just put all MPs CPU memories on this page, but the problem is where have a CPU and memory charts here. So you put another OMP, people will see CPU twice. Memory twice, that will be over so confused. And then we need your help to identity what user needs here.
+
+322 "Falgun Bhagavatula" (2526124032)
+00:46:09.281 --> 00:46:18.360
+So yeah, got it. So here it's showing yeah here it is showing the overall CPU and the memory, right?
+
+323 "Mingchieh Wang" (1517345024)
+00:46:18.360 --> 00:46:19.635
+We did.
+
+324 "Falgun Bhagavatula" (2526124032)
+00:46:19.635 --> 00:46:33.036
+So it's it's showing for a particular device, whatever device is selected there, right? Like yes. Or is it only for the controllers? Yes. No, I'm asking I'm I'm not hundred percent.
+
+325 "Venkateswaran Mohanasundaram" (1909040640)
+00:46:33.036 --> 00:46:37.241
+No overview will show for all the devices.
+
+326 "Falgun Bhagavatula" (2526124032)
+00:46:37.241 --> 00:46:45.720
+Exactly, so it's it shows for all the devices, I mean is it an aggregate like what what does it?
+
+327 "Venkateswaran Mohanasundaram" (1909040640)
+00:46:45.720 --> 00:47:00.119
+No, NO. So you're asking for CPM memory yes, it's NO aggregate for like whatever the time range that is selected, right? By default it's 24 h. So, yeah, if you choose aC8 KB device or you know you choose a VH device.
+
+328 "Falgun Bhagavatula" (2526124032)
+00:47:00.119 --> 00:47:03.199
+Device there, right? So.
+
+329 "Venkateswaran Mohanasundaram" (1909040640)
+00:47:03.199 --> 00:47:04.557
+It's not like.
+
+330 "Falgun Bhagavatula" (2526124032)
+00:47:04.557 --> 00:47:09.900
+Ah, ok. In that case, wing it's fine, you know, because we are choosing a device. What we are.
+
+331 "Falgun Bhagavatula" (2526124032)
+00:47:09.900 --> 00:47:27.093
+Doing on the controller stats is specific to controllers and they are looking at the OMP process usage and how much CPU is the OMP consuming for, for that particular vsmart.
+
+332 "Mingchieh Wang" (1517345024)
+00:47:27.093 --> 00:47:29.979
+Okay, see this page is called as device three 60.
+
+333 "Venkateswaran Mohanasundaram" (1909040640)
+00:47:29.979 --> 00:47:34.394
+That means NO it is for that particular device. So we are in a context of one particular device.
+
+334 "Falgun Bhagavatula" (2526124032)
+00:47:34.394 --> 00:47:48.437
+Right. So here and again yeah so let let me ask this so under device if I, if I select vsmart, it will show the V smart CPU utilization and memory, right?
+
+335 "Venkateswaran Mohanasundaram" (1909040640)
+00:47:48.437 --> 00:47:50.676
+Yeah.
+
+336 "Falgun Bhagavatula" (2526124032)
+00:47:50.676 --> 00:48:10.454
+That is the overall your CPU and memory utilization. When we go under, when we go under logs and controller stats, we are looking at the OMP specific process utilization. Ming, does that answer your question?
+
+337 "Mingchieh Wang" (1517345024)
+00:48:10.454 --> 00:48:12.318
+Hello you are still.
+
+338 "Falgun Bhagavatula" (2526124032)
+00:48:12.318 --> 00:48:40.336
+Seeing CPU in different places, but here the context is overall CPU and memory. Yeah. And when we go into logs and the controller stacks there we are that that's why we changed the name to OMP process usage. So there we are seeing OMP process and OMP impact on the controller CPU and memory. Both Both places, the values will be different.
+
+339 "Mingchieh Wang" (1517345024)
+00:48:40.336 --> 00:49:02.098
+Okay, I see. Yeah. Okay, ok. I have one more questions. So are we, I see the volume is different, but are we keep CPU and memory parts here or we create one more new OMP parts here. So how many cards for total will be here? That's my questions.
+
+340 "Venkateswaran Mohanasundaram" (1909040640)
+00:49:02.098 --> 00:49:06.414
+There is NO card we're adding in overview, that's what you know we discussed.
+
+341 "Mingchieh Wang" (1517345024)
+00:49:06.414 --> 00:49:09.039
+Okay, ok.
+
+342 "Falgun Bhagavatula" (2526124032)
+00:49:09.039 --> 00:49:35.640
+No change here, NO change here. Let me give you an example. So when you look at the overview and if you select a V smart, it might be running at 60 % CPU and 60 % memory. That's the overall memory and CPU utilization. When you go under logs and you go to controller statistics, you will see OMP specific usage.
+
+343 "Falgun Bhagavatula" (2526124032)
+00:49:35.640 --> 00:49:57.359
+Here it is 60, there it might be 40 % because OMP is using 40 % of the memory or maybe 30 % or 20 %. So that and and that will be a part of the control plane and data plane as well. It's it's not different. It will, it will, you know, this will include the OMP, but OMP is, is kind of a subset of what we see here.
+
+344 "Mingchieh Wang" (1517345024)
+00:49:57.359 --> 00:50:13.139
+Questions here, so should we remove for for this particular use case, should we remove temperatures energy because there's NO temperature virtual machine.
+
+345 "Venkateswaran Mohanasundaram" (1909040640)
+00:50:13.139 --> 00:50:33.710
+Yeah, yeah. So that is part of the device implementation itself. If something is not applicable for device, we will not show it. Okay. Okay. Yeah. It's not something specific to a feature like this, right? So yeah, we it's not applicable, we will not show it, ok? And one cost question of so when we are already in the.
+
+346 "Venkateswaran Mohanasundaram" (1909040640)
+00:50:33.710 --> 00:50:49.299
+Context of this, you know, controller device, right? Vsmart device why to call again controller inside, just say insights, right? Like wherever we add the table tab the tab, right? It could be under logs or NO anywhere, but you can just say it as insights, right?
+
+347 "Mingchieh Wang" (1517345024)
+00:50:49.299 --> 00:51:10.236
+So sorry sorry because you not you do not know we do have other two projects, three projects for insights on homepage we're gonna to have insights for AI, we're gonna have to have insights for AI suggestions.
+
+348 "Venkateswaran Mohanasundaram" (1909040640)
+00:51:10.236 --> 00:51:30.094
+That NO NO that I get it, that's why you know what is saying is, you know, it should be called a stats statistics, right? You know, controller statistics, which I I know I agree, but we don't need to have the controller as the prefix because we are already in the context of that controller device because this is the device three 60 and they know the device selected is the controller device. Oh.
+
+349 "Falgun Bhagavatula" (2526124032)
+00:51:30.094 --> 00:51:42.080
+So yes yes. Statistics is fine yes. Yeah, because we have already selected controller, right? Yeah.
+
+350 "Venkateswaran Mohanasundaram" (1909040640)
+00:51:42.080 --> 00:51:43.675
+Yes yes.
+
+351 "Mingchieh Wang" (1517345024)
+00:51:43.675 --> 00:51:46.071
+Can you repeat, so what.
+
+352 "Falgun Bhagavatula" (2526124032)
+00:51:46.071 --> 00:51:58.079
+So just change it to stats or statistics. Yeah statistics will be better, yeah. It is statics sticks. No, just one word.
+
+353 "Mingchieh Wang" (1517345024)
+00:51:58.079 --> 00:52:00.475
+Can can you tap me? Oh yeah.
+
+354 "Falgun Bhagavatula" (2526124032)
+00:52:00.475 --> 00:52:04.799
+Let me send it to you here.
+
+355 "Mingchieh Wang" (1517345024)
+00:52:04.799 --> 00:52:07.251
+We're almost we're almost done. We're almost done.
+
+356 "Falgun Bhagavatula" (2526124032)
+00:52:07.251 --> 00:52:12.918
+Yeah, good .2 point. That's all, yeah.
+
+357 "Mingchieh Wang" (1517345024)
+00:52:12.918 --> 00:52:18.260
+Okay, that's good. Yeah, let's see tomorrow.
+
+358 "Falgun Bhagavatula" (2526124032)
+00:52:18.260 --> 00:52:20.280
+Sounds good. Thank you very much.
+
+359 "Mingchieh Wang" (1517345024)
+00:52:20.280 --> 00:52:25.280
+Thank you so much. Bye. Bye.

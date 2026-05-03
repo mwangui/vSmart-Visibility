@@ -1,0 +1,541 @@
+WEBVTT
+
+1 "Mingchieh Wang" (326547456)
+00:00:03.109 --> 00:00:32.727
+So, the contacts was coming from yesterday's been four.seven. I'm not sure what's the number, but that was a release. Then they talk about the dark more light mode, right? And then I just noticed that because I got fresh eyes because you and Bala are working so long and then I got fresh eyes so I I noticed as a issue.
+
+2 "Andrew Lee" (1080586240)
+00:00:32.727 --> 00:00:35.127
+Wash here.
+
+3 "Mingchieh Wang" (326547456)
+00:00:35.127 --> 00:00:53.330
+On the top is a light mode Underneath is the dark mode. So we are actually using the classic light classic dark because a share was new, right? That's that's why we need I need to provide more information. Okay, so actually.
+
+4 "Mingchieh Wang" (326547456)
+00:00:53.330 --> 00:01:04.066
+Six or eight different and then what we're using is the classic.
+
+5 "Andrew Lee" (1080586240)
+00:01:04.066 --> 00:01:06.407
+Like.
+
+6 "Mingchieh Wang" (326547456)
+00:01:06.407 --> 00:01:12.229
+The problem is here. I actually noticed did you see the bar here?
+
+7 "Andrew Lee" (1080586240)
+00:01:12.229 --> 00:01:14.427
+Okay.
+
+8 "Mingchieh Wang" (326547456)
+00:01:14.427 --> 00:01:32.270
+So it actually not changed the colors. Yeah. And then here, the bar here has the big round but the bar has a big round. But the chart don't have the big round with the white color. So I went to the accessibilities with.
+
+9 "Mingchieh Wang" (326547456)
+00:01:32.270 --> 00:01:50.670
+Review yesterday with Jim and then Jen mentioned about, ok, currently in magnetic library, there's only one set for only one set is a system dark mode has the complete convert all of the color, only once.
+
+10 "Mingchieh Wang" (326547456)
+00:01:50.670 --> 00:02:10.670
+Assistant dark, the original one. For all of others the dark mode because there's some colors will be different, right? They're not, They don't have times and not they not go through all of the dark mode the detail. So some colors like custom color or.
+
+11 "Mingchieh Wang" (326547456)
+00:02:10.670 --> 00:02:31.940
+Pacific colors or they're not defining yet because Jim was the the one to set out the color. So he only working on one set of ok so classic light don't have that. So whenever the color's missing, you see, ok, he can change the background to dark, but the blows pacific, blows pacific.
+
+12 "Mingchieh Wang" (326547456)
+00:02:31.940 --> 00:02:51.940
+The bot, two bots remain the same and because we did not realize that we were thinking about an engineer just one button and switch over and and however you see is is not switchables, right? So here is a talk with.
+
+13 "Mingchieh Wang" (326547456)
+00:02:51.940 --> 00:03:14.720
+Red and purple this the color is too close to, to each other. So what Jen and James, I talked with Jen yesterday, so what we are trying to do the proposal is the lack more we stay with the classic light, but the dark more, we will.
+
+14 "Mingchieh Wang" (326547456)
+00:03:14.720 --> 00:03:37.380
+Change the concept, we were using the the system default doc. So not classic light, not classic yeah because what happened is we if we gonna to fix the issues here, did you see? And then we have to propose what color it should be and then go through, see the there's a background white, right?
+
+15 "Mingchieh Wang" (326547456)
+00:03:37.380 --> 00:03:57.380
+We have to actually there's a on the page six different issues not just those two different and then we will have problems. We have to again with a library we have to put provide proposal, we have to go through request it will at least.
+
+16 "Mingchieh Wang" (326547456)
+00:03:57.380 --> 00:04:15.806
+Three and six months, you know the process three and six months and got resolved, so we don't have that time so what James mentioned is we just switch using dark mode, not classic dark, and then user won't notice that.
+
+17 "Andrew Lee" (1080586240)
+00:04:15.806 --> 00:04:22.148
+Won't won't the the green color become blue if we use the?
+
+18 "Mingchieh Wang" (326547456)
+00:04:22.148 --> 00:04:33.889
+We we actually can we actually can let engineer NO, it's never blue, they will agree with that. Yeah.
+
+19 "Andrew Lee" (1080586240)
+00:04:33.889 --> 00:04:52.987
+Okay. Yeah, I think that makes sense because, you know, I'm sure you're aware I've been helping them QA so whenever these issues pop up I've been giving them the manual colors that I know of cause I know, at least for this purple and kind of pinkish.
+
+20 "Mingchieh Wang" (326547456)
+00:04:52.987 --> 00:04:55.528
+That's the old color pa.
+
+21 "Andrew Lee" (1080586240)
+00:04:55.528 --> 00:05:29.608
+Right and that one does have a dark mode equivalent of those colors, so I think that's kind of a bug so they could fix it that way if they want to but if that dark theme that you're suggesting of that just helps them convert those colors without them having to do it manually, then I think that makes sense to me. But I think these tables with those charts I think are custom though, would those automatically switch, do you know?
+
+22 "Mingchieh Wang" (326547456)
+00:05:29.608 --> 00:05:55.039
+Those actually that's why that's why he mentions using the dark mode because dark mode will face 90 % 99 % of the color. Okay. He said he already have the, ok, I apologize. She said, she said she has the color.
+
+23 "Mingchieh Wang" (326547456)
+00:05:55.039 --> 00:06:17.830
+Really on the dark mode, we just switch over and see. So reduce the copy. The problems here is V analytics cannot just switch the dark mode. It has to be all SD WAN product. V manage V analytic and SSP, they all switch to the same dark mode.
+
+24 "Andrew Lee" (1080586240)
+00:06:17.830 --> 00:06:43.860
+Yeah, yeah, because I remember I don't remember if you're on that email, but I think a while ago I said, I suggested them to use the classic dark just because to fix some of the colors so I'm fine with them switching to the normal dark if it fixes these issues, but I just hope it's they'll be able to implement it because they just switch to classic. Yeah.
+
+25 "Mingchieh Wang" (326547456)
+00:06:43.860 --> 00:06:46.746
+Ife, you have a questions?
+
+26 "Yufei Mclaughlin" (1767496960)
+00:06:46.746 --> 00:07:00.227
+Yes, I missed the 1st couple minutes, so I'm not sure that where issue comes from, but I wonder if the light mode are they all magnetized?
+
+27 "Mingchieh Wang" (326547456)
+00:07:00.227 --> 00:07:10.943
+Yes yes. Everything here is a classic light already two years back is already manetic.
+
+28 "Yufei Mclaughlin" (1767496960)
+00:07:10.943 --> 00:07:29.287
+I see. And then I thought that as long as it's magnetized, then switching to dark mode. Dark mode is like automatically like I, yeah, I I was not clear why we have to manually define something.
+
+29 "Mingchieh Wang" (326547456)
+00:07:29.287 --> 00:07:48.449
+Sure sure sure so I apologize, I I should wait for you join and then start. That's why you're missing the context, so let me start over a few more informations. So Magnetic has six or eight different library color set.
+
+30 "Mingchieh Wang" (326547456)
+00:07:48.449 --> 00:08:08.449
+E.g., original systems light systems dark, classic light classic dark, blue light, blue dark, things like that we have eight difference. So, all of the products they can pick whatevers they need to pursuit. And as.
+
+31 "Mingchieh Wang" (326547456)
+00:08:08.449 --> 00:08:37.249
+Events peak classic light to continue. That's why when we have a dark mole, we're using the classic dark mode. I know it's very confused, but that was a history. However, when we adapt the dark mole in this year, beginning of the years, Andrew was the things engineers, they w they think it's easy, they actually put a lot of it.
+
+32 "Mingchieh Wang" (326547456)
+00:08:37.249 --> 00:08:59.129
+Efforts to figure it out. Backends engineer can switch the color set, so automatically turns everything into the dark. Okay, everything here is NO problems, but the problem is starting now. Okay, there's a difference.
+
+33 "Mingchieh Wang" (326547456)
+00:08:59.129 --> 00:09:14.939
+Color palette, a color set for different modes, right? But manetic things they only maintain the 1st dock things to a hundred percent for A level wides.
+
+34 "Mingchieh Wang" (326547456)
+00:09:14.939 --> 00:09:34.939
+See, the translation of colors hundred percent but for others like for here classic light, sorry classic.Did you see when they cannot cover yet, I cannot say they don't do it, they not cover yet, they only do the 1st dock things.
+
+35 "Mingchieh Wang" (326547456)
+00:09:34.939 --> 00:09:49.340
+Okay, so all the dark think problem is when the color is not defined, not, not available, and then the problem is when you switch in between and then color remit. Did you see the color remain here dock underneath?
+
+36 "Yufei Mclaughlin" (1767496960)
+00:09:49.340 --> 00:09:51.716
+Yeah. Okay.
+
+37 "Mingchieh Wang" (326547456)
+00:09:51.716 --> 00:10:00.806
+So the color remain will cost color contract issues see? Dark with the purple with red is so close.
+
+38 "Mingchieh Wang" (326547456)
+00:10:01.823 --> 00:10:33.509
+The correct associate ratio. And 2nd problem is here, why is a level of color issue. 2nd problem is here, did you see the white backgrounds underneath and for the charts, you don't have any white backgrounds. So those is not not face the issues, right? That's number two. Number three is watch here. So actually for people cannot see colors, they cannot see green.
+
+39 "Mingchieh Wang" (326547456)
+00:10:33.509 --> 00:10:53.509
+Red and yellow orange. Those sweets is equals grade and we have a great next to grade, see those four colors they cannot even see. So those issues already addressed on the dark mode, the system dark mode, not the classic dark dark mode. So if we can.
+
+40 "Mingchieh Wang" (326547456)
+00:10:53.509 --> 00:11:18.431
+Not to face those issues, it will take a lot of the effort to prove this is wrong and then what's the proposal and go through the proposal, go through internals reviews on engineers review, magnetic review. It will take three until magnetic accept and make it as a components on the hover and library. It takes three to six months.
+
+41 "Yufei Mclaughlin" (1767496960)
+00:11:18.431 --> 00:11:20.608
+No, but the problem is.
+
+42 "Mingchieh Wang" (326547456)
+00:11:20.608 --> 00:11:37.769
+Just the product going to release yesterday, already released yesterday, and then we have these issues, very obvious issues here. So the good solutions from Jen, from the accessibility things, what he mentions.
+
+43 "Mingchieh Wang" (326547456)
+00:11:37.769 --> 00:11:57.769
+No, because he sorry I apologize. She was the one to decide the colored palette for dark things. So what he's oh I apologize. What she's mentioned is we we we just using the system doc, not classic dark, and then we'll fix the issues. The reason being is.
+
+44 "Mingchieh Wang" (326547456)
+00:11:57.769 --> 00:12:07.388
+When you switch the dark mode, people not going to figure out this is a classic dark or is a system dark. So far you've got machines.
+
+45 "Yufei Mclaughlin" (1767496960)
+00:12:07.388 --> 00:12:11.446
+Got it thank you yeah.
+
+46 "Mingchieh Wang" (326547456)
+00:12:11.446 --> 00:12:26.629
+Sure ok so let's continue so starting from here, SD WAN has three different products. V analytics, V managers, and also the SSP. So V analytics cannot just switch to the top without.
+
+47 "Mingchieh Wang" (326547456)
+00:12:26.629 --> 00:12:46.629
+Others team's agreement. That's why I tried to align with Andrews from what we talking about yesterday. So Jen already reached out to Novendra. Novendra is the persons to respond for the duck thing for three products, right? We already let naren.
+
+48 "Mingchieh Wang" (326547456)
+00:12:46.629 --> 00:13:05.039
+Knows why it's going on. So the next is they will open discussions about maybe in the email or in the high level of label. They will start talking about we're gonna do switch the concept. We're using the dark.
+
+49 "Mingchieh Wang" (326547456)
+00:13:05.039 --> 00:13:24.839
+Sorry, we're using the classic light on top, but the dark mode will be the system default dark, so we switch the concept. That will against the rules because it should be classic like classic dark. So high levels managers they're gonna to discuss with that.
+
+50 "Mingchieh Wang" (326547456)
+00:13:24.839 --> 00:13:55.526
+And then we not switch, we don't we don't touch anythings for now, but we need to follow up what's the decisions and let engineers know what will be the next. Yeah, that's overall so so andrew, will you mind let the the team know and then we actually pending on November's decision.
+
+51 "Andrew Lee" (1080586240)
+00:13:55.526 --> 00:14:00.022
+Sure, yeah. I'll let Bala Paula know. Yeah.
+
+52 "Mingchieh Wang" (326547456)
+00:14:00.022 --> 00:14:19.579
+So there's actually six different issues here, see orange next to the red and green and and greed, those they cannot see and the white backgrounds should remove and the color not defined.
+
+53 "Mingchieh Wang" (326547456)
+00:14:19.579 --> 00:14:24.568
+Yeah, same thing here. Okay, thank you so much.
+
+54 "Andrew Lee" (1080586240)
+00:14:24.568 --> 00:14:29.250
+Sure, NO NO problem. Thank you.
+
+55 "Mingchieh Wang" (326547456)
+00:14:29.250 --> 00:14:36.925
+So if we don't, anyone has NO questions, proposals.
+
+56 "Yufei Mclaughlin" (1767496960)
+00:14:36.925 --> 00:14:44.609
+Oh, thank you for sharing this. Definitely.
+
+57 "Mingchieh Wang" (326547456)
+00:14:44.609 --> 00:14:51.161
+If it's enough, can, can I show my project I need a review with the team.
+
+58 "Andrew Lee" (1080586240)
+00:14:51.161 --> 00:14:56.923
+Sure yeah yeah I I don't have anything on the agenda. Okay, thank you so much.
+
+59 "Mingchieh Wang" (326547456)
+00:14:56.923 --> 00:15:15.769
+I'm going to share one of my project. So we have EC review tonight, but before the EC, there's a rule, there's a policy, we need to go through the teams.
+
+60 "Mingchieh Wang" (326547456)
+00:15:15.769 --> 00:15:40.259
+Review US internal teams review 1st. That's why I need everybody's help and I want to learn from your feedback concept. Before I start, I wanna give you some context about this project. Andrew and I was working on V smart. So V smart is.
+
+61 "Mingchieh Wang" (326547456)
+00:15:40.259 --> 00:15:56.069
+Actually the controller in SD WANs V managers it control the transitions like you have you're going to the high weights, the all the transitions will go through the routers.
+
+62 "Mingchieh Wang" (326547456)
+00:15:56.069 --> 00:16:14.609
+That was the biggest, ok? So when the has a high volume of traffic, it will shut it down, it will get hard it will not stables. That's why IT.
+
+63 "Mingchieh Wang" (326547456)
+00:16:14.609 --> 00:16:31.109
+Admins they need to go over and check what is going on, what caused the issue and then they will fix the issues from there. So our admins are coming from providers. Providers are people's they actually.
+
+64 "Mingchieh Wang" (326547456)
+00:16:31.109 --> 00:16:51.109
+Buy a lot of Cisco products and then rent it to small business like a small business hospital small business grocery store, very small business. They need, they need a lows network.
+
+65 "Mingchieh Wang" (326547456)
+00:16:51.109 --> 00:17:10.049
+But they cannot buy entires service, they don't, they don't have that money. They don't have that capabilities or they rent some partially those 3rd party. So this 3rd party is the providers.
+
+66 "Mingchieh Wang" (326547456)
+00:17:10.049 --> 00:17:26.459
+Providers usually has 1500 cisco routers, one, 1500 but now they extend the because the business group up. So they do have a.
+
+67 "Mingchieh Wang" (326547456)
+00:17:26.459 --> 00:17:46.289
+Four thousands, 5000 SD ones routers, last one, the traffics is increased and then the has been frequently hit the months, so they wanted to have a.
+
+68 "Mingchieh Wang" (326547456)
+00:17:46.289 --> 00:18:03.530
+Troubleshooting tools visually to let people know what is the status. So, so far the backgrounds back background information is ok or you have any questions before I move on?
+
+69 "Yufei Mclaughlin" (1767496960)
+00:18:03.530 --> 00:18:06.367
+No, I'm good thank you.
+
+70 "Mingchieh Wang" (326547456)
+00:18:06.367 --> 00:18:24.109
+Okay, so there's when when providers, they do have a 24 h 24 h, seven days in the knock and I'll see the knock, meaning they actually have they are in a range and then with.
+
+71 "Mingchieh Wang" (326547456)
+00:18:24.109 --> 00:18:44.109
+1020 different monitors, people actually 24 h there watch the monitors. Once they see all of the sites, site meetings the locations with the routers, right? One site can be have two routers, three routers. Once they see on the monitor and then.
+
+72 "Mingchieh Wang" (326547456)
+00:18:44.109 --> 00:19:08.989
+And those sites down you become green to rate and then they will directly come in SD WAN, they now watch SD WAN all the time, they watch the 3rd parties and that's why they, they, they noticed the issues and then they come into SD WAN. So 1st of all, they know all of the site down.
+
+73 "Mingchieh Wang" (326547456)
+00:19:08.989 --> 00:19:37.019
+They they have experienced they know the traffic issues, the controller's issues. That's why they know they're gonna have to come check with a vsmart. So the 1st things like go to the monitoring page and choose the device and choose the device they will choose the controller actually we we call few years ago, but nowadays.
+
+74 "Mingchieh Wang" (326547456)
+00:19:37.019 --> 00:19:53.249
+Since like two years back, we changed the name to controller because it control all of the traffic. That's why you hear you here controller actually is exactly the same thing. So they come in here to see the controller.
+
+75 "Mingchieh Wang" (326547456)
+00:19:53.249 --> 00:20:13.249
+And then, you know, Cisco has a 1020 different device model is for multi clouds value datas for others and switcher things like that, but we focus on the controller. They click the control.
+
+76 "Mingchieh Wang" (326547456)
+00:20:13.249 --> 00:20:37.339
+And see trying to see ok troubleshootings, right? And then we have a troubleshootings environment called 300 devices 360, meaning we using to we're not actually 360 tools, but it means we watch the issues, we watch device 360 degrees. That's what we're trying to do.
+
+77 "Mingchieh Wang" (326547456)
+00:20:37.339 --> 00:20:57.339
+But we now have 360 tools, ok? There's a device 360 will allow you to know what these particular device about everything's about this device. It can be overview of everything here is troubleshooting tools, ok? And then.
+
+78 "Mingchieh Wang" (326547456)
+00:20:57.339 --> 00:21:18.139
+They will see what's the locations or what's the size informations on the left hand sides, what's current CPU memory so they can quickly understand what might cause the issues, ok? And then for these particular issues they want to check the lock.
+
+79 "Mingchieh Wang" (326547456)
+00:21:18.139 --> 00:21:47.879
+Locks meanings past ten or ten or 3 min ago was the issues, ok? So they click the locks. Everything is here is eastings behaviors, nothing changed, ok? The starting for now, this page is brand new, ok? So until here is eastings. Okay, well now it's brand new, ok. What happens before, let me show you.
+
+80 "Mingchieh Wang" (326547456)
+00:21:47.879 --> 00:22:07.879
+They go to sorry for moving on, they go to old device three sixties, they see a lot of events. These events might be, 1000 2000 topic subject. They cannot they need one and two days to figure out, ok.
+
+81 "Mingchieh Wang" (326547456)
+00:22:07.879 --> 00:22:28.129
+IP address, events were issues. It takes so long to figure out and then that's why they complained. So that's why we create one more page. Just particularly focused on OMP OMP is.
+
+82 "Mingchieh Wang" (326547456)
+00:22:28.129 --> 00:22:50.209
+Here OMP procedures on top, so user once user login, they definitely wanted to see, ok, that was 08:00 people complains the service down so they can directly go to the air o'clock. Okay, see 08:00 the CP.
+
+83 "Mingchieh Wang" (326547456)
+00:22:50.209 --> 00:23:23.389
+New memory goes to over the warning the threshold. Oh, ok. Then, then they will watch the air o'clock underneath what's the events, what caused the issues and then we already organized most subject will cause the issue once the control connection because it has traffic control connection can tell what's going on. OMP was the particular package transitions and policy. Policy is the.
+
+84 "Mingchieh Wang" (326547456)
+00:23:23.389 --> 00:23:43.389
+Policy like you can imagination the policy like I don't allow it to all of the employee watch watch YouTube. That's one of the policies, think like that. It can it can be something else. So those three things are the major things cause the issues. So they watch air clock and go to the air clock and.
+
+85 "Mingchieh Wang" (326547456)
+00:23:43.389 --> 00:24:18.049
+See oh ok they are around 4030 things, so they actually narrow down the time, timeframes, narrow down the subjects, narrow down the items, and then they click on those events figure even filter out those events underneath. So those 20 events, 30 events cause the issue and then they can take a look. Okay, the event times between those A o'clock, but now on the.
+
+86 "Mingchieh Wang" (326547456)
+00:24:18.049 --> 00:24:39.049
+Markup I says 04:00. Okay, let's see ok IP address goes through and then send out and receive out and receive, you will see how and receive is not matched is because it lost the package. So they can tell all ok this one has the problems and then they figure out, ok.
+
+87 "Mingchieh Wang" (326547456)
+00:24:39.049 --> 00:24:59.049
+This is our controller, maybe the policy, some of the hospitals release a new policy and then they go back to our emails or report, they copy this, go back to email report, say, hey, I tried to figure out these issues because.
+
+88 "Mingchieh Wang" (326547456)
+00:24:59.049 --> 00:25:20.909
+Was one of the hospitals in in today 08:00 in the morning they try to release one of the policy. This policy actually can release in the midnight at 02:00 at the midnight so it can be reduced the issues. So that's the entire story and scenario.
+
+89 "Mingchieh Wang" (326547456)
+00:25:20.909 --> 00:25:40.909
+So and now I wanted to pause here. Any questions or I need your help of your eyes for help me to improve. Thank you.
+
+90 "Mingchieh Wang" (326547456)
+00:25:40.909 --> 00:25:47.208
+Oh.
+
+91 "Yufei Mclaughlin" (1767496960)
+00:25:47.208 --> 00:26:20.309
+I was wondering, so earlier on the top, you said that at 08:00 it go, it went above the warning baseline and I was wondering, so this is troubleshooting kind of page and is there a way to give some critical summary of what actions that need to be.
+
+92 "Yufei Mclaughlin" (1767496960)
+00:26:20.309 --> 00:26:35.369
+Taken right away or like is there a way to highlight with red color and because if So when you 1st presented this, it looks beautiful.
+
+93 "Yufei Mclaughlin" (1767496960)
+00:26:35.369 --> 00:26:51.924
+And I feel if I were the user I would just, you know, like go through like I I feel there's NO like some big things for me to spot unless I go into detail.
+
+94 "Mingchieh Wang" (326547456)
+00:26:51.924 --> 00:26:55.691
+I don't know if this is the use case.
+
+95 "Yufei Mclaughlin" (1767496960)
+00:26:55.691 --> 00:27:07.807
+That you are addressing or when they come to this page, they already know a specific time or event that they are looking for.
+
+96 "Mingchieh Wang" (326547456)
+00:27:07.807 --> 00:27:25.607
+I I actually understand you want us to organize the results for users it Do I understand correctly or not?
+
+97 "Yufei Mclaughlin" (1767496960)
+00:27:25.607 --> 00:27:38.479
+Yes, so when a person come to this page, do they already know some specific things that they are looking for on this page?
+
+98 "Mingchieh Wang" (326547456)
+00:27:38.479 --> 00:27:41.029
+Yes, they they know the time.
+
+99 "Yufei Mclaughlin" (1767496960)
+00:27:41.029 --> 00:27:44.067
+I see. So last time is.
+
+100 "Mingchieh Wang" (326547456)
+00:27:44.067 --> 00:28:01.279
+The 1st things they people complain by email, by phone calls 08:00, everything's shutting down. That's why they come in here to see 08:00 the email, it can be others a 03:00 04:00, but 08:00 and then they check 08:00 and then they check what's the email.
+
+101 "Mingchieh Wang" (326547456)
+00:28:01.279 --> 00:28:27.919
+And then that's why they feel it out. But we cannot tell the it might be in my 2040s events in 08:00, see? One is policy, one is transition loss. So those things, ok, what happens here? If we let him know, ok, the 1st event is a problem.
+
+102 "Mingchieh Wang" (326547456)
+00:28:27.919 --> 00:28:48.139
+But the problem is not caused just one event. The traffic is caused by it is caused by multiple events added up. That's why we cannot say the 1st one is a problem or second was problem, but they they can take look and then do the report, say, ok, three issues might.
+
+103 "Mingchieh Wang" (326547456)
+00:28:48.139 --> 00:29:05.287
+Cause the major issues and how we, how we have a plan to work on that. One is switch the maintain times one yeah go ahead. Did you, did you say anything?
+
+104 "Yufei Mclaughlin" (1767496960)
+00:29:05.287 --> 00:29:08.731
+I don't know, NO.
+
+105 "Mingchieh Wang" (326547456)
+00:29:08.731 --> 00:29:12.506
+I'm not sure do I answer your question or can you.
+
+106 "Yufei Mclaughlin" (1767496960)
+00:29:12.506 --> 00:29:41.609
+So you are saying that I will look at the chart 1st and then look at the bar chart and then and then after the bar chart, I can filter. So the table that I'm looking at right now is after I click on say 23 and then I see the 23 events on this table.
+
+107 "Yufei Mclaughlin" (1767496960)
+00:29:41.609 --> 00:29:56.909
+Got it. So, got it and then I wonder if there's a way for showing some like.
+
+108 "Yufei Mclaughlin" (1767496960)
+00:29:56.909 --> 00:30:23.744
+You know status or like warning or like some kind of, icon to indicate that e.g. you mentioned that the 3rd row, that's something that they have to pay attention like like what is the hierarchy for me to go through this table?
+
+109 "Mingchieh Wang" (326547456)
+00:30:23.744 --> 00:31:00.566
+So originals what they do is they come in here, they see events, right? And then events now even some events not even relevant to the CPU memory, but it's solven. So what they do is they download and take one day, two days and watch each details because I was mentioned the issue is not caused by one or two events is multiple events added out.
+
+110 "Yufei Mclaughlin" (1767496960)
+00:31:00.566 --> 00:31:01.731
+I see.
+
+111 "Mingchieh Wang" (326547456)
+00:31:01.731 --> 00:31:17.766
+If you have a traffic it's not traffic is not caused by one call, it traffic is caused by ten calls. So they have to figure out, we cannot know say ok this is the event with misleadings.
+
+112 "Yufei Mclaughlin" (1767496960)
+00:31:17.766 --> 00:31:21.569
+So these every single event matter.
+
+113 "Yufei Mclaughlin" (1767496960)
+00:31:23.365 --> 00:31:33.980
+Got it.
+
+114 "Mingchieh Wang" (326547456)
+00:31:33.980 --> 00:31:37.289
+Yeah, any other questions?
+
+115 "Andrew Lee" (1080586240)
+00:31:37.289 --> 00:32:00.345
+Yeah, I had, I I know for analytics sometimes we reselect like a bar chart to just so they know that the the table kind of updates based on your selection. I wonder if that is something that might make sense here.
+
+116 "Mingchieh Wang" (326547456)
+00:32:00.345 --> 00:32:03.648
+What do you Can you provide more information?
+
+117 "Andrew Lee" (1080586240)
+00:32:03.648 --> 00:32:18.885
+So so that the table updates based on the hour you select, right? Yeah. Yeah, so, oh wait, is it just through the dropdown that you can do that?
+
+118 "Mingchieh Wang" (326547456)
+00:32:18.885 --> 00:32:26.643
+Dropdown for 13612 24 h.
+
+119 "Andrew Lee" (1080586240)
+00:32:26.643 --> 00:32:37.663
+Oh, I see. And then if you, can you click on the event bar chart at all or the event bar chart.
+
+120 "Andrew Lee" (1080586240)
+00:32:39.647 --> 00:32:44.169
+Yeah, are you able to select any of the rectangles there?
+
+121 "Mingchieh Wang" (326547456)
+00:32:44.169 --> 00:32:53.804
+No, once you click the trigger point will be, those entire bar and then the table underneath will swap.
+
+122 "Andrew Lee" (1080586240)
+00:32:53.804 --> 00:33:01.886
+Okay, yeah, yeah. So I think for analytics we they default, when, when there's an interaction like this.
+
+123 "Mingchieh Wang" (326547456)
+00:33:01.886 --> 00:33:03.742
+It's the default to.
+
+124 "Andrew Lee" (1080586240)
+00:33:03.742 --> 00:33:19.011
+The most recent hour is selected that way you can see the selected state for the bar chart and then it kind of lets the user know that this chart is selectable.
+
+125 "Mingchieh Wang" (326547456)
+00:33:19.011 --> 00:33:23.707
+Oh, so I will take a look. Thank you for.
+
+126 "Andrew Lee" (1080586240)
+00:33:23.707 --> 00:33:31.083
+Yeah. Yeah, yeah, just just see if that works for this because I know analytics uses that interaction a lot.
+
+127 "Mingchieh Wang" (326547456)
+00:33:31.083 --> 00:33:48.419
+Yeah, so, I can ask him, so 1st of all they can select the 1st chart like this, right? Yeah. The policy and then they see the policy and, and then they can choose the OMP or but.
+
+128 "Mingchieh Wang" (326547456)
+00:33:48.419 --> 00:34:14.328
+The I'm thinking, I'm guessing I'm not sure the they wanna bank bundle in those three together is because we don't wanna misleadings if they choose 2022 on top, they will think about, ok, they find the new cause in our 20 twos and miss others.
+
+129 "Andrew Lee" (1080586240)
+00:34:14.328 --> 00:34:20.087
+Yeah yeah sorry I meant you select all all three are selected together.
+
+130 "Mingchieh Wang" (326547456)
+00:34:20.087 --> 00:34:38.639
+Right together. Yeah, we was thinking about to align with the we analytic definitely thank you for your suggestion. Sure yeah Any others?
+
+131 "Mingchieh Wang" (326547456)
+00:34:38.639 --> 00:35:02.599
+I if it's not, thank you very much for your feedback and your listening. I know it's my presentation is long, long longer than others because, I don't wanna just give you like interview presentations, talk about a little bit background, little bit of project but we are actually in SD WAN team.
+
+132 "Mingchieh Wang" (326547456)
+00:35:02.599 --> 00:35:12.666
+Things we need to we need to share the domain knowledge. That's why the presentation take longer. Thank you.
+
+133 "Cheryl Gillis" (3664747264)
+00:35:12.666 --> 00:35:19.330
+Nice job ming. I appreciate the extra sharings. Thank you.
+
+134 "Yufei Mclaughlin" (1767496960)
+00:35:19.330 --> 00:35:22.589
+Thanks. Thank you. Okay, thanks everyone.
+
+135 "Mingchieh Wang" (326547456)
+00:35:22.589 --> 00:35:25.109
+Thank you. Bye bye.

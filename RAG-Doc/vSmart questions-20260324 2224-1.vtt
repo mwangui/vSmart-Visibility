@@ -1,0 +1,845 @@
+WEBVTT
+
+1 "Mingchieh Wang" (2508059648)
+00:00:03.225 --> 00:00:35.425
+Okay. Can you see my screen ok? Yes. So today's agenda is review the new designs based on your comments last week. And please let me know what I'm missing and then have a questions from Jeff and me together and the 1st one is we actually update based on your feedback comments, right? The 1st thing is the switch hold, the massman.
+
+2 "Raghu Chereddy" (2182419456)
+00:00:35.425 --> 00:00:37.513
+So rate one.
+
+3 "Mingchieh Wang" (2508059648)
+00:00:37.513 --> 00:00:53.765
+So people know understand, ok, that's the hardline scope over there. And then we have a CPU average memory average CPU usage memory message. I pause here to digest.
+
+4 "Raghu Chereddy" (2182419456)
+00:00:53.765 --> 00:01:04.506
+Just one question here. So the CPU memory, that averages are they calculated across the window that we are displaying here? Is that the average?
+
+5 "Mingchieh Wang" (2508059648)
+00:01:04.506 --> 00:01:06.740
+You mean CPU or memory.
+
+6 "Raghu Chereddy" (2182419456)
+00:01:06.740 --> 00:01:10.046
+Both both averages. Okay.
+
+7 "Mingchieh Wang" (2508059648)
+00:01:10.046 --> 00:01:11.327
+So what's your question.
+
+8 "Raghu Chereddy" (2182419456)
+00:01:11.327 --> 00:01:19.423
+Is that calculated across the, e.g., in this case 12 h window, is that the average of 12 h window?
+
+9 "Mingchieh Wang" (2508059648)
+00:01:19.423 --> 00:01:31.364
+Okay, so, if this is a 12 h, it's definitely 12 h windows. Otherwise we need these descriptions on top say what is the unique?
+
+10 "Raghu Chereddy" (2182419456)
+00:01:31.364 --> 00:01:44.284
+No, that is fine. So I'm just saying since it shows 12 h, it has to be 12 h window. If it lets say 1 h, if it shows 1 h, it should be the 1 h average.
+
+11 "Mingchieh Wang" (2508059648)
+00:01:44.284 --> 00:01:47.869
+Yes I can put the notes note.
+
+12 "Raghu Chereddy" (2182419456)
+00:01:47.869 --> 00:01:52.441
+Okay, I agree with that.
+
+13 "Mingchieh Wang" (2508059648)
+00:01:52.441 --> 00:02:04.387
+And question here if there's a highlight here, should we over showing overall it will never showing up over the the number?
+
+14 "Raghu Chereddy" (2182419456)
+00:02:04.387 --> 00:02:21.884
+It depends on how the system is configured. We have a feature called the safety barriers. Okay. If that is enabled, well actually it can go over that red line.
+
+15 "Mingchieh Wang" (2508059648)
+00:02:21.884 --> 00:02:33.786
+So if let's go over the lines, people might ask you, ok, if there's a over the line is that trigger events or trigger alarms to like user know?
+
+16 "Raghu Chereddy" (2182419456)
+00:02:33.786 --> 00:02:49.349
+There are already different set of alarms when we go over that threshold we are going to raise. So here what this means is when it goes over the red line, certain operations are restricted in the device on the device.
+
+17 "Mingchieh Wang" (2508059648)
+00:02:49.349 --> 00:02:52.546
+Okay Rebe what's that on the device?
+
+18 "Raghu Chereddy" (2182419456)
+00:02:52.546 --> 00:02:56.183
+Sudden operations are restricted on the device.
+
+19 "Mingchieh Wang" (2508059648)
+00:02:56.183 --> 00:03:00.442
+Okay, user operations are restricted. Okay.
+
+20 "Raghu Chereddy" (2182419456)
+00:03:00.442 --> 00:03:06.051
+That's a different feature and there is a sufficient documentation for that.
+
+21 "Mingchieh Wang" (2508059648)
+00:03:06.051 --> 00:03:17.208
+So user will realize that they have to go to other page handle the situation or how does our workflows?
+
+22 "Raghu Chereddy" (2182419456)
+00:03:17.208 --> 00:03:20.966
+I don't think we have a separate page for that.
+
+23 "Mingchieh Wang" (2508059648)
+00:03:20.966 --> 00:03:25.346
+But what this means is that.
+
+24 "Raghu Chereddy" (2182419456)
+00:03:25.346 --> 00:03:42.489
+Certain operations are restricted by the user which are documented in one of the either release I mean I'm not sure what documentation it is, customer facing documentation it is, but they are documented there. If it goes over the red line, what, what options are restricted? Okay.
+
+25 "Mingchieh Wang" (2508059648)
+00:03:42.489 --> 00:03:55.010
+Will you mind to share my screens because we people might ask you whatever, they definitely go over the messments people will question for trouble troubleshooting.
+
+26 "Raghu Chereddy" (2182419456)
+00:03:55.010 --> 00:03:58.143
+So this is 80 % not the maximum.
+
+27 "Mingchieh Wang" (2508059648)
+00:03:58.143 --> 00:03:59.548
+This is.
+
+28 "Raghu Chereddy" (2182419456)
+00:03:59.548 --> 00:04:03.705
+There are the basically below that is a safe operating zone.
+
+29 "Mingchieh Wang" (2508059648)
+00:04:03.705 --> 00:04:05.290
+One.
+
+30 "Raghu Chereddy" (2182419456)
+00:04:05.290 --> 00:04:19.043
+And when CPU or memory goes above that line, it is going to the system is going to deteriorate at that point of time certain operations are restricted.
+
+31 "Mingchieh Wang" (2508059648)
+00:04:19.043 --> 00:04:29.130
+Okay, if in this use case, we might using yellow, not the red one.
+
+32 "Raghu Chereddy" (2182419456)
+00:04:29.130 --> 00:04:31.386
+Ah, say that again?
+
+33 "Mingchieh Wang" (2508059648)
+00:04:31.386 --> 00:04:51.647
+Yes, in your situations, right? So we are allowed to go over, right? And then they will trigger the others continuing steps for troubleshooting. Therefore, for now we show using the yellow, not the red one. Otherwise people will question, ok, what happened next?
+
+34 "Raghu Chereddy" (2182419456)
+00:04:51.647 --> 00:04:56.802
+Sure that is fine, ok? Okay.
+
+35 "Mingchieh Wang" (2508059648)
+00:04:56.802 --> 00:05:04.570
+Oh, are we ok for the next one?
+
+36 "Raghu Chereddy" (2182419456)
+00:05:04.570 --> 00:05:14.162
+Yeah, next one looks good. The number should represent how many events of that kind of has happened at that point of time. That's good.
+
+37 "Mingchieh Wang" (2508059648)
+00:05:14.162 --> 00:05:42.049
+Okay, so now I'm going to work with you for hover and click events. Okay, so when users hover is option number one, current components using like this. So when you hover on the top because we wanted to continue connections in between so user hover on the top, it will show.
+
+38 "Mingchieh Wang" (2508059648)
+00:05:42.049 --> 00:05:59.729
+The tooltip underneath them at the same time. But the problems here is people will come confuse because the two separate box and then display at the same time and they they only mouse hover for one.
+
+39 "Mingchieh Wang" (2508059648)
+00:05:59.729 --> 00:06:21.188
+So this one will cause confusions. Therefore, we come with the other ones here, ok? We customize what we customize here is only the backgrounds underneath for 2nd chart, see? So they know ok there's a great box you hover and then show all of them together.
+
+40 "Raghu Chereddy" (2182419456)
+00:06:21.188 --> 00:06:24.066
+Yeah, actually this looks better.
+
+41 "Mingchieh Wang" (2508059648)
+00:06:24.066 --> 00:06:53.884
+Okay, so but the problems here is using my own questions hey I only have a top, why are you showing so many informations because on the top I only show memory and CPUs, right? So we come up with the 3rd options here. So we're using exactly the same box but vertical, so it will connect in between top and buttons people have a visually vertically online for both of them. So what do you think?
+
+42 "Raghu Chereddy" (2182419456)
+00:06:53.884 --> 00:07:06.331
+Yeah, I mean either on the side by side or the vertical when both of them are good as long as since we are presenting the same data. Okay.
+
+43 "Mingchieh Wang" (2508059648)
+00:07:06.331 --> 00:07:17.630
+Okay, I will confirm with see what components we can utilize for both of the vertical or horizontals.
+
+44 "Raghu Chereddy" (2182419456)
+00:07:17.630 --> 00:07:23.325
+Yeah, I also have one comment here in the 1st case and the 1st block.
+
+45 "Mingchieh Wang" (2508059648)
+00:07:23.325 --> 00:07:25.726
+Besides average.
+
+46 "Raghu Chereddy" (2182419456)
+00:07:25.726 --> 00:07:27.390
+The CPU memory usage.
+
+47 "Mingchieh Wang" (2508059648)
+00:07:27.390 --> 00:07:28.089
+Okay.
+
+48 "Raghu Chereddy" (2182419456)
+00:07:28.089 --> 00:07:38.241
+There is some other data that also we need to show. We are not plotting on the graph. We don't need to, we don't want to plot that data.
+
+49 "Mingchieh Wang" (2508059648)
+00:07:38.241 --> 00:07:39.903
+But route sent.
+
+50 "Raghu Chereddy" (2182419456)
+00:07:39.903 --> 00:07:46.040
+Route received number of peers, that information also we have to show.
+
+51 "Mingchieh Wang" (2508059648)
+00:07:46.040 --> 00:07:59.211
+Okay, questions so growth information belong to which category? Is it belong to CPU or it belong to memory or not belong to any of these?
+
+52 "Raghu Chereddy" (2182419456)
+00:07:59.211 --> 00:08:05.182
+No, NO, so, ok. It will be part of the, it's not part of the memory or CPU.
+
+53 "Mingchieh Wang" (2508059648)
+00:08:05.182 --> 00:08:06.592
+Oh, ok.
+
+54 "Raghu Chereddy" (2182419456)
+00:08:06.592 --> 00:08:17.883
+If a user I mean, let's say basically you your user CPU or memory usage, any point there.
+
+55 "Mingchieh Wang" (2508059648)
+00:08:17.883 --> 00:08:18.650
+I.
+
+56 "Raghu Chereddy" (2182419456)
+00:08:18.650 --> 00:08:33.948
+We are showing average and instantaneous CPU memory usage. Along that, we also want to show how many routes were sent received at that point of time.
+
+57 "Mingchieh Wang" (2508059648)
+00:08:33.948 --> 00:08:58.619
+I understand. So what I can do is I under here memory, under memory I will put something called orders, ok? Then put whatever you mentioned, put it over there. Do you think but I need a clear list what's the name and the numbers can you write it down for me? Because my English is not quite well. I might not type have a type typos here.
+
+58 "Mingchieh Wang" (2508059648)
+00:08:58.619 --> 00:09:16.949
+Right. I will send you that information. Okay, could you please send me today and because I'm trying to set up meeting tomorrow or Thursday, ok? Okay, let's continue, so one questions from backends, so when users, right? It definitely triggered the tooltips.
+
+59 "Mingchieh Wang" (2508059648)
+00:09:16.949 --> 00:09:36.949
+No problems and but what happened with the tables underneath? Because user might want to see, ok, they see 20 sevens, 25, sixteens, they they see these columns, right? They might click and then should we filter these columns, these 02:00.
+
+60 "Mingchieh Wang" (2508059648)
+00:09:36.949 --> 00:09:40.409
+Information in the table.
+
+61 "Raghu Chereddy" (2182419456)
+00:09:40.409 --> 00:09:44.127
+Yes. Okay, so.
+
+62 "Mingchieh Wang" (2508059648)
+00:09:44.127 --> 00:10:02.082
+If they trigger, it definitely shows. What happened if by default they don't trigger anything by default are we show the average stuff for 12 h or what information we gonna display here?
+
+63 "Raghu Chereddy" (2182419456)
+00:10:02.082 --> 00:10:10.800
+So, if a user doesn't select any doesn't click any time there.
+
+64 "Mingchieh Wang" (2508059648)
+00:10:10.800 --> 00:10:11.910
+Yeah.
+
+65 "Raghu Chereddy" (2182419456)
+00:10:11.910 --> 00:10:27.005
+I think show all events in the 12 h then in that row where there is search button and system IP, site ID, event type, user should be able to filter based on those filters.
+
+66 "Mingchieh Wang" (2508059648)
+00:10:27.005 --> 00:10:32.610
+Okay, let me show you here. You mean this one here, right?
+
+67 "Raghu Chereddy" (2182419456)
+00:10:32.610 --> 00:10:41.769
+Yeah, so the system IP, site ID, they can be also, it can be filtered based on those also.
+
+68 "Mingchieh Wang" (2508059648)
+00:10:41.769 --> 00:10:49.949
+Okay, site ID timing, does the time is sensitive?
+
+69 "Raghu Chereddy" (2182419456)
+00:10:49.949 --> 00:10:58.090
+We don't have a filter for time, but rather we have system IP and site ID.
+
+70 "Mingchieh Wang" (2508059648)
+00:10:58.090 --> 00:11:04.067
+Sure, I can put those two. So these should be site IDs, right?
+
+71 "Raghu Chereddy" (2182419456)
+00:11:04.067 --> 00:11:08.666
+Correct. Sure, give me a second.
+
+72 "Mingchieh Wang" (2508059648)
+00:11:08.666 --> 00:11:23.687
+Okay, next question is, I only show control connection policies and OMP three options three objects here. What else I can put it underneath for a few that's enough.
+
+73 "Raghu Chereddy" (2182419456)
+00:11:23.687 --> 00:11:26.104
+We have we will have only three event types.
+
+74 "Mingchieh Wang" (2508059648)
+00:11:26.104 --> 00:11:32.285
+Okay. Oh, but different IP and different site ID.
+
+75 "Raghu Chereddy" (2182419456)
+00:11:32.285 --> 00:11:42.649
+Correct yeah there will be a different site ID, different system IP. Okay, different time. Sure.
+
+76 "Mingchieh Wang" (2508059648)
+00:11:42.649 --> 00:11:51.751
+I, I can make it up, NO problems. Okay, any questions before I move on?
+
+77 "Raghu Chereddy" (2182419456)
+00:11:51.751 --> 00:11:55.109
+No, I'm it looks good so far, so far good.
+
+78 "Mingchieh Wang" (2508059648)
+00:11:55.109 --> 00:12:32.024
+The next question is what happen if user click device detail? Okay, we have two options here. See, 1st options will be exactly same as events. So user go to the events, right? They click the device, they see the sidebars coming up and then they will show, ok, what's the router's router received OMP CC appliance, things like that. So we wanted to have the same patterns people can recognize or we can have a pop up windows like this.
+
+79 "Raghu Chereddy" (2182419456)
+00:12:32.024 --> 00:12:53.155
+I don't have any preference as long as we show the data that is shown, that is shown here, routes and received uptime and CC uptime and OMP uptime. That's the that's the important part we need to show. How do we show, I mean you can decide on that part.
+
+80 "Mingchieh Wang" (2508059648)
+00:12:53.155 --> 00:13:06.105
+Okay, a US suggestion will be using the sidebar because on here they click and they can compare, they have two side by side comparison comparisons.
+
+81 "Raghu Chereddy" (2182419456)
+00:13:06.105 --> 00:13:19.142
+Okay, I don't know what is a better one maybe you can check with Jeffrey on that. How do we show the data or even better the someone from PLM? Okay.
+
+82 "Mingchieh Wang" (2508059648)
+00:13:19.142 --> 00:13:36.839
+Sure sure sure. I will do. So question here the information is nothing. I need your help to put some dummy data and check if the title is correct or anything else I need to put I need to any other topic I need to put in here.
+
+83 "Mingchieh Wang" (2508059648)
+00:13:36.839 --> 00:13:44.493
+Because it it looks like missing data.
+
+84 "Raghu Chereddy" (2182419456)
+00:13:44.493 --> 00:13:50.147
+Oh, I think that's, would you like to join this meeting now?
+
+85 "Mingchieh Wang" (2508059648)
+00:13:50.147 --> 00:13:50.789
+Okay.
+
+86 "Raghu Chereddy" (2182419456)
+00:13:50.789 --> 00:13:55.331
+Just hold on for a second and let me move to a different row.
+
+87 "Mingchieh Wang" (2508059648)
+00:13:55.331 --> 00:14:04.121
+Oh, ok. Sure. Take your time.
+
+88 "Raghu Chereddy" (2182419456)
+00:14:04.121 --> 00:14:22.591
+Okay. Yeah, so sorry about that. Yeah. Okay here routes send and received are just pure numbers, integer numbers.
+
+89 "Mingchieh Wang" (2508059648)
+00:14:22.591 --> 00:14:26.405
+Integer numbers like a, like a 77.
+
+90 "Raghu Chereddy" (2182419456)
+00:14:26.405 --> 00:14:31.746
+Yeah, 70. No, not percent, just number just a number.
+
+91 "Mingchieh Wang" (2508059648)
+00:14:31.746 --> 00:14:35.124
+Okay? And was docker receipt.
+
+92 "Raghu Chereddy" (2182419456)
+00:14:35.124 --> 00:14:37.508
+Same thing just just a number.
+
+93 "Mingchieh Wang" (2508059648)
+00:14:37.508 --> 00:14:44.357
+40? Yeah. Okay. And then what is the o o OMP?
+
+94 "Raghu Chereddy" (2182419456)
+00:14:44.357 --> 00:14:47.643
+This is the actual time.
+
+95 "Mingchieh Wang" (2508059648)
+00:14:47.643 --> 00:14:53.408
+You mean, can you, can you.
+
+96 "Raghu Chereddy" (2182419456)
+00:14:53.408 --> 00:15:16.350
+So, how does this look like? So this is the time when the device was up. Basically, it would be year date, year month date.
+
+97 "Mingchieh Wang" (2508059648)
+00:15:16.350 --> 00:15:22.691
+Year, months, day? Okay. And also.
+
+98 "Raghu Chereddy" (2182419456)
+00:15:22.691 --> 00:15:27.487
+Hours and seconds.
+
+99 "Mingchieh Wang" (2508059648)
+00:15:27.487 --> 00:15:50.787
+Time? Okay last so M AR years, years will be months and day, ok? And then AA9 ten.
+
+100 "Raghu Chereddy" (2182419456)
+00:15:50.787 --> 00:16:00.650
+Yeah, 09:10, something like that 09:10, yeah am. Yes. Okay, sure. I think there is a seconds also in that, but I will confirm.
+
+101 "Mingchieh Wang" (2508059648)
+00:16:00.650 --> 00:16:07.327
+Okay, it will be earlier or later than this time.
+
+102 "Raghu Chereddy" (2182419456)
+00:16:07.327 --> 00:16:11.226
+It would be earlier compared to OMP uptime.
+
+103 "Mingchieh Wang" (2508059648)
+00:16:11.226 --> 00:16:13.667
+Okay, it's like three three.
+
+104 "Raghu Chereddy" (2182419456)
+00:16:13.667 --> 00:16:16.126
+Yeah, sure, yeah. Okay, sorry.
+
+105 "Mingchieh Wang" (2508059648)
+00:16:16.126 --> 00:16:24.710
+That's good. Any other topic should go here?
+
+106 "Raghu Chereddy" (2182419456)
+00:16:24.710 --> 00:16:27.069
+A number of peers.
+
+107 "Mingchieh Wang" (2508059648)
+00:16:27.069 --> 00:16:31.841
+Number of P E R P.
+
+108 "Raghu Chereddy" (2182419456)
+00:16:31.841 --> 00:16:35.808
+Number of or you can say number of devices.
+
+109 "Mingchieh Wang" (2508059648)
+00:16:35.808 --> 00:16:43.045
+Okay, number of device, let me type here, like this.
+
+110 "Raghu Chereddy" (2182419456)
+00:16:43.045 --> 00:16:46.687
+Yes, device count. Okay.
+
+111 "Mingchieh Wang" (2508059648)
+00:16:46.687 --> 00:16:54.310
+I just put it here. I I I put it but so device will be how many? Three?
+
+112 "Raghu Chereddy" (2182419456)
+00:16:54.310 --> 00:16:59.169
+No, just a number. It could be any number, it's a.
+
+113 "Mingchieh Wang" (2508059648)
+00:16:59.169 --> 00:17:20.067
+Okay, I put it, I put it back later like like this ok yeah something device is with ACE, right?
+
+114 "Raghu Chereddy" (2182419456)
+00:17:20.067 --> 00:17:21.310
+Correct.
+
+115 "Mingchieh Wang" (2508059648)
+00:17:21.310 --> 00:17:34.805
+Okay, what else?
+
+116 "Raghu Chereddy" (2182419456)
+00:17:34.805 --> 00:17:40.172
+I think that's it. Sure.
+
+117 "Mingchieh Wang" (2508059648)
+00:17:40.172 --> 00:17:55.265
+I will ok next questions is here. So per Jeff, this is controllers, right?
+
+118 "Raghu Chereddy" (2182419456)
+00:17:55.265 --> 00:17:56.729
+Right.
+
+119 "Mingchieh Wang" (2508059648)
+00:17:56.729 --> 00:18:14.142
+The items values key pair is not going to show us up, but I cannot tell, I need your help to put a comments here saying hey me, this should be what? This should be should be nothing or should we I need help with check with those.
+
+120 "Raghu Chereddy" (2182419456)
+00:18:14.142 --> 00:18:29.461
+Okay, so health we are not calculating now, that is it's not here that's not applicable now. We have to take that out or just to put it as not applicable, that will be coming in the future releases.
+
+121 "Mingchieh Wang" (2508059648)
+00:18:29.461 --> 00:18:34.649
+What else?
+
+122 "Raghu Chereddy" (2182419456)
+00:18:34.649 --> 00:18:35.323
+Now.
+
+123 "Mingchieh Wang" (2508059648)
+00:18:35.323 --> 00:18:42.203
+Reboot.
+
+124 "Raghu Chereddy" (2182419456)
+00:18:42.203 --> 00:18:53.348
+It's not specific to V smart insights or vsmart health. That might be coming from somewhere else.
+
+125 "Mingchieh Wang" (2508059648)
+00:18:53.348 --> 00:18:56.127
+You mean this one here? Correct, it is.
+
+126 "Raghu Chereddy" (2182419456)
+00:18:56.127 --> 00:19:00.281
+It's not it's not related to the feature we are developing.
+
+127 "Mingchieh Wang" (2508059648)
+00:19:00.281 --> 00:19:08.228
+Okay, I just put notable. Yeah. Sure. How about crash?
+
+128 "Raghu Chereddy" (2182419456)
+00:19:08.228 --> 00:19:12.927
+Same thing. Is it something already existing or?
+
+129 "Mingchieh Wang" (2508059648)
+00:19:12.927 --> 00:19:33.506
+This because this is a template for all of the device in case people have a CAKB gen one gen two, they they they they need those informations. So anything sees not applied, we we just we just we just have nothing.
+
+130 "Raghu Chereddy" (2182419456)
+00:19:33.506 --> 00:19:38.791
+If it is C eight KB that's a device, so we don't need that one here.
+
+131 "Mingchieh Wang" (2508059648)
+00:19:38.791 --> 00:19:41.027
+Oh ok. I see.
+
+132 "Raghu Chereddy" (2182419456)
+00:19:41.027 --> 00:19:46.785
+This is a controller. Okay, I see.
+
+133 "Mingchieh Wang" (2508059648)
+00:19:46.785 --> 00:19:56.329
+How about CPU loads? Does the CPU loads should be match the number with here?
+
+134 "Raghu Chereddy" (2182419456)
+00:19:56.329 --> 00:20:01.769
+We can match with average CPU and average memory.
+
+135 "Mingchieh Wang" (2508059648)
+00:20:01.769 --> 00:20:10.088
+How how can I tell what show I really have these lots of a number? I don't know what number I should go through.
+
+136 "Raghu Chereddy" (2182419456)
+00:20:10.088 --> 00:20:11.908
+Here, average.
+
+137 "Mingchieh Wang" (2508059648)
+00:20:11.908 --> 00:20:18.569
+Okay, so it will be average. Correct.
+
+138 "Mingchieh Wang" (2508059648)
+00:20:18.569 --> 00:20:43.707
+Okay, and same here yeah ok I love I love backend notes again was modules here? Module is vsmart. Okay, are we using vsmart or controller? Because controller. Okay, come, like this.
+
+139 "Raghu Chereddy" (2182419456)
+00:20:43.707 --> 00:20:44.930
+Yeah.
+
+140 "Mingchieh Wang" (2508059648)
+00:20:44.930 --> 00:20:50.844
+Okay, next one, controller connections. Do we have this one?
+
+141 "Raghu Chereddy" (2182419456)
+00:20:50.844 --> 00:21:02.324
+No, everything here is not applicable.
+
+142 "Mingchieh Wang" (2508059648)
+00:21:02.324 --> 00:21:36.859
+Everything's not, ok. I just removed everything, ok? Yeah. Okay ok watch on top host names, IDs, upsinks went, room points tag.
+
+143 "Mingchieh Wang" (2508059648)
+00:21:36.859 --> 00:21:57.250
+Are you still tracking?
+
+144 "Raghu Chereddy" (2182419456)
+00:21:57.250 --> 00:21:59.551
+Oh sorry is there a question.
+
+145 "Mingchieh Wang" (2508059648)
+00:21:59.551 --> 00:22:04.667
+Yeah, yeah, lots of questions I need could you please go over those?
+
+146 "Raghu Chereddy" (2182419456)
+00:22:04.667 --> 00:22:17.605
+No, NO. Host name is good. Version is good, site ID, system IP upsince time zone location, chassis number ID, you know, that's only specific to the device.
+
+147 "Mingchieh Wang" (2508059648)
+00:22:17.605 --> 00:22:33.051
+Okay, yeah. No, NO trustee IDs, NO, models, right? It's not ideal yeah serious number because it's not even a device, so I will say NO. Right, yeah. Connections.
+
+148 "Raghu Chereddy" (2182419456)
+00:22:33.051 --> 00:22:36.099
+So that also we can just remove that.
+
+149 "Mingchieh Wang" (2508059648)
+00:22:36.099 --> 00:22:38.568
+Okay, how about text?
+
+150 "Raghu Chereddy" (2182419456)
+00:22:38.568 --> 00:22:41.634
+Just remove that.
+
+151 "Mingchieh Wang" (2508059648)
+00:22:41.634 --> 00:22:54.204
+I'm not sure if I can remove. I need to check with the front engineer or otherwise I will just put not apply. Okay, questions for you hold on hold on.
+
+152 "Raghu Chereddy" (2182419456)
+00:22:54.204 --> 00:22:57.787
+The site ID is also not applicable.
+
+153 "Mingchieh Wang" (2508059648)
+00:22:57.787 --> 00:23:02.109
+But you say ID site ID here. Did you see?
+
+154 "Raghu Chereddy" (2182419456)
+00:23:02.109 --> 00:23:10.589
+No, they are coming from the devices. This is the controller itself does not have a site ID. Okay.
+
+155 "Mingchieh Wang" (2508059648)
+00:23:10.589 --> 00:23:24.128
+The good catch. Do they have an address here?
+
+156 "Raghu Chereddy" (2182419456)
+00:23:24.128 --> 00:23:40.389
+He should actually select if you have vmanage. Under devices select the controller and see what they are actually showing. Here you have picked a device CG 113.
+
+157 "Mingchieh Wang" (2508059648)
+00:23:40.389 --> 00:23:45.682
+I'm not following, can you help me which file mentions?
+
+158 "Raghu Chereddy" (2182419456)
+00:23:45.682 --> 00:23:53.305
+So the information that is shown here is specific to the devices.
+
+159 "Mingchieh Wang" (2508059648)
+00:23:53.305 --> 00:23:55.582
+Controllers.
+
+160 "Raghu Chereddy" (2182419456)
+00:23:55.582 --> 00:24:11.168
+I see. So from the dropdown above, if you select the controller, it will, there will be different information here.
+
+161 "Mingchieh Wang" (2508059648)
+00:24:11.168 --> 00:24:22.570
+I see. So I see. So I'm gonna to remove lots of locations address only leave whatever's left, I see.
+
+162 "Raghu Chereddy" (2182419456)
+00:24:22.570 --> 00:24:38.842
+Yeah, I would suggest if you have access to the vmanage, take a look under devices dropdown. If you select controller, what actually is shown here? That is the information we have to show.
+
+163 "Mingchieh Wang" (2508059648)
+00:24:38.842 --> 00:24:48.344
+It could be different. Can, can you share the screen and bring me over there? I.
+
+164 "Raghu Chereddy" (2182419456)
+00:24:48.344 --> 00:24:52.288
+I need I don't have with me V manage access.
+
+165 "Mingchieh Wang" (2508059648)
+00:24:52.288 --> 00:24:56.333
+Okay, who is the best person still asking?
+
+166 "Raghu Chereddy" (2182419456)
+00:24:56.333 --> 00:24:59.844
+Check with.
+
+167 "Mingchieh Wang" (2508059648)
+00:24:59.844 --> 00:25:03.808
+Akshack L Falgon.
+
+168 "Raghu Chereddy" (2182419456)
+00:25:03.808 --> 00:25:08.290
+They are from the PLM team, product management.
+
+169 "Mingchieh Wang" (2508059648)
+00:25:08.290 --> 00:25:17.666
+Okay, so can you describe the sentence one? What should I asking? So, provide.
+
+170 "Raghu Chereddy" (2182419456)
+00:25:17.666 --> 00:25:25.306
+So, the information, if you go back to the previous screen that you shared.
+
+171 "Mingchieh Wang" (2508059648)
+00:25:25.306 --> 00:25:31.225
+Apologizes for moving. Okay, I will be here. Yeah.
+
+172 "Raghu Chereddy" (2182419456)
+00:25:31.225 --> 00:25:37.988
+So for the controller what should be shown under information status and control?
+
+173 "Mingchieh Wang" (2508059648)
+00:25:37.988 --> 00:25:53.348
+Okay, more information is supposed to because here provide controllers. Okay, sure. Okay. Can I move on?
+
+174 "Raghu Chereddy" (2182419456)
+00:25:53.348 --> 00:25:55.125
+Sure. Thank you.
+
+175 "Mingchieh Wang" (2508059648)
+00:25:55.125 --> 00:26:29.789
+So this is a new request for the scopes, right? I remember some people mentioned they wanna have OMP charts on this homepage and then for Jeff Jeff mentions because it is very smart, it's not a device so we only keep CPU memory and OMP. My problem is I don't know what exactly exactly data I need to show for the OMP.
+
+176 "Raghu Chereddy" (2182419456)
+00:26:29.789 --> 00:26:36.107
+So OMP just show CPU and memory usage.
+
+177 "Mingchieh Wang" (2508059648)
+00:26:36.107 --> 00:26:38.429
+See CPU memory is already here.
+
+178 "Raghu Chereddy" (2182419456)
+00:26:38.429 --> 00:26:42.247
+No, that's the whole system wide.
+
+179 "Mingchieh Wang" (2508059648)
+00:26:42.247 --> 00:26:56.070
+Okay, so if I have OMP and then showing CPU and memory, people will be confused, see CPU on the top CPU here. So how can I have a description so let people know this is separate?
+
+180 "Mingchieh Wang" (2508059648)
+00:26:58.429 --> 00:27:00.615
+Because I'm confused too.
+
+181 "Raghu Chereddy" (2182419456)
+00:27:00.615 --> 00:27:10.909
+Sure yeah who wanted to show here OMP CPU memory?
+
+182 "Mingchieh Wang" (2508059648)
+00:27:10.909 --> 00:27:34.948
+You mean this one and this one that was Jeff. Jeff was questions. He asked me to confirm with you, should we keep CPU or memory here? But my suggestion will be, the naming convention is complete actually duplicate people will be confused. That's why I need to confirm.
+
+183 "Raghu Chereddy" (2182419456)
+00:27:34.948 --> 00:27:37.729
+I'm not so sure if it goes here.
+
+184 "Mingchieh Wang" (2508059648)
+00:27:37.729 --> 00:27:41.942
+Even though Jeffrey said.
+
+185 "Raghu Chereddy" (2182419456)
+00:27:41.942 --> 00:27:48.822
+I think the people who can actually confirm this one would be again Falgun and Akshay.
+
+186 "Mingchieh Wang" (2508059648)
+00:27:48.822 --> 00:28:00.481
+Okay. Sure. Sure. You do you remember in last meeting, who is the person's asking for this?
+
+187 "Raghu Chereddy" (2182419456)
+00:28:00.481 --> 00:28:05.829
+Akshay I think. Okay, it was it was actually ok I'll check with him.
+
+188 "Mingchieh Wang" (2508059648)
+00:28:05.829 --> 00:28:35.159
+Thank you. Anything else? I think it's we good for now. Oh, there's a few questions from Jeff I wanted to go over with you follow with me. So Jeff was mentioned, take a look. Is there any Do we actually need to show system IP here? That was his questions.
+
+189 "Raghu Chereddy" (2182419456)
+00:28:35.159 --> 00:28:41.521
+Yeah, I think we need that one. Both system IP and site ID.
+
+190 "Mingchieh Wang" (2508059648)
+00:28:41.521 --> 00:28:44.231
+Okay you repeat Both four or for both.
+
+191 "Raghu Chereddy" (2182419456)
+00:28:44.231 --> 00:29:01.069
+We need both system IP and site ID. Okay.
+
+192 "Mingchieh Wang" (2508059648)
+00:29:08.415 --> 00:29:25.609
+Okay, and then the next question is lock. So because we was mentioned about this whole controller should be under the locks, but his question is, is that correct or not?
+
+193 "Raghu Chereddy" (2182419456)
+00:29:25.609 --> 00:29:29.941
+Yeah, again this is a question for Akshay.
+
+194 "Mingchieh Wang" (2508059648)
+00:29:29.941 --> 00:29:31.589
+Okay PL.
+
+195 "Raghu Chereddy" (2182419456)
+00:29:31.589 --> 00:29:36.061
+Pmiss where this actually should be.
+
+196 "Mingchieh Wang" (2508059648)
+00:29:36.061 --> 00:30:06.846
+Okay sure Nice one is here asking if the if user navigate here, is there any, is there a need or update that oh ok we I think we already.
+
+197 "Raghu Chereddy" (2182419456)
+00:30:06.846 --> 00:30:09.121
+Talking we discussed about this one.
+
+198 "Mingchieh Wang" (2508059648)
+00:30:09.121 --> 00:30:11.390
+Not hover but click.
+
+199 "Raghu Chereddy" (2182419456)
+00:30:11.390 --> 00:30:12.971
+Click yes.
+
+200 "Mingchieh Wang" (2508059648)
+00:30:12.971 --> 00:30:31.109
+Yes, because when user hover in between a table underneath switch in between, they, their eyes will be ready. Okay. We already confirmed.
+
+201 "Mingchieh Wang" (2508059648)
+00:30:31.109 --> 00:30:37.671
+Yeah, these show the date event.
+
+202 "Raghu Chereddy" (2182419456)
+00:30:37.671 --> 00:30:44.287
+Correct. Yeah.
+
+203 "Mingchieh Wang" (2508059648)
+00:30:44.287 --> 00:30:58.688
+Okay, I think we're good for now. Yep, so it will be another, will you like to join pm's meeting tomorrow or are you good with that?
+
+204 "Raghu Chereddy" (2182419456)
+00:30:58.688 --> 00:31:02.847
+I, I can join if if needed.
+
+205 "Mingchieh Wang" (2508059648)
+00:31:02.847 --> 00:31:10.461
+Okay, I will have you. Who else should I invite? Akshay and.
+
+206 "Raghu Chereddy" (2182419456)
+00:31:10.461 --> 00:31:12.387
+Right.
+
+207 "Mingchieh Wang" (2508059648)
+00:31:12.387 --> 00:31:15.487
+Thank you.
+
+208 "Raghu Chereddy" (2182419456)
+00:31:15.487 --> 00:31:18.802
+That's my manager.
+
+209 "Mingchieh Wang" (2508059648)
+00:31:18.802 --> 00:31:23.333
+Right. Would you mind ping me the phone because I actually.
+
+210 "Raghu Chereddy" (2182419456)
+00:31:23.333 --> 00:31:30.371
+I'll just send you the ID. Sure.
+
+211 "Mingchieh Wang" (2508059648)
+00:31:30.371 --> 00:31:48.960
+Okay, sure. I'll do that. Thank you so much last let me update what I have today and then check with tomorrow. Okay, sure. Thank you. Bye. Thank you.

@@ -1,0 +1,1117 @@
+WEBVTT
+
+1 "Akshay Kaul" (4144507392)
+00:00:02.472 --> 00:00:19.313
+So as I was saying, right, one thing we need to keep in mind is like you and Ramana are experts, right? And if you had to review your notes, just think from customers perspective that all these things should be fairly obvious to them, right? So.
+
+2 "Raghu Chereddy" (1921409024)
+00:00:19.313 --> 00:00:34.429
+Sure sure so what happened actually was here the discussion happened a long time ago and the feature was parked for quite some time.
+
+3 "Akshay Kaul" (4144507392)
+00:00:34.429 --> 00:00:51.649
+I understand all of that. All I'm saying is like users will see a UI for the 1st time and if they can't interpret it, then we should make sure it's easy for them to interpret. I'm not saying don't please don't take it that way. I'm just saying that the UI should be intuitive enough for them to.
+
+4 "Raghu Chereddy" (1921409024)
+00:00:51.649 --> 00:01:02.190
+Correct. Yeah. Yep.
+
+5 "Akshay Kaul" (4144507392)
+00:01:02.190 --> 00:01:06.194
+Okay, so let's get started.
+
+6 "Raghu Chereddy" (1921409024)
+00:01:06.194 --> 00:01:13.124
+Yes, yeah, Ming, you want to share that the presentation, the chart you were showing yesterday.
+
+7 "Mingchieh Wang" (1659701504)
+00:01:13.124 --> 00:01:18.351
+Yeah. Yep yep, you know if you see my.
+
+8 "Srinivas Yalamanchali" (3824963328)
+00:01:18.351 --> 00:01:20.592
+The page or recording, right? Yeah.
+
+9 "Raghu Chereddy" (1921409024)
+00:01:20.592 --> 00:01:23.373
+Yeah I am recording, yeah.
+
+10 "Mingchieh Wang" (1659701504)
+00:01:23.373 --> 00:01:26.825
+Yep, please go ahead.
+
+11 "Raghu Chereddy" (1921409024)
+00:01:26.825 --> 00:01:50.430
+Yes, so here Jeffrey just, you know, correct me if I, you know miss anything or if my interpretation is not correct. So, ok, so the events that we are showing here, the CC time uptime, OMP uptime, they are not actually the events. There will be only three kinds of events.
+
+12 "Raghu Chereddy" (1921409024)
+00:01:50.430 --> 00:02:08.400
+One is policy change, second one is OMP peering change and 3rd one is a control connection state change. So the last three toward to the right.
+
+13 "Raghu Chereddy" (1921409024)
+00:02:08.400 --> 00:02:28.400
+Three towards towards the right the three right most ones, they are the only events we will have. Now, the additional information CC uptime OMP uptime routes sent received, they are payload as part of the events.
+
+14 "Raghu Chereddy" (1921409024)
+00:02:28.400 --> 00:02:48.470
+Now, if there is a OMP peering change happens, that's an event we get here. Now, what does that, what does that event what is the event payload? The event payload contains CC uptime, OMP uptime, route status, sent and received.
+
+15 "Raghu Chereddy" (1921409024)
+00:02:48.470 --> 00:03:01.454
+So here showing events as CC uptime, OMP uptime, routes and others is incorrect. So we will have only three.
+
+16 "Srinivas Yalamanchali" (3824963328)
+00:03:01.454 --> 00:03:02.369
+Events.
+
+17 "Raghu Chereddy" (1921409024)
+00:03:02.369 --> 00:03:07.272
+And whatever the data we have shown here is the payload of that event.
+
+18 "Akshay Kaul" (4144507392)
+00:03:07.272 --> 00:03:20.132
+Okay, so does it mean that like we just show three events and then when a user hover hovers over an event, we show a popover or tooltip or something which captures those details?
+
+19 "Raghu Chereddy" (1921409024)
+00:03:20.132 --> 00:03:21.704
+Yes, that was the intent.
+
+20 "Akshay Kaul" (4144507392)
+00:03:21.704 --> 00:03:23.425
+Correct. Okay.
+
+21 "Raghu Chereddy" (1921409024)
+00:03:24.008 --> 00:03:31.410
+Now there's one more to add here. We have the in the bar chart, e.g., if you look at 03:00 P.M..
+
+22 "Raghu Chereddy" (1921409024)
+00:03:31.410 --> 00:03:52.549
+Each color represents one event. So inside we also want to show here how many events of each type has occurred during that time. So how we show it I think at that time.
+
+23 "Raghu Chereddy" (1921409024)
+00:03:52.549 --> 00:03:54.030
+Well.
+
+24 "Akshay Kaul" (4144507392)
+00:03:54.030 --> 00:04:12.169
+Let me ask you one more question, right? So between the 1st and 2nd charts, right? Like, would an event be happening every hour? Like we are plotting a CPU memory thing on the top, right? But would we expect an event to be happening every hour as well or is it in an unstable?
+
+25 "Raghu Chereddy" (1921409024)
+00:04:12.169 --> 00:04:19.749
+Network we would have to that we can't say right when the event can happen.
+
+26 "Akshay Kaul" (4144507392)
+00:04:19.749 --> 00:04:23.264
+No, NO, but there would be times when there would be NO event is my question.
+
+27 "Raghu Chereddy" (1921409024)
+00:04:23.264 --> 00:04:27.629
+There can be sure yeah there will be.
+
+28 "Akshay Kaul" (4144507392)
+00:04:27.629 --> 00:04:34.949
+This table is empty, there's a possibility for a specific time duration.
+
+29 "Raghu Chereddy" (1921409024)
+00:04:34.949 --> 00:04:47.750
+Correct yes. Okay. In that case we would expect, you know, the CPU and the memory graph to be pretty stable or at below at at a very low.
+
+30 "Mingchieh Wang" (1659701504)
+00:04:47.750 --> 00:04:49.077
+Percentage.
+
+31 "Akshay Kaul" (4144507392)
+00:04:49.077 --> 00:04:51.214
+Okay.
+
+32 "Akshay Kaul" (4144507392)
+00:04:55.054 --> 00:04:58.513
+Okay, so let me ask you this. The.
+
+33 "Akshay Kaul" (4144507392)
+00:04:58.513 --> 00:05:21.316
+Is there really a need for a separate table? I can't this information regarding control connection policy or OMP also be a hover over tooltip kind of a thing? Because if, if the idea is that these would only be relevant or applicable when there is a deviation from the standard or if any of these CPM membies.
+
+34 "Akshay Kaul" (4144507392)
+00:05:21.316 --> 00:05:25.510
+Why then we just show it for those instances.
+
+35 "Raghu Chereddy" (1921409024)
+00:05:25.510 --> 00:05:39.269
+But that won't be very obvious to use the right they have to go and hover let's say e.g. at 04:00 P.M. the memory shut up to 70 %.
+
+36 "Akshay Kaul" (4144507392)
+00:05:39.269 --> 00:05:40.554
+Okay.
+
+37 "Raghu Chereddy" (1921409024)
+00:05:40.554 --> 00:05:55.751
+Then to find out what happened user has to move you know hover over that point and see how many events of what can happen. So it won't be that intuitive or intuitive, intuitive so.
+
+38 "Akshay Kaul" (4144507392)
+00:05:55.751 --> 00:05:58.349
+Okay. I mean.
+
+39 "Akshay Kaul" (4144507392)
+00:05:59.150 --> 00:06:02.029
+Okay, but keep one thing in mind, right?
+
+40 "Akshay Kaul" (4144507392)
+00:06:02.627 --> 00:06:13.672
+On a screen, you would only see a 1st graph and maybe half of the middle graph, right? Rest, everything would be below. So it's not going to.
+
+41 "Raghu Chereddy" (1921409024)
+00:06:13.672 --> 00:06:20.193
+Be obvious glance, right? In a high scenario.
+
+42 "Akshay Kaul" (4144507392)
+00:06:20.193 --> 00:06:23.268
+Maybe they will hover over and see why it is.
+
+43 "Mingchieh Wang" (1659701504)
+00:06:23.268 --> 00:06:24.330
+Right.
+
+44 "Raghu Chereddy" (1921409024)
+00:06:24.330 --> 00:06:32.345
+One correction actually here, the below table will only show the corresponding.
+
+45 "Raghu Chereddy" (1921409024)
+00:06:32.345 --> 00:06:50.525
+Let's say if users selects 03:00 P.M. time range or 04:00 P.M. time range, the events corresponding to that particular time what whatever user has selected will be shown at the bottom in the table. It's not going to be all the events.
+
+46 "Akshay Kaul" (4144507392)
+00:06:50.525 --> 00:06:53.887
+It would be all OMP events for that duration.
+
+47 "Raghu Chereddy" (1921409024)
+00:06:53.887 --> 00:07:01.443
+OMP events or it could be policy change events if they happen or control connection events, whatever happened during that.
+
+48 "Akshay Kaul" (4144507392)
+00:07:01.443 --> 00:07:03.590
+Time.
+
+49 "Akshay Kaul" (4144507392)
+00:07:04.909 --> 00:07:16.192
+Okay, and all of that means OMP usage because the title says OMP usage and we are showing more stuff in the events apart from OMP.
+
+50 "Raghu Chereddy" (1921409024)
+00:07:16.192 --> 00:07:18.890
+No, where is the OMP usage?
+
+51 "Akshay Kaul" (4144507392)
+00:07:18.890 --> 00:07:28.746
+Next to the time selection, right? That's where you have the time filter. That's where you would choose the right time frame.
+
+52 "Raghu Chereddy" (1921409024)
+00:07:28.746 --> 00:07:29.635
+No problem.
+
+53 "Ramana Polamarasetti" (2871348224)
+00:07:29.635 --> 00:07:46.251
+Yeah yeah the usage is OMP usage, but it can be triggered from any of the events. That's what we are trying to say. So, even if a policy is applied, right? OMP usage will short up during the policies being.
+
+54 "Raghu Chereddy" (1921409024)
+00:07:46.251 --> 00:07:48.272
+Applied.
+
+55 "Akshay Kaul" (4144507392)
+00:07:48.272 --> 00:08:06.789
+Okay, I mean if, if the time selection is modifying everything below, maybe it's, it shouldn't be at the same level as OMP usage, right? Because that seems to be only talking about usage, right? Not necessarily the events.
+
+56 "Mingchieh Wang" (1659701504)
+00:08:06.789 --> 00:08:09.227
+Hello.
+
+57 "Akshay Kaul" (4144507392)
+00:08:09.227 --> 00:08:10.146
+Cool.
+
+58 "Raghu Chereddy" (1921409024)
+00:08:10.146 --> 00:08:27.750
+Well, actually that one thing is when there is a CP, e.g., if, when a CPU shoots up usage, the whole idea behind was what caused the OMP CPU to go so go high.
+
+59 "Raghu Chereddy" (1921409024)
+00:08:28.385 --> 00:08:50.667
+And what kind of events caused it? That's what we want to present to the user. How we present it, maybe there are different ways of doing it. I'm not sure. I mean this was actually this was discussed in the past, but if there is something if there is some change in the data presentation that can be done as well. So.
+
+60 "Akshay Kaul" (4144507392)
+00:08:52.288 --> 00:08:59.807
+Okay, I mean we know that the middle one is definitely not right. So that should change.
+
+61 "Raghu Chereddy" (1921409024)
+00:08:59.807 --> 00:09:01.074
+Right. Correct.
+
+62 "Akshay Kaul" (4144507392)
+00:09:01.948 --> 00:09:19.749
+Yeah. Okay. And then these events, right, would we have an entry for every event like OMP up would be separate OMP down or something? Like peering change means going up and down.
+
+63 "Raghu Chereddy" (1921409024)
+00:09:19.749 --> 00:09:27.745
+Yeah, it's going up and down but we could choose to only show down events here. It depends on.
+
+64 "Raghu Chereddy" (1921409024)
+00:09:28.448 --> 00:09:32.489
+How we represent data here, present data.
+
+65 "Akshay Kaul" (4144507392)
+00:09:32.489 --> 00:09:36.012
+Data. Okay.
+
+66 "Raghu Chereddy" (1921409024)
+00:09:37.546 --> 00:09:43.114
+Because, customers will be more interested in when it goes down, not when it comes back.
+
+67 "Akshay Kaul" (4144507392)
+00:09:46.344 --> 00:09:54.914
+I mean if we do not show when it came back, they would just assume that it never came back up, right? I, I don't know the data comes here.
+
+68 "Raghu Chereddy" (1921409024)
+00:09:54.914 --> 00:10:04.070
+Data is data will be here, but whether we want to show it or not, that's yeah you have a point we can we have to show that as well.
+
+69 "Akshay Kaul" (4144507392)
+00:10:04.070 --> 00:10:14.351
+Yeah. Okay, so sorry you can continue, sorry about you in between you were explaining this.
+
+70 "Raghu Chereddy" (1921409024)
+00:10:14.351 --> 00:10:31.468
+No, I think that's it. That's all I just wanted to clarify. Basically we will have three events which are shown on the right side. Then the CC uptime et cetera, is the payload of each.
+
+71 "Akshay Kaul" (4144507392)
+00:10:31.468 --> 00:10:32.269
+Event.
+
+72 "Jeffrey Cai" (1807379968)
+00:10:34.086 --> 00:10:46.534
+Yeah three type event are existing events are the new event, any any new existing events.
+
+73 "Raghu Chereddy" (1921409024)
+00:10:46.534 --> 00:10:49.225
+But we are only adding additional payload to each event.
+
+74 "Jeffrey Cai" (1807379968)
+00:10:49.225 --> 00:10:51.490
+It is not there.
+
+75 "Raghu Chereddy" (1921409024)
+00:10:51.490 --> 00:10:57.627
+Mentioned here.
+
+76 "Jeffrey Cai" (1807379968)
+00:10:59.692 --> 00:11:19.749
+No, but it will show up the event details, right? We don't have a column for this, right? I mean, the table below we have a table, right? So the new info you mentioned will be part of the details, right? Event details, right?
+
+77 "Raghu Chereddy" (1921409024)
+00:11:26.695 --> 00:11:41.929
+That I don't know how, yeah, device detail should show it the additional payload we have. I mean in general any payload that are coming that is coming with the event.
+
+78 "Raghu Chereddy" (1921409024)
+00:11:46.211 --> 00:11:49.779
+Yeah.
+
+79 "Jeffrey Cai" (1807379968)
+00:11:49.779 --> 00:11:56.805
+Yeah, I think, I think so, yeah. The detail will be included the payload will be included in the details.
+
+80 "Raghu Chereddy" (1921409024)
+00:11:56.805 --> 00:11:59.652
+Yeah.
+
+81 "Jeffrey Cai" (1807379968)
+00:11:59.652 --> 00:12:23.333
+So, given that these are the existing events so that when the people when user I mean next release right 20 six.three, right? So when the user up upload up upgrade the manager, they should be able to use this feature even they don't upgrade the device, right? The upgrade the right?
+
+82 "Raghu Chereddy" (1921409024)
+00:12:23.333 --> 00:12:31.753
+Yeah I did not quite fo.
+
+83 "Akshay Kaul" (4144507392)
+00:12:31.753 --> 00:12:41.479
+They have to update, right? We don't, we anyways call it as unsupported if they manage and be smart running different releases, right?
+
+84 "Jeffrey Cai" (1807379968)
+00:12:41.479 --> 00:12:45.232
+Okay, this is not aged, yeah, we have to upgrade, ok.
+
+85 "Akshay Kaul" (4144507392)
+00:12:45.232 --> 00:12:45.925
+Here.
+
+86 "Raghu Chereddy" (1921409024)
+00:12:45.925 --> 00:12:54.852
+Yeah, it just version can be behind, but the I think they have to be in sync. Yeah.
+
+87 "Akshay Kaul" (4144507392)
+00:12:54.852 --> 00:13:17.165
+So one more question, right? So we anyways have a events thing on the left and looks like with the exception of OMP usage chart on the top, it's pretty much the same thing, right? Where we show the events histogram on the top and then we have a table below which shows the events, right?
+
+88 "Raghu Chereddy" (1921409024)
+00:13:17.165 --> 00:13:24.754
+Yeah. Okay.
+
+89 "Akshay Kaul" (4144507392)
+00:13:29.613 --> 00:13:37.384
+Okay, I'm just trying to move.
+
+90 "Raghu Chereddy" (1921409024)
+00:13:37.384 --> 00:13:44.493
+If.
+
+91 "Mingchieh Wang" (1659701504)
+00:13:45.352 --> 00:14:08.089
+Can can I have questions? Yeah, yeah, of course. Sure so ok ignore, ignore the chart here, just look at the top on top. Do we actually need a hero card here to give user a quick summarize, ok, what is going on? So they don't have to go.
+
+92 "Mingchieh Wang" (1659701504)
+00:14:08.089 --> 00:14:26.951
+Pursue the charts and figure it out. It will take a seconds for they they to digest. So question here, do we need the cart? Nope. Okay.
+
+93 "Mingchieh Wang" (1659701504)
+00:14:29.552 --> 00:14:54.670
+Yeah, should we have any like error mystery or only mystery if, the CPU or memory almost reached to the limitations?
+
+94 "Raghu Chereddy" (1921409024)
+00:14:54.670 --> 00:15:14.890
+So there will be a static threshold that comes from safety barriers that we will show it as a as a basically a red line for CP and memory.
+
+95 "Mingchieh Wang" (1659701504)
+00:15:14.890 --> 00:15:26.892
+Okay, so next question will be how we define the average threshold?
+
+96 "Raghu Chereddy" (1921409024)
+00:15:26.892 --> 00:15:38.754
+So the average is over a period of time that user selects. In this case, it's a 12 h chart. And that average will be over 12 h. Okay.
+
+97 "Mingchieh Wang" (1659701504)
+00:15:38.754 --> 00:15:56.293
+Would you mind to give me a use case that walk me through, ok? I'm the admin users and I'm locking here what I'm actually the 1st things to look at and then go what? Can can you provide a user journey help me to understand better?
+
+98 "Raghu Chereddy" (1921409024)
+00:15:56.293 --> 00:16:01.829
+Yeah, sure. So, if you look at any of the spikes, either memory or CP.
+
+99 "Mingchieh Wang" (1659701504)
+00:16:01.829 --> 00:16:03.491
+For.
+
+100 "Raghu Chereddy" (1921409024)
+00:16:03.491 --> 00:16:08.612
+Example at 08:00, yeah, say at 04:00, there's 70 % memory usage.
+
+101 "Raghu Chereddy" (1921409024)
+00:16:10.213 --> 00:16:14.272
+And, what events has triggered the memory to go up?
+
+102 "Mingchieh Wang" (1659701504)
+00:16:14.272 --> 00:16:16.993
+And.
+
+103 "Raghu Chereddy" (1921409024)
+00:16:16.993 --> 00:16:39.616
+And the corresponding timeline, we look at the the bar graph to see how many events of what kind happened for furthermore details so users can select that particular bar that 4 bar graph corresponding to 04:00 P.M. time.
+
+104 "Mingchieh Wang" (1659701504)
+00:16:39.616 --> 00:16:41.031
+And then.
+
+105 "Raghu Chereddy" (1921409024)
+00:16:41.031 --> 00:16:45.353
+And when select, when that is selected, the details will pop up in the table.
+
+106 "Mingchieh Wang" (1659701504)
+00:16:45.353 --> 00:16:47.492
+Now.
+
+107 "Raghu Chereddy" (1921409024)
+00:16:47.492 --> 00:16:52.024
+There could be quite a bit of information in the table.
+
+108 "Raghu Chereddy" (1921409024)
+00:16:53.505 --> 00:17:01.312
+Now based on the system IP, site ID, event type, they can be users can further filter.
+
+109 "Mingchieh Wang" (1659701504)
+00:17:01.312 --> 00:17:09.450
+Okay, so this is more like a monitoring or will be continued with the troubleshooting.
+
+110 "Raghu Chereddy" (1921409024)
+00:17:09.450 --> 00:17:39.751
+It's, I mean, it's kind of both we can say troubleshooting in the sense when the CPU and memory, goes high certain devices can cause it. If any certain sites can also cause it certain devices in certain sites can cause V smart memory and CPU to go up. Okay. And this will actually help to identify what sites.
+
+111 "Mingchieh Wang" (1659701504)
+00:17:39.751 --> 00:17:42.190
+Are causing.
+
+112 "Raghu Chereddy" (1921409024)
+00:17:42.190 --> 00:17:59.633
+Those kind of issues. I see. Or what specific devices are causing issues by having too many OMP pairing changes or control connection flaps. Okay.
+
+113 "Mingchieh Wang" (1659701504)
+00:17:59.633 --> 00:18:08.452
+So what happened if user click this device details where.
+
+114 "Raghu Chereddy" (1921409024)
+00:18:08.452 --> 00:18:27.233
+Yeah, it should show the event payload details like OMP uptime, control connection uptime routes received sent, and any additional information that comes with the payload event payload that should pop up that should that should be shown.
+
+115 "Mingchieh Wang" (1659701504)
+00:18:27.233 --> 00:18:37.150
+Okay, so do we have those page already or are we gonna do have including in this scope for those details?
+
+116 "Raghu Chereddy" (1921409024)
+00:18:37.150 --> 00:18:42.305
+That maybe Jeffrey I'm not sure about it.
+
+117 "Mingchieh Wang" (1659701504)
+00:18:42.305 --> 00:18:49.071
+Jeff, do we have those details already or this is a part of our scope?
+
+118 "Jeffrey Cai" (1807379968)
+00:18:51.155 --> 00:19:18.032
+Those detail already you mean the NO it depends on the what details what payload are included in the, in the events, right? So for the for actually in the current events, they are already detailed but that is current payload. Rugu if you have new payload, can you let me know.
+
+119 "Raghu Chereddy" (1921409024)
+00:19:18.032 --> 00:19:35.912
+Okay will be the four on the top Jeffrey we will share that information, the PI young model and PR details also the CC uptime, OMP uptime, route sent and received, there are four additional fields in the payload.
+
+120 "Jeffrey Cai" (1807379968)
+00:19:35.912 --> 00:19:37.670
+It's not.
+
+121 "Akshay Kaul" (4144507392)
+00:19:37.670 --> 00:19:46.951
+Yeah, so so one question, right? Is every event for one device?
+
+122 "Akshay Kaul" (4144507392)
+00:19:50.955 --> 00:19:54.089
+Would it be just one device or would it be multiple devices?
+
+123 "Raghu Chereddy" (1921409024)
+00:19:54.089 --> 00:20:03.495
+It could be from multiple devices. This is, these are the events that are happening on the and they could be triggered by multiple devices.
+
+124 "Akshay Kaul" (4144507392)
+00:20:03.495 --> 00:20:07.556
+So then would we expect multiple entries for OMP pairing change.
+
+125 "Raghu Chereddy" (1921409024)
+00:20:07.556 --> 00:20:18.599
+Yes. And we will also show the e.g. right if at 03:00 p.m., if the, if the purple one corresponds to.
+
+126 "Raghu Chereddy" (1921409024)
+00:20:18.599 --> 00:20:34.139
+OMP pairing. That box also should indicate how many such events happened at that time. Either hovering it, it should show the count or we can put a static test inside the box.
+
+127 "Raghu Chereddy" (1921409024)
+00:20:34.139 --> 00:20:51.165
+Then clicking on that one, when user clicks on that, it should show all the events in the table below, but then all those events can be filtered by those three filters, system IP, site ID and event type.
+
+128 "Akshay Kaul" (4144507392)
+00:20:51.165 --> 00:21:07.852
+I don't know if we should go by the stacked boxes we have, right? Because I don't think we have that kind of, thing anywhere else on. I say, ok. Manager or analytics. Maybe we'll let Ming or Andrew come back regarding what.
+
+129 "Raghu Chereddy" (1921409024)
+00:21:07.852 --> 00:21:08.551
+Be.
+
+130 "Akshay Kaul" (4144507392)
+00:21:08.551 --> 00:21:12.521
+Okay. UX is across all the other places to show the same similar thing.
+
+131 "Raghu Chereddy" (1921409024)
+00:21:12.521 --> 00:21:27.424
+Sure sure yeah I think that was a discussion we had six months or nine months ago based on the discussion there was one idea about putting a static text inside the box.
+
+132 "Raghu Chereddy" (1921409024)
+00:21:28.869 --> 00:21:32.750
+That corresponds to number of events of that kind.
+
+133 "Mingchieh Wang" (1659701504)
+00:21:32.750 --> 00:21:50.049
+Okay, can you show me what kind of the detail is that JSON datas or what, what can exactly the others formattings? The data you just mentioned.
+
+134 "Raghu Chereddy" (1921409024)
+00:21:50.049 --> 00:21:56.270
+Data is the event we send or it's a different format?
+
+135 "Ramana Polamarasetti" (2871348224)
+00:21:56.270 --> 00:21:59.973
+It's a PSV format, right?
+
+136 "Raghu Chereddy" (1921409024)
+00:21:59.973 --> 00:22:02.272
+No, he event.
+
+137 "Ramana Polamarasetti" (2871348224)
+00:22:02.272 --> 00:22:11.553
+Oh, event is XML. It's, it's a netconf request, right? So it's an XML.
+
+138 "Raghu Chereddy" (1921409024)
+00:22:11.553 --> 00:22:13.513
+Okay.
+
+139 "Mingchieh Wang" (1659701504)
+00:22:13.513 --> 00:22:36.593
+Please share with me. I have I need to continue, so what happened with those three actions here? What actions it will be here?
+
+140 "Jeffrey Cai" (1807379968)
+00:22:36.593 --> 00:22:37.313
+Okay.
+
+141 "Mingchieh Wang" (1659701504)
+00:22:37.313 --> 00:22:44.932
+Do we need actions? Delete eight, cancel or what?
+
+142 "Akshay Kaul" (4144507392)
+00:22:44.932 --> 00:22:54.372
+So I think in the current events page on be manage the actions is device details, so.
+
+143 "Mingchieh Wang" (1659701504)
+00:22:54.372 --> 00:22:58.629
+Oh, ok, we gonna replace this one.
+
+144 "Akshay Kaul" (4144507392)
+00:22:58.629 --> 00:23:01.233
+Yeah, I.
+
+145 "Mingchieh Wang" (1659701504)
+00:23:01.233 --> 00:23:04.713
+Ideally we should have a very similar.
+
+146 "Akshay Kaul" (4144507392)
+00:23:04.713 --> 00:23:08.810
+To how we have events again, this is a subset of events.
+
+147 "Mingchieh Wang" (1659701504)
+00:23:08.810 --> 00:23:12.768
+So.
+
+148 "Akshay Kaul" (4144507392)
+00:23:12.768 --> 00:23:20.675
+Yeah, it's a subset of events, so pretty much what we show on the events page should be shown here.
+
+149 "Akshay Kaul" (4144507392)
+00:23:22.571 --> 00:23:32.657
+Okay, give me 1 s. Let me check something here.
+
+150 "Mingchieh Wang" (1659701504)
+00:23:32.657 --> 00:23:45.295
+Are you going to share the screen? You want me to share the testbed. Okay, please. Also I wanted to see where actually users got information.
+
+151 "Akshay Kaul" (4144507392)
+00:23:45.295 --> 00:23:48.070
+And trigger them to come in here.
+
+152 "Mingchieh Wang" (1659701504)
+00:23:48.070 --> 00:23:52.551
+I I need I'm missing that part.
+
+153 "Jeffrey Cai" (1807379968)
+00:24:00.672 --> 00:24:10.468
+Yeah, so let me show you the event 1st this is what actually said the common.
+
+154 "Mingchieh Wang" (1659701504)
+00:24:10.468 --> 00:24:11.751
+Okay.
+
+155 "Akshay Kaul" (4144507392)
+00:24:11.751 --> 00:24:13.186
+So this is a.
+
+156 "Jeffrey Cai" (1807379968)
+00:24:13.186 --> 00:24:17.473
+This other events.
+
+157 "Akshay Kaul" (4144507392)
+00:24:17.473 --> 00:24:28.329
+Jeffrey so if you go to your devices tab on the top, and then go to our controller.
+
+158 "Jeffrey Cai" (1807379968)
+00:24:28.329 --> 00:24:30.986
+Could the controller? Yeah.
+
+159 "Akshay Kaul" (4144507392)
+00:24:30.986 --> 00:24:44.985
+No, NO, under devices you would find the controller listed there, right? And then go to events and then here change it to seven days for now.
+
+160 "Jeffrey Cai" (1807379968)
+00:24:44.985 --> 00:24:48.229
+On the top right? Yep.
+
+161 "Akshay Kaul" (4144507392)
+00:24:48.229 --> 00:24:52.396
+And then, oh, you don't have any data. I I'll share my screen for us.
+
+162 "Jeffrey Cai" (1807379968)
+00:24:52.396 --> 00:24:58.850
+Yeah, please.
+
+163 "Akshay Kaul" (4144507392)
+00:24:58.850 --> 00:25:04.912
+Okay, so if I go to events, this is a vsmart. I have this is on the demo link so you can also check it.
+
+164 "Mingchieh Wang" (1659701504)
+00:25:04.912 --> 00:25:08.231
+Out. Okay, so we have this here.
+
+165 "Akshay Kaul" (4144507392)
+00:25:08.231 --> 00:25:17.351
+Wherein I chose seven days and filter I said I want to look at OMP events, right? So today we show the same thing OMP pair state changes.
+
+166 "Akshay Kaul" (4144507392)
+00:25:19.651 --> 00:25:36.555
+So, that's why I was saying, right? All of this exists today, right? The only thing we want to add is the CPU and memory for this right so this is a OMP event, there would be another event. I think I can also add multiple events, right? Control.
+
+167 "Mingchieh Wang" (1659701504)
+00:25:36.555 --> 00:25:41.409
+Policy and something in con control connections.
+
+168 "Akshay Kaul" (4144507392)
+00:25:41.409 --> 00:26:11.590
+Yeah, so we have control connection. I don't know if there is a policy one as well, there is a policy one as well. So we show all, so I would think that it's gonna be somewhat similar ago, right? Like if there are multiple events, we'll just see an entry for one after the other. But instead of showing everything, we are just showing these three events on this page, right?
+
+169 "Akshay Kaul" (4144507392)
+00:26:13.409 --> 00:26:25.516
+And then we just have to, and there is device details wherein it just shows the same information that we see.
+
+170 "Mingchieh Wang" (1659701504)
+00:26:25.516 --> 00:26:28.773
+Column over here, it's a.
+
+171 "Akshay Kaul" (4144507392)
+00:26:28.773 --> 00:26:48.135
+I don't know, cleaner version, I guess readable version. So I think this is what we are showing. That's all we are doing and then we we are adding OMP specific process usage in our chart on the top, right?
+
+172 "Mingchieh Wang" (1659701504)
+00:26:48.135 --> 00:26:57.151
+Sorry, this is the event page, right? So we're actually working on exactly this page?
+
+173 "Akshay Kaul" (4144507392)
+00:26:57.151 --> 00:27:17.831
+I mean somewhat similar, we are adding more information regarding those four events that were shared right by Raghuda, Reb routes, and then forgot the name of those things, right? But I would think that page belongs somewhat here or some, somewhere similar, right?
+
+174 "Raghu Chereddy" (1921409024)
+00:27:17.831 --> 00:27:30.052
+One thing actually currently this one is deep inside, we have to go three levels down to get the here.
+
+175 "Akshay Kaul" (4144507392)
+00:27:30.052 --> 00:27:36.774
+No, it's the same place where we, where you were also showing on your screen, right? Like it was device and events.
+
+176 "Raghu Chereddy" (1921409024)
+00:27:36.774 --> 00:27:39.309
+Right, I think.
+
+177 "Akshay Kaul" (4144507392)
+00:27:39.309 --> 00:27:41.613
+You wanted to.
+
+178 "Raghu Chereddy" (1921409024)
+00:27:41.613 --> 00:27:45.510
+You have that a landing page when user logs in?
+
+179 "Akshay Kaul" (4144507392)
+00:27:45.510 --> 00:27:48.810
+Oh logs into V manage.
+
+180 "Raghu Chereddy" (1921409024)
+00:27:48.810 --> 00:28:02.151
+Yeah, when logs into basically it shows somewhere basically it's easy accessibility to see instead of you know going down but I'm not logged into.
+
+181 "Ramana Polamarasetti" (2871348224)
+00:28:02.151 --> 00:28:10.569
+But when you select a device, currently it shows the control connections, right? To select any device.
+
+182 "Akshay Kaul" (4144507392)
+00:28:10.569 --> 00:28:12.187
+Yeah, this.
+
+183 "Ramana Polamarasetti" (2871348224)
+00:28:12.187 --> 00:28:22.052
+Yeah, this is where it lands instead of this one, if we can show that page, right, new page.
+
+184 "Akshay Kaul" (4144507392)
+00:28:22.052 --> 00:28:38.528
+I mean, I, I thought that page is only relevant when there is a problem, right? So I don't think that should be a landing page, right? And I I think the landing page is going to be this, I mean in a new design, there is a new design for the.
+
+185 "Mingchieh Wang" (1659701504)
+00:28:38.528 --> 00:28:43.492
+Yeah, this is the new homepage for device three 60.
+
+186 "Ramana Polamarasetti" (2871348224)
+00:28:43.492 --> 00:28:44.551
+Oh.
+
+187 "Akshay Kaul" (4144507392)
+00:28:44.551 --> 00:28:47.073
+Okay but it's a different design but maybe you want to.
+
+188 "Mingchieh Wang" (1659701504)
+00:28:47.073 --> 00:28:49.791
+Share your screen. Yeah. But all I was saying was that we have.
+
+189 "Akshay Kaul" (4144507392)
+00:28:49.791 --> 00:29:06.894
+Events similar to what we have in the two tables in in the design below. I'll I'll stop sharing share again. Sure.
+
+190 "Mingchieh Wang" (1659701504)
+00:29:06.894 --> 00:29:12.672
+You see my screen here? So let me show you exactly this is.
+
+191 "Akshay Kaul" (4144507392)
+00:29:12.672 --> 00:29:13.772
+The new design.
+
+192 "Mingchieh Wang" (1659701504)
+00:29:13.772 --> 00:29:32.879
+For device 03:16 homepage you see so we reconstructors everything you see on the left hand side the tabs it now is go up. And then we only have these few stations and let me share this one with you. See this one?
+
+193 "Mingchieh Wang" (1659701504)
+00:29:32.879 --> 00:29:52.879
+This is how we constructions. So on device three 60 we go have a overview when in interface application security so for now your vsmart should be secure under security and after connections event which should.
+
+194 "Mingchieh Wang" (1659701504)
+00:29:52.879 --> 00:29:55.914
+What should be here.
+
+195 "Akshay Kaul" (4144507392)
+00:29:55.914 --> 00:30:01.632
+Yeah. No, NO NO. It would be the logs events, right? Not the security connection.
+
+196 "Mingchieh Wang" (1659701504)
+00:30:01.632 --> 00:30:03.950
+Okay, here.
+
+197 "Akshay Kaul" (4144507392)
+00:30:03.950 --> 00:30:24.552
+Yeah, NO, but I think what Raghu is trying to say is if you scroll left, Right on the overview, on the overview landing page, right? Today we have CPU utilization memory utilization. I think the ask or requirement is we add another tile, just when you go into a vsmart to show OMP usage.
+
+198 "Mingchieh Wang" (1659701504)
+00:30:24.552 --> 00:30:29.114
+Oh, ok.
+
+199 "Akshay Kaul" (4144507392)
+00:30:29.114 --> 00:30:35.648
+No, NO, not, not here. Yeah, yeah. Similar to how we have a CPU utilization and a memory utilization.
+
+200 "Mingchieh Wang" (1659701504)
+00:30:35.648 --> 00:30:39.110
+We have a OMP utilization where it.
+
+201 "Akshay Kaul" (4144507392)
+00:30:39.110 --> 00:30:47.107
+Will show both memory and CPU in a single box, right? Right Raghu, that's what you are saying, right?
+
+202 "Raghu Chereddy" (1921409024)
+00:30:47.107 --> 00:30:51.911
+Yeah, events also events and.
+
+203 "Akshay Kaul" (4144507392)
+00:30:51.911 --> 00:30:54.191
+I mean, NO, that can't happen, I mean.
+
+204 "Raghu Chereddy" (1921409024)
+00:30:54.191 --> 00:31:00.006
+Because we want to see the same timeline.
+
+205 "Akshay Kaul" (4144507392)
+00:31:00.006 --> 00:31:13.793
+That can be, that can be a detailed page right again we don't want to show it every time even if there is not a problem, right? And what are they looking at? This is an overview page which gives a high level of.
+
+206 "Raghu Chereddy" (1921409024)
+00:31:13.793 --> 00:31:26.639
+From here how do we get there if you want to, e.g., if you show CPU memory of OMP here, clicking on that, will it take to the the page we were discussing earlier?
+
+207 "Akshay Kaul" (4144507392)
+00:31:26.639 --> 00:31:30.514
+I don't know Ming, do you know?
+
+208 "Mingchieh Wang" (1659701504)
+00:31:30.514 --> 00:31:37.412
+You should asking, I did not know.
+
+209 "Akshay Kaul" (4144507392)
+00:31:37.412 --> 00:31:43.691
+Like is there a second level page for all of these? I don't think there's.
+
+210 "Mingchieh Wang" (1659701504)
+00:31:43.691 --> 00:31:49.954
+Okay I second you you want 2nd level of this one?
+
+211 "Akshay Kaul" (4144507392)
+00:31:49.954 --> 00:31:57.232
+Of any of these, right? I don't think there is one for CPU and memory. There maybe one for.
+
+212 "Mingchieh Wang" (1659701504)
+00:31:57.232 --> 00:32:01.352
+Okay sorry I I stopped moving. Then you can take a look.
+
+213 "Akshay Kaul" (4144507392)
+00:32:01.352 --> 00:32:18.193
+Yeah, like we have for tunnels we have view details, right? Maybe that can be a second level. No, NO, on the left hand side we have the 6th box, right? Where it says tunnels, right? Box below temperature.
+
+214 "Mingchieh Wang" (1659701504)
+00:32:18.193 --> 00:32:24.915
+On the right on the right side. Oh, yeah. Yeah, so.
+
+215 "Akshay Kaul" (4144507392)
+00:32:24.915 --> 00:32:47.554
+So where it says view details, maybe that can be a launch point to get into the additional details and then it can be that page, right? Again I I don't think it should be the very 1st landing page. I don't know, do you think that should be the landing page?
+
+216 "Mingchieh Wang" (1659701504)
+00:32:47.554 --> 00:32:53.489
+It's really depending how triggers the users come in and check.
+
+217 "Mingchieh Wang" (1659701504)
+00:32:53.489 --> 00:33:07.913
+Because nobody can gonna to open this page and just check. It depending what issues happens and then they got the informations and they come in and that will be the entire user journey.
+
+218 "Srinivas Yalamanchali" (3824963328)
+00:33:07.913 --> 00:33:29.558
+Yeah, so this is the overview page, right? This ok in this you will have the OMP usage one one box, right? That's the plan. And in that box you should have a view thing and it should pop up the single with all the details of the site, so that is the thing.
+
+219 "Ramana Polamarasetti" (2871348224)
+00:33:29.558 --> 00:33:46.026
+Yeah, I think earlier when we started right this was not the day, so we, we were thinking just showing the control connections page was instead of that we can land into that inside space. So now I think it's, this is much better.
+
+220 "Ramana Polamarasetti" (2871348224)
+00:33:46.026 --> 00:33:54.150
+Probably yeah from here we can go to the yeah.
+
+221 "Srinivas Yalamanchali" (3824963328)
+00:33:54.150 --> 00:33:56.130
+Yeah. You mean you got it right?
+
+222 "Mingchieh Wang" (1659701504)
+00:33:56.130 --> 00:33:58.987
+I got two scenarios.
+
+223 "Akshay Kaul" (4144507392)
+00:33:58.987 --> 00:33:59.908
+That's right?
+
+224 "Mingchieh Wang" (1659701504)
+00:33:59.908 --> 00:34:02.150
+Okay, two entry point.
+
+225 "Srinivas Yalamanchali" (3824963328)
+00:34:02.150 --> 00:34:11.431
+Correct here you you have our our usage box there you can say view and you'll blow up the entire thing.
+
+226 "Mingchieh Wang" (1659701504)
+00:34:11.431 --> 00:34:17.472
+Okay, but in other questions, how come user will come in this page?
+
+227 "Srinivas Yalamanchali" (3824963328)
+00:34:17.472 --> 00:34:22.368
+So user will come very often for vsmart because vsmart is hard of sd.
+
+228 "Mingchieh Wang" (1659701504)
+00:34:22.368 --> 00:34:24.351
+Okay, I see.
+
+229 "Srinivas Yalamanchali" (3824963328)
+00:34:24.351 --> 00:34:29.471
+You'll be checking always whenever there is some convergence issues.
+
+230 "Mingchieh Wang" (1659701504)
+00:34:29.471 --> 00:34:37.864
+Thing is they see this only. Okay, why they don't want to see the on the homepage monitor.
+
+231 "Akshay Kaul" (4144507392)
+00:34:37.864 --> 00:34:39.653
+Page.
+
+232 "Mingchieh Wang" (1659701504)
+00:34:39.653 --> 00:34:42.633
+And instead of coming here.
+
+233 "Srinivas Yalamanchali" (3824963328)
+00:34:42.633 --> 00:34:44.912
+Where is the monitoring page? Like.
+
+234 "Mingchieh Wang" (1659701504)
+00:34:44.912 --> 00:34:52.491
+Monitoring page, you see, it's a monitoring page that that's the current homepage. I don't have that one yet.
+
+235 "Srinivas Yalamanchali" (3824963328)
+00:34:52.491 --> 00:34:54.989
+Okay.
+
+236 "Ramana Polamarasetti" (2871348224)
+00:34:54.989 --> 00:34:58.146
+That is the we managed one, right?
+
+237 "Mingchieh Wang" (1659701504)
+00:34:58.146 --> 00:35:01.191
+Yeah you're looking for.
+
+238 "Ramana Polamarasetti" (2871348224)
+00:35:01.191 --> 00:35:06.207
+That particular device. So this is for a particular device.
+
+239 "Srinivas Yalamanchali" (3824963328)
+00:35:06.207 --> 00:35:18.251
+Yeah, this is the correct landing and landing page I think, yeah. Because they come to our view and then they see OMP, ok? Let me zoom in and they'll zoom in. That's it.
+
+240 "Akshay Kaul" (4144507392)
+00:35:18.251 --> 00:35:21.290
+There we go. Okay, I see.
+
+241 "Mingchieh Wang" (1659701504)
+00:35:23.311 --> 00:35:32.031
+Oh, can we we actually over time I have last questions, last questions. So.
+
+242 "Mingchieh Wang" (1659701504)
+00:35:32.031 --> 00:36:08.513
+Take a look for this page for now, ignore the design, ok. So my questions is what will be the page title? Because right now it's inside, but we have inside many different places so we should have a betters text name titles. Should we call or should we, how are we naming?
+
+243 "Akshay Kaul" (4144507392)
+00:36:08.513 --> 00:36:19.692
+Maybe if the naming, but I would think it would be whatever that title was, right, of that item, OMP usage or something or OMP events.
+
+244 "Mingchieh Wang" (1659701504)
+00:36:19.692 --> 00:36:26.592
+OMP or yeah.
+
+245 "Akshay Kaul" (4144507392)
+00:36:26.592 --> 00:36:34.576
+Let's let's have maybe yeah I mean it doesn't have to be now he can.
+
+246 "Mingchieh Wang" (1659701504)
+00:36:34.576 --> 00:36:38.534
+And then it show belong. Please give.
+
+247 "Falgun Bhagavatula" (1443570688)
+00:36:38.534 --> 00:36:42.209
+Give me some time I'm caught up with something yeah.
+
+248 "Akshay Kaul" (4144507392)
+00:36:45.669 --> 00:36:51.947
+I mean we don't need to close on the name. You can just say name TBD just so we don't lose sight.
+
+249 "Mingchieh Wang" (1659701504)
+00:36:51.947 --> 00:36:56.934
+Okay, and then it should be under locks or security.
+
+250 "Akshay Kaul" (4144507392)
+00:36:56.934 --> 00:36:59.012
+Not security.
+
+251 "Mingchieh Wang" (1659701504)
+00:36:59.012 --> 00:37:01.259
+Okay, now we locked.
+
+252 "Akshay Kaul" (4144507392)
+00:37:01.259 --> 00:37:06.155
+I don't know about logs but.
+
+253 "Ramana Polamarasetti" (2871348224)
+00:37:06.155 --> 00:37:14.253
+Yeah, probably under logs because alarms events are there so ok.
+
+254 "Mingchieh Wang" (1659701504)
+00:37:14.253 --> 00:37:18.639
+So, can you repeat one time? Where?
+
+255 "Ramana Polamarasetti" (2871348224)
+00:37:18.639 --> 00:37:19.970
+Underlying.
+
+256 "Mingchieh Wang" (1659701504)
+00:37:19.970 --> 00:37:37.510
+Okay, I see. Yeah, I think that I got good enough informations for today. Anything else Otherwise I will work on the 1st draft and get back to you guys. But Jeff Yeah, go ahead.
+
+257 "Akshay Kaul" (4144507392)
+00:37:37.510 --> 00:37:50.831
+111 question, right? Maybe right. Are there other events on vsmart as well which are useful or NO?
+
+258 "Raghu Chereddy" (1921409024)
+00:37:50.831 --> 00:37:59.115
+There are a lot of other events too, but all the events are currently streamed to be managed.
+
+259 "Akshay Kaul" (4144507392)
+00:37:59.115 --> 00:38:19.849
+No, I mean, like if you saw right, there is a event space there and if we are saying OMP is the only useful thing, do we need that other events as well or should we repurpose that events to be OMP events or should we just.
+
+260 "Akshay Kaul" (4144507392)
+00:38:19.849 --> 00:38:35.392
+Use that events page itself and then the default filter when you go to that page shows the three events which is OMP, control and policy and if a user wants to look at other events, they can just remove the filter or do all events, right?
+
+261 "Srinivas Yalamanchali" (3824963328)
+00:38:35.392 --> 00:38:43.651
+Yeah, mostly other than this we have video and events, other than that nothing much I think yeah.
+
+262 "Akshay Kaul" (4144507392)
+00:38:43.651 --> 00:38:47.597
+Okay, and events are not that useful.
+
+263 "Srinivas Yalamanchali" (3824963328)
+00:38:47.597 --> 00:38:50.088
+We demon events.
+
+264 "Ramana Polamarasetti" (2871348224)
+00:38:50.088 --> 00:38:56.936
+We didn't really have this control connection events, right? Control connection state change events.
+
+265 "Srinivas Yalamanchali" (3824963328)
+00:38:56.936 --> 00:39:05.234
+That we captured, but do you want to capture also.
+
+266 "Srinivas Yalamanchali" (3824963328)
+00:39:05.829 --> 00:39:13.508
+Safety barrier ramina? Thresholds and all that or NO?
+
+267 "Ramana Polamarasetti" (2871348224)
+00:39:13.508 --> 00:39:17.952
+Oh, safety barrier, they're they're not events. They are.
+
+268 "Srinivas Yalamanchali" (3824963328)
+00:39:17.952 --> 00:39:21.032
+Yeah.
+
+269 "Srinivas Yalamanchali" (3824963328)
+00:39:21.555 --> 00:39:30.832
+Okay, that's fine then. I think we are good for now actually and if needed then we have to revisit.
+
+270 "Mingchieh Wang" (1659701504)
+00:39:30.832 --> 00:39:40.657
+Feature, yeah. So are we good for this project CC to go or still CC NO go?
+
+271 "Srinivas Yalamanchali" (3824963328)
+00:39:40.657 --> 00:39:43.531
+We're good to CC to go.
+
+272 "Mingchieh Wang" (1659701504)
+00:39:43.531 --> 00:39:45.406
+Okay, sure. Thank you for your comfor.
+
+273 "Mingchieh Wang" (1659701504)
+00:39:47.271 --> 00:40:03.554
+Okay, and Josh, Jeff, as you mentioned, you have some data you're gonna share with me, right? I gonna to say that exactly the same time tomorrow to work with you to getting the data.
+
+274 "Srinivas Yalamanchali" (3824963328)
+00:40:03.554 --> 00:40:06.192
+Yeah, Jeff is multitasking, yeah.
+
+275 "Mingchieh Wang" (1659701504)
+00:40:06.192 --> 00:40:10.514
+Okay. Okay.
+
+276 "Srinivas Yalamanchali" (3824963328)
+00:40:10.514 --> 00:40:12.456
+Yep please share the.
+
+277 "Mingchieh Wang" (1659701504)
+00:40:12.456 --> 00:40:14.192
+Recording with me. Thank you so much.
+
+278 "Raghu Chereddy" (1921409024)
+00:40:14.192 --> 00:40:16.131
+Much ok thank you. Thank you for.
+
+279 "Mingchieh Wang" (1659701504)
+00:40:16.131 --> 00:40:17.430
+Andrew join but.

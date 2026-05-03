@@ -1,0 +1,721 @@
+WEBVTT
+
+1 "Mingchieh Wang" (1141026304)
+00:00:00.000 --> 00:00:11.843
+So, can you see my screen ok?
+
+2 "Raghu Chereddy" (3517277440)
+00:00:11.843 --> 00:00:13.048
+Yes.
+
+3 "Mingchieh Wang" (1141026304)
+00:00:13.048 --> 00:00:46.930
+Okay, the problems we have today is we need to re discuss about what's the PRD and what's the ask requirements. The reason being is because the peers designers is already end of a contract and also what he decides is not the requirement I can share with you now. 1st of all, as a broken's user experience, right? Okay, when the situation happens, that's very urgent.
+
+4 "Mingchieh Wang" (1141026304)
+00:00:46.930 --> 00:01:08.450
+This IT would like to join coming in this page, but 1st they might be not be able to easy to find this page. The reason thing is because this page is NO tech, NO entry point on the monitoring page. It has to go monitoring device, device and to put.
+
+5 "Mingchieh Wang" (1141026304)
+00:01:08.450 --> 00:01:43.386
+Typical particular device and then go to three sixties. Under three 60 there are 29 different tab underneath here and then he has to go through but he cannot see being smart. He actually when you are using insights. So that will be the 1st problems. 2nd problems once users log in here, and then what he said is ok, I see the CPUs high or lowers, right? Okay, on the top and then the person's hovering over and then yeah go ahead.
+
+6 "Raghu Chereddy" (3517277440)
+00:01:43.386 --> 00:01:53.767
+Yeah, so for this, I think maybe it's better to include Jeffrey in the discussion. We he has a lot of background on this.
+
+7 "Raghu Chereddy" (3517277440)
+00:01:54.307 --> 00:02:05.208
+I would suggest maybe if he can wait this meet if he can change this to couple of hours later or and perhaps tomorrow he will be available.
+
+8 "Falgun Bhagavatula" (2859244800)
+00:02:05.208 --> 00:02:25.760
+So, Ming and Raghu, before we even get there, I want to understand where is, what is the priority for this one and are we tracking this for 20 seven.two release or 20 seven.one release and what is the engineering priority on this one? Because I know this.
+
+9 "Falgun Bhagavatula" (2859244800)
+00:02:25.760 --> 00:02:37.445
+This is definitely not a I mean it's not in the PLM list as of now. So can we can we be absolutely sure whether this is, this is being marked as go or NO go?
+
+10 "SJC24-2-TR30" (3859468800)
+00:02:37.445 --> 00:02:47.098
+Okay so this has been discussed with JP, everybody, right? Long time.
+
+11 "Falgun Bhagavatula" (2859244800)
+00:02:47.098 --> 00:02:50.046
+Yeah yeah but but.
+
+12 "SJC24-2-TR30" (3859468800)
+00:02:50.046 --> 00:02:57.443
+And we implemented and we didn't prioritize this because PLM your side you have a big list of DPL and.
+
+13 "Falgun Bhagavatula" (2859244800)
+00:02:57.443 --> 00:02:59.448
+We cannot do it. Right.
+
+14 "SJC24-2-TR30" (3859468800)
+00:02:59.448 --> 00:03:14.425
+So now everything is almost closed so we have to get into the baselines and integrate and then customers can have this thing and see the what is the.
+
+15 "Falgun Bhagavatula" (2859244800)
+00:03:14.425 --> 00:03:35.810
+So on that part, right? What, what I want to like like just reiterate one thing is because of this feature it's not risk to any of the PLM features, right? We we must make sure that you know none of the PLM asks, let's say the multicast one or the OMP one that.
+
+16 "Falgun Bhagavatula" (2859244800)
+00:03:35.810 --> 00:04:07.265
+That we have currently that is not being sidelined, you know, we are not using those resources to get this one as long as we are all, you know, once we are set that that we are not jeopardizing any of the PLM features it's ok for you know it's ok to do more discussion on this that that's where that's why I wanted to create a baseline 1st and then we discuss more on, you know, how we get there, how we implement and those those discussions can happen, but make sure that is taken.
+
+17 "SJC24-2-TR30" (3859468800)
+00:04:07.265 --> 00:04:25.680
+Yeah, so this already implemented what is that 27, not 2611 only, right? Correct. 26 one only this implemented and committed into the baseline. Not the UX party. Not the X part, only X part is pending.
+
+18 "SJC24-2-TR30" (3859468800)
+00:04:25.680 --> 00:04:42.327
+Right. So you're good to go. We are not jeopardizing any multicast or anything, be committed for that. Multicast replicator is committed. All these PLM features are committed which are priority below 25 or something, yeah.
+
+19 "Falgun Bhagavatula" (2859244800)
+00:04:42.327 --> 00:04:53.464
+Got it, ok. Sounds good. Yeah, I want to make sure you know we we are we are setting that basis 1st and then we can have further discussions.
+
+20 "SJC24-2-TR30" (3859468800)
+00:04:53.464 --> 00:04:54.521
+Yeah, so we are.
+
+21 "Venkateswaran Mohanasundaram" (219517952)
+00:04:54.521 --> 00:05:03.543
+I think that is from the device side, but from the side Jeffrey I know Jeffrey is involved so I know I wasn't involved with the even the UI as well.
+
+22 "SJC24-2-TR30" (3859468800)
+00:05:03.543 --> 00:05:20.179
+Yeah Jeffrey also did some changes. Got it. Maybe a little bit adjustments with the new design, that's it. So if you have Jeffrey in the call that will be more productive. So can you schedule a meeting after six tomorrow.
+
+23 "SJC24-2-TR30" (3859468800)
+00:05:20.179 --> 00:05:36.344
+I scheduled one for 08:00 tomorrow. 08:00 tomorrow is scheduled and you can join that meeting, but you can go ahead with this as Venkat and all these guys will get the hang of it and then we'll discuss more tomorrow.
+
+24 "Mingchieh Wang" (1141026304)
+00:05:36.344 --> 00:05:41.205
+Okay, so are you going to do the front end or Jeff will do the.
+
+25 "Venkateswaran Mohanasundaram" (219517952)
+00:05:41.205 --> 00:05:57.019
+He's taking care of some other you know these days since he already you know made some progress, right? That's why you know I wasn't involved, but I just want to understand, ok, so.
+
+26 "Venkateswaran Mohanasundaram" (219517952)
+00:05:57.019 --> 00:06:09.082
+For the device, you know, we will have added something called new page called insights and there we have this two charts under the table, right? CPU memory.
+
+27 "SJC24-2-TR18" (818392576)
+00:06:09.082 --> 00:06:26.845
+111 comment, right? Like we don't have to have it under insights, right? Like, then placeholder is or the location is TBD, right? Or are we introducing something called insights because there is some insights which analytics is also built in.
+
+28 "SJC24-2-TR30" (3859468800)
+00:06:26.845 --> 00:06:32.645
+This is a different tool, right? Actually we already integrated this. Yeah.
+
+29 "SJC24-2-TR18" (818392576)
+00:06:32.645 --> 00:06:40.065
+Yeah. No, NO. But what I'm saying is like, do we have to call it insights or that's just a placeholder for now. The idea is to get the data.
+
+30 "SJC24-2-TR30" (3859468800)
+00:06:40.065 --> 00:06:44.167
+Are we smart healthy can keep? Okay.
+
+31 "SJC24-2-TR30" (3859468800)
+00:06:44.667 --> 00:06:50.208
+Okay, you can share that name, that's not a problem. Okay. Whatever marketing PLM suggests we can change, that's a problem.
+
+32 "Falgun Bhagavatula" (2859244800)
+00:06:50.208 --> 00:06:58.726
+Yeah, because it may create some confusion, you know, whether insights is accessible from here or or somewhere, so yeah.
+
+33 "Mingchieh Wang" (1141026304)
+00:06:58.726 --> 00:07:22.588
+Yeah, we have inside on three different places one's here, one is we gonna have an inside page for monitoring and also we have a insights component so three different places, so we better have a a name that can identity. Yep. Okay, so.
+
+34 "Venkateswaran Mohanasundaram" (219517952)
+00:07:22.588 --> 00:07:34.526
+Okay, so I have a question on the OMP usage chart, so when we say CPU and memory, so it is the data I mean CPU memory consumed only for the OMP usage only?
+
+35 "SJC24-2-TR30" (3859468800)
+00:07:34.526 --> 00:07:52.384
+Yeah, yes. This part is mostly so only if some part is another agent running there. This one CPA memory is only.
+
+36 "Venkateswaran Mohanasundaram" (219517952)
+00:07:53.089 --> 00:08:10.141
+Okay, because you know in the any landing page of like system status page of any device, right? So we saw this CPU memory right now we have we have control plane, so that means NO this is a subset of that, correct?
+
+37 "SJC24-2-TR30" (3859468800)
+00:08:10.141 --> 00:08:12.641
+That's correct.
+
+38 "SJC24-2-TR30" (3859468800)
+00:08:12.641 --> 00:08:31.739
+So intent is like a customer was not able to figure out that what's happening in the in the OMP. OMP is the heavy lift in the smart. So it can melt down the network or it can keep the network, right? OMP is the heart of SD WAN.
+
+39 "SJC24-2-TR30" (3859468800)
+00:08:31.739 --> 00:09:00.820
+So, customers also requested we need to know a way to know the health of OMP by looking at the graphs and all that. That's how this thing evolved. And then we discussed with JP, Akshay, Mike, Olgan, everybody, and then we came up with this consensus. So we started implementing and implemented, but we did prioritize for the release, that is the story. Okay.
+
+40 "SJC24-2-TR30" (3859468800)
+00:09:01.402 --> 00:09:02.039
+Okay.
+
+41 "Mingchieh Wang" (1141026304)
+00:09:02.039 --> 00:09:06.141
+Can I can I have questions? I have certain questions.
+
+42 "Venkateswaran Mohanasundaram" (219517952)
+00:09:06.141 --> 00:09:21.526
+So CPU threshold, right? What is like we we say average right in other places we have something called average, but here we have something called threshold. What what's the difference between average and threshold?
+
+43 "SJC24-2-TR30" (3859468800)
+00:09:21.526 --> 00:09:23.927
+Where is a threshold is 80 % today?
+
+44 "SJC24-2-TR30" (3859468800)
+00:09:23.927 --> 00:09:44.299
+And we we have some safety barrier kick kicks in. So it's not part of this feature, but what safety barrier does is it won't take any new OMP peering and it will only allow OMP deletion, that's what.
+
+45 "SJC24-2-TR30" (3859468800)
+00:09:44.299 --> 00:09:50.426
+The functionality and it will back present the network and keep be smart stable.
+
+46 "Venkateswaran Mohanasundaram" (219517952)
+00:09:50.426 --> 00:10:12.483
+Okay, so that means ok ok got it got it so my question is so threshold will not change, but for the representation we show that client so that you know when user sees that, ok, at some point of time you know CPU or memory are both, you know, went beyond the threshold, right? Correct.
+
+47 "SJC24-2-TR18" (818392576)
+00:10:12.483 --> 00:10:21.126
+No threshold I thought you mentioned threshold would be dynamically changing every day or something, right? Or NO?
+
+48 "SJC24-2-TR30" (3859468800)
+00:10:21.126 --> 00:10:30.903
+No, the memory and CPU threshold are fixed at 80 %. If we reach above 80. We don't allow some actions. Okay.
+
+49 "SJC24-2-TR18" (818392576)
+00:10:30.903 --> 00:10:32.438
+And they're not configured.
+
+50 "SJC24-2-TR18" (818392576)
+00:10:32.963 --> 00:10:34.462
+Yeah.
+
+51 "Venkateswaran Mohanasundaram" (219517952)
+00:10:34.462 --> 00:10:43.483
+Okay, so then, here it shows 40 and 60, then it's incorrect, right? The CPU line is at 40 percentage.
+
+52 "SJC24-2-TR30" (3859468800)
+00:10:43.483 --> 00:10:52.806
+Threshold was 60 and 40. That threshold mark is high watermark, you can say.
+
+53 "Venkateswaran Mohanasundaram" (219517952)
+00:10:52.806 --> 00:10:56.481
+No, you said it's 80, right? It's fixed as 80, but here.
+
+54 "SJC24-2-TR30" (3859468800)
+00:10:56.481 --> 00:11:11.199
+Yeah, 80 another line will come at 80, ok? Red line or something, and this blue and if this what is this blue, if they come to that red line, then we reach the threshold.
+
+55 "SJC24-2-TR18" (818392576)
+00:11:11.199 --> 00:11:14.726
+No, but that dotted line is the threshold, right?
+
+56 "Venkateswaran Mohanasundaram" (219517952)
+00:11:14.726 --> 00:11:17.126
+Yeah, dotted line.
+
+57 "SJC24-2-TR30" (3859468800)
+00:11:17.126 --> 00:11:19.316
+The average.
+
+58 "Venkateswaran Mohanasundaram" (219517952)
+00:11:19.316 --> 00:11:43.743
+Yeah so the dotted line, if you look at the legends in the below the chart right in the right side CPU threshold memory threshold are represented by dotted lines and in the chart, if you see the blue dotted line is at 40 percentage and Marun is at 60 percentage. But you mentioned, you know, it is fixed as 80 percentage, right? That means we need to update this you know chart for the dotted lines to appear at the 80 percentage y axis right.
+
+59 "SJC24-2-TR30" (3859468800)
+00:11:43.743 --> 00:12:02.084
+Right? Correct. So update on this one and there were some discussions about the thresholds along with what has mentioned and we'll have to go back to the previous discussions and then I'm going to update on that.
+
+60 "Venkateswaran Mohanasundaram" (219517952)
+00:12:02.084 --> 00:12:05.558
+Okay so so.
+
+61 "SJC24-2-TR30" (3859468800)
+00:12:05.558 --> 00:12:22.686
+Base baseline is 80 % is the threshold, whatever safety bear that takes, that one red line will come, right? And memory and CPU should toggle between that and below 0 %. That is that's what we should monitor.
+
+62 "Mingchieh Wang" (1141026304)
+00:12:22.686 --> 00:12:30.201
+Does a CPU memory, those items will be more or just those is.
+
+63 "SJC24-2-TR30" (3859468800)
+00:12:30.201 --> 00:12:44.192
+See CPU can be hundred percent at one time, right? Like for 2 s it can be hundred, like 5 s it can be 40, right? The average will take out as a threshold line, right? Threshold line.
+
+64 "Venkateswaran Mohanasundaram" (219517952)
+00:12:44.192 --> 00:13:14.229
+No, NO, I think that's the confusion, so why see why I mentioned average was in other places, you know, we have something called average that is represented with this dotted line. But now we are using this dotted line representation for threshold. Threshold and average are two different things, right? Threshold means this is the maximum it can go. If it goes beyond that, some action will be getting, right? But average is average load across these 12 h e.g., in this case 12 h, right? So what is the average? So my question is for UX Ming, why are we using the same.
+
+65 "Venkateswaran Mohanasundaram" (219517952)
+00:13:14.229 --> 00:13:46.887
+Representation for both average and threshold because 1st time I looked at it looked like an average but it looks like a threshold, right? So and again if the threshold is going to be same static, do we really need to show this? Or we can just put it in, you know, like, you know, CPU threshold memory 80 % above the chart so that, you know, user can, you know, when the lines, any one of the lines are you know going beyond 80 %, they know hey this is when, you know, some spike happened and they can take respective monitoring actions, right?
+
+66 "Mingchieh Wang" (1141026304)
+00:13:46.887 --> 00:13:51.422
+A fewer's designers longer with this. I just.
+
+67 "SJC24-2-TR30" (3859468800)
+00:13:51.422 --> 00:13:53.281
+But it's gonna go beyond anymore.
+
+68 "Mingchieh Wang" (1141026304)
+00:13:53.281 --> 00:14:01.248
+Yeah, I I'm trying to understand is the more items will be for the legends for.
+
+69 "SJC24-2-TR30" (3859468800)
+00:14:01.248 --> 00:14:06.265
+Oh, you have to change that to average CPU average, threshold to average.
+
+70 "Venkateswaran Mohanasundaram" (219517952)
+00:14:06.265 --> 00:14:11.771
+Yeah, if we change threshold average then it keeps changing, right? Because the average will change because it is, you know.
+
+71 "SJC24-2-TR30" (3859468800)
+00:14:11.771 --> 00:14:26.684
+Threshold you have to put one line on the 80 80 % and in the static line, you can say CPU memory threshold or something like that. Or you can put a text format saying CPU memory threshold is 80 % or something, yeah.
+
+72 "Mingchieh Wang" (1141026304)
+00:14:26.684 --> 00:14:41.508
+Why we don't use colors for thresholds like yellow, greens, and red? People know, ok, it's lower than is almost reaching the red. They can.
+
+73 "SJC24-2-TR30" (3859468800)
+00:14:41.508 --> 00:14:50.086
+Yeah, you can do that like when when it's close to IT you can say make it red. Yeah, it's up to you, your creativity, so.
+
+74 "Venkateswaran Mohanasundaram" (219517952)
+00:14:50.086 --> 00:15:08.789
+From the discussion what I understand the the input to you is rename this CPU threshold and memory threshold to CPU average and memory average, ok? Because that average will be going up and down. On top of it, we need to have something called CPU threshold and memory threshold.
+
+75 "Venkateswaran Mohanasundaram" (219517952)
+00:15:08.789 --> 00:15:28.789
+That could either be another two sets of line or a, you know, representation above the chart saying that, hey, this is the threshold, like, you know, we can just put a label also like table label tag CPU 80 CPU threshold 80 percentage, number three 80 percentage, right? Because adding another lines maybe you know a little bit confusing to the user.
+
+76 "Venkateswaran Mohanasundaram" (219517952)
+00:15:28.789 --> 00:15:41.341
+But I know I'll let you know take that UX call, right? These are minor suggestion from our side, but if you think you know we need to put lines for both average and threshold, it's up to you and better to come up with two different options.
+
+77 "Mingchieh Wang" (1141026304)
+00:15:41.341 --> 00:15:44.920
+I see. I I cannot think about it. Yeah, yeah.
+
+78 "SJC24-2-TR30" (3859468800)
+00:15:44.920 --> 00:15:45.602
+Okay.
+
+79 "Mingchieh Wang" (1141026304)
+00:15:45.602 --> 00:15:47.703
+So, so one.
+
+80 "SJC24-2-TR30" (3859468800)
+00:15:47.703 --> 00:15:48.480
+Question.
+
+81 "Mingchieh Wang" (1141026304)
+00:15:48.480 --> 00:15:49.365
+So what's the.
+
+82 "SJC24-2-TR18" (818392576)
+00:15:49.365 --> 00:15:53.702
+The Difference between the solid line, the solid line is not the average?
+
+83 "SJC24-2-TR30" (3859468800)
+00:15:53.702 --> 00:16:01.722
+Not that at that point 03:00 p.m., what is the actual.
+
+84 "SJC24-2-TR18" (818392576)
+00:16:01.722 --> 00:16:10.101
+But 03:00 P.M. is going to be like a minute, right? And the CPU is what, every 5 s or 30 s or something, right?
+
+85 "SJC24-2-TR30" (3859468800)
+00:16:10.101 --> 00:16:19.096
+So CPU CPU memory calculation is done every 5 s on the device vsmart.
+
+86 "SJC24-2-TR30" (3859468800)
+00:16:19.705 --> 00:16:25.039
+Okay. The data is streamed I think every 3 min or 5 min that I will check.
+
+87 "SJC24-2-TR18" (818392576)
+00:16:25.039 --> 00:16:26.044
+Okay.
+
+88 "SJC24-2-TR30" (3859468800)
+00:16:26.044 --> 00:16:29.308
+But the calculation every 5 s on the device.
+
+89 "SJC24-2-TR18" (818392576)
+00:16:29.308 --> 00:16:43.545
+Okay, so on this graph, when we say 01:00 p.m., is that for the entire 01:00 P.M. 1 min candle or whatever you call it? Or is it 5 s?
+
+90 "Venkateswaran Mohanasundaram" (219517952)
+00:16:43.545 --> 00:17:04.603
+And so I think these are all we manage backend calculations, right? So we get as you know, who's that, I forgot the name, Raghu mentioned, right? Device sends that way, but we manage, you know, backend collection and the you know the status DB. And the way they aggregate and send it to some logic, right? So that's how all the charts are there, right? What.
+
+91 "SJC24-2-TR18" (818392576)
+00:17:04.603 --> 00:17:10.407
+Yeah, but in this chart, then I would think it's the average we are showing every minute on.
+
+92 "Venkateswaran Mohanasundaram" (219517952)
+00:17:10.407 --> 00:17:36.569
+Right? No, NO, it's not average aggregated you know over that duration, so there is some logic, you know, I'm I don't exactly remember, but Jeffrey can, you know, explain the aggregation behavior how the device data is collected, how it is stored and processed and sent, you know, in this format, right? But that is not average, so average is something between like, e.g., in this example, there are 1212 lines, right? Twelve lines mean 12 h, right?
+
+93 "Venkateswaran Mohanasundaram" (219517952)
+00:17:36.569 --> 00:18:03.167
+So it could be 4030 2010, like twelve different numbers by twelve, so some of it and the average, but the aggregation is different. No, hey, around 02:00 p.m.. You know, it was, you know, hovering around 35 percentage. Then you know around 03:00 P.M. you know it went to 45 percentage. That is what it says. So the average and the aggregation is two different metrics.
+
+94 "SJC24-2-TR18" (818392576)
+00:18:03.167 --> 00:18:17.345
+Okay. Okay, so the dotted one will show the average and the other one will show aggregate. Yeah, yeah. Okay. Okay.
+
+95 "Mingchieh Wang" (1141026304)
+00:18:17.345 --> 00:18:23.319
+What's the option for the dropdown will be 12 h and what?
+
+96 "Venkateswaran Mohanasundaram" (219517952)
+00:18:24.277 --> 00:18:31.205
+And I think this should be consistent with other pages where we support from 1 h to seven days with the custom options as well.
+
+97 "Mingchieh Wang" (1141026304)
+00:18:31.205 --> 00:18:37.885
+Okay, so once a change and two charts will be changed. Yeah.
+
+98 "Venkateswaran Mohanasundaram" (219517952)
+00:18:37.885 --> 00:18:40.920
+Everything charts table, everything should change.
+
+99 "Mingchieh Wang" (1141026304)
+00:18:40.920 --> 00:19:11.223
+For the bar charts, the problem is we not allowed to show five, more than 5 bar so we can show 12345 those but we cannot show those so many because we'll, user will lose their focus. So can we using others line charts instead of this? Okay I'm showing you here. So.
+
+100 "SJC24-2-TR18" (818392576)
+00:19:11.223 --> 00:19:14.616
+So five right we can't show hundred like this.
+
+101 "Mingchieh Wang" (1141026304)
+00:19:14.616 --> 00:19:17.045
+Can can you repeat one.
+
+102 "SJC24-2-TR18" (818392576)
+00:19:17.045 --> 00:19:22.307
+Even for lines are I think we only show four or five.
+
+103 "Mingchieh Wang" (1141026304)
+00:19:22.307 --> 00:19:23.642
+Right? Yeah.
+
+104 "SJC24-2-TR30" (3859468800)
+00:19:23.642 --> 00:19:24.599
+Nope.
+
+105 "Mingchieh Wang" (1141026304)
+00:19:24.599 --> 00:19:28.326
+Yeah crowded and confusing.
+
+106 "SJC24-2-TR30" (3859468800)
+00:19:28.326 --> 00:19:29.718
+To me.
+
+107 "Venkateswaran Mohanasundaram" (219517952)
+00:19:29.718 --> 00:20:01.306
+This is too too much good but ok go back to the bar chart, so what we are saying is maximum of five means in at that particular point of time, there are five plus events type five plus types of events, right? Then what we had to do top four should have you know displayed as four different legends with whatever the color coding and the 5th one will be some of the rest of the types, right? And that becomes other, is that correct? So that means we have sorry more than five here.
+
+108 "SJC24-2-TR30" (3859468800)
+00:20:01.306 --> 00:20:07.586
+Because we have over six or seven discrete events.
+
+109 "Venkateswaran Mohanasundaram" (219517952)
+00:20:07.586 --> 00:20:12.126
+Okay, so what is the maximum number of discrete events here, Raghu.
+
+110 "SJC24-2-TR30" (3859468800)
+00:20:12.126 --> 00:20:29.118
+So here we say, uptime, let's see. So we will have CC uptime ORP uptime to Yeah I don't know about others, but we will have all these seven here.
+
+111 "Mingchieh Wang" (1141026304)
+00:20:29.118 --> 00:20:32.766
+This is A here.
+
+112 "SJC24-2-TR30" (3859468800)
+00:20:32.766 --> 00:20:45.084
+Yeah, including the total maybe at seven we have we have it other designs when we added just for you as a placeholder for any future events, so you can count as eight, sure.
+
+113 "Venkateswaran Mohanasundaram" (219517952)
+00:20:45.664 --> 00:21:01.305
+Oh, NO NO. So if currently seven is the different types of events, then we can just show seven, right? When, when the new type added then you know we can do seven, but even, if we are don't want to show seven, then, you know, we can always, you know, ma put it.
+
+114 "SJC24-2-TR30" (3859468800)
+00:21:01.305 --> 00:21:03.681
+Let's do, yeah.
+
+115 "SJC24-2-TR18" (818392576)
+00:21:03.681 --> 00:21:22.582
+So I'm I'm just trying to understand like what will the customer learn from all of this? OMP pairing change is going to say that at 01:00 P.M. there were like 20 OMP pairing change messages or events.
+
+116 "SJC24-2-TR30" (3859468800)
+00:21:22.582 --> 00:21:25.846
+20 events at that time.
+
+117 "SJC24-2-TR18" (818392576)
+00:21:25.846 --> 00:21:40.168
+OMP pairing, ok, and then what does 20 OMP uptime mean? Like if I see OMP uptime, right? I would think there are like, let's assume number of events is 20, what does that mean?
+
+118 "SJC24-2-TR18" (818392576)
+00:21:46.424 --> 00:21:53.237
+Is that what will be appliance? Yeah.
+
+119 "Falgun Bhagavatula" (2859244800)
+00:21:53.237 --> 00:21:59.064
+Okay, why are we calling it OMP uptime then if it is 20 OMP peers.
+
+120 "Falgun Bhagavatula" (2859244800)
+00:22:03.384 --> 00:22:10.005
+Time then we should not use time.
+
+121 "SJC24-2-TR18" (818392576)
+00:22:10.005 --> 00:22:19.807
+Yeah, some duration, right? I don't know how you would put our number of events counted against it.
+
+122 "SJC24-2-TR30" (3859468800)
+00:22:19.807 --> 00:22:32.005
+Wait so.
+
+123 "SJC24-2-TR18" (818392576)
+00:22:32.005 --> 00:22:48.980
+So I understand that, ok, at a specific time there were, let's say 20 policy change events that's understood. There maybe 20 control connection events. Route sent events and route received events. I don't know if it makes sense.
+
+124 "SJC24-2-TR30" (3859468800)
+00:22:48.980 --> 00:23:10.305
+No, NO, so we are adding ok and what we the intention was to show at that time at any particular time that user selects less than 03:00 P.M. here, how many routes were received, how many routes were how many routes were active at that point of time?
+
+125 "SJC24-2-TR18" (818392576)
+00:23:10.305 --> 00:23:21.285
+So that's event or that's the actual count Cause event would be one event on an exchange or something, right? Or are you saying if thousand routes are sent you would have a count of thousand events.
+
+126 "SJC24-2-TR30" (3859468800)
+00:23:21.285 --> 00:23:30.807
+No, NO. All these are only in when the OMP peering goes to when the event happens, it's the information they are going to send.
+
+127 "Falgun Bhagavatula" (2859244800)
+00:23:30.807 --> 00:23:43.744
+Right, so I I routes received and routes sent is something ok that is going to impact the V smart health, right? That's why we are showing that. But what are these uptimes.
+
+128 "SJC24-2-TR18" (818392576)
+00:23:43.744 --> 00:23:45.700
+So, I think.
+
+129 "Falgun Bhagavatula" (2859244800)
+00:23:45.700 --> 00:23:47.926
+Question. Yeah. So for even for.
+
+130 "SJC24-2-TR18" (818392576)
+00:23:47.926 --> 00:23:52.967
+Are we showing the actual number of routes sent and received or are we just saying.
+
+131 "Falgun Bhagavatula" (2859244800)
+00:23:52.967 --> 00:23:55.018
+No, the new routes learnt.
+
+132 "SJC24-2-TR18" (818392576)
+00:23:55.018 --> 00:23:57.844
+Yes.
+
+133 "Falgun Bhagavatula" (2859244800)
+00:23:57.844 --> 00:24:17.269
+Yes, a route change event. The new routes and new routes sent like you know if there are any route updates, we receive the route updates and then we, we send the route updates to all these devices.
+
+134 "Falgun Bhagavatula" (2859244800)
+00:24:17.269 --> 00:24:27.744
+Right? So I think that is the number correct me if I'm if I'm wrong Raghu, so that is what we are trying to show here because that is what will impact the vsmart.
+
+135 "SJC24-2-TR30" (3859468800)
+00:24:27.744 --> 00:24:40.382
+No, I think this one, when an event happens, sent and received corresponds to the snapshot at that point of time.
+
+136 "Falgun Bhagavatula" (2859244800)
+00:24:40.382 --> 00:24:44.443
+Okay.
+
+137 "SJC24-2-TR18" (818392576)
+00:24:46.744 --> 00:24:51.365
+Can can you elaborate what what do you mean by it's a snapshot of the event?
+
+138 "SJC24-2-TR30" (3859468800)
+00:24:51.365 --> 00:25:00.449
+So at that time when an event happened, let's say.
+
+139 "SJC24-2-TR30" (3859468800)
+00:25:00.449 --> 00:25:20.449
+Let's say when OMP peering for a particular client went down, but a device goes down and that's an event that we are sending it to and as part of the event, when that event happened, what is the how many routes were sent?
+
+140 "SJC24-2-TR30" (3859468800)
+00:25:20.449 --> 00:25:25.085
+Okay, so what is the snapshot of the count at that point of time?
+
+141 "SJC24-2-TR18" (818392576)
+00:25:25.085 --> 00:25:31.482
+What would that form be? Like, would it be a number like one or two or would it be like.
+
+142 "SJC24-2-TR30" (3859468800)
+00:25:31.482 --> 00:25:38.358
+No, that's a complete consolidated and sent on the from the.
+
+143 "Falgun Bhagavatula" (2859244800)
+00:25:38.358 --> 00:26:02.517
+Can you give an example? Like let's say if are you saying let's say I have, I have a hundred routers right and I have hundred OMP pairings with these routers and let's say ten routers for some reason the OMP pairing to those ten routers went down. What would be, what would be the impact to this route routes received and route sent?
+
+144 "SJC24-2-TR30" (3859468800)
+00:26:03.867 --> 00:26:07.906
+So, where one router goes down.
+
+145 "SJC24-2-TR30" (3859468800)
+00:26:09.887 --> 00:26:24.768
+Then, if it goes down, if there is a graceful shutdown from the router side, then that is going to withdraw all the routes.
+
+146 "SJC24-2-TR18" (818392576)
+00:26:24.768 --> 00:26:26.147
+Okay.
+
+147 "SJC24-2-TR30" (3859468800)
+00:26:26.147 --> 00:26:38.808
+Then this at the time that event happens, this count is going to go down as well as centered because it is 1 h two, going through the shutdown.
+
+148 "SJC24-2-TR18" (818392576)
+00:26:38.808 --> 00:26:58.609
+So that count is gonna go down, so how is that going to show up as an event on the thing, right? We are not like are we showing a count going down? I would think if there are like 10000 routes and then one device goes down, it becomes 9999, so we are not showing that anywhere.
+
+149 "SJC24-2-TR18" (818392576)
+00:26:58.609 --> 00:27:05.923
+On the top, Assuming that's what he meant.
+
+150 "SJC24-2-TR30" (3859468800)
+00:27:05.923 --> 00:27:13.285
+No, the route sentence is not an event by itself.
+
+151 "SJC24-2-TR18" (818392576)
+00:27:13.285 --> 00:27:16.868
+Okay, then it does not belong to the table then?
+
+152 "SJC24-2-TR30" (3859468800)
+00:27:16.868 --> 00:27:26.581
+No, NO NO. So this is an important information that we want to show. Basically, the idea behind it was let's say when there is a CPU hike, when there was a CPU hike.
+
+153 "SJC24-2-TR18" (818392576)
+00:27:26.581 --> 00:27:28.222
+Okay.
+
+154 "SJC24-2-TR30" (3859468800)
+00:27:28.222 --> 00:27:49.668
+What potentially could have contributed those hikes? And some of them could even some of them could be the pairing goes down or control connection goes down and comes back. There's the transitions happening and at the time of the transition happening, what is the status of the route state of the routes received and sent?
+
+155 "SJC24-2-TR18" (818392576)
+00:27:49.668 --> 00:27:58.303
+Okay, so maybe I'll ask this question. Is the bar chart and the table below related or they are completely independent?
+
+156 "SJC24-2-TR30" (3859468800)
+00:27:58.303 --> 00:28:01.127
+They are related.
+
+157 "SJC24-2-TR18" (818392576)
+00:28:01.127 --> 00:28:11.586
+Okay, then I'm not following, sorry. At least I'm not able to understand how all the related.
+
+158 "SJC24-2-TR30" (3859468800)
+00:28:11.586 --> 00:28:34.563
+So the table actually shows what kind of events happened. Okay, so route sent and route received that event itself is showing that an event is incorrect. That's not an event, that's a response to some other event. When an event happens this month is also sending same route sent and received those two numbers.
+
+159 "SJC24-2-TR18" (818392576)
+00:28:36.963 --> 00:28:51.200
+Okay. So one question, another question, sorry. So will the table have multiple items right for every event that happens? Is that right? This table may have 40 or 50 events at a specific time or NO?
+
+160 "SJC24-2-TR30" (3859468800)
+00:28:51.200 --> 00:28:57.186
+Just just 1 s let me ask to join. He also has was involved in this.
+
+161 "SJC24-2-TR18" (818392576)
+00:28:57.186 --> 00:29:01.287
+Okay, I'll also join you in the room, so I'll just.
+
+162 "SJC24-2-TR30" (3859468800)
+00:29:01.287 --> 00:29:05.127
+Yeah, sure, yeah. Just give me.
+
+163 "Falgun Bhagavatula" (2859244800)
+00:29:05.127 --> 00:29:16.961
+So instead of having multiple discussions, do you think it's it's better to have a separate call when where Jeffrey is also there and we can get everything answered.
+
+164 "SJC24-2-TR30" (3859468800)
+00:29:16.961 --> 00:29:31.969
+Yeah I think that's better for I set up a meeting for tomorrow, I will forward you, I will add you also to that meeting because we need Jeffrey we need also, we need to have Ramana also on the call.
+
+165 "Falgun Bhagavatula" (2859244800)
+00:29:31.969 --> 00:29:33.184
+Yes.
+
+166 "SJC24-2-TR30" (3859468800)
+00:29:33.184 --> 00:29:39.844
+Need we need Paul also on the call.
+
+167 "SJC24-2-TR18" (818392576)
+00:29:39.844 --> 00:29:43.108
+Oh.
+
+168 "SJC24-2-TR30" (3859468800)
+00:29:43.108 --> 00:29:45.305
+So let me ask you.
+
+169 "Falgun Bhagavatula" (2859244800)
+00:29:45.305 --> 00:30:10.485
+Let's do that in that case and let's have let's have a clear understanding of what we are displaying here, right? Yeah also mentioned right the uptimes the received sent, what are we trying to convey is not extremely clear we gotta make sure that you know we we properly identify what we are trying to show and then it's clear to the customers as well.
+
+170 "SJC24-2-TR18" (818392576)
+00:30:11.328 --> 00:30:25.380
+And only reason we are asking these questions is because it 1st who has to do is they explain to the customers, right? So we should show what makes sense to our customer and how we can consume one of this data, right?
+
+171 "SJC24-2-TR30" (3859468800)
+00:30:25.380 --> 00:30:35.200
+Yeah yeah there yeah ok so I added both of you for tomorrow's call and then. Yeah.
+
+172 "Falgun Bhagavatula" (2859244800)
+00:30:35.200 --> 00:30:40.967
+Sounds good. Then let's let's talk tomorrow then when with everyone.
+
+173 "SJC24-2-TR18" (818392576)
+00:30:40.967 --> 00:30:41.927
+Thanks.
+
+174 "SJC24-2-TR30" (3859468800)
+00:30:41.927 --> 00:30:47.902
+Anyone else, you know, you want to forward just feel free to forward.
+
+175 "Mingchieh Wang" (1141026304)
+00:30:47.902 --> 00:31:23.287
+Yeah sure let's talk about tomorrow because I also wanted to know why one is how we alignment for all the tech because reconstructions, ok. Ignore the lines here. So this is the new device three sixties. See the tab on the top and should we put this underneath the security for insights and should we need those hero cards for summarize? So those we should discuss.
+
+176 "SJC24-2-TR30" (3859468800)
+00:31:23.287 --> 00:31:37.924
+Yeah, so correct. I'm also not sure where this will go in. It's better we you know if you can wait until tomorrow when Jeffrey and others are also.
+
+177 "Mingchieh Wang" (1141026304)
+00:31:37.924 --> 00:31:43.323
+Okay sure. You want to closed this today or?
+
+178 "SJC24-2-TR30" (3859468800)
+00:31:43.323 --> 00:31:49.025
+Yeah, let's close this one and we'll discuss in detail tomorrow. Sure, sure.
+
+179 "Mingchieh Wang" (1141026304)
+00:31:49.025 --> 00:31:52.566
+Thank you. Thank you Venkay, bye.
+
+180 "Venkateswaran Mohanasundaram" (219517952)
+00:31:52.566 --> 00:31:54.779
+Okay everyone, yeah.

@@ -1,0 +1,789 @@
+WEBVTT
+
+1 "Mingchieh Wang" (3237972224)
+00:00:03.045 --> 00:00:21.018
+So we actually wanted to address the three different feedback from yesterday. Yeah, I will share my screens. Which one would you like to start with? The 1st one?
+
+2 "Falgun Bhagavatula" (3620072192)
+00:00:21.018 --> 00:00:24.481
+I'm sorry I didn't get the question. Okay, so.
+
+3 "Mingchieh Wang" (3237972224)
+00:00:24.481 --> 00:00:30.883
+We're gonna to go over the three issues.
+
+4 "Falgun Bhagavatula" (3620072192)
+00:00:30.883 --> 00:00:32.383
+Yeah, sure.
+
+5 "Mingchieh Wang" (3237972224)
+00:00:32.383 --> 00:00:34.842
+Which one we gonna talk about 1st?
+
+6 "Falgun Bhagavatula" (3620072192)
+00:00:34.842 --> 00:00:43.500
+We can we can start with the, we can start with the 1st.
+
+7 "Falgun Bhagavatula" (3620072192)
+00:00:43.500 --> 00:01:04.282
+Let's see, one of the items in it were whether whether there is, you know, the details could be shared. I remember that one, in the policy change, whether the policy change contains data policy and control policy changes both. Do we know?
+
+8 "Raghu Chereddy" (4039901184)
+00:01:04.282 --> 00:01:15.100
+Yeah, so I talked to they do say they did say this and data policy event also.
+
+9 "Falgun Bhagavatula" (3620072192)
+00:01:15.100 --> 00:01:29.123
+Okay and and under the event, under the details, can, can we, can we differentiate whether, whether it is data policy or or control policy?
+
+10 "Raghu Chereddy" (4039901184)
+00:01:29.123 --> 00:01:37.522
+So I think so, but I did not look at the code. It should be because there are two separate events.
+
+11 "Falgun Bhagavatula" (3620072192)
+00:01:37.522 --> 00:01:39.315
+Hello, ok.
+
+12 "Ramana Polamarasetti" (2851620096)
+00:01:39.315 --> 00:01:43.545
+Yeah, what is that? Sorry, she just joined.
+
+13 "Raghu Chereddy" (4039901184)
+00:01:43.545 --> 00:02:26.004
+So the policy change event. There are two events one sent by one is that data policy event and second one is a control policy event. So morning I talked to Karan and Srini and they said that does send data policy event also to be managed. Now the question that is asking is, can we, are these is there, can we differentiate between these two events when it comes to policy change here?
+
+14 "Raghu Chereddy" (4039901184)
+00:02:35.704 --> 00:02:49.299
+So Fargon that information we can actually provide a little bit, we need more time busy today. So but regardless of that, we can, it's not related to the UX itself.
+
+15 "Falgun Bhagavatula" (3620072192)
+00:02:49.299 --> 00:02:51.924
+Right it is not.
+
+16 "Raghu Chereddy" (4039901184)
+00:02:51.924 --> 00:02:56.758
+So that we can also I mean we can provide later also that information.
+
+17 "Falgun Bhagavatula" (3620072192)
+00:02:56.758 --> 00:03:07.742
+Sure yeah ok how about the other 1II do not.
+
+18 "Raghu Chereddy" (4039901184)
+00:03:07.742 --> 00:03:15.803
+So the thresholds right again and they So I was told right this was done a long time ago, the 7585.
+
+19 "Raghu Chereddy" (4039901184)
+00:03:16.963 --> 00:03:49.555
+Above 85, ok, so they, ok, so they did not explain me what was the rationale behind 75 and 85, how they arrived at those thresholds. But what they said was ok 85 may above 85 is in a dangerous zone. Between 75 and 85 is a yellow and before that one is a green.
+
+20 "Falgun Bhagavatula" (3620072192)
+00:03:49.555 --> 00:03:57.078
+Okay. It's not 7585, it is 80 and 90 %.
+
+21 "Raghu Chereddy" (4039901184)
+00:03:57.078 --> 00:03:59.420
+No, the one yesterday.
+
+22 "Falgun Bhagavatula" (3620072192)
+00:03:59.420 --> 00:04:13.502
+That is for VH. For VH I think it was 75 and 85, but we are, we are removing that VH part of it, right? We are, we are only keeping for the CH, the vantages and the vantages is 80 % and 95.
+
+23 "Raghu Chereddy" (4039901184)
+00:04:13.502 --> 00:04:25.334
+Okay ok so yeah so even that one also is a static threshold it was discussed and they they discussed the team some time back.
+
+24 "Raghu Chereddy" (4039901184)
+00:04:25.334 --> 00:04:38.523
+And basically about 90 % is a danger between 80 and 90 is, device is going to melt down and before that is a healthy state before under 80 %.
+
+25 "Falgun Bhagavatula" (3620072192)
+00:04:38.523 --> 00:04:52.123
+Right, so the question was whether whether the 80 % that we are showing here, whether this is a customer configurable event or not. So Ramina, did you get a chance to check?
+
+26 "Ramana Polamarasetti" (2851620096)
+00:04:52.123 --> 00:04:55.063
+Oh, on the, ok, ok.
+
+27 "Raghu Chereddy" (4039901184)
+00:04:55.063 --> 00:04:58.838
+So this one is a safety barriers one Domina what we are talking about.
+
+28 "Falgun Bhagavatula" (3620072192)
+00:04:58.838 --> 00:05:09.762
+No, NO NO NO NO NO NO NO. So safety barriers, we explicitly spoke yesterday that we do not want to show the safety barrier thing.
+
+29 "Raghu Chereddy" (4039901184)
+00:05:10.583 --> 00:05:11.483
+Okay.
+
+30 "Falgun Bhagavatula" (3620072192)
+00:05:11.483 --> 00:05:23.519
+Right, so let's make sure let's be extremely clear about that. It is not the safety barrier. It is the device, it is the device warning threshold going from good to fail.
+
+31 "Falgun Bhagavatula" (3620072192)
+00:05:24.240 --> 00:05:37.679
+That is what we see on the other, other monitoring aspects as well. Let's be yeah so let's let's make a note of it, ok? Safety barriers, we don't want to show it to the customers.
+
+32 "Mingchieh Wang" (3237972224)
+00:05:37.679 --> 00:05:38.266
+Okay.
+
+33 "Raghu Chereddy" (4039901184)
+00:05:39.224 --> 00:05:46.261
+Okay, so to that point the thresholds that were shown in other screen.
+
+34 "Falgun Bhagavatula" (3620072192)
+00:05:46.261 --> 00:05:47.742
+Huh.
+
+35 "Raghu Chereddy" (4039901184)
+00:05:47.742 --> 00:05:51.739
+Those thresholds were not configurable or not configurable.
+
+36 "Falgun Bhagavatula" (3620072192)
+00:05:51.739 --> 00:05:53.341
+That was the question. Okay.
+
+37 "Raghu Chereddy" (4039901184)
+00:05:53.341 --> 00:06:02.844
+Okay, I mean I did not look at the code. This is based on the feedback that I got from Srini and current today morning.
+
+38 "Falgun Bhagavatula" (3620072192)
+00:06:02.844 --> 00:06:06.043
+But are you sure that they are not talking about the safety bene.
+
+39 "Raghu Chereddy" (4039901184)
+00:06:06.043 --> 00:06:21.949
+No, NO NO, it's not a safety barriers. I I told them about not not with respect to this one the one that is shown the device page, two different 80 % and 90 % in one case, there's one more 75 and 85.
+
+40 "Raghu Chereddy" (4039901184)
+00:06:21.949 --> 00:06:32.219
+Which is a VH just you clarified. Yeah. So those things are only as they basically to provide information about to the users about the health of the device.
+
+41 "Falgun Bhagavatula" (3620072192)
+00:06:32.219 --> 00:06:35.203
+Okay.
+
+42 "Falgun Bhagavatula" (3620072192)
+00:06:36.121 --> 00:06:52.124
+In that case, yeah, in that case I think the the the line item here on the on the 1st chart CPU and memory warning thresholds that that can be there. That is the conclusion.
+
+43 "Raghu Chereddy" (4039901184)
+00:06:52.124 --> 00:06:54.780
+Yeah. Okay.
+
+44 "Falgun Bhagavatula" (3620072192)
+00:06:55.577 --> 00:07:13.843
+In that case, I, I don't, I don't see any other changes that we need to do on the UX. I think we are pretty much said only only thing is Ming, the other day we we spoke about moving the policy on to the top, right? So, are you going to change that later?
+
+45 "Mingchieh Wang" (3237972224)
+00:07:13.843 --> 00:07:16.595
+The park place.
+
+46 "Falgun Bhagavatula" (3620072192)
+00:07:16.595 --> 00:07:33.349
+Yeah, sure. So 2nd, the event based on selection, right? If you can zoom in and there are three items there, right? Control, control connection state change, policy change and OMP peer state change. So the policy and OMP peer state change, those.
+
+47 "Falgun Bhagavatula" (3620072192)
+00:07:33.349 --> 00:07:37.606
+Those two need to be interchanged.
+
+48 "Mingchieh Wang" (3237972224)
+00:07:37.606 --> 00:07:41.044
+Needs to be.
+
+49 "Falgun Bhagavatula" (3620072192)
+00:07:41.044 --> 00:07:54.203
+Interchanged as in as in the policy change goes to the top of the bar graph and the OMP pairing state change goes to the middle.
+
+50 "Mingchieh Wang" (3237972224)
+00:07:54.203 --> 00:07:56.436
+Oh!
+
+51 "Raghu Chereddy" (4039901184)
+00:07:56.436 --> 00:08:07.107
+I think Ming, you have added comments if you click on that box on the circle, you, you added 123.
+
+52 "Mingchieh Wang" (3237972224)
+00:08:07.107 --> 00:08:10.682
+This one here.
+
+53 "Falgun Bhagavatula" (3620072192)
+00:08:10.682 --> 00:08:12.441
+No, right there.
+
+54 "Raghu Chereddy" (4039901184)
+00:08:12.441 --> 00:08:14.941
+On the other way where you are earlier?
+
+55 "Mingchieh Wang" (3237972224)
+00:08:14.941 --> 00:08:18.082
+Okay, here, I'm sorry here.
+
+56 "Falgun Bhagavatula" (3620072192)
+00:08:18.082 --> 00:08:23.693
+Yeah, if you look at the comments yeah see that second? Yeah.
+
+57 "Mingchieh Wang" (3237972224)
+00:08:23.693 --> 00:08:27.421
+Okay, I I need to switch over.
+
+58 "Falgun Bhagavatula" (3620072192)
+00:08:27.421 --> 00:08:29.922
+Yes, correct, correct.
+
+59 "Mingchieh Wang" (3237972224)
+00:08:29.922 --> 00:08:31.536
+Apologize I do that right now.
+
+60 "Falgun Bhagavatula" (3620072192)
+00:08:31.536 --> 00:08:41.622
+No worries, yeah, yeah. That's all. No other yeah NO other changes apart from these two, right?
+
+61 "Mingchieh Wang" (3237972224)
+00:08:41.622 --> 00:08:46.561
+So, should be like this, right?
+
+62 "Mingchieh Wang" (3237972224)
+00:08:47.418 --> 00:09:12.533
+Yeah, got it. Any other change from UI UX side? Okay is all yeah remember last yesterday we was mentioned about the total numbers, total OMP members. Yeah yeah yeah yeah.
+
+63 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:09:12.533 --> 00:09:13.396
+You are.
+
+64 "Falgun Bhagavatula" (3620072192)
+00:09:13.396 --> 00:09:15.963
+You're able to put that there perfect. Perfect. Yes.
+
+65 "Mingchieh Wang" (3237972224)
+00:09:15.963 --> 00:09:20.720
+But we need Venkate to verify. Venkay is not here for seven days.
+
+66 "Falgun Bhagavatula" (3620072192)
+00:09:20.720 --> 00:09:21.882
+Okay.
+
+67 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:09:21.882 --> 00:09:25.074
+So it would not be total OMP CPU.
+
+68 "Falgun Bhagavatula" (3620072192)
+00:09:25.074 --> 00:09:28.496
+It's total CPU and total memory and total memory.
+
+69 "Mingchieh Wang" (3237972224)
+00:09:28.496 --> 00:09:32.019
+Yeah. Oh, total CPU and total memory.
+
+70 "Falgun Bhagavatula" (3620072192)
+00:09:32.019 --> 00:09:59.642
+Right? Right. Okay, good catch. So did you, did you check who is who is who can proxy in in place of Venkat for us to move forward? I mean whether is it is it in the magnetic design guidelines, can we show this? This would be helpful just in case you know we don't have to put a line or anything, but it would be helpful for our customers to just quickly take a look at how how what is the total CPU and memory?
+
+71 "Mingchieh Wang" (3237972224)
+00:09:59.642 --> 00:10:01.979
+Okay, so.
+
+72 "Mingchieh Wang" (3237972224)
+00:10:01.979 --> 00:10:25.682
+Guidelines they don't care, but the problem is the harvard components when can they using the engineers harvard components, right? The component is match, so you have a CPU here, it has to be matched items. If it's not matched, then they have to customize which is against of the rule. Yeah, yeah.
+
+73 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:10:25.682 --> 00:10:28.922
+That's why. I think time range is not needed.
+
+74 "Mingchieh Wang" (3237972224)
+00:10:28.922 --> 00:10:32.000
+Trying yeah sure.
+
+75 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:10:32.000 --> 00:10:48.179
+And, I think what you may have to do is you may have to move the legend on top and total CPU memory needs to go below, I think because that's the primary information we are showing on this table, right? On this graph, so.
+
+76 "Mingchieh Wang" (3237972224)
+00:10:48.179 --> 00:10:50.802
+Okay you wanna switch over.
+
+77 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:10:50.802 --> 00:10:53.981
+I mean, it's not about what I want, what what do you think is right, right?
+
+78 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:10:57.020 --> 00:11:02.133
+Does the primary information need to show up on top or it's ok this way?
+
+79 "Falgun Bhagavatula" (3620072192)
+00:11:02.133 --> 00:11:33.440
+So, yeah, having it on the bottom, that was my 1st ask as well you know if we can show it on the bottom after OMP things are shown, but I'm not sure whether guidelines, what does the guidelines say and so earlier it was it was mentioned that you know it it requires a line item or require it requires a legend somewhere just to show, but if that is not the case, then yeah, I would totally agree that it should go on the bottom.
+
+80 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:11:33.440 --> 00:11:36.319
+Yeah, because that's secondary information that's correct.
+
+81 "Falgun Bhagavatula" (3620072192)
+00:11:36.319 --> 00:11:38.841
+Correct exactly. So I.
+
+82 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:11:38.841 --> 00:11:42.859
+I think we should move total below.
+
+83 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:11:42.859 --> 00:11:48.885
+Okay.
+
+84 "Mingchieh Wang" (3237972224)
+00:11:48.885 --> 00:11:54.401
+Got it. Sure. Anything else?
+
+85 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:11:54.401 --> 00:12:07.288
+And any reason why these like can this not be a single line like like a key value pair kind of a thing, total CPU 52, total memory 68.
+
+86 "Mingchieh Wang" (3237972224)
+00:12:07.288 --> 00:12:12.882
+Okay, so you want just one line question here.
+
+87 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:12:12.882 --> 00:12:22.621
+No, it's not about what I want what is the magnetic design I'm asking like, can we do that way or I mean, I think this is also ok.
+
+88 "Mingchieh Wang" (3237972224)
+00:12:22.621 --> 00:12:39.899
+Yeah, this is ok because we we have to think about what is we want consistent key value pairs, right? Number two is localizations if it changed to other language and and then combine those to one line, it might be break.
+
+89 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:12:45.340 --> 00:12:45.880
+Okay.
+
+90 "Mingchieh Wang" (3237972224)
+00:12:45.880 --> 00:12:57.184
+Yep, I agree to put on the buttons. However, it will be a final review from.
+
+91 "Falgun Bhagavatula" (3620072192)
+00:12:57.184 --> 00:12:58.405
+Okay.
+
+92 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:12:58.405 --> 00:13:07.896
+And, I forgot what we discussed last time, the left side is the total CPU and memory, not the OMP.
+
+93 "Falgun Bhagavatula" (3620072192)
+00:13:07.896 --> 00:13:22.523
+Right, right. So yesterday we confirmed we before you joined, we just talked about that the warning threshold, right? So warning threshold is the total total and memory, yeah.
+
+94 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:13:22.523 --> 00:13:30.564
+And then the CPUs usage is that OMP CPU usage, right? On the left?
+
+95 "Falgun Bhagavatula" (3620072192)
+00:13:30.564 --> 00:13:34.638
+On the left as in? No, like this thing written here.
+
+96 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:13:34.638 --> 00:13:37.179
+Is my axis? Yeah.
+
+97 "Falgun Bhagavatula" (3620072192)
+00:13:37.179 --> 00:13:41.778
+On the y axis is zero to hundred percent, right? I'm not sure.
+
+98 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:13:41.778 --> 00:13:44.528
+So this is still the total.
+
+99 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:13:44.528 --> 00:13:45.028
+No.
+
+100 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:13:45.028 --> 00:13:48.021
+It's OMP. It's OMP.
+
+101 "Falgun Bhagavatula" (3620072192)
+00:13:48.021 --> 00:14:08.569
+So the, the graph, the line items that that we see there is specific to OMP. That's why you see, let's see OMP CPU average is 40 %, but total CPU is 50 %. It it kind of makes sense. Now OMP is using 40 % of of the CPU and.
+
+102 "Falgun Bhagavatula" (3620072192)
+00:14:08.569 --> 00:14:14.359
+And then we have, you know, total CPU is at 52 %.
+
+103 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:14:14.359 --> 00:14:28.762
+Yeah, but we are not showing that in the graph, right? Should we just change it to usage, like the the title on the access to usage percentage?
+
+104 "Falgun Bhagavatula" (3620072192)
+00:14:28.762 --> 00:14:30.905
+Like OMP usage?
+
+105 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:14:30.905 --> 00:14:57.783
+No, just just usage, like this is because if we are saying this is CPU memory, it's actually OMP CPU and OMP memory, right? Right. That we're plotting on this graph. But then warning is not OMP warning, right? So do we just leave it open ended and just call it usage versus I don't know.
+
+106 "Falgun Bhagavatula" (3620072192)
+00:14:57.783 --> 00:15:18.520
+Yeah, that I mean, yeah, because in the legend we are clearly calling it out. It's OMP average memory average CPU average, so usage is fine on the side. We don't have to call it like two places CPU memory, yeah.
+
+107 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:15:19.799 --> 00:15:25.718
+Oh, maybe this is also fine. I don't know, maybe I'm overkipping. I mean.
+
+108 "Falgun Bhagavatula" (3620072192)
+00:15:25.718 --> 00:15:40.761
+And either way, yeah, because it it reduces like the text, that's all.
+
+109 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:15:41.299 --> 00:15:43.003
+Okay.
+
+110 "Falgun Bhagavatula" (3620072192)
+00:15:43.003 --> 00:16:02.400
+And the other point there was the ask yesterday was about this export CSV. Okay, but but that is backend. They are going to download two, one for, one for the OMP and one for the CPU and memory, like total.
+
+111 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:16:02.400 --> 00:16:05.720
+Okay. Yeah. All the tables need to have export as well, right.
+
+112 "Falgun Bhagavatula" (3620072192)
+00:16:05.720 --> 00:16:07.804
+On the table.
+
+113 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:16:07.804 --> 00:16:12.636
+I mean, everything that you have there would have our export capability, right?
+
+114 "Falgun Bhagavatula" (3620072192)
+00:16:12.636 --> 00:16:18.422
+I think when you do CSV, it will dump all the details.
+
+115 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:16:18.422 --> 00:16:35.989
+No, NO NO. So today it just dumps the graph, does not dump what is below, like even on the interfaces where we have the graph on the top and the table below CSV just dumps a CSV of what you see in the graph.
+
+116 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:16:35.989 --> 00:16:39.989
+Looks like there's a dropdown. Is there a dropdown?
+
+117 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:16:39.989 --> 00:16:42.681
+I don't think that's a problem.
+
+118 "Falgun Bhagavatula" (3620072192)
+00:16:42.681 --> 00:17:07.519
+The yeah it So earlier that that the design was a dropdown but we are changing that so we don't need to select specifically anything like OMP, memory, OMP CPU or anything like that because earlier there were there was control control connection policy change and I think there was, there was another 1II.
+
+119 "Falgun Bhagavatula" (3620072192)
+00:17:07.519 --> 00:17:13.079
+Think Ming you have it on another, another page.
+
+120 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:17:13.079 --> 00:17:15.157
+No, we are talking about this export CSV.
+
+121 "Falgun Bhagavatula" (3620072192)
+00:17:15.157 --> 00:17:18.455
+Yeah, yeah. So Ming had it on another page.
+
+122 "Mingchieh Wang" (3237972224)
+00:17:18.455 --> 00:17:22.722
+Sure, here. Oh, there, ok.
+
+123 "Falgun Bhagavatula" (3620072192)
+00:17:22.722 --> 00:17:29.139
+Yeah so yeah we don't need this correct yeah we don't need this. Yeah.
+
+124 "Mingchieh Wang" (3237972224)
+00:17:29.139 --> 00:17:32.218
+We just, just one button for two five.
+
+125 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:17:32.218 --> 00:17:49.045
+Yeah, but what I'm saying is this export also needs to be available for the table because when you do the export here, it's just going to export what you see in the graph which is going to be the same utilization, but we also need to export what we see in the table.
+
+126 "Mingchieh Wang" (3237972224)
+00:17:49.045 --> 00:17:50.901
+So when you.
+
+127 "Falgun Bhagavatula" (3620072192)
+00:17:50.901 --> 00:18:03.500
+When you say, why do you, why do you need on the 3rd one? 2nd one is basically showing the same thing, right? If if second one if we do an export, it should also dump the events.
+
+128 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:18:03.500 --> 00:18:12.120
+I mean 2nd one is just giving your account, it's not giving the details, right? So.
+
+129 "Falgun Bhagavatula" (3620072192)
+00:18:12.120 --> 00:18:29.569
+Like on the back end like rather than having to export, like, like multiple things, why can't we just dump everything using the event based on selection that 2nd graph, if we have a.
+
+130 "Falgun Bhagavatula" (3620072192)
+00:18:29.569 --> 00:18:44.760
+Sport option there because it is anyway going to give us the control connection, the OMP appearing change and the policy change. Along with those dump the events as well which are shown on the table below.
+
+131 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:18:44.760 --> 00:18:54.161
+Yeah, I, I I I don't know if we can do that but just from a table level, right? I think every table is supposed to have an export.
+
+132 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:18:55.902 --> 00:19:04.121
+So every table is supposed to have an export capability for the ones which is not supporting export capability, there is additional work which is needed.
+
+133 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:19:04.827 --> 00:19:21.443
+The device side. Okay. So I'm hoping we can do it as part of this otherwise if it's not done, then we have to ask for it in the future and then it keeps on getting pushed right. Now that we are developing this feature, we should do it from the start.
+
+134 "Falgun Bhagavatula" (3620072192)
+00:19:21.443 --> 00:19:27.104
+Sounds good, yeah.
+
+135 "Mingchieh Wang" (3237972224)
+00:19:27.104 --> 00:19:34.721
+So for my parts only modify those two buttons as for buttons.
+
+136 "Falgun Bhagavatula" (3620072192)
+00:19:34.721 --> 00:19:38.301
+Yeah. Same thing on on all.
+
+137 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:19:38.301 --> 00:19:42.260
+Three, yeah maybe all three support, yeah.
+
+138 "Mingchieh Wang" (3237972224)
+00:19:42.260 --> 00:19:44.800
+Oh ok oh three.
+
+139 "Falgun Bhagavatula" (3620072192)
+00:19:44.800 --> 00:19:49.879
+All three, yeah. Okay I see.
+
+140 "Mingchieh Wang" (3237972224)
+00:19:55.921 --> 00:20:10.839
+Anything else? Okay, what happened with the policy and the other one trace holes? Should we have another meeting to talk about that?
+
+141 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:20:10.839 --> 00:20:12.121
+About what?
+
+142 "Mingchieh Wang" (3237972224)
+00:20:12.121 --> 00:20:29.598
+Because, before you joined today, we actually addressed three issues from yesterday. One is the policies because we have multiple policies we can can you explain?
+
+143 "Falgun Bhagavatula" (3620072192)
+00:20:29.598 --> 00:21:14.302
+Sure sure so one of the questions were under policy change we have data policy change and we have control policy change. So the question was whether by looking at the details, can can customers figure out whether it's a control policy or data policy change? So mentioned that there should be a way, but I I wanted to get a clarity and confirmation from Ramana and Raghu here whether whether that information can be extrapolated from from this page, from details. I believe that, that clarity is not yet there. That's what we need. Maybe you can confirm later.
+
+144 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:21:14.302 --> 00:21:18.035
+Yeah, yeah. So we'll confirm but that is independent of the UX.
+
+145 "Falgun Bhagavatula" (3620072192)
+00:21:18.035 --> 00:21:30.359
+That is independent of the UX, yeah, that is independent of the NO NO the the the point is if that is not there, then we may have to you know add that, that detail onto the UX.
+
+146 "Falgun Bhagavatula" (3620072192)
+00:21:30.359 --> 00:21:52.161
+That's the point, right? So as long as that that's shown, I don't think we have to make any changes, any, any, any further changes on the UX. I'm good. I I am assuming it should be, it should be available like on on in the details part, they should be able to see whether it is a data policy causing causing that causing this.
+
+147 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:21:52.161 --> 00:22:11.637
+So I don't think there is anything like a data policy or a set or a central policy anymore, right? And topology or policy group, right? So I would expect the name to be shown there, right? There is, there's NO localized data policy.
+
+148 "Falgun Bhagavatula" (3620072192)
+00:22:11.637 --> 00:22:29.681
+Correct yeah the name. So the details is showing name, that is what my expectation is as well like in the name it should, it should show whether whether it is you know a policy like like it should give the name of the policy which a customer.
+
+149 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:22:29.681 --> 00:22:32.702
+Set meaningful what makes sense right.
+
+150 "Falgun Bhagavatula" (3620072192)
+00:22:32.702 --> 00:22:34.563
+Correct, correct. Yeah, that's it.
+
+151 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:22:34.563 --> 00:22:37.813
+So we, we would expect the name of the policy.
+
+152 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:22:37.813 --> 00:22:38.526
+Okay.
+
+153 "Ramana Polamarasetti" (2851620096)
+00:22:38.526 --> 00:22:39.703
+Which.
+
+154 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:22:39.703 --> 00:22:40.922
+Was changed.
+
+155 "Ramana Polamarasetti" (2851620096)
+00:22:40.922 --> 00:22:46.479
+The name of the policy we should be able to give it, yeah. Yeah.
+
+156 "Mingchieh Wang" (3237972224)
+00:22:46.479 --> 00:23:09.920
+I have one question. Why don't you just keep one buttons and then people can ask for for three items, two charts with one table? I try not to duplicate the expert buttons three times. So what do you guys think?
+
+157 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:23:09.920 --> 00:23:12.855
+What do we have at other places?
+
+158 "Mingchieh Wang" (3237972224)
+00:23:12.855 --> 00:23:14.744
+Okay you repeat all that?
+
+159 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:23:14.744 --> 00:23:20.484
+What do we have at other places and we managed? Do we have the dropdown?
+
+160 "Mingchieh Wang" (3237972224)
+00:23:20.484 --> 00:23:24.401
+We we usually have one expert buttons, one page.
+
+161 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:23:24.401 --> 00:23:31.802
+Yeah, but what it does is it just exports the top table today.
+
+162 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:23:34.579 --> 00:23:39.329
+But in the back end when user clicks on export, we can export all the three tables.
+
+163 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:23:39.329 --> 00:23:44.829
+Yeah, but I mean, what if he doesn't care about the other two?
+
+164 "Mingchieh Wang" (3237972224)
+00:23:46.360 --> 00:23:54.599
+Those, those buttons should be taken care of front end. Front end can one button trigger three API?
+
+165 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:23:54.599 --> 00:23:58.778
+Yeah, but I don't want all the three things. I just want one. What do I do?
+
+166 "Mingchieh Wang" (3237972224)
+00:23:58.778 --> 00:24:09.844
+Do you think that, ok, let's look at a user's needs. Does user only need OMP or does user only need event or a table?
+
+167 "Falgun Bhagavatula" (3620072192)
+00:24:09.844 --> 00:24:13.124
+They could need everything like.
+
+168 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:24:13.124 --> 00:24:34.629
+They could need everything they could need just one, right? The idea of export is hey I'm seeing a list of events which happened. I want to export it and maybe open a TAC case and share with TAC or I wanna share it with my colleagues in the team, I want to send them that these events have been happening. I don't need other two then, right?
+
+169 "Mingchieh Wang" (3237972224)
+00:24:34.629 --> 00:24:43.859
+How about we can improve, so charts can be one and table can be one.
+
+170 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:24:43.859 --> 00:25:04.980
+I mean the charts are sure I mean I I don't know, we are just talking about this space right now, right? But there are other pages as well wherein, I I mean, I don't really have an opinion about the center one, but at a minimum a table should have its own export is what I feel.
+
+171 "Mingchieh Wang" (3237972224)
+00:25:04.980 --> 00:25:16.160
+That that totally agree. And then one, how about you? I propose like a one for table, one for charts.
+
+172 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:25:16.160 --> 00:25:31.998
+I mean let's let's have a separate export, right? Whatever the user does not want the CPU usage. I don't even know if we allow exporting the CPU usage commands or output today. Should we?
+
+173 "Mingchieh Wang" (3237972224)
+00:25:31.998 --> 00:25:36.379
+What user needs, do they?
+
+174 "Falgun Bhagavatula" (3620072192)
+00:25:36.379 --> 00:25:44.444
+Wait a second. What was the question of whether we can export the CPU like total CPU?
+
+175 "Mingchieh Wang" (3237972224)
+00:25:44.444 --> 00:26:01.729
+Okay, so see, we have two charts, right? I try to avoid so many export buttons. So I propose say ok one buttons and then they will download for both OMP and events charts.
+
+176 "Mingchieh Wang" (3237972224)
+00:26:01.729 --> 00:26:09.450
+Information together. Yeah, that's my propose.
+
+177 "Falgun Bhagavatula" (3620072192)
+00:26:09.450 --> 00:26:15.038
+How do we, how do we see the information of, of the processes?
+
+178 "Mingchieh Wang" (3237972224)
+00:26:15.038 --> 00:26:33.720
+No, we we not combined. It's actually ok OMP will be two files, right? One file, so whenever they click one click and then download three files together at the same time.
+
+179 "Falgun Bhagavatula" (3620072192)
+00:26:33.720 --> 00:26:46.203
+In that case, yeah, that was my point, right? In that case, if you're downloading everything, why can't just download the the entire events, the table as well as a different file?
+
+180 "Mingchieh Wang" (3237972224)
+00:26:46.203 --> 00:26:57.099
+That that's why actually mentioned about user might not need. That's why I'm asking what user actually needs. I I try to figure out.
+
+181 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:26:57.099 --> 00:26:59.849
+It depends, right? So I mean, there's NO.
+
+182 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:26:59.849 --> 00:27:01.640
+Oh.
+
+183 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:27:01.640 --> 00:27:04.390
+One day that somebody. Yeah.
+
+184 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:27:04.890 --> 00:27:12.300
+Download all the files, some maybe interested only one or the other.
+
+185 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:27:12.300 --> 00:27:23.762
+Yeah let's have it for everything for now and if we get any strong feedback to combine the top two, we can, but the table in generally needs its own export.
+
+186 "Mingchieh Wang" (3237972224)
+00:27:23.762 --> 00:27:34.001
+Okay, people might might not easy to catch but US designer let catch immediately because I actually repeat one button three times.
+
+187 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:27:34.001 --> 00:27:45.663
+Yeah, but it's serving a different purpose, right? Like you can pretty much get the same comment that, hey, we are repeating the time at three different places, right? Each of them have their own purpose.
+
+188 "Mingchieh Wang" (3237972224)
+00:27:45.663 --> 00:27:47.480
+Okay. You're repeating that.
+
+189 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:27:47.480 --> 00:27:51.603
+Time on the top graph, you're repeating at the bottom graph and also on the table, right?
+
+190 "Mingchieh Wang" (3237972224)
+00:27:51.603 --> 00:28:06.099
+Oh yeah, yeah, yeah, I I got it, I totally got it. So, can someone tell me what's the purpose they download the 1st one, 2nd one and the table, so I can explain better to my team.
+
+191 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:28:06.099 --> 00:28:21.739
+For sharing for mostly for sharing purposes and then once they download a CSV, they can build fancy charts or do advanced charting or whatever they want to do, right? And then also the other purpose of export is that this data is mostly there.
+
+192 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:28:21.739 --> 00:28:42.305
+Time, right? Or maybe it's for a duration of seven days. People may want to export it, store it so they can get back to it later, right? A lot of people will just maybe keep our tab on the trends or it's going, right? So if we manage loses the data, they need to export these files for their own consumption later.
+
+193 "Mingchieh Wang" (3237972224)
+00:28:42.305 --> 00:29:01.020
+Okay, I see. It's enough for now. Thank you for this information. Yeah, we're good. So Rahul will be depending on your let us know what those policies there's NO meetings for now.
+
+194 "SJC24-2-TR31/speaker_2" (1502024192_2)
+00:29:01.020 --> 00:29:03.270
+Yeah, we'll find out.
+
+195 "SJC24-2-TR31/speaker_1" (1502024192_1)
+00:29:03.270 --> 00:29:03.770
+Things.
+
+196 "Mingchieh Wang" (3237972224)
+00:29:04.502 --> 00:29:20.657
+And we still target the end of the week we're gonna do final review with NO NO more change after this week. Okay. Okay. Thank you so much.
+
+197 "Ramana Polamarasetti" (2851620096)
+00:29:20.657 --> 00:29:21.856
+Thanks man. Thanks, everyone.

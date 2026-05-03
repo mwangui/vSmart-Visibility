@@ -1,0 +1,1269 @@
+WEBVTT
+
+1 "Mingchieh Wang" (1747300352)
+00:00:00.000 --> 00:00:22.200
+Yeah. You see my screen ok? Yeah. Okay, thank you. So today we wanted to do the final review for everyones. I will start with the entry point and then walk through all of the.
+
+2 "Mingchieh Wang" (1747300352)
+00:00:22.200 --> 00:00:42.200
+Decides, please feel free to stop me anytime if you have questions. Okay, so 1st is the entry point, so when user look into SD WAN, they log into the monitor page as the homepage, they click on.
+
+3 "Mingchieh Wang" (1747300352)
+00:00:42.200 --> 00:01:04.370
+On the this device. So they will see this page, ok? And then they choose any of the which is the controller, and then they will link into this new device three 60 page. This is a new device three sixty's homepage is available.
+
+4 "Mingchieh Wang" (1747300352)
+00:01:04.370 --> 00:01:25.950
+So on 26 down two now and original we do have a 28 different categories on devices three 60, but now we organize everything into nine different category.
+
+5 "Mingchieh Wang" (1747300352)
+00:01:25.950 --> 00:01:43.890
+See on top here overview when interface application security lock is, ok? So once user log into the homepage, they will see that's the.
+
+6 "Mingchieh Wang" (1747300352)
+00:01:43.890 --> 00:02:03.890
+CPUs utilize memory, energies, temperatures. However, those not apply to all of the device because some device is a virtual machine, some device is a physical device, right? So it's really depending on what device.
+
+7 "Mingchieh Wang" (1747300352)
+00:02:03.890 --> 00:02:20.310
+Okay, so when user click on the locks, ok, they will see ok this is the lock page and ours omps is actually under the locks here. So.
+
+8 "Mingchieh Wang" (1747300352)
+00:02:20.310 --> 00:02:37.320
+I'll just show you the entry points how users coming from homepage and device choose vsmart controller and lending to this omps. Next, I will go through how user.
+
+9 "Mingchieh Wang" (1747300352)
+00:02:37.320 --> 00:02:57.320
+Watch those usage. So when there's a sites or networking, lots of networking sites downs or the traffic's a lot high volume of the traffic and then user will come into this space.
+
+10 "Mingchieh Wang" (1747300352)
+00:02:57.320 --> 00:03:17.320
+Page 1st they will try to see, ok, which hours that caused the issues they can choose from original will be 3 h 6 h 12 h 24 h until seven days and constants.
+
+11 "Mingchieh Wang" (1747300352)
+00:03:17.320 --> 00:03:38.580
+Those are NO more settings, same as all others device, ok? And then they figure out, ok, A o'clock, there's a CPU go over the clients. Okay, so we provide more details like user to hover over.
+
+12 "Mingchieh Wang" (1747300352)
+00:03:38.580 --> 00:03:55.470
+Okay, so they will come in here, see what is exactly in that particular hours, ok? So they will check on 08:00 here and then while users have mouse harbor.
+
+13 "Mingchieh Wang" (1747300352)
+00:03:55.470 --> 00:04:15.470
+We will actually provide users the details for those different individuals items, ok? And then user can hover over different hours like 05:00, what happens?
+
+14 "Mingchieh Wang" (1747300352)
+00:04:15.470 --> 00:04:39.569
+How many controllers, connections, policy omps are being changed? So when user hovering and then those tooltips shows up. When user click, click, and then underneath the table will reflect the.
+
+15 "Mingchieh Wang" (1747300352)
+00:04:39.569 --> 00:04:59.569
+Data from user selections. So e.g., user select 05:00 here and then underneath, see here everything will be like five to 06:00 the time range. So user will see oh ok I see control con.
+
+16 "Mingchieh Wang" (1747300352)
+00:04:59.569 --> 00:05:19.379
+Actions policies are being very active on which device and IP address. That's how users figure out what might be the root cause, ok? So.
+
+17 "Mingchieh Wang" (1747300352)
+00:05:19.379 --> 00:05:35.281
+Everything's fine here is ours final part final scope, and then I will pause here. Any questions for now?
+
+18 "Jeffrey Cai" (3907908352)
+00:05:35.281 --> 00:05:55.849
+Yeah quick question, I mean so when you say on the event table, the the chart in the middle, right? When you when people click the event the below table will be refreshed, right? But what will happen if a user click on the 1st chart, the the CPU usage chart?
+
+19 "Jeffrey Cai" (3907908352)
+00:05:55.849 --> 00:05:59.223
+Anything happened if you if they click?
+
+20 "Mingchieh Wang" (1747300352)
+00:05:59.223 --> 00:06:14.844
+Sure sure so this will be exactly the same behaviors user click on 01:00, the underneath will filter for a table for 01:00. The same behavior ok and.
+
+21 "Jeffrey Cai" (3907908352)
+00:06:14.844 --> 00:06:25.722
+If they do the, then we don't we don't do this, right? We don't, we don't ref refre refresh the the tables, right?
+
+22 "Mingchieh Wang" (1747300352)
+00:06:25.722 --> 00:06:48.722
+Yes, it's only for click events. The reason being is because when user right at 03:00 04:00 05:00 and let the table will be jumping a lot. So their eyes cannot capture the details. So that's only for click event, not hovering event.
+
+23 "Jeffrey Cai" (3907908352)
+00:06:48.722 --> 00:06:51.282
+Yeah, that makes sense. Thank you.
+
+24 "Mingchieh Wang" (1747300352)
+00:06:51.282 --> 00:07:10.702
+The user also be able to download the CSV for each subject for control connection policy or OMP. So when you say when you say expert CSV that is export.
+
+25 "Jeffrey Cai" (3907908352)
+00:07:10.702 --> 00:07:17.041
+For the event or what about the CPU memory? Do we export export the CPU memory usage? Thank you.
+
+26 "Mingchieh Wang" (1747300352)
+00:07:17.041 --> 00:07:33.680
+Let's take a look here. So currently this is what we have. We only have low street.
+
+27 "Jeffrey Cai" (3907908352)
+00:07:33.680 --> 00:07:39.221
+I have a question, a comment right here, so we are going to export the event, right?
+
+28 "Mingchieh Wang" (1747300352)
+00:07:39.221 --> 00:07:41.301
+Yep.
+
+29 "Jeffrey Cai" (3907908352)
+00:07:41.301 --> 00:08:08.284
+If we want to export event why not be oh 1st of all, so this will so that now the this what you are sharing is a 1012 hours data, so we are going to export it at 12 h data, right? 1st of all. Second, why not we just export every events or events together into a single file? Why we need a separate device export for separate events?
+
+30 "Mingchieh Wang" (1747300352)
+00:08:08.284 --> 00:08:11.860
+Okay, so I will pass this to our.
+
+31 "Falgun Bhagavatula" (982616320)
+00:08:11.860 --> 00:08:41.349
+That's a great point, yeah, Jeffrey. I I think we don't need to differentiate because these events we when we are talking about export, we can dump all these three together. And one more point that you are saying is in addition to that it it makes sense to provide the CPU and memory utilization for each hour, like the average or yeah, the the average, at least that that could be captured, right?
+
+32 "Falgun Bhagavatula" (982616320)
+00:08:41.349 --> 00:08:46.100
+We can even add that. Okay.
+
+33 "Mingchieh Wang" (1747300352)
+00:08:46.100 --> 00:08:52.662
+Okay, I wanna double check. So we ok for CPU CPU memory rates?
+
+34 "Falgun Bhagavatula" (982616320)
+00:08:52.662 --> 00:09:16.981
+Yeah. Okay. Exactly. So you you don't need the 1st one, the dotted line, right? The yellow dotted line CPU memory warning threshold, you don't need that. All you need to do is the OMP CPU average, OMP memory average, OMP CPU usage and memory usage. Sure. So those four, yeah. No, NO, it's only for only in the export.
+
+35 "Mingchieh Wang" (1747300352)
+00:09:16.981 --> 00:09:19.960
+Please.
+
+36 "Jeffrey Cai" (3907908352)
+00:09:19.960 --> 00:09:29.325
+The say that when the people click export there's gonna be two options. One is for CPU memory, other is for events, right? Or you want to export everything.
+
+37 "Falgun Bhagavatula" (982616320)
+00:09:29.325 --> 00:09:41.521
+So why don't we export everything, right? It's it'll be like another column, right? Because that way they don't have to like look at multiple different things, just one dump and they'll get everything. Okay.
+
+38 "Jeffrey Cai" (3907908352)
+00:09:41.521 --> 00:09:43.444
+My talked everything.
+
+39 "Jeffrey Cai" (3907908352)
+00:09:44.524 --> 00:09:52.139
+That may not yeah we need we need to figure out how to fit them together into a single CSV file.
+
+40 "Falgun Bhagavatula" (982616320)
+00:09:52.139 --> 00:09:57.522
+So, what, ok, ok, because at every.
+
+41 "Jeffrey Cai" (3907908352)
+00:09:57.522 --> 00:10:22.021
+If we export events that will be like the what we show in the event table, right? You have the entry time, you have event ID, event type, right? It's extra, right? But the CPU memory the the column is different. What is the key of the each entry, right? That is a totally different.
+
+42 "Falgun Bhagavatula" (982616320)
+00:10:22.021 --> 00:10:41.424
+Got it got it I understand what you're saying. So you're saying because because we are capturing it at like let's say one, you know, 01:00 02:00 at every hour, there will be, that'll be registered, whereas the other events will have will be at different times, right?
+
+43 "Jeffrey Cai" (3907908352)
+00:10:41.424 --> 00:11:06.419
+Right? No, NO NO. I'm saying like e.g. we are going to export it from 1 h to 2 h e.g., right? So you're gonna think about this, right? You gonna have let's say a hundred events, e.g., but the CPU memory it depends, right? E.g., we go give a data every 10 min, so we gonna have a six entry CPU for CPU memory and a hundred entry for events, right? So how do we put them together into a single table?
+
+44 "Falgun Bhagavatula" (982616320)
+00:11:06.419 --> 00:11:25.424
+Right. So yeah, in that case, who, what do you suggest? Can we have, is it possible to have two, you know, two CSV dumps, one for, one for the events, one for the CPU or utilization? Will that issue though? Yeah.
+
+45 "Jeffrey Cai" (3907908352)
+00:11:25.424 --> 00:11:35.798
+Excuse me, if you don't want the additional click for user now you don't want to give option, just click the export, then we can export and export to two CSV file, one is for CPU memory, other is for the.
+
+46 "Falgun Bhagavatula" (982616320)
+00:11:35.798 --> 00:11:55.441
+Perfect. Yeah reduce the clicks but at least that way they will have both you know both and if they want they can they can append the data however they want. Yeah, yeah, yeah, yeah. Sounds good. Yeah, let's let's go with that.
+
+47 "Mingchieh Wang" (1747300352)
+00:11:55.441 --> 00:12:00.621
+Any other questions, concerns, feedback?
+
+48 "Xiaomin Mei" (3819331072)
+00:12:00.621 --> 00:12:14.202
+I have a question. So I see in the 1st chart we have a line called CPU memory warnings threshold. Is this a static value or it's a configurable value from device side?
+
+49 "Falgun Bhagavatula" (982616320)
+00:12:14.202 --> 00:12:28.938
+That's the configurable value. Please please please share Raghu or Ramana please confirm this is the this is the configurable CPU warning threshold value that customers set.
+
+50 "Ramana Polamarasetti" (2879553536)
+00:12:28.938 --> 00:12:44.881
+No I that's what I told right last time so the if this is the value that we see with the safety barrier, so it's not configurable that 80 % is fixed.
+
+51 "Falgun Bhagavatula" (982616320)
+00:12:44.881 --> 00:13:11.545
+So the safety barriers are from ok let let's recap. So safety barriers I was from the last from the last, you know, whenever we had discussed that, it was over 90 %, right? It was not at 80 %. I mean, are you saying so it will be always static. Is that what you're saying, right?
+
+52 "Ramana Polamarasetti" (2879553536)
+00:13:11.545 --> 00:13:14.163
+Yeah, it is.
+
+53 "Falgun Bhagavatula" (982616320)
+00:13:14.163 --> 00:13:24.080
+And how much is that? The safety barriers where when does it kick in? What, what is the threshold value that we are we are we are putting there? Yeah.
+
+54 "Ramana Polamarasetti" (2879553536)
+00:13:24.080 --> 00:13:26.962
+That that's 80 %.
+
+55 "Falgun Bhagavatula" (982616320)
+00:13:26.962 --> 00:13:28.758
+Oh, that that's 80 %.
+
+56 "Falgun Bhagavatula" (982616320)
+00:13:29.683 --> 00:13:33.998
+Yeah, I thought it was over 90 %. Okay.
+
+57 "Jeffrey Cai" (3907908352)
+00:13:33.998 --> 00:13:42.913
+Ramela for one more question. So if the CPU memory is exceeding 80 % will send an arm.
+
+58 "Ramana Polamarasetti" (2879553536)
+00:13:42.913 --> 00:13:46.702
+Sorry, what is that? I mean I mean.
+
+59 "Jeffrey Cai" (3907908352)
+00:13:46.702 --> 00:13:52.179
+If the CPU is about hundred and 80 % e.g., will be smart send alarm to.
+
+60 "Ramana Polamarasetti" (2879553536)
+00:13:52.179 --> 00:13:55.562
+To be managed. Oh yeah, correct, yeah.
+
+61 "Jeffrey Cai" (3907908352)
+00:13:55.562 --> 00:14:03.698
+When you, that is for the excuse me, that is for the entire CPU memory overall or it's just for OMP so.
+
+62 "Ramana Polamarasetti" (2879553536)
+00:14:03.698 --> 00:14:06.924
+System, we smart system.
+
+63 "Jeffrey Cai" (3907908352)
+00:14:06.924 --> 00:14:11.382
+Yeah, yeah, yeah. But we in this chart we are talking about OMP.
+
+64 "Ramana Polamarasetti" (2879553536)
+00:14:11.382 --> 00:14:27.559
+This is the OMP, but this one that 80 % is basically to give a reference, right? So, to say show that ok OMP is the system memory is 80 % or like the system reference max is 80 %.
+
+65 "Ramana Polamarasetti" (2879553536)
+00:14:27.559 --> 00:14:33.583
+But OMP let's say 90 %, something like that to show that.
+
+66 "Raghu Chereddy" (3292535808)
+00:14:33.583 --> 00:14:45.136
+So it basically tells the user what percentage of memory or CPU that OMP is using compared to the overall system memory.
+
+67 "Jeffrey Cai" (3907908352)
+00:14:46.539 --> 00:15:02.309
+Can I quickly share, current behavior from yeah ok yeah I do this very quick. Okay, so.
+
+68 "Jeffrey Cai" (3907908352)
+00:15:02.309 --> 00:15:22.309
+We have this today. This is I'm not sure whether it's been fully discussed, right? But it is the current behavior. For vsmart, and you see that the CPU criteria is the CPU is lower than 80 %, it will be treated as a health.
+
+69 "Jeffrey Cai" (3907908352)
+00:15:22.309 --> 00:15:34.480
+See, but the memory is 80 80 %. I don't know right when we make the Yeah that is the current behavior, ok? So I will stop sharing.
+
+70 "Falgun Bhagavatula" (982616320)
+00:15:34.480 --> 00:15:43.922
+No, NO, it's good NO NO please please keep sharing this. Let's, yeah. So that's where, so we are so is this what you're saying?
+
+71 "Falgun Bhagavatula" (982616320)
+00:15:44.462 --> 00:16:01.740
+Exactly, this is what I'm saying. Yeah, so after until 80 % we consider that as to be good. Above that when it moves from 80 to it moves from good to fair and that is where we send an, send a notification.
+
+72 "Ramana Polamarasetti" (2879553536)
+00:16:01.740 --> 00:16:07.003
+Okay, so, so this alarm, is this from the safety barrier or.
+
+73 "Falgun Bhagavatula" (982616320)
+00:16:07.003 --> 00:16:16.343
+This is not from the safety barrier, the, the I don't think safety barrier is even on this code here, right? What, what Jeffrey is sharing right now?
+
+74 "Jeffrey Cai" (3907908352)
+00:16:18.644 --> 00:16:50.701
+Actually, so I'm not sure whether this is being reviewed with this. This let me show you one more thing, ok? Let me go to this and go back. If this I think it's just kind of a static maybe it's many from device this criteria CPU memory from each device. You see that is a common, right? For it's on the this icon is on the health column so it's not a device specific, right? So this I don't know whether we show have a different.
+
+75 "Falgun Bhagavatula" (982616320)
+00:16:50.701 --> 00:17:04.400
+Yeah let's go to that second, yeah, second last and can we take a look at the oh yeah so so I think the same.
+
+76 "Xiaomin Mei" (3819331072)
+00:17:04.400 --> 00:17:19.320
+Excuse me, let me share this this chart maybe a little old. There are something some issue in in this let me share the latest one.
+
+77 "Jeffrey Cai" (3907908352)
+00:17:19.320 --> 00:17:29.839
+Sure, sure, sure, sure. Sure sure me, please.
+
+78 "Xiaomin Mei" (3819331072)
+00:17:29.839 --> 00:17:41.909
+Let's see, this is we have two category here, one is for one H the other is for VH. So for one age we have 80 and 88.
+
+79 "Xiaomin Mei" (3819331072)
+00:17:41.909 --> 00:18:00.303
+Percentage for CPU memory. This is actually used for the stage devices, but for the VH we have 75 percentage and 90 percentage at the threshold. So we don't we don't show the here, right? The controller components.
+
+80 "Falgun Bhagavatula" (982616320)
+00:18:00.303 --> 00:18:03.767
+It's just then.
+
+81 "Xiaomin Mei" (3819331072)
+00:18:03.767 --> 00:18:08.638
+The control the the are landing on the VH part.
+
+82 "Jeffrey Cai" (3907908352)
+00:18:08.638 --> 00:18:13.565
+Yeah, they share the same.
+
+83 "Raghu Chereddy" (3292535808)
+00:18:13.565 --> 00:18:18.160
+Coming from Jeffrey? Yeah.
+
+84 "Xiaomin Mei" (3819331072)
+00:18:18.160 --> 00:18:19.964
+Sorry, show me, show me.
+
+85 "Jeffrey Cai" (3907908352)
+00:18:19.964 --> 00:18:23.121
+Do you know where this 75 come from?
+
+86 "Xiaomin Mei" (3819331072)
+00:18:23.121 --> 00:18:31.282
+This is very older behavior, day one behavior. We have 75 and 19 criteria.
+
+87 "Jeffrey Cai" (3907908352)
+00:18:31.282 --> 00:18:45.303
+So we need to check, show me one more thing, maybe can help check. So when will be smart send the alarm to the V manager? What is the criteria from the device, from the V smart?
+
+88 "Basavaraju Halappa" (675386112)
+00:18:45.303 --> 00:19:04.761
+Hey, Jeffrey, these, these thresholds are different from the safety barrier thresholds. So here they serve two different purposes. This is the overall health of any device. So this is for the user to act on. Let's say it.
+
+89 "Basavaraju Halappa" (675386112)
+00:19:05.780 --> 00:19:42.640
+A device reaches a unhealthy state and then alarms are raised based on these thresholds and then it's for the user to act on doing something about it. Now, we we don't want for safety barriers, we will have a different threshold that we decide a user, we don't let the user decide what's a better safety barrier for us, right? We know we are the developers of this code and then currently the safety barrier exists only for vsmarts. We know what's a good threshold where we need to start acting on.
+
+90 "Falgun Bhagavatula" (982616320)
+00:19:42.640 --> 00:19:48.564
+And that would be completely different. But it's it's still a static value, right?
+
+91 "Basavaraju Halappa" (675386112)
+00:19:48.564 --> 00:19:54.200
+It is static value because we don't want a user to define is.
+
+92 "Jeffrey Cai" (3907908352)
+00:19:54.200 --> 00:19:57.243
+When do you want to something when do you want to not to act.
+
+93 "Basavaraju Halappa" (675386112)
+00:19:57.243 --> 00:20:04.021
+On something see user can only act on these threshold, the health and then the unhealthy one.
+
+94 "Falgun Bhagavatula" (982616320)
+00:20:04.021 --> 00:20:07.341
+It is static and then video.
+
+95 "Jeffrey Cai" (3907908352)
+00:20:07.341 --> 00:20:07.925
+Inside that.
+
+96 "Falgun Bhagavatula" (982616320)
+00:20:07.925 --> 00:20:17.719
+My my question is for that safety barriers, what is that static value? Is it 80 %? Is it 90 %? I think it's 80.
+
+97 "Jeffrey Cai" (3907908352)
+00:20:17.719 --> 00:20:21.484
+Okay. Yep.
+
+98 "Basavaraju Halappa" (675386112)
+00:20:21.484 --> 00:20:24.622
+Yeah, and that's something which is not displayed to the customer.
+
+99 "Falgun Bhagavatula" (982616320)
+00:20:24.622 --> 00:20:29.044
+Right, right. Yeah I don't yeah, yeah, please go ahead.
+
+100 "Jeffrey Cai" (3907908352)
+00:20:29.044 --> 00:20:50.642
+Yeah, I just have a one comment. I agree with you, right? So it's a we decide kind of we decide we don't we don't bother user to define this, right? But in different page we we kind of should give the same criteria, right? Either 8075, we shall keep it consistent, right? So from the business.
+
+101 "Basavaraju Halappa" (675386112)
+00:20:50.642 --> 00:20:58.709
+The intent, right? So the safety barrier is to keep our devices safe. And in this case, we have implemented only on controllers.
+
+102 "Basavaraju Halappa" (675386112)
+00:20:58.709 --> 00:21:18.709
+We want our V smarts to be in a safe zone all the time. So we have some mechanisms to limit the the device going into an healthy unhealthy state. Let's say if we act, start acting on 80 %, right? So we stop taking new peer connections, we stop taking new.
+
+103 "Basavaraju Halappa" (675386112)
+00:21:18.709 --> 00:21:42.041
+No connections, all of that, right? And we we will if we do that the churn is reduced on the network. And, if we do everything right, it will never go into an unhealthy state. Yes, there will be limited number of connections, you know, they will see some connection failures happening and all that stuff, but then the device will never go to an unhealthy state.
+
+104 "Basavaraju Halappa" (675386112)
+00:21:43.640 --> 00:21:47.273
+But the reason why we have these these are old values.
+
+105 "Jeffrey Cai" (3907908352)
+00:21:47.273 --> 00:21:50.680
+The and 88 % whatever.
+
+106 "Basavaraju Halappa" (675386112)
+00:21:50.680 --> 00:22:04.943
+Is and in spite of all the things that we have done, there are other parameters which can come in and then play a part which will which can still take the device to an unhealthy state, that's why this is for users to keep track of.
+
+107 "Jeffrey Cai" (3907908352)
+00:22:04.943 --> 00:22:23.728
+But I agree agree. I mean what I say what you said you are saying correct, right? So I know what you are doing right now is is I mean it's obviously better, but this would put here for if it's data is old we need to update this page as well. For the for the part we reviewed with the device team like 80 80 %.
+
+108 "Basavaraju Halappa" (675386112)
+00:22:23.728 --> 00:22:32.021
+Sure, absolutely. Now here's the thing. What version are we looking at at this moment? This is which we managed version is this?
+
+109 "Jeffrey Cai" (3907908352)
+00:22:32.021 --> 00:22:33.523
+I mean.
+
+110 "Xiaomin Mei" (3819331072)
+00:22:33.523 --> 00:22:35.064
+It's the 26th two.
+
+111 "Basavaraju Halappa" (675386112)
+00:22:35.064 --> 00:22:41.620
+I, see, for this one, there's absolutely NO need to show a VH.
+
+112 "Falgun Bhagavatula" (982616320)
+00:22:41.620 --> 00:22:43.954
+Yeah, right?
+
+113 "Basavaraju Halappa" (675386112)
+00:22:43.954 --> 00:22:47.825
+We are wasting some real estate here.
+
+114 "Basavaraju Halappa" (675386112)
+00:22:47.825 --> 00:23:04.637
+Yeah, correct? Yeah. And we can always review what's the correct healthy and health healthy state for both CPU and memory for CH devices and then make a correction here. That is reviewed already.
+
+115 "Jeffrey Cai" (3907908352)
+00:23:04.637 --> 00:23:15.342
+You know when we developed that with the team. But for controller, so what is the new criteria where defining let's put it.
+
+116 "Basavaraju Halappa" (675386112)
+00:23:15.342 --> 00:23:35.963
+Yeah sure Jeffrey two action items. One, we will cross check on the device side whether these are the thresholds for CPU and memory for edge. And then if there is, there are different thresholds for validator as well as a controller, we will also check.
+
+117 "Jeffrey Cai" (3907908352)
+00:23:35.963 --> 00:23:38.099
+Okay, ok.
+
+118 "Basavaraju Halappa" (675386112)
+00:23:38.099 --> 00:23:42.420
+Okay, so Raghu can you please take that action item? We can cross check that.
+
+119 "Raghu Chereddy" (3292535808)
+00:23:43.320 --> 00:23:45.259
+Yeah, yeah, sure, yeah.
+
+120 "Basavaraju Halappa" (675386112)
+00:23:45.259 --> 00:23:48.460
+And the all the references to VH can be completely.
+
+121 "Jeffrey Cai" (3907908352)
+00:23:48.460 --> 00:24:02.699
+Yeah, I agree. Agree. So I mean let's take a look and the testbed I checked is for 20 six.two. So when we added this the the different.
+
+122 "Xiaomin Mei" (3819331072)
+00:24:02.699 --> 00:24:14.484
+Should be added in last release if I remember correctly, but it may don't contain the fix ok.
+
+123 "Jeffrey Cai" (3907908352)
+00:24:14.484 --> 00:24:21.960
+Okay, then let's talk to your team and team is on the call. I know we need to change this remove this, right?
+
+124 "Xiaomin Mei" (3819331072)
+00:24:21.960 --> 00:24:26.481
+Yes yes yes yes yes. Yeah. Okay.
+
+125 "Jeffrey Cai" (3907908352)
+00:24:26.481 --> 00:24:29.740
+Alright, thank you.
+
+126 "Basavaraju Halappa" (675386112)
+00:24:29.740 --> 00:24:35.382
+So can you can you show that again? You know, can you, whoever was sharing it.
+
+127 "Xiaomin Mei" (3819331072)
+00:24:35.382 --> 00:24:37.682
+Yeah.
+
+128 "Basavaraju Halappa" (675386112)
+00:24:37.682 --> 00:25:01.309
+Because it has little bit more than just the thresholds. So as I can see, right? So reachability deserved device reachable control plane, all control connections up. Okay, that's just giving the device health fine. Yeah, there's nothing is nothing shown here is giving any information about the safety barrier, so this was all.
+
+129 "Basavaraju Halappa" (675386112)
+00:25:01.309 --> 00:25:17.549
+All the old thresholds old health of the device that as we see it nothing here is with reference to the safe enough information to the user as to why the controller is in the or there's a huge churn in that.
+
+130 "Basavaraju Halappa" (675386112)
+00:25:17.549 --> 00:25:36.329
+In the control plane and it maybe related to by, by giving all these information about events and then the CPU and memory, we, we give an opportunity for him to correlate with what events that have happened which has led to that so that they can minimize reduce it. E.g., if a new got added.
+
+131 "Basavaraju Halappa" (675386112)
+00:25:36.329 --> 00:26:02.113
+And the CPU they he they'll see a CPU hike and then new routes that are being advertised from that will also be seen here. So he can make that correlation. For that to happen, we need to have enough time window, right? So at the moment, how long can we capture these insights?
+
+132 "Falgun Bhagavatula" (982616320)
+00:26:02.113 --> 00:26:06.710
+That's only for the 1st seven days.
+
+133 "Basavaraju Halappa" (675386112)
+00:26:06.710 --> 00:26:16.857
+And, seven days is seven days is pretty good because he what what we, what we expect them to see here is, let's say a bigger customer who have.
+
+134 "Falgun Bhagavatula" (982616320)
+00:26:16.857 --> 00:26:18.787
+Of the large scale network.
+
+135 "Basavaraju Halappa" (675386112)
+00:26:18.787 --> 00:26:24.734
+And then they see they report an outage around midnight twelve.
+
+136 "Falgun Bhagavatula" (982616320)
+00:26:24.734 --> 00:26:25.912
+Lawyer twelve in.
+
+137 "Basavaraju Halappa" (675386112)
+00:26:25.912 --> 00:26:33.210
+So then we come into this and then we give you an opportunity what happened in their network which.
+
+138 "Falgun Bhagavatula" (982616320)
+00:26:33.210 --> 00:26:36.193
+Led to that outage. Right. And then it.
+
+139 "Basavaraju Halappa" (675386112)
+00:26:36.193 --> 00:26:50.939
+To be clear on that, right? E.g., there could be a storm and then some suddenly some rogue machine is advertising lot of routes and see a certain surge of routes being increased, and that will lead to control plane churn.
+
+140 "Basavaraju Halappa" (675386112)
+00:26:50.939 --> 00:27:10.169
+And when there is a churn, obviously the CPU utilization as well as the memory, everything will go up. Now they'll they can once they see these insights, they'll see there's a search here and then that's correlated to these kind of events that have happened in the network, and that's the root cause. Currently what happens is it's all blind.
+
+141 "Basavaraju Halappa" (675386112)
+00:27:10.169 --> 00:27:32.773
+They say oh there was an outage and then they come and then open the tag case and then tag goes and then collects admin tech and then they don't do any analysis they feed it to our development. We have to sift through all of that stuff. It takes almost one or two days before they actually know. And sometimes what happens is they collect the admin tech even after everything has happened for two days and then later they collect the admin tech.
+
+142 "Falgun Bhagavatula" (982616320)
+00:27:32.773 --> 00:27:34.493
+We don't have any clue.
+
+143 "Basavaraju Halappa" (675386112)
+00:27:34.493 --> 00:27:52.109
+Right, right. So to avoid all of that stuff, we wanted some insights which will give some visibility into why the control plane churn has happened. And oh, that is one purpose, right? And the other purpose is we have seen that customers.
+
+144 "Basavaraju Halappa" (675386112)
+00:27:52.109 --> 00:28:07.559
+They start off on a, on a on supported scale numbers. Let's say they'll have thousand 500 edges and everything is fine. They'll have ten routes advertised per edge per store.
+
+145 "Basavaraju Halappa" (675386112)
+00:28:07.559 --> 00:28:27.559
+And everything is in in a controlled environment. Now they keep adding more stores. So from thousand 500 they keep adding for the same set of controllers, 4th controllers they have, they'll add they'll go up to say 4000 or 5000. And then slowly the memory has been increasing. The.
+
+146 "Basavaraju Halappa" (675386112)
+00:28:27.559 --> 00:28:45.719
+The memory utilization has been on that because of the advertised routes. Now they will get to a point where they were all in healthy state and then all the controllers have gone to an a very unhealthy state, right? So now this would have happened over the period of.
+
+147 "Basavaraju Halappa" (675386112)
+00:28:45.719 --> 00:29:05.719
+Six months, but then these vsmart insights captured over time should tell, hey, this was the snapshot six months back, and now later when when all these edges have gotten in added, now the health is this and this, what's the reason for that?
+
+148 "Basavaraju Halappa" (675386112)
+00:29:05.719 --> 00:29:25.939
+And if they say NO routes, NO NO edges were added the the overlay scale has remained the same, but still with with old code we were seeing less memory utilization with the new code that we are seeing higher utilization, this insights is supposed to give us some insight into why that could have.
+
+149 "Falgun Bhagavatula" (982616320)
+00:29:28.795 --> 00:29:43.653
+Yes. No, totally on good with that. So we have been having these discussions with Raghu and we we went over it quite thoroughly, so yeah I'll check on that.
+
+150 "Basavaraju Halappa" (675386112)
+00:29:44.931 --> 00:29:49.113
+Okay, go ahead. Sorry, I kind of just.
+
+151 "Falgun Bhagavatula" (982616320)
+00:29:49.113 --> 00:30:09.729
+It's needed. It's, it's it's good that we reiterate why why we are doing this and then so that one more question, so I'll I'll check back with you but if we need to do an EFT on this one, do let me know at least you know this might be a good candidate to Oh, absolutely.
+
+152 "Basavaraju Halappa" (675386112)
+00:30:09.729 --> 00:30:11.132
+Now we we this.
+
+153 "Falgun Bhagavatula" (982616320)
+00:30:11.132 --> 00:30:12.151
+Think the sooner we.
+
+154 "Basavaraju Halappa" (675386112)
+00:30:12.151 --> 00:30:20.451
+Get feedback from customers better for us, right? Instead we develop something and then if it's not serving anybody's purpose.
+
+155 "Falgun Bhagavatula" (982616320)
+00:30:20.451 --> 00:30:31.610
+What's the news? No, that's why because it may not have the will figure out a way to do an EFT as in even even even though coming from.
+
+156 "Basavaraju Halappa" (675386112)
+00:30:31.610 --> 00:30:47.573
+Yes yes. And then again, you know, for, it doesn't have to be a scale customer scale scale customers, but then how useful is these what we have created for customers? And then that will also be.
+
+157 "Falgun Bhagavatula" (982616320)
+00:30:47.573 --> 00:30:50.972
+Feedback is a must, right? Right.
+
+158 "Basavaraju Halappa" (675386112)
+00:30:50.972 --> 00:30:55.392
+Sure feedback on this as well as safety barriers is.
+
+159 "Falgun Bhagavatula" (982616320)
+00:30:55.392 --> 00:30:57.470
+Little tricky, right? Because let's.
+
+160 "Basavaraju Halappa" (675386112)
+00:30:57.470 --> 00:31:16.132
+Keep it to us. Yeah yeah then they'll get to a level where it's getting out of control and then we our efforts with safety barrier is to not let the controllers crash, and that is a tricky situation for anybody any EFT customer.
+
+161 "Falgun Bhagavatula" (982616320)
+00:31:16.132 --> 00:31:24.412
+Customers to hit. No, and, and the problem is we won't be able to answer all the questions, so there will be a lot of questions who are not.
+
+162 "Basavaraju Halappa" (675386112)
+00:31:24.412 --> 00:31:34.710
+You know well that is not a huge concern, you know, if questions come, we'll, we have designed it, we should be ready to answer them. But then EFT cust.
+
+163 "Falgun Bhagavatula" (982616320)
+00:31:34.710 --> 00:31:39.075
+Customers typically don't have scale, yeah.
+
+164 "Basavaraju Halappa" (675386112)
+00:31:39.075 --> 00:31:50.232
+Right, right. Yeah, and if you if you if even if you find some customer and then, if you want them to explore that, they might ask for.
+
+165 "Falgun Bhagavatula" (982616320)
+00:31:50.232 --> 00:32:08.450
+The lab support and all that that yeah yeah Sounds good. I think yeah well let's let's continue with this one and and yeah we can go from there. Sure. So one question also going back to yeah going back to Ming's ming, maybe you can.
+
+166 "Basavaraju Halappa" (675386112)
+00:32:08.450 --> 00:32:10.049
+Sorry ragh.
+
+167 "Raghu Chereddy" (3292535808)
+00:32:10.049 --> 00:32:24.950
+Had some question. Yeah, just one quick. Now if you want to also internally test it, we can, we have a simulator that we can bring up. We can test a huge number of route scale and CPU memory churns. We can.
+
+168 "Basavaraju Halappa" (675386112)
+00:32:24.950 --> 00:32:30.171
+Actually see here itself. Yeah yeah that we can probably limit it to CX.
+
+169 "Falgun Bhagavatula" (982616320)
+00:32:30.171 --> 00:32:32.253
+So TAC or TME on.
+
+170 "Basavaraju Halappa" (675386112)
+00:32:32.253 --> 00:32:39.233
+For any of our community within Cisco community, not we cannot give it to any customers or anything, right? You can speak to TSA.
+
+171 "Raghu Chereddy" (3292535808)
+00:32:39.233 --> 00:32:50.710
+Can get, you know, get NO NO what I meant was if you want to see how the UX and UI you know, how does it look like?
+
+172 "Basavaraju Halappa" (675386112)
+00:32:50.710 --> 00:33:02.212
+That that will cover in the tag training, right? Tmes are also invited for that. So you can do all of that stuff in our tag training. Yeah.
+
+173 "Falgun Bhagavatula" (982616320)
+00:33:02.212 --> 00:33:19.489
+Okay, so, going back to the original question, right? The CPU memory warning threshold, it makes sense and this is not the safety barrier. This is threshold is when we are sending an alarm notification saying that, you know.
+
+174 "Falgun Bhagavatula" (982616320)
+00:33:19.489 --> 00:33:26.429
+The CPU memory usage has gone beyond 80 % going from good to fair.
+
+175 "Falgun Bhagavatula" (982616320)
+00:33:26.429 --> 00:33:43.193
+And it's just a warning. Safety barriers, we do whatever it is. It's, it's fine it's it's totally what we are doing separately. But and anyone asks this question, it's not the safety barrier. It is the warning threshold that we have. My.
+
+176 "Ramana Polamarasetti" (2879553536)
+00:33:43.193 --> 00:34:02.709
+Earlier my question was like if we are showing here say now it's 80 % that is in alignment with the safety barrier, but if we are showing 90 % here and if we are actually limiting the device from going to 90 %, right? Is that ok?
+
+177 "Falgun Bhagavatula" (982616320)
+00:34:02.709 --> 00:34:07.550
+That's the only thing barrier, right?
+
+178 "Basavaraju Halappa" (675386112)
+00:34:07.550 --> 00:34:14.528
+No, we, we start acting at 80 %. That doesn't mean we are a hundred percent success.
+
+179 "Ramana Polamarasetti" (2879553536)
+00:34:14.528 --> 00:34:16.990
+Yeah, yeah, yeah true.
+
+180 "Basavaraju Halappa" (675386112)
+00:34:16.990 --> 00:34:38.612
+That is true, yeah, right. So now you know we we we try to avoid them getting to an unhealthy state, but then for reasons that we haven't thought about, it can reach up to 90 % and then obviously user should have the ability to see, oh, my device has become gone to an unhealthy state I need to do some.
+
+181 "Ramana Polamarasetti" (2879553536)
+00:34:38.612 --> 00:34:39.392
+Something about it.
+
+182 "Basavaraju Halappa" (675386112)
+00:34:39.392 --> 00:34:55.831
+Right? Yeah. That's the intent. And then if he if he if he what we don't know today and tomorrow we might learn that, oh, there is another thing which can actually spike up the CPU, which you haven't accounted for in our safety barrier. Maybe, you know, we can make amends to that later.
+
+183 "Ramana Polamarasetti" (2879553536)
+00:34:55.831 --> 00:35:01.430
+Yeah yeah and maybe Jeffrey and Jeffrey can.
+
+184 "Falgun Bhagavatula" (982616320)
+00:35:01.430 --> 00:35:17.334
+Sure this Jeffrey the the threshold values that, that were mentioned for vantages and VH. Let's remove the VH but for the vantages especial specifically the 80 %, is that customer configurable or NO?
+
+185 "Jeffrey Cai" (3907908352)
+00:35:17.334 --> 00:35:30.913
+That is devices configured by what yeah that's good question. We we get the default value from device. Usually, still configurable from from device not from.
+
+186 "Falgun Bhagavatula" (982616320)
+00:35:30.913 --> 00:35:50.711
+Oh on the device they can Okay, so you're saying on the for for let's forget about the device, but just for the control components SD WAN controller, we want and we manage. Can a user change the threshold values? If they want to get get an alarm.
+
+187 "Jeffrey Cai" (3907908352)
+00:35:50.711 --> 00:35:53.092
+At 60 %, can they do that or NO? No, NO, not.
+
+188 "Falgun Bhagavatula" (982616320)
+00:35:53.092 --> 00:35:59.970
+Okay, that's. In that case 80 % is totally fine. It's a static value over there and.
+
+189 "Basavaraju Halappa" (675386112)
+00:35:59.970 --> 00:36:03.195
+Maybe we go with it.
+
+190 "Falgun Bhagavatula" (982616320)
+00:36:04.252 --> 00:36:07.247
+Sounds good. We we can proceed.
+
+191 "Jeffrey Cai" (3907908352)
+00:36:07.247 --> 00:36:17.112
+I'm ok with the static here, but my point is that we just want to keep it consistent right in this page and then the other page, right?
+
+192 "Basavaraju Halappa" (675386112)
+00:36:17.112 --> 00:36:28.186
+That's a good point, right? On the device, if we are allowing the user to change this, but we manage continues to show static value, we'll.
+
+193 "Jeffrey Cai" (3907908352)
+00:36:28.186 --> 00:36:31.835
+To check that as well.
+
+194 "Ramana Polamarasetti" (2879553536)
+00:36:31.835 --> 00:36:41.151
+No, I I don't think it's configurable so I don't know which config it is on the device. I.
+
+195 "Basavaraju Halappa" (675386112)
+00:36:41.151 --> 00:37:02.329
+So here's the thing typically, right? There have been some asks in the past and my high watermark low watermark, all those different customers will have an appetite for different levels. So someone might be ok with the 90 %.
+
+196 "Basavaraju Halappa" (675386112)
+00:37:02.329 --> 00:37:26.857
+And some customer might want to get an early warning and then say, hey, you know, I know for my network, I don't want you to go beyond 60 %. Give me an early warning after 60 %. So I, whether we have agreed to having that configurable, we don't know. If we have agreed to and then given a CLI to have that configurable, then the view manage should actually reflect what is con.
+
+197 "Ramana Polamarasetti" (2879553536)
+00:37:26.857 --> 00:37:29.796
+Figured in the device based on configured.
+
+198 "Basavaraju Halappa" (675386112)
+00:37:29.796 --> 00:37:36.132
+Value, not showing. So user has six selected 60 and the V managed continues to show 80, it doesn't make.
+
+199 "Ramana Polamarasetti" (2879553536)
+00:37:36.132 --> 00:37:39.731
+Oh, maybe, yeah, I think the.
+
+200 "Basavaraju Halappa" (675386112)
+00:37:39.731 --> 00:37:48.029
+Default values are like that so I Yes, that's why I didn't see ok maybe NO we'll have to check that let's say take an action item and then check it.
+
+201 "Basavaraju Halappa" (675386112)
+00:37:48.029 --> 00:38:03.832
+And if we have a way of configuring it, which is only possible through CLI or CLI template, then we will have to see how we can make the change in view manage to reflect the actual value rather than showing the default.
+
+202 "Ramana Polamarasetti" (2879553536)
+00:38:03.832 --> 00:38:16.936
+Yeah, I mean if if it is not configurable from then I think we have to send that in the event page.
+
+203 "Basavaraju Halappa" (675386112)
+00:38:16.936 --> 00:38:33.692
+Load or alarm payload. Yeah, let's let's 1st check whether that's true. Do we have anyone from QA in this call or NO one has, NO one was NO they they all had a invite but NO one.
+
+204 "Ramana Polamarasetti" (2879553536)
+00:38:33.692 --> 00:38:37.852
+She's attending. I saw Sirisha joined but I think she also.
+
+205 "Basavaraju Halappa" (675386112)
+00:38:37.852 --> 00:38:59.090
+Okay yeah because some of these right they have to make a note of it and then start opening bugs if they see a discrepancy We have we are giving so many pointers to them to open bugs, but then nobody's here to even take note.
+
+206 "Basavaraju Halappa" (675386112)
+00:38:59.090 --> 00:39:10.852
+Okay, we can work Withha later and ask her to check.
+
+207 "Ramana Polamarasetti" (2879553536)
+00:39:10.852 --> 00:39:12.770
+Those things. Yeah.
+
+208 "Mingchieh Wang" (1747300352)
+00:39:12.770 --> 00:39:20.731
+Okay, so are we gonna to start the working session addressed all the feedback tomorrow?
+
+209 "Xiaomin Mei" (3819331072)
+00:39:20.731 --> 00:39:41.270
+I have another question for the event I see there are three kind of event here, control connection status change policy change OMP PR status change. But when I check the.
+
+210 "Xiaomin Mei" (3819331072)
+00:39:41.270 --> 00:39:59.141
+I see for the for the stated change we have for OMP we have two kinds of data change. One is OMP peer status change. The other is OMP status change. Are both needed or the OMP.
+
+211 "Raghu Chereddy" (3292535808)
+00:39:59.141 --> 00:40:00.771
+The pure stated change needed.
+
+212 "Ramana Polamarasetti" (2879553536)
+00:40:00.771 --> 00:40:19.770
+No, NO, yeah. So the OMP state changes it's like the, at the system level so that we don't show here. That only happens when you're actually shutting down OMP so it Yeah I mean you you don't have to show that. It's only the OMP PS.
+
+213 "Xiaomin Mei" (3819331072)
+00:40:19.770 --> 00:40:24.449
+Okay so we only need to change that.
+
+214 "Ramana Polamarasetti" (2879553536)
+00:40:24.449 --> 00:40:26.495
+Yeah, when.
+
+215 "Xiaomin Mei" (3819331072)
+00:40:26.495 --> 00:40:36.956
+Okay change in OMP we have two. One is OMP policy, the other is the OMP data policy.
+
+216 "Raghu Chereddy" (3292535808)
+00:40:36.956 --> 00:40:43.171
+No, only the 1st control policy, right? We are not.
+
+217 "Xiaomin Mei" (3819331072)
+00:40:43.171 --> 00:40:50.052
+Doing a data policy here. Oh NO data policy. Okay, ok. Okay, thank you.
+
+218 "Ramana Polamarasetti" (2879553536)
+00:40:50.052 --> 00:40:57.698
+Yeah where is that OMP data policy change? Is there an event like.
+
+219 "Xiaomin Mei" (3819331072)
+00:40:57.698 --> 00:41:04.191
+That OMP data policy change? Yeah, we'll have would have event called OMP data policy.
+
+220 "Ramana Polamarasetti" (2879553536)
+00:41:06.273 --> 00:41:14.170
+Okay but but yeah, I mean like it's, we, it's it's basically sent to.
+
+221 "Raghu Chereddy" (3292535808)
+00:41:14.170 --> 00:41:24.294
+The devices so what is the point of that if it is coming to through a vsmart data policy event, it only goes to device.
+
+222 "Ramana Polamarasetti" (2879553536)
+00:41:24.294 --> 00:41:32.954
+Yeah, yeah, correct, correct. So, yeah, we probably may not be worried about.
+
+223 "Basavaraju Halappa" (675386112)
+00:41:32.954 --> 00:41:45.374
+About that right? Yeah, so that's another thing, right? I think we have had some discussions in the past. See the data policy, the smarts are used only for distributing to.
+
+224 "Ramana Polamarasetti" (2879553536)
+00:41:45.374 --> 00:41:47.031
+To the edge devices.
+
+225 "Basavaraju Halappa" (675386112)
+00:41:47.031 --> 00:41:55.198
+Correct. V smarts know what each devices have to get that data policy. That information is also available in.
+
+226 "Ramana Polamarasetti" (2879553536)
+00:41:55.198 --> 00:41:56.314
+English.
+
+227 "Basavaraju Halappa" (675386112)
+00:41:56.314 --> 00:42:11.292
+The current architecture requires it to come to vsmart and then redistribute, even though vsmart has nothing to do with it. Right? In future, you know, what if that data policy push is causing some.
+
+228 "Ramana Polamarasetti" (2879553536)
+00:42:11.292 --> 00:42:12.294
+Some churn in.
+
+229 "Basavaraju Halappa" (675386112)
+00:42:12.294 --> 00:42:21.094
+Smart, which is totally unnecessary, right? So probably that's the reason why that event.
+
+230 "Xiaomin Mei" (3819331072)
+00:42:21.094 --> 00:42:22.778
+Was also being tracked.
+
+231 "Basavaraju Halappa" (675386112)
+00:42:22.778 --> 00:42:41.106
+In future there is a plan in place to avoid vsmart completely because we manage can, can decide, hey, what each devices has to have that data policy and then Bypassport completely, but I don't know when it will come to fruition. For now.
+
+232 "Xiaomin Mei" (3819331072)
+00:42:41.106 --> 00:42:42.714
+We Smart is involved.
+
+233 "Falgun Bhagavatula" (982616320)
+00:42:42.714 --> 00:42:58.083
+So right now if if that is being done and if that causes high CPU, do, do you think that that requires a separate line item there? You know, data policy change like when when we are data pushing right now like data policy push.
+
+234 "Basavaraju Halappa" (675386112)
+00:42:58.083 --> 00:43:01.313
+To the devices. It is necessary, you know why?
+
+235 "Falgun Bhagavatula" (982616320)
+00:43:01.313 --> 00:43:04.473
+I'll I'll give you an example. Right. There was a.
+
+236 "Basavaraju Halappa" (675386112)
+00:43:04.473 --> 00:43:17.948
+Let's say this user wanted to push a data policy and then it went to V smart but we smart were extremely busy at that time for some other reason because of which the data policy never made it.
+
+237 "Falgun Bhagavatula" (982616320)
+00:43:17.948 --> 00:43:19.929
+To the edge device. Right.
+
+238 "Basavaraju Halappa" (675386112)
+00:43:19.929 --> 00:43:24.790
+And that's a, that's a problem. Yeah, that's a problem. We need to know what happened, why it happened.
+
+239 "Ramana Polamarasetti" (2879553536)
+00:43:24.790 --> 00:43:26.615
+Right?
+
+240 "Basavaraju Halappa" (675386112)
+00:43:26.615 --> 00:43:34.971
+So if you if you if you don't have any event in you wouldn't even know why it the device that the data policy.
+
+241 "Falgun Bhagavatula" (982616320)
+00:43:34.971 --> 00:43:44.834
+Didn't make it to the edge. No, but in that case, if data policy didn't make it to the edge, do we get an alarm like notifi notification?
+
+242 "Basavaraju Halappa" (675386112)
+00:43:44.834 --> 00:43:49.253
+No, NO NO. What? This is only insights into.
+
+243 "Falgun Bhagavatula" (982616320)
+00:43:49.253 --> 00:44:03.930
+Smart what is happening in the V smart? No, NO. Apart from vsmart, if we get a notification, we can still go to this logs OMP statistics and see, you know, my data policy pushed, let me go check my my V smart.
+
+244 "Falgun Bhagavatula" (982616320)
+00:44:03.930 --> 00:44:27.709
+If OMP is high because of some other states, that is an indication that, ok, my OMP is already high, my CPU is already high so that that might have caused the, caused the issue in, in pushing the data policy. My point is do we need to show that as a different line item or another legend and insert it into the bar? Is is that necessary?
+
+245 "Basavaraju Halappa" (675386112)
+00:44:27.709 --> 00:44:45.313
+I don't think that it is you know we are not doing anything special. We are just tracking that event, right? So it's an event that, ok, data policy push was during done during this time frame. Now it helps to correlate what was happening in the smart.
+
+246 "Falgun Bhagavatula" (982616320)
+00:44:45.313 --> 00:45:06.971
+During that time right but data policy push how it's it's less, right? Isn't isn't that captured in the policy change itself? No. Well policy change will be different. Yeah, never mind, but how many times that is going to be there?
+
+247 "Basavaraju Halappa" (675386112)
+00:45:06.971 --> 00:45:08.375
+Like in general.
+
+248 "Falgun Bhagavatula" (982616320)
+00:45:08.375 --> 00:45:10.235
+It May not be there so NO.
+
+249 "Basavaraju Halappa" (675386112)
+00:45:10.235 --> 00:45:11.986
+And that's even more compelling.
+
+250 "Falgun Bhagavatula" (982616320)
+00:45:11.986 --> 00:45:35.389
+That you have to keep it, right? If it's not, if it's not there, see as long as we are getting the notifications, there will be a timestamp, right? I would, I would have that as a notification item because adding another another legend here, but it's never seen unless we are actually pushing the data, then it's it's just taking up real estate.
+
+251 "Basavaraju Halappa" (675386112)
+00:45:35.389 --> 00:45:38.129
+Wait wait wait, NO, where is it taking? We are.
+
+252 "Falgun Bhagavatula" (982616320)
+00:45:38.129 --> 00:45:47.393
+Listed here, I don't understand that. No, so my point is in the event based on selection that that second bar that we are talking about, right? My my question was do we need to show it over there?
+
+253 "Ramana Polamarasetti" (2879553536)
+00:45:47.393 --> 00:45:59.393
+I don't think that that is saying is policy change covers both. So we don't have to show explicitly data policy.
+
+254 "Falgun Bhagavatula" (982616320)
+00:45:59.393 --> 00:46:07.351
+Okay, then then then ok then then what is the question? We we are showing that right here, right? The policy yeah.
+
+255 "Ramana Polamarasetti" (2879553536)
+00:46:07.351 --> 00:46:15.074
+Yeah. So yeah basically for question it covers both data policy and con.
+
+256 "Falgun Bhagavatula" (982616320)
+00:46:15.074 --> 00:46:18.695
+Okay, but it it's not just different.
+
+257 "Ramana Polamarasetti" (2879553536)
+00:46:18.695 --> 00:46:26.493
+Differentiating it. It's not differentiating. Yeah, any policy change will get a.
+
+258 "Basavaraju Halappa" (675386112)
+00:46:26.493 --> 00:46:30.655
+And then we'll show that here. No, but if we have to have a way to.
+
+259 "Ramana Polamarasetti" (2879553536)
+00:46:30.655 --> 00:46:42.000
+To differentiate that. Yeah, so if they see the details we we have to show I think I am.
+
+260 "Ramana Polamarasetti" (2879553536)
+00:46:42.000 --> 00:46:57.692
+What are the details we can we are showing did we capture that part here? The details? E.g., the policy change and next to it there is a details column.
+
+261 "Raghu Chereddy" (3292535808)
+00:46:57.692 --> 00:47:05.534
+Right? Yeah, that we saying only the version, right? What version of the policy was earlier?
+
+262 "Basavaraju Halappa" (675386112)
+00:47:05.534 --> 00:47:36.411
+Okay, I think you know you guys take an action item, if policy change that we are showing here covers both control policy as well as data policy, we need a way to differentiate. Now to the question whether we need to even show data policy, I say we need to because this is vsmart insights, whatever whatever we do which involves vsmart, we need to have that.
+
+263 "Falgun Bhagavatula" (982616320)
+00:47:36.411 --> 00:47:39.672
+Visibility here currently.
+
+264 "Basavaraju Halappa" (675386112)
+00:47:39.672 --> 00:47:42.549
+The data policy push also we spar.
+
+265 "Falgun Bhagavatula" (982616320)
+00:47:42.549 --> 00:47:54.550
+Gets involved. So we need to show that and and that's fine. So my point is under policy change right next to it, there is details, right? By looking at the details, they they would be able to know whether it's a data polic.
+
+266 "Ramana Polamarasetti" (2879553536)
+00:47:54.550 --> 00:47:55.498
+So you're a control policy.
+
+267 "Basavaraju Halappa" (675386112)
+00:47:55.498 --> 00:47:56.954
+The.
+
+268 "Raghu Chereddy" (3292535808)
+00:47:56.954 --> 00:48:01.530
+Is it there? I'm not sure. So that we haven't I mean, we didn'.
+
+269 "Basavaraju Halappa" (675386112)
+00:48:01.530 --> 00:48:08.214
+Yeah. Let's check that. Let's take an AI and then check that and then make sure that we have.
+
+270 "Falgun Bhagavatula" (982616320)
+00:48:08.214 --> 00:48:36.636
+The way to differentiate, that's all. That's it, yeah. I agree as as long as we are showing them, ok, a way to do it can be under the policy change, but as as they look into the details, they should be able to figure out whether ok I know we are a little over time. Ming are there other things that you want to cover?
+
+271 "Mingchieh Wang" (1747300352)
+00:48:36.636 --> 00:48:41.090
+That's all, that's what we have. I.
+
+272 "Falgun Bhagavatula" (982616320)
+00:48:41.090 --> 00:48:57.949
+Okay. Yep. Thanks Ming. I I think we have a few action items. Raghu, Ramana, I think we let's let's have another call maybe tomorrow and you know let us know.
+
+273 "Mingchieh Wang" (1747300352)
+00:48:57.949 --> 00:49:01.947
+Your findings. Sure, I gonna book your findings?
+
+274 "Raghu Chereddy" (3292535808)
+00:49:01.947 --> 00:49:17.914
+Yeah, so definitely I have a question about that, you know, so I know that you guys started working on the backend part, right? Do either that code, can we have access to that code or can we have a drop?
+
+275 "Jeffrey Cai" (3907908352)
+00:49:17.914 --> 00:49:22.932
+Yeah, sure, sure, sure. So what about the device part you have.
+
+276 "Raghu Chereddy" (3292535808)
+00:49:22.932 --> 00:49:25.331
+Already committe.
+
+277 "Jeffrey Cai" (3907908352)
+00:49:25.331 --> 00:49:41.814
+So yeah I think previously I don't remember who but somebody already did the stats and upload the part. So show me so what else we need, the code, the monitoring part we have already.
+
+278 "Jeffrey Cai" (3907908352)
+00:49:44.471 --> 00:50:03.835
+Yeah, yeah. So so what what is the plan? So we can have the integration with your part, I mean the backend part we can have the early integration if you want. But the UI we don't have. UI we don't have, you will not be able to see this.
+
+279 "Ramana Polamarasetti" (2879553536)
+00:50:03.835 --> 00:50:09.894
+Is there a way we can see the data like any API is there?
+
+280 "Xiaomin Mei" (3819331072)
+00:50:09.894 --> 00:50:11.772
+Even without.
+
+281 "Ramana Polamarasetti" (2879553536)
+00:50:11.772 --> 00:50:14.394
+Okay ok yeah.
+
+282 "Jeffrey Cai" (3907908352)
+00:50:14.394 --> 00:50:20.990
+Yeah, sure. You can set up a test better then we can the integration together, do the integration together.
+
+283 "Ramana Polamarasetti" (2879553536)
+00:50:20.990 --> 00:50:23.234
+Yeah, that'll.
+
+284 "Jeffrey Cai" (3907908352)
+00:50:23.234 --> 00:50:26.333
+Yeah, sure, yeah. We can test it through the API.
+
+285 "Raghu Chereddy" (3292535808)
+00:50:26.333 --> 00:50:28.932
+Yeah ok when do you expect.
+
+286 "Jeffrey Cai" (3907908352)
+00:50:28.932 --> 00:50:32.290
+UI we need to talk to.
+
+287 "Raghu Chereddy" (3292535808)
+00:50:32.290 --> 00:50:36.568
+Oh, ok, you your team not doing?
+
+288 "Mingchieh Wang" (1747300352)
+00:50:36.568 --> 00:50:51.573
+No, NO, we don't, we don't. Okay, Venkat gonna to have a vacation until another seven days. So how are we gonna handle? Venkat going to join us for seven days.
+
+289 "Jeffrey Cai" (3907908352)
+00:50:51.573 --> 00:50:54.449
+Join for the US.
+
+290 "Mingchieh Wang" (1747300352)
+00:50:54.449 --> 00:51:02.010
+Next review. Yeah, yeah. Okay. Who else should.
+
+291 "Falgun Bhagavatula" (982616320)
+00:51:02.010 --> 00:51:09.693
+We invite. Is there a proxy for him? Do you know, who's covering from.
+
+292 "Mingchieh Wang" (1747300352)
+00:51:09.693 --> 00:51:12.051
+For him? Oh, ok. I I can.
+
+293 "Jeffrey Cai" (3907908352)
+00:51:12.051 --> 00:51:16.314
+Yeah, maybe it says he can help, yeah, you can check, I mean.
+
+294 "Mingchieh Wang" (1747300352)
+00:51:16.314 --> 00:51:21.533
+Jeff, are you gonna to join us for tomorrow's discuss.
+
+295 "Jeffrey Cai" (3907908352)
+00:51:21.533 --> 00:51:27.980
+Questions to When when we gonna have that discussion tomorrow?
+
+296 "Mingchieh Wang" (1747300352)
+00:51:27.980 --> 00:51:41.767
+That's what we gonna do address that four three different topics, right? Do we need Jeff to be there?
+
+297 "Falgun Bhagavatula" (982616320)
+00:51:41.767 --> 00:51:55.205
+Let's see, how about yeah I'm I'm open tomorrow. If, if required, we can do it a little earlier.
+
+298 "Jeffrey Cai" (3907908352)
+00:51:55.205 --> 00:51:59.675
+And that works. Hold on hold on hold on. What is the agenda of.
+
+299 "Falgun Bhagavatula" (982616320)
+00:51:59.675 --> 00:52:22.911
+Okay, tomorrow we are going to you know revisit the open questions from today's call. You know Raghu and Raghu and Ramina have taken the notes on you know a few few items. I I believe there are two or three items that that are going to be covered. And once, once that is there, I think we we are pretty much you know finalized.
+
+300 "Raghu Chereddy" (3292535808)
+00:52:22.911 --> 00:52:27.256
+Using the design. So those questions aren't anything to do with the.
+
+301 "Falgun Bhagavatula" (982616320)
+00:52:27.256 --> 00:52:29.694
+It's not, it's not.
+
+302 "Raghu Chereddy" (3292535808)
+00:52:29.694 --> 00:52:30.614
+Not related to uix.
+
+303 "Falgun Bhagavatula" (982616320)
+00:52:30.614 --> 00:52:42.073
+Yes these are different. Yeah UX is fine at this time but the other part, I believe, you know, I I did not take those notes, but we can look at the AI summary and then you can.
+
+304 "Raghu Chereddy" (3292535808)
+00:52:42.073 --> 00:52:47.510
+You know, look into those. Yeah, I think one of them is a data policy versus control.
+
+305 "Falgun Bhagavatula" (982616320)
+00:52:47.510 --> 00:52:49.690
+Let's say that's one. Yeah.
+
+306 "Raghu Chereddy" (3292535808)
+00:52:49.690 --> 00:52:51.712
+Yeah, what's other.
+
+307 "Ramana Polamarasetti" (2879553536)
+00:52:51.712 --> 00:52:54.051
+So and.
+
+308 "Raghu Chereddy" (3292535808)
+00:52:54.051 --> 00:53:07.733
+Thresholds, right? Yeah yeah yeah thresholds where they are coming from, and then I remember only two of them thresholds and the data policy are what.
+
+309 "Falgun Bhagavatula" (982616320)
+00:53:07.733 --> 00:53:10.110
+The control policy. So let's let.
+
+310 "Ramana Polamarasetti" (2879553536)
+00:53:10.110 --> 00:53:14.173
+Just review the yeah let the somebody come and say yeah.
+
+311 "Jeffrey Cai" (3907908352)
+00:53:14.173 --> 00:53:27.651
+Yeah. And then if that I suggest that you can you guys can meeting your daytime, right? If there anything you needed from from yeah we can we can catch up tomorrow even if you want. If you need a.
+
+312 "Falgun Bhagavatula" (982616320)
+00:53:27.651 --> 00:53:34.074
+The info, ok? Yeah. Sounds good Jeffrey. And if if needed, you know, we can just talk over talk over the space and then.
+
+313 "Jeffrey Cai" (3907908352)
+00:53:34.074 --> 00:53:37.411
+Yeah, yeah, yeah yeah perfect.
+
+314 "Falgun Bhagavatula" (982616320)
+00:53:37.411 --> 00:53:38.612
+Alright.
+
+315 "Jeffrey Cai" (3907908352)
+00:53:38.612 --> 00:53:40.354
+Thanks everyone.
+
+316 "Mingchieh Wang" (1747300352)
+00:53:40.354 --> 00:53:41.206
+Alright, thank you.
+
+317 "Jeffrey Cai" (3907908352)
+00:53:41.206 --> 00:53:43.744
+Thank you. Good night. Bye.
