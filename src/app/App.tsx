@@ -4,7 +4,9 @@ import { imgWarningBorder, imgWarningBorder1 } from "../imports/4LogOmpStatistic
 import { OmpStatistics } from "./omp/OmpStatistics";
 import { AuthProvider, useAuth } from "./auth/AuthProvider";
 import { LoginScreen } from "./auth/LoginScreen";
-import { AIAssistant } from "./components/ai-assistant/AIAssistant";
+// TODO(ai-assistant): re-enable once Cisco EGAI/CIRCUIT LLM client is wired up.
+// Hidden temporarily because the Anthropic-SDK path can't reach the Cisco gateway.
+// import { AIAssistant } from "./components/ai-assistant/AIAssistant";
 import { DeviceSidebarSections } from "./sidebar/DeviceSidebarSections";
 
 function Left() {
@@ -5812,7 +5814,7 @@ function AuthGate() {
   return (
     <>
       <Dashboard />
-      <AIAssistant />
+      {/* <AIAssistant /> — temporarily hidden; re-enable when LLM backend is reachable */}
     </>
   );
 }

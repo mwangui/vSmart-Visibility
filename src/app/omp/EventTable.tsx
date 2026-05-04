@@ -10,8 +10,11 @@
  * - Footer: rows-per-page select + "X-Y of N" + page navigation.
  */
 
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useOmp, type SortableColumn } from './state';
 import type { MockLogRow } from './data';
+import { DeviceDetailsModal } from './DeviceDetailsModal';
 
 interface ColumnDef {
   key: SortableColumn | 'actions';
@@ -56,6 +59,39 @@ export function EventTable() {
   const start = totalCount === 0 ? 0 : (currentPage - 1) * rowsPerPage + 1;
   const end   = Math.min(totalCount, currentPage * rowsPerPage);
   const maxPage = Math.max(1, Math.ceil(totalCount / rowsPerPage));
+
+  // ── Row-level action menu (kebab) state ──────────────────────────────────
+  // `openMenuRowId` tracks which row's "⋯" popover is currently shown. The
+  // matching kebab button uses this to render its blue active background.
+  // `modalRow` tracks which row's full Device-details modal is open. Both are
+  // null when the table is in its idle, default state.
+  const [openMenuRowId, setOpenMenuRowId] = useState<string | null>(null);
+  const [modalRow, setModalRow] = useState<MockLogRow | null>(null);
+
+  // Outside-click closes any open kebab popover. Listening on `mousedown`
+  // (rather than `click`) keeps the close from racing against the kebab
+  // button's own click handler when the user toggles the same kebab.
+  useEffect(() => {
+    if (openMenuRowId === null) return;
+    const handler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest('[data-row-action-menu]')) return;
+      setOpenMenuRowId(null);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [openMenuRowId]);
+
+  // Escape closes the popover if it is open. The modal handles its own Esc
+  // separately (see DeviceDetailsModal) so the two don't fight.
+  useEffect(() => {
+    if (openMenuRowId === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenMenuRowId(null);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [openMenuRowId]);
 
   return (
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -167,12 +203,24 @@ export function EventTable() {
                             style={{
                               padding: '8px 12px',
                               textAlign: 'right',
-                              color: 'var(--color-icon-primary)',
+                              verticalAlign: 'top',
+                              position: 'relative',
+                              overflow: 'visible',
                             }}
                           >
-                            <span aria-hidden style={{ fontSize: 16, letterSpacing: 1 }}>
-                              ⋯
-                            </span>
+                            <RowActionMenu
+                              row={row}
+                              isOpen={openMenuRowId === row.id}
+                              onToggle={() =>
+                                setOpenMenuRowId(prev =>
+                                  prev === row.id ? null : row.id,
+                                )
+                              }
+                              onSelectDeviceDetails={() => {
+                                setOpenMenuRowId(null);
+                                setModalRow(row);
+                              }}
+                            />
                           </td>
                         );
                       }
@@ -246,7 +294,175 @@ export function EventTable() {
           onChange={page => dispatch({ type: 'SET_PAGE', page })}
         />
       </div>
+
+      {modalRow ? (
+        <DeviceDetailsModal
+          row={modalRow}
+          onClose={() => {
+            // Closing the modal must also clear any leftover kebab-active
+            // state per spec; openMenuRowId is already cleared when we open
+            // the modal, but we re-clear here defensively.
+            setModalRow(null);
+            setOpenMenuRowId(null);
+          }}
+        />
+      ) : null}
     </div>
+  );
+}
+
+/**
+ * Per-row "⋯" kebab + popover that exposes the row-level Device-details
+ * action. Active state (blue background on the kebab + visible popover) is
+ * driven entirely by props so the parent table owns the open-row identity.
+ */
+interface RowActionMenuProps {
+  row: MockLogRow;
+  isOpen: boolean;
+  onToggle: () => void;
+  onSelectDeviceDetails: () => void;
+}
+
+function RowActionMenu({
+  row,
+  isOpen,
+  onToggle,
+  onSelectDeviceDetails,
+}: RowActionMenuProps) {
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  // popoverPos is null until we've measured the kebab. Re-measured when the
+  // popover opens, on window resize, and on scroll (so it stays anchored as
+  // the user scrolls the page or the table's horizontal scroll container).
+  const [popoverPos, setPopoverPos] = useState<{ top: number; right: number } | null>(null);
+
+  useLayoutEffect(() => {
+    if (!isOpen) {
+      setPopoverPos(null);
+      return;
+    }
+    const updatePos = () => {
+      const el = buttonRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      setPopoverPos({
+        top: rect.bottom + 4,
+        right: window.innerWidth - rect.right,
+      });
+    };
+    updatePos();
+    window.addEventListener('resize', updatePos);
+    // capture-phase scroll listener catches scrolls from any ancestor
+    // (including the table's overflow-x:auto wrapper).
+    window.addEventListener('scroll', updatePos, true);
+    return () => {
+      window.removeEventListener('resize', updatePos);
+      window.removeEventListener('scroll', updatePos, true);
+    };
+  }, [isOpen]);
+
+  // The wrapper + popover both carry the data attribute so the document-level
+  // outside-click handler in EventTable can detect "click inside any kebab /
+  // popover" without each instance needing a shared ref.
+  return (
+    <span
+      data-row-action-menu
+      style={{
+        position: 'relative',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+      }}
+    >
+      <button
+        ref={buttonRef}
+        type="button"
+        aria-label={`Actions for row ${row.id}`}
+        aria-haspopup="menu"
+        aria-expanded={isOpen}
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggle();
+        }}
+        style={{
+          width: 24,
+          height: 24,
+          padding: 0,
+          border: 'none',
+          // Active = subtle selected surface from design system tokens
+          // (light-blue tint with mid-gray dots, per design spec).
+          background: isOpen ? 'var(--color-bg-selected)' : 'transparent',
+          borderRadius: 4,
+          color: isOpen
+            ? 'var(--color-icon-active)'
+            : 'var(--color-icon-primary)',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          fontSize: 16,
+          letterSpacing: 1,
+          lineHeight: 1,
+        }}
+      >
+        <span aria-hidden>⋯</span>
+      </button>
+
+      {isOpen && popoverPos
+        ? createPortal(
+            <div
+              role="menu"
+              data-row-action-menu
+              style={{
+                position: 'fixed',
+                top: popoverPos.top,
+                right: popoverPos.right,
+                minWidth: 140,
+                background: 'var(--color-bg-primary)',
+                // Stronger 1px outline (#889099) per design spec — matches
+                // the existing --color-border-secondary token.
+                border: '1px solid var(--color-border-secondary)',
+                borderRadius: 4,
+                boxShadow: '0 4px 10px rgba(0,0,0,0.10)',
+                zIndex: 200, // matches --z-index-popover
+                padding: '4px 0',
+                fontFamily: 'var(--font-family-primary)',
+              }}
+            >
+              <button
+                type="button"
+                role="menuitem"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelectDeviceDetails();
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background =
+                    'var(--color-bg-tertiary)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                }}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  padding: '8px 12px',
+                  border: 'none',
+                  background: 'transparent',
+                  textAlign: 'left',
+                  fontSize: 13,
+                  fontFamily: 'var(--font-family-primary)',
+                  color: 'var(--color-text-primary)',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Device details
+              </button>
+            </div>,
+            document.body,
+          )
+        : null}
+    </span>
   );
 }
 
