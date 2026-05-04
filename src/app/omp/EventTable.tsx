@@ -12,130 +12,53 @@
 
 import { useOmp, type SortableColumn } from './state';
 import type { MockLogRow } from './data';
-import { downloadCsv, rowsToCsv } from './utils';
 
 interface ColumnDef {
   key: SortableColumn | 'actions';
   label: string;
   sortable: boolean;
-  align?: 'right';
+  align?: 'right' | 'center';
   width?: number;
+  /** When true, the cell content stays on a single line (no wrapping). */
+  nowrap?: boolean;
   render?: (row: MockLogRow) => React.ReactNode;
+  renderHeader?: () => React.ReactNode;
 }
 
+// Column widths reclaimed (per latest spec): the Event-time column now keeps
+// the full "May 04, 2026 12:31 AM" string on a single line, and the wide
+// numeric / details columns trade away surplus padding so the overall table
+// width stays aligned with the chart row above it.
 const COLUMNS: ColumnDef[] = [
-  { key: 'eventTime',      label: 'Event time',      sortable: true, width: 180,
+  { key: 'eventTime',      label: 'Event time',      sortable: true, width: 200,
+    nowrap: true,
     render: r => r.eventTimeLabel },
   { key: 'systemIp',       label: 'System IP',       sortable: true, width: 100 },
   { key: 'hostname',       label: 'Hostname',        sortable: true, width: 110 },
   { key: 'siteName',       label: 'Site name',       sortable: true, width: 130 },
-  { key: 'eventName',      label: 'Event name',      sortable: true, width: 230 },
-  { key: 'details',        label: 'Details',         sortable: true, width: 360 },
-  { key: 'routesSent',     label: 'Routes sent',     sortable: true, align: 'right', width: 110 },
-  { key: 'routesReceived', label: 'Routes received', sortable: true, align: 'right', width: 130 },
-  { key: 'peers',          label: 'Peers',           sortable: true, align: 'right', width: 80 },
-  { key: 'actions',        label: '',                sortable: false,                width: 48 },
+  { key: 'eventName',      label: 'Event name',      sortable: true, width: 220 },
+  { key: 'details',        label: 'Details',         sortable: true, width: 300 },
+  { key: 'routesSent',     label: 'Routes sent',     sortable: true, align: 'right', width: 90 },
+  { key: 'routesReceived', label: 'Routes received', sortable: true, align: 'right', width: 105 },
+  { key: 'peers',          label: 'Peers',           sortable: true, align: 'right', width: 64 },
+  // Last column hosts the per-row "⋯" menu trigger and (in the header) the
+  // table-level settings gear, per spec: "settings icon in the last column
+  // header, above the row-level kebab".
+  { key: 'actions',        label: '',                sortable: false, align: 'center',
+    width: 48,
+    renderHeader: () => <SettingsGear /> },
 ];
 
 export function EventTable() {
-  const { state, dispatch, filteredRows, pageRows, totalCount } = useOmp();
+  const { state, dispatch, pageRows, totalCount } = useOmp();
   const { currentPage, rowsPerPage, sortBy, sortDirection } = state;
 
   const start = totalCount === 0 ? 0 : (currentPage - 1) * rowsPerPage + 1;
   const end   = Math.min(totalCount, currentPage * rowsPerPage);
   const maxPage = Math.max(1, Math.ceil(totalCount / rowsPerPage));
 
-  const handleExport = () => {
-    const headers = [
-      { key: 'eventTimeLabel' as const, label: 'Event time' },
-      { key: 'systemIp' as const,       label: 'System IP' },
-      { key: 'hostname' as const,       label: 'Hostname' },
-      { key: 'siteName' as const,       label: 'Site name' },
-      { key: 'eventName' as const,      label: 'Event name' },
-      { key: 'details' as const,        label: 'Details' },
-      { key: 'routesSent' as const,     label: 'Routes sent' },
-      { key: 'routesReceived' as const, label: 'Routes received' },
-      { key: 'peers' as const,          label: 'Peers' },
-    ];
-    downloadCsv('event-log.csv', rowsToCsv(headers, filteredRows));
-  };
-
   return (
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 12,
-          width: '100%',
-        }}
-      >
-        <span
-          style={{
-            fontSize: 12,
-            color: 'var(--color-text-secondary)',
-            fontWeight: 600,
-          }}
-          aria-live="polite"
-        >
-          {totalCount} {totalCount === 1 ? 'result' : 'results'}
-        </span>
-        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <button
-            type="button"
-            onClick={handleExport}
-            aria-label="Export filtered events"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
-              padding: '6px 12px',
-              border: '1px solid var(--color-border-primary)',
-              borderRadius: 6,
-              background: 'var(--color-bg-primary)',
-              color: 'var(--color-text-link)',
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: 'pointer',
-              lineHeight: '18px',
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
-              <path
-                d="M7 1v8m0 0L4 6m3 3 3-3M2 11h10v2H2z"
-                fill="none" stroke="currentColor" strokeWidth="1.5"
-                strokeLinecap="round" strokeLinejoin="round"
-              />
-            </svg>
-            Export
-          </button>
-          <button
-            type="button"
-            aria-label="Settings"
-            title="Settings"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 34, height: 34,
-              border: '1px solid var(--color-border-primary)',
-              borderRadius: 6,
-              background: 'var(--color-bg-primary)',
-              color: 'var(--color-icon-primary)',
-              cursor: 'pointer',
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden>
-              <path
-                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM8 1l1 2 2 .5-.5 2L13 7l-2.5 1.5.5 2-2 .5L8 13l-1-2-2-.5.5-2L3 7l2.5-1.5L5 3.5l2-.5L8 1z"
-                fill="none" stroke="currentColor" strokeWidth="1.2"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-
       <div
         style={{
           width: '100%',
@@ -152,7 +75,7 @@ export function EventTable() {
               borderCollapse: 'collapse',
               fontFamily: 'var(--font-family-primary)',
               fontSize: 12,
-              minWidth: 1200,
+              minWidth: 1180,
             }}
           >
             <thead>
@@ -170,7 +93,9 @@ export function EventTable() {
                         borderBottom: '1px solid var(--color-border-primary)',
                         whiteSpace: 'nowrap',
                         width: col.width,
-                        cursor: col.sortable ? 'pointer' : 'default',
+                        cursor: col.sortable
+                          ? 'pointer'
+                          : col.renderHeader ? 'default' : 'default',
                         userSelect: 'none',
                       }}
                       onClick={() => {
@@ -187,10 +112,14 @@ export function EventTable() {
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
+                          justifyContent: col.align === 'center'
+                            ? 'center'
+                            : col.align === 'right' ? 'flex-end' : 'flex-start',
                           gap: 4,
+                          width: '100%',
                         }}
                       >
-                        {col.label}
+                        {col.renderHeader ? col.renderHeader() : col.label}
                         {col.sortable ? (
                           <SortIcon
                             direction={isSorted ? sortDirection : null}
@@ -259,6 +188,7 @@ export function EventTable() {
                             color: 'var(--color-text-primary)',
                             verticalAlign: 'top',
                             wordBreak: col.key === 'details' ? 'break-word' : 'normal',
+                            whiteSpace: col.nowrap ? 'nowrap' : 'normal',
                           }}
                         >
                           {value}
@@ -317,6 +247,44 @@ export function EventTable() {
         />
       </div>
     </div>
+  );
+}
+
+/**
+ * Column-customisation gear, rendered inside the last `<th>` (above the
+ * row-level "⋯" kebab). Wired as a button so keyboard/AX users can reach it;
+ * actual flyout is out of scope for this iteration.
+ */
+function SettingsGear() {
+  return (
+    <button
+      type="button"
+      aria-label="Customize columns"
+      title="Customize columns"
+      onClick={(e) => {
+        e.stopPropagation(); // don't trigger column sort
+      }}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 24,
+        height: 24,
+        padding: 0,
+        border: 'none',
+        background: 'transparent',
+        color: 'var(--color-icon-primary)',
+        cursor: 'pointer',
+      }}
+    >
+      <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden>
+        <path
+          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM8 1l1 2 2 .5-.5 2L13 7l-2.5 1.5.5 2-2 .5L8 13l-1-2-2-.5.5-2L3 7l2.5-1.5L5 3.5l2-.5L8 1z"
+          fill="none" stroke="currentColor" strokeWidth="1.2"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
   );
 }
 

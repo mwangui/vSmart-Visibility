@@ -2,6 +2,10 @@ import svgPaths from "../imports/4LogOmpStatistics-1/svg-xu79yoskty";
 import imgHeader from "figma:asset/73ec653e128edda67501b4df083e58e8150cd4b3.png";
 import { imgWarningBorder, imgWarningBorder1 } from "../imports/4LogOmpStatistics-1/svg-w8riy";
 import { OmpStatistics } from "./omp/OmpStatistics";
+import { AuthProvider, useAuth } from "./auth/AuthProvider";
+import { LoginScreen } from "./auth/LoginScreen";
+import { AIAssistant } from "./components/ai-assistant/AIAssistant";
+import { DeviceSidebarSections } from "./sidebar/DeviceSidebarSections";
 
 function Left() {
   return (
@@ -201,7 +205,6 @@ function PageTitle() {
     <div className="content-stretch flex flex-col gap-[4px] items-start py-[24px] relative shrink-0 w-full" data-name="Page title">
       <div className="content-stretch flex items-center relative shrink-0 w-full" data-name=".Top line">
         <Left />
-        <RightContent />
       </div>
       <Title />
     </div>
@@ -1178,7 +1181,7 @@ function LeftColumn() {
   return (
     <div className="bg-[var(--color-bg-primary)] content-stretch drop-shadow-[0px_3px_4px_rgba(0,0,0,0.08)] flex flex-col items-start pb-[24px] pt-[12px] relative rounded-[12px] shrink-0" data-name="Left column">
       <GenericLeftColSectionsHeaderMapHeader />
-      <LeftColumn1 />
+      <DeviceSidebarSections />
     </div>
   );
 }
@@ -5758,7 +5761,7 @@ function RightSideBlocks() {
   );
 }
 
-export default function App() {
+function Dashboard() {
   return (
     <div className="bg-[var(--color-bg-secondary)] relative size-full" data-name="4. Log - OMP statistics">
       <PageContent />
@@ -5783,5 +5786,41 @@ export default function App() {
       <div className="absolute bg-[var(--color-text-tertiary)] h-[165px] left-[1176px] opacity-0 top-[361px] w-[33px]" />
       <div className="absolute bg-[var(--color-text-tertiary)] h-[34px] left-[1154px] opacity-0 top-[944px] w-[33px]" />
     </div>
+  );
+}
+
+/**
+ * Login is currently disabled (backend ``DISABLE_AUTH=true``). The first call
+ * to ``/api/auth/me`` causes the backend to auto-issue a session cookie, so
+ * the user lands directly on the Dashboard. We still render a brief loading
+ * state during that round-trip so child components can rely on the session
+ * being established before they fire authenticated requests.
+ *
+ * The ``LoginScreen`` and password-gate plumbing remain in the codebase
+ * (just not mounted) so flipping ``DISABLE_AUTH`` back to ``false`` is a
+ * one-line change.
+ */
+function AuthGate() {
+  const { status } = useAuth();
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen w-full flex items-center justify-center bg-[#0b1220] text-slate-400 text-sm">
+        Loading…
+      </div>
+    );
+  }
+  return (
+    <>
+      <Dashboard />
+      <AIAssistant />
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AuthGate />
+    </AuthProvider>
   );
 }

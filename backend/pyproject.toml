@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vsmart-ai-assistant"
+version = "0.1.0"
+description = "vSmart Visibility AI Assistant — RAG over meeting transcripts and product docs"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Ming (Cisco UX / CNUX)" }]
+license = { text = "MIT" }
+
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "pydantic>=2.7.0",
+  "pydantic-settings>=2.4.0",
+  "python-dotenv>=1.0.1",
+  "python-multipart>=0.0.9",
+
+  # Auth: shared password + JWT cookie
+  "PyJWT>=2.9.0",
+  "itsdangerous>=2.2.0",
+
+  # DB
+  "SQLAlchemy>=2.0.30",
+  "aiosqlite>=0.20.0",
+  "alembic>=1.13.2",
+  "greenlet>=3.0.3",
+
+  # LLM
+  "anthropic>=0.40.0",
+  "httpx>=0.27.2",
+  "tenacity>=9.0.0",
+
+  # PDF / VTT parsing
+  "pymupdf>=1.24.10",
+  "Pillow>=10.4.0",
+  "webvtt-py>=0.5.1",
+
+  # Embeddings (multilingual) + vector store
+  # sentence-transformers downloads BAAI/bge-m3 or paraphrase-multilingual-* on first run
+  "sentence-transformers>=3.1.1",
+  "torch>=2.2.0",
+  "numpy>=1.26.0,<2.3",
+  "faiss-cpu>=1.8.0",
+
+  # Auto-ingest
+  "watchdog>=5.0.0",
+
+  # Misc
+  "tiktoken>=0.7.0",
+  "orjson>=3.10.7",
+  "structlog>=24.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.2",
+  "pytest-asyncio>=0.23.8",
+  "ruff>=0.6.0",
+  "mypy>=1.11.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

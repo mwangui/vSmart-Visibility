@@ -68,39 +68,136 @@ export function ChartHeader({ title, rightLabel, onExport }: ChartHeaderProps) {
       ) : null}
 
       {onExport ? (
-        <button
-          type="button"
-          onClick={onExport}
-          aria-label={`Export ${title}`}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 6,
-            padding: '6px 12px',
-            border: '1px solid var(--color-border-primary)',
-            borderRadius: 6,
-            background: 'var(--color-bg-primary)',
-            color: 'var(--color-text-link)',
-            fontSize: 12,
-            fontWeight: 700,
-            cursor: 'pointer',
-            lineHeight: '18px',
-          }}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
-            <path
-              d="M7 1v8m0 0L4 6m3 3 3-3M2 11h10v2H2z"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          Export
-        </button>
+        <ExportLinkButton onClick={onExport} ariaLabel={`Export ${title}`} />
       ) : null}
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────────────
+// Shared link-style action buttons (Export / Refresh)
+//
+// Per latest design: borderless, blue text, icon-left. Used by ChartHeader
+// (top-right of OMP usage + Event charts) and by FilterBar (Refresh + Export
+// next to the period label).
+// ──────────────────────────────────────────────────────────────────────────
+
+const linkButtonBase = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 6,
+  padding: '4px 6px',
+  border: 'none',
+  background: 'transparent',
+  color: 'var(--color-text-link)',
+  fontSize: 12,
+  fontWeight: 700,
+  lineHeight: '18px',
+  cursor: 'pointer',
+  borderRadius: 4,
+} as const;
+
+const linkButtonHoverClass = 'omp-link-btn';
+
+interface ExportLinkButtonProps {
+  onClick: () => void;
+  ariaLabel?: string;
+}
+
+export function ExportLinkButton({ onClick, ariaLabel }: ExportLinkButtonProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={ariaLabel ?? 'Export'}
+      className={linkButtonHoverClass}
+      style={linkButtonBase}
+    >
+      <ExportIcon />
+      Export
+    </button>
+  );
+}
+
+interface RefreshLinkButtonProps {
+  onClick: () => void;
+  ariaLabel?: string;
+}
+
+/**
+ * Per design spec: the Refresh button is *always* enabled. It clears any
+ * Event-chart time selection, returning the table to its default state, and
+ * provides the user with a manual "reload" affordance. There is intentionally
+ * no `disabled` prop — adding one would violate the design contract.
+ */
+export function RefreshLinkButton({ onClick, ariaLabel }: RefreshLinkButtonProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={ariaLabel ?? 'Refresh'}
+      className={linkButtonHoverClass}
+      style={linkButtonBase}
+    >
+      <RefreshIcon />
+      Refresh
+    </button>
+  );
+}
+
+function ExportIcon() {
+  // Upload-tray icon: arrow up out of a tray (matches new design comp).
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
+      <path
+        d="M7 1v8m0 0L4 6m3 3 3-3M2 11h10v2H2z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function RefreshIcon() {
+  // Circular-arrow refresh icon.
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
+      <path
+        d="M2 7a5 5 0 0 1 8.5-3.5L12 5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 1v4h-4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 7a5 5 0 0 1-8.5 3.5L2 9"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M2 13V9h4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 

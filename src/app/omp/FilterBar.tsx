@@ -6,9 +6,27 @@
 import { MultiSelectChip } from './MultiSelectChip';
 import { useOmp, EVENT_TYPE_ORDER } from './state';
 import { distinctSiteNames, distinctSystemIps } from './data';
+import { SelectedPeriodLabel } from './SelectedPeriodLabel';
+import { downloadCsv, rowsToCsv } from './utils';
+import { ExportLinkButton, RefreshLinkButton } from './ChartCard';
 
 export function FilterBar() {
-  const { state, dispatch, allRows } = useOmp();
+  const { state, dispatch, allRows, totalCount, filteredRows } = useOmp();
+
+  const handleExport = () => {
+    const headers = [
+      { key: 'eventTimeLabel' as const, label: 'Event time' },
+      { key: 'systemIp' as const,       label: 'System IP' },
+      { key: 'hostname' as const,       label: 'Hostname' },
+      { key: 'siteName' as const,       label: 'Site name' },
+      { key: 'eventName' as const,      label: 'Event name' },
+      { key: 'details' as const,        label: 'Details' },
+      { key: 'routesSent' as const,     label: 'Routes sent' },
+      { key: 'routesReceived' as const, label: 'Routes received' },
+      { key: 'peers' as const,          label: 'Peers' },
+    ];
+    downloadCsv('event-log.csv', rowsToCsv(headers, filteredRows));
+  };
 
   const systemIps = distinctSystemIps(allRows);
   const siteNames = distinctSiteNames(allRows);
@@ -58,6 +76,18 @@ export function FilterBar() {
         onClear={() => dispatch({ type: 'CLEAR_EVENT_TYPES' })}
       />
 
+      <span
+        style={{
+          fontSize: 12,
+          color: 'var(--color-text-secondary)',
+          fontWeight: 600,
+          marginLeft: 8,
+        }}
+        aria-live="polite"
+      >
+        {totalCount} {totalCount === 1 ? 'result' : 'results'}
+      </span>
+
       <div
         style={{
           marginLeft: 'auto',
@@ -66,35 +96,14 @@ export function FilterBar() {
           gap: 12,
         }}
       >
-        {hasAnyFilter(state) ? (
-          <button
-            type="button"
-            onClick={() => dispatch({ type: 'CLEAR_ALL_FILTERS' })}
-            style={{
-              background: 'transparent',
-              border: 'none',
-              padding: 0,
-              fontSize: 12,
-              fontWeight: 700,
-              color: 'var(--color-text-link)',
-              cursor: 'pointer',
-            }}
-          >
-            Clear all
-          </button>
-        ) : null}
+        <SelectedPeriodLabel />
+        <RefreshLinkButton
+          onClick={() => dispatch({ type: 'SET_SELECTED_HOUR', hour: null })}
+          ariaLabel="Refresh: clear selected event time and reload table"
+        />
+        <ExportLinkButton onClick={handleExport} ariaLabel="Export filtered events" />
       </div>
     </div>
-  );
-}
-
-function hasAnyFilter(s: ReturnType<typeof useOmp>['state']): boolean {
-  return (
-    !!s.searchKeyword ||
-    s.selectedSystemIps.size > 0 ||
-    s.selectedSiteNames.size > 0 ||
-    s.selectedEventTypes.size > 0 ||
-    s.selectedHour !== null
   );
 }
 

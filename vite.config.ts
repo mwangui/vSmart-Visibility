@@ -33,4 +33,22 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+
+  // Proxy /api to the FastAPI backend so cookies + SSE work seamlessly in dev.
+  // `watch.usePolling` is required because macOS FSEvents is unreliable in this
+  // workspace's sandbox/network setup — chokidar fails silently and HMR never
+  // fires. Polling adds ~tiny CPU but guarantees edit-to-reload determinism.
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      },
+    },
+    watch: {
+      usePolling: true,
+      interval: 200,
+    },
+  },
 })
