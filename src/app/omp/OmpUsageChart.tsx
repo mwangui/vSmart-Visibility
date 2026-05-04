@@ -125,7 +125,14 @@ export function OmpUsageChart() {
     const svgEl = ref.current?.querySelector('svg');
     if (!svgEl) return;
 
-    const xml = new XMLSerializer().serializeToString(svgEl);
+    // Resolve CSS custom properties before serialising. The chart SVG uses
+    // attributes like `stroke="var(--color-brand-blue)"`. When the SVG is
+    // serialised to a Blob URL and rasterised through an <img>, it renders in
+    // an isolated SVG-only document that has no access to the page's :root
+    // variables → every var() resolves to empty → strokes/fills disappear and
+    // the PDF ends up showing only the axis text. Inlining the *computed*
+    // styles as concrete attributes makes the snapshot self-contained.
+    const xml = serializeSvgWithInlineStyles(svgEl);
     const svgBlob = new Blob([xml], { type: 'image/svg+xml;charset=utf-8' });
     const svgUrl = URL.createObjectURL(svgBlob);
     try {
@@ -370,6 +377,71 @@ export function OmpUsageChart() {
 function trianglePoints(cx: number, cy: number, size: number): string {
   const h = size * 1.1;
   return `${cx},${cy - h} ${cx + size},${cy + h * 0.7} ${cx - size},${cy + h * 0.7}`;
+}
+
+/**
+ * Serialise an <svg> after copying each element's *computed* visual styles
+ * back as concrete attributes. This is required for `<img src=blob:>`
+ * rasterisation because that path renders the SVG in an isolated document
+ * with no access to the parent page's CSS custom properties.
+ *
+ * We only mirror properties that affect what the rasteriser will paint — fill,
+ * stroke, stroke-width, stroke-dasharray, opacity, font, text fill — so we
+ * don't bloat the output with the entire computed stylesheet.
+ */
+function serializeSvgWithInlineStyles(srcSvg: SVGSVGElement): string {
+  const clone = srcSvg.cloneNode(true) as SVGSVGElement;
+
+  // Pair every live source element with its corresponding clone so we can
+  // read getComputedStyle() from the live one and write attributes to the
+  // clone. Both lists include the root <svg> first.
+  const liveNodes:  Element[] = [srcSvg, ...Array.from(srcSvg.querySelectorAll('*'))];
+  const cloneNodes: Element[] = [clone,  ...Array.from(clone.querySelectorAll('*'))];
+
+  // Properties whose value the rasteriser will draw with. These are the only
+  // ones that contain CSS variables in our chart markup; widening the list
+  // here is harmless but unnecessary.
+  const visualProps = [
+    'fill',
+    'stroke',
+    'stroke-width',
+    'stroke-dasharray',
+    'stroke-opacity',
+    'fill-opacity',
+    'opacity',
+    'font-size',
+    'font-family',
+    'font-weight',
+  ] as const;
+
+  for (let i = 0; i < liveNodes.length; i++) {
+    const live = liveNodes[i];
+    const dst = cloneNodes[i];
+    if (!live || !dst) continue;
+    const cs = window.getComputedStyle(live);
+    for (const prop of visualProps) {
+      const v = cs.getPropertyValue(prop).trim();
+      // Skip empty / 'none' so we don't paint over things that were set to
+      // none on purpose. 'rgba(0, 0, 0, 0)' (transparent) we DO write back —
+      // some <text> nodes resolve to that for stroke and we want the
+      // rasteriser to honour the resolved value.
+      if (!v || v === 'none') continue;
+      // Don't propagate CSS variables; they're useless in the standalone SVG.
+      if (v.startsWith('var(')) continue;
+      dst.setAttribute(prop, v);
+    }
+  }
+
+  // Ensure the namespace is present on the cloned root so downstream parsers
+  // recognise it as SVG even when read out of context.
+  if (!clone.getAttribute('xmlns')) {
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  }
+  if (!clone.getAttribute('xmlns:xlink')) {
+    clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+  }
+
+  return new XMLSerializer().serializeToString(clone);
 }
 
 const thresholdSwatch = (

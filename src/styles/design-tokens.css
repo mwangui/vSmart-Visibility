@@ -21,6 +21,9 @@
   --color-bg-tertiary: #f0f1f2;
   --color-bg-dark: #23282e;
   --color-bg-gray: #656c75;
+  /* Subtle "selected" surface (e.g. table-row kebab pressed state). Pairs
+     with --color-icon-active so the affordance stays readable on the tint. */
+  --color-bg-selected: #cce1ff;
 
   /* Brand Colors */
   --color-brand-blue: #505ed9;
@@ -46,6 +49,9 @@
   --color-icon-secondary: #a7adb5;
   --color-icon-tertiary: #c1c6cc;
   --color-icon-disabled: #d0d4d9;
+  /* Pressed/active icon colour, used on top of --color-bg-selected to keep
+     the action visually distinct from the default --color-icon-primary. */
+  --color-icon-active: #6f7680;
 
   /* === Spacing Tokens === */
   --spacing-2: 2px;
