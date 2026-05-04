@@ -1,0 +1,913 @@
+WEBVTT
+
+1 "Jen Huang" (3984677632)
+00:00:00.000 --> 00:00:18.779
+Good morning, everyone, thanks for joining our April field advisory board advisory board. So this is our topic. 1st of all, we'll have you Faye talking about the PQC.
+
+2 "Jen Huang" (3984677632)
+00:00:18.779 --> 00:00:37.860
+And all of these are mainly for the 20 seven.one and only life protect if you have a chance to talk about that will have certain functions going into the 17 point 18. Device refresh and V smart visibility some of them you saw some of the design in the previous release like vsmart visibility, but.
+
+3 "Jen Huang" (3984677632)
+00:00:37.860 --> 00:00:55.194
+And they are talking about new design and moving to different place in 20 seven.one. Meaning will take us to the device refresh and be smart visibility and I'll talk about life protect since Andrew has a conflicts today, right? Let's take it away, thanks you Faye.
+
+4 "Yufei Mclaughlin" (3899273984)
+00:00:55.194 --> 00:01:15.230
+Sure let me share my screen if Jen, you don't mind. Okay, so, so for PQC, you probably already know what it is and then I'll just go through a little bit background. So the customer questions on PQC that we recognize would be, are we content safe where.
+
+5 "Yufei Mclaughlin" (3899273984)
+00:01:15.230 --> 00:01:37.440
+Do we get started and then how do I get to two point oh by January 2020 30 and then the feedback that we are looking for today is that does the design answer the questions that your customer actually asked and then what is the missing piece that you see in this design that could make the.
+
+6 "Yufei Mclaughlin" (3899273984)
+00:01:37.440 --> 00:01:53.220
+The design is a deal within artifact versus it is just a feature. And then the next one will be where does this design hold up against the competitors and then where it doesn't?
+
+7 "Yufei Mclaughlin" (3899273984)
+00:01:53.220 --> 00:02:13.220
+And then so for the personas for this design we have three main targets. So the 1st one is CISO who would always ask, are we safe in a board meeting? And then 2nd one would be the security architect who is actually planning a multi year PQC migration.
+
+8 "Yufei Mclaughlin" (3899273984)
+00:02:13.220 --> 00:02:42.920
+And then the last one would be the network engineers who have to actually act on the the gap of the pqc's safety. So with that, I'm gonna go into the design and so for, so for now I'm still cleaning up cleaning up the prototype, so please ignore the left hand side of the navigation and just please focus on the content itself.
+
+9 "Yufei Mclaughlin" (3899273984)
+00:02:42.920 --> 00:03:02.310
+And then so for PQC, there are gonna be two entry points. One is for engineer, the network engineers who is always going into like monitor or maintain the network through overview page and then another one is a PQC dedicated.
+
+10 "Yufei Mclaughlin" (3899273984)
+00:03:02.310 --> 00:03:23.750
+Page. So I'm going to the overview 1st. So this is where, so this is where the, where we can answer 30 s. We can answer in 30 s about are we content safe, and so from here.
+
+11 "Yufei Mclaughlin" (3899273984)
+00:03:23.750 --> 00:03:44.270
+We have the, we calculate a risk score and then on the right hand side we have a breakdown of how the score is calculated. And then customers can go into view details and then it would take customers to a dedicated PQC page, and then here.
+
+12 "Yufei Mclaughlin" (3899273984)
+00:03:44.270 --> 00:04:13.130
+We summarize the score again and then you can also use the existing pattern to see the other, the other view which is the breakdown view. And then from here this is where the, where the design we assume design can help the architect, the security architect persona. So here on the right hand side we call out all the dimensions of the.
+
+13 "Yufei Mclaughlin" (3899273984)
+00:04:13.130 --> 00:04:38.279
+The PQC safety and so we give a summary of how it works and then where you are today. And then on the bottom, we have, so this is where we address the security architect persona where we want to show the migration status with also four different, kind of.
+
+14 "Yufei Mclaughlin" (3899273984)
+00:04:38.279 --> 00:04:53.549
+Dimension. And then so this is many to serving like the 1st glance of where am I? Are we safe? And then from here they might want, they would start to.
+
+15 "Yufei Mclaughlin" (3899273984)
+00:04:53.549 --> 00:05:10.739
+Get into the details and then see what else I have to do. And so for here, so e.g. if I'm looking at the inventory, I have 88 % the devices that's not, that's vulnerable, so I can click on to the.
+
+16 "Yufei Mclaughlin" (3899273984)
+00:05:10.739 --> 00:05:37.913
+Donnut and then I can go to the current device page where we auto populate all the PQC vulnerable devices. And then here, customers can also look at the PQC details and then they will see, they will see the, oh, I see someone raised hand.
+
+17 "Brad Edgeworth" (2900497408)
+00:05:37.913 --> 00:06:05.526
+Great, that was me. So this is good stuff. So I have a question. Are we going to add this as a widget to the homepage for monitoring so it can be added to that? So like the overview tab, this would be good to have as well as the last screen where it had the the three little, the four graphs going across the top. I think that would be an awesome widget to add into the overview page.
+
+18 "Yufei Mclaughlin" (3899273984)
+00:06:05.526 --> 00:06:18.510
+Yes, that's the plan. So this is my prototype, so I didn't have all other widgets ready and then so that's why I only highlight this, but for the the final version.
+
+19 "Brad Edgeworth" (2900497408)
+00:06:18.510 --> 00:06:31.887
+Okay on the monitor like a sub tab for PQC, there'll also be a widget for it. Yeah. Okay. Yep. So Cool.
+
+20 "Yufei Mclaughlin" (3899273984)
+00:06:31.887 --> 00:06:59.189
+Thanks. So back to the PQC dedicated page. So earlier we get into the device view. We are looking into the PQC vulnerable devices. I can see the details and then see why it is vulnerable. I can also see the PQC readiness checklist and then it will show me where I have been through and then what is my next step. And so in this case.
+
+21 "Yufei Mclaughlin" (3899273984)
+00:06:59.189 --> 00:07:14.549
+The reason for this device that's categorized as PQC vulnerable is that I've been through hardware upgrade, I've been through software upgrade, so right now I have to enable PQC. And then another case could be.
+
+22 "Yufei Mclaughlin" (3899273984)
+00:07:14.549 --> 00:07:33.569
+Another case could be I also I only upgraded my hardware, but next step I have to upgrade my software. So that is where we kind of direct customers and the network engineers to continue the configuration.
+
+23 "Yufei Mclaughlin" (3899273984)
+00:07:33.569 --> 00:07:53.569
+And then, so, and then another example I'm calling out is the tunnels. So let's say I'm wondering what is, why this is defined as partial like my PQC. But my tunnels are partial, so I'm clicking on this donut and then I will go to the.
+
+24 "Yufei Mclaughlin" (3899273984)
+00:07:53.569 --> 00:08:21.149
+SSA tunnels and then we will pre populate all the partial PQC safe tunnels and then from here we again we will give more details about this tunnel and then give the details about you know like what is the current, what is the current encryption and then what do you have to do next?
+
+25 "Yufei Mclaughlin" (3899273984)
+00:08:21.149 --> 00:08:38.249
+So that is the drill down and then I'm gonna go back to here. So in terms of the architect architect persona, so we assume that most likely they will look into the.
+
+26 "Yufei Mclaughlin" (3899273984)
+00:08:38.249 --> 00:08:55.739
+The bigger pictures about how everything works and then how they the migration status is. And so on this chart, they will also be able to go through all the dimension from devices to different tunnels and then by.
+
+27 "Yufei Mclaughlin" (3899273984)
+00:08:55.739 --> 00:09:11.909
+I'm Hovering through these chart, they will be able to see like, e.g., we call out all their device groups and then they will see, e.g., the virtual age devices. These are.
+
+28 "Yufei Mclaughlin" (3899273984)
+00:09:11.909 --> 00:09:31.909
+PQC vulnerable and then they can click onto the chart to see the details again and then so the rest of the flow is very similar, like e.g. on the SSE tunnels, I want to see why this is PQCC.
+
+29 "Yufei Mclaughlin" (3899273984)
+00:09:31.909 --> 00:09:56.839
+Hybrid, I can click on to the chart and then I can see all the, the, the hybrid tunnels that's filtered. And then to address another, so if the customers are geographically kind of like if they have geographically concerned, then the from PQC.
+
+30 "Yufei Mclaughlin" (3899273984)
+00:09:56.839 --> 00:10:13.709
+Visibility page, they will be able to go into this map view and then here if customers go into the map view from PQC dedicate page, we will show the, instead of showing the.
+
+31 "Yufei Mclaughlin" (3899273984)
+00:10:13.709 --> 00:10:31.559
+The health, we will show the PQC status and then there will be sides and tunnels together so they can look at the the numbers and then they can continue to drill down. I haven't had those flows ready, but imagine these would be all kind of same.
+
+32 "Yufei Mclaughlin" (3899273984)
+00:10:31.559 --> 00:10:46.919
+Interaction pattern as what we have today on the map. And so on the map, they will be able to like hover on the sites and then see how many devices on this side is PQC vulnerable or capable or.
+
+33 "Yufei Mclaughlin" (3899273984)
+00:10:46.919 --> 00:11:15.575
+Or partial PQC and then same as hovering on the tunnel, we will show what tunnels what connections are safe or not safe. And this is the end of my demo, and then I do have a couple of questions that I would like to ask. I do have a quick question, so on.
+
+34 "Brad Edgeworth" (2900497408)
+00:11:15.575 --> 00:11:35.585
+This view right now, this is a side view strictly if they go through the QKC, I haven't was one of those drill downs, right? But are we also going to allow us to have QQ QK Oh gee PQC, there we go.
+
+35 "Joe Rubino" (1802133504)
+00:11:35.585 --> 00:11:37.531
+Here's your word spread. Yeah, they.
+
+36 "Brad Edgeworth" (2900497408)
+00:11:37.531 --> 00:11:41.669
+Are we still gonna allow the PQC score.
+
+37 "Brad Edgeworth" (2900497408)
+00:11:41.669 --> 00:11:58.284
+To, like if I was under the home monitor and you can click on the map, where it shows all the icons, like there's an option for looking at tunnels and things like that, would I still have the same thing that I have with what you showed me with the map view before on the PQC visibility tab?
+
+38 "Yufei Mclaughlin" (3899273984)
+00:11:58.284 --> 00:12:16.908
+No, so for now we try, so everything will stay the same. If you click on the device or tunnel and then you click on the map, that would be today's map. The only thing that would address PQC map is if you coming from PQC vc.
+
+39 "Brad Edgeworth" (2900497408)
+00:12:16.908 --> 00:12:36.569
+Okay, and where I'm going with this is, is this, this is great but like final state like it would be really nice instead of me having to go to a dedicated PQC component page if it was integrated into where the other pages are that we've trained the users where to go to, right?
+
+40 "Yufei Mclaughlin" (3899273984)
+00:12:36.569 --> 00:12:39.291
+I see. Can.
+
+41 "Jen Huang" (3984677632)
+00:12:39.291 --> 00:12:49.010
+In that worst discussion for sure that whether we can incorporate the PQC data directly into our current map view for sure but can.
+
+42 "Yufei Mclaughlin" (3899273984)
+00:12:49.010 --> 00:13:12.049
+Explain a little bit further. So if you come to the map from other tabs, you will see current map, but on the filter, you will be able to filter the PQC view s but only when you access the map from PQC visibility page, we will automatic.
+
+43 "Yufei Mclaughlin" (3899273984)
+00:13:12.049 --> 00:13:30.228
+Automatically default a map with PQC PQC view, but you will be still able to get to the PQC map if you play around with the filter. Do I answer your question?
+
+44 "Brad Edgeworth" (2900497408)
+00:13:30.228 --> 00:13:53.968
+Yeah, you took Well you took care of right now, but the I think the other thing goes back to like a later integration, right? So that users don't have to go just to PQPQC page. It's might be just under the general overview, right? So, that that's where I was going so but that could be maybe a later release or something.
+
+45 "Yufei Mclaughlin" (3899273984)
+00:13:53.968 --> 00:14:08.153
+So are you, are you saying that you assume majority of the customers, they will still get to the PQC kind of, they will still look for the data from overview rather than look for another tab.
+
+46 "Brad Edgeworth" (2900497408)
+00:14:08.153 --> 00:14:15.769
+Well, so it goes back to your your perspective of there's architects, executives, and network engineers.
+
+47 "Brad Edgeworth" (2900497408)
+00:14:15.769 --> 00:14:36.728
+And a network engineer is already using a tool knows, hey, I can already go to the math view and I can see what my sites look like. I can click and view what my tunnels are. Oh, look, now there's another checkbox where I can see what the PQC visibility is on those tunnels is, right? Versus your executive who may not be trained for that might go to where you're showing right now.
+
+48 "Yufei Mclaughlin" (3899273984)
+00:14:36.728 --> 00:14:41.753
+Got it. And am I off base with that? Joe.
+
+49 "Joe Rubino" (1802133504)
+00:14:41.753 --> 00:15:11.289
+Yes. No, I don't think so. By the way, this is, this is a great direction we're headed in with this. This is awesome. No, you're not off base bread. Okay. Where if I may ask the data that we're using to triangulate PQC score level, where are we pulling that data from?
+
+50 "Yufei Mclaughlin" (3899273984)
+00:15:11.289 --> 00:15:30.647
+These were based on the percentage so this is still in discussion, but for now we are thinking we will call out all the, you know, like how many devices are upgraded, how many software are upgraded, how many are PQC enabled, and then how many.
+
+51 "Joe Rubino" (1802133504)
+00:15:30.647 --> 00:15:42.348
+Maybe this isn't the right place to ask this question. How do we know how many devices have PQCC enabled? Are we looking at the configuration?
+
+52 "Joe Rubino" (1802133504)
+00:15:43.308 --> 00:15:51.454
+That type, where are we pulling the data from? Is that customers will ask that. And maybe this isn't the right format to ask this question.
+
+53 "Yufei Mclaughlin" (3899273984)
+00:15:51.454 --> 00:15:56.368
+Yeah, so all I can say is yes, we look at the configuration.
+
+54 "Joe Rubino" (1802133504)
+00:15:56.368 --> 00:15:57.207
+Okay.
+
+55 "Yufei Mclaughlin" (3899273984)
+00:15:57.207 --> 00:16:13.168
+Because after they upgrade the software, they still have to enable PQC for the tunnels for the the for the algorithm and so we calculate this and then we kind of like average all these percentage and then given.
+
+56 "Joe Rubino" (1802133504)
+00:16:13.168 --> 00:16:23.125
+And we're looking at the the secure network processor on the new secure routers is, hey, you need to upgrade your routers if it doesn't contain it and all that kind of stuff. Yep.
+
+57 "Yufei Mclaughlin" (3899273984)
+00:16:23.125 --> 00:16:30.149
+Okay. And just, but just want to make it sure that make it clear that this is still.
+
+58 "Yufei Mclaughlin" (3899273984)
+00:16:30.149 --> 00:16:46.030
+In discussion, this is not final yet. So, yeah, but please feel free to reach out whenever you have further questions and then if we have more updates we can provide.
+
+59 "Brad Edgeworth" (2900497408)
+00:16:47.828 --> 00:16:53.529
+Yeah, this is good. This is good.
+
+60 "Jen Huang" (3984677632)
+00:16:53.529 --> 00:17:22.972
+Right, so I was I was thinking that can join and answer some of the questions and like what you've mentioned, we're still in discuss with the engineer about how much we can pull in current release, but thanks for all the great feedback. We'll continue to share that and maybe we can share more design directly in the chat so you guys will can play around. Let's go to 2nd topic. Go ahead man, let's talk about the device refresh and the visibility sorry visibility. Thank you.
+
+61 "Mingchieh Wang" (3924809728)
+00:17:22.972 --> 00:17:43.519
+Hi, everyone, it's Ming. Today I have two topics. The 1st topic is the replace the RNA device replacements. So currently we don't have any device replacements, workflows and then.
+
+62 "Mingchieh Wang" (3924809728)
+00:17:43.519 --> 00:18:03.519
+The current user experience is everywhere, so you have to go to our smart accounts register, you click connect connect things, and then configurations, policy licenses, certificates, everything's so it takes times last year wants us to.
+
+63 "Mingchieh Wang" (3924809728)
+00:18:03.519 --> 00:18:23.519
+Have a workflow to cover two use case. The 1st one is when the device is broken, so one by 100 % is actually the same device. They can quickly up running and the use, 2nd use case is what happened.
+
+64 "Mingchieh Wang" (3924809728)
+00:18:23.519 --> 00:18:45.329
+If they purchase a new SD WAN CAKB Gen two, so they wanna replace JKV Gen ones. So in this use case and then you will involve the license issues. So, so far as any questions before I move on?
+
+65 "Brad Edgeworth" (2900497408)
+00:18:45.329 --> 00:18:47.248
+No, this is good.
+
+66 "Mingchieh Wang" (3924809728)
+00:18:47.248 --> 00:18:57.869
+Okay, so this is very early stage I really need your help to with. We are actually in the concept this stage.
+
+67 "Mingchieh Wang" (3924809728)
+00:18:57.869 --> 00:19:17.869
+Okay, so the 1st idea for entry point is user going to the configurations and win age, ok? The win age they figured ok which device is broken because it will show in red is NO longer.
+
+68 "Mingchieh Wang" (3924809728)
+00:19:17.869 --> 00:19:52.910
+Number two is what happen if they want to replace the gen one to gen two? So they figure out, ok, last device, I go to the actions, click a device. So last entry point. Therefore, we don't have to ask him what is the A from the AA source, the source to the final nations, we can save one steps. So they will lending to the workflow. Questions here before I move into the workflow?
+
+69 "Brad Edgeworth" (2900497408)
+00:19:52.910 --> 00:20:03.609
+No, this makes sense, so basically they go find the device they want to swap out, whether it's an upgrade or it's an RMA. Yeah, perfect. Okay.
+
+70 "Mingchieh Wang" (3924809728)
+00:20:03.609 --> 00:20:21.559
+Thank you so much. So, once they linked into the workflow, we know where the source coming from. That's why we try to declare their intents. The reason being is because one offer is NO license involved, the other one is license involved. Last one.
+
+71 "Mingchieh Wang" (3924809728)
+00:20:21.559 --> 00:20:40.589
+We need to determine what workflows we need to show for the steps. So you see the everything's copyright need to improve, so it's not final, but the two options one replace one by ones or migrate from gen one to gen two.
+
+72 "Mingchieh Wang" (3924809728)
+00:20:40.589 --> 00:21:11.034
+And then when user pick one of the the intents, then they will see, ok, do you have your new device ready? Did you log into your smart accounts or that's the step. User can log into connecting to the smart account watch layer device inventory and then they will see, ok.
+
+73 "Brad Edgeworth" (2900497408)
+00:21:11.034 --> 00:21:30.571
+Go back your screen, please. Go back your screen. Okay, cause I'm thinking about the customers that run on prem, like those that are disconnected, so, ok. So that would be the upload file serial numbers. Would that be requiring certificates as well? Certificate serial numbers?
+
+74 "Mingchieh Wang" (3924809728)
+00:21:30.571 --> 00:21:40.729
+Yeah, so entire process not involve any certificate because certificate will pass user to download, they go out to internet, download the certificate and.
+
+75 "Brad Edgeworth" (2900497408)
+00:21:40.729 --> 00:21:52.374
+But, so where I'm going with this is there are customers that run on prem, so you think about DOD or IoT.
+
+76 "Dave Rooker" (370725376)
+00:21:52.374 --> 00:21:55.190
+Completely on prem if NO outside access.
+
+77 "Brad Edgeworth" (2900497408)
+00:21:55.190 --> 00:21:58.136
+Yeah, NO internet access. Totally air gapped.
+
+78 "Dave Rooker" (370725376)
+00:21:58.136 --> 00:22:03.510
+Yeah, and it's a small percentage, but they're important in nature.
+
+79 "Mingchieh Wang" (3924809728)
+00:22:03.510 --> 00:22:10.650
+Yeah, I will bring your feedback back because we we not there yet a pusher for you.
+
+80 "Joe Rubino" (1802133504)
+00:22:10.650 --> 00:22:16.990
+Feedback. Well, so, but hold on, upload file with serial numbers that that should, that should fix that.
+
+81 "Brad Edgeworth" (2900497408)
+00:22:16.990 --> 00:22:38.388
+As long as they capture all the information with the upload, right? That's, that's why I'm I'm specifying that right now. If they could do the upload with the necessary information, right? That might be changing in the specs, that should solve that. I just want to make sure we're calling out the the granular attention before we get the final implementation that that's squared away, so.
+
+82 "Jen Huang" (3984677632)
+00:22:38.388 --> 00:22:44.251
+Yeah, that that should be good. We need to make sure that happens in the upload, yeah.
+
+83 "Dave Rooker" (370725376)
+00:22:44.251 --> 00:22:44.847
+Okay.
+
+84 "Mingchieh Wang" (3924809728)
+00:22:44.847 --> 00:23:01.949
+Sounds good. Can can can I move on? Yep. So, once they log in, they definitely will show all of depending on which use case and then they will render availables device here.
+
+85 "Mingchieh Wang" (3924809728)
+00:23:01.949 --> 00:23:21.949
+So user picked the new device and then they will see if this is a migrate to from gen one to Gen two, they will see the license. They have to choose a smart account license virtual license is essential or advantage or as the.
+
+86 "Mingchieh Wang" (3924809728)
+00:23:21.949 --> 00:23:31.052
+Router. So you will show your license underneath to confirm it. If this is just.
+
+87 "Brad Edgeworth" (2900497408)
+00:23:31.052 --> 00:24:10.718
+Go ahead. So I have a question. So, what if somebody has a gen two 8100 and they want to replace with another gen two like 81 hundred's got more ports, like an 801I don't know eleven to an 8161 e.g.. So what does that look like? And what if they go from like an 8100 to an 8400? Like, where does that fit in this workflow, right? So that's gonna be a use case that we need to account for if, if the system takes care of it, that's great at least in the documentation, right?
+
+88 "Mingchieh Wang" (3924809728)
+00:24:10.718 --> 00:24:15.085
+You mean gen one to gen two or two to gen two?
+
+89 "Brad Edgeworth" (2900497408)
+00:24:15.085 --> 00:24:17.648
+Like gen two to gen two.
+
+90 "Dave Rooker" (370725376)
+00:24:17.648 --> 00:24:23.406
+So will it account for differences in the config and force them to attach a different config group or will it only.
+
+91 "Brad Edgeworth" (2900497408)
+00:24:23.406 --> 00:25:04.850
+They work with it. Well, the licensing aspect, right? Yeah. And then the other thing is, is when we're talking about rmas, you have to disassociate the license before you or you'll lose it or or or get to the hassle. But I'm not trying to get down to that point yet I'm just saying like from a use case, what you laid out was I'm going from a gen one to a gen two, that's fine but or I'm doing an RMA of an RMA is for gen one to gen one or a gen two to gen two as well, correct? For the RMA. But then there's what if somebody has a gen two small gen two and they want to do an upgrade, where does that, is that an upgrade still? So I'm just giving you a different use case to think about in the logic, right?
+
+92 "Mingchieh Wang" (3924809728)
+00:25:04.850 --> 00:25:18.193
+Okay, if GG2 to G two and then does E will consider the 1st use case or not here? Replacement. So NO license as actually will.
+
+93 "Brad Edgeworth" (2900497408)
+00:25:18.193 --> 00:25:27.450
+But ok so so where I'm going with is some, some might like a small to a small might be that, but then a small to a large might be.
+
+94 "Joe Rubino" (1802133504)
+00:25:27.450 --> 00:25:31.127
+Get different. Yeah, but is that what this is for? So.
+
+95 "Brad Edgeworth" (2900497408)
+00:25:31.127 --> 00:25:48.750
+Well, so we're talking about replacement workflow, so let's be very, like, if we're saying replace, we, are we saying well will only replace devices on Monday Tuesday, wednesday, but not Thursday Friday or are we talking about replacing all devices with all use cases?
+
+96 "Brad Edgeworth" (2900497408)
+00:25:49.646 --> 00:25:59.727
+And again, I don't mean it'd be a jerk. I'm just trying to get scope and definition around what's anticipated, right? Because I'm gonna tell you what the customer thinks. I think that I think all those options.
+
+97 "Mingchieh Wang" (3924809728)
+00:25:59.727 --> 00:26:01.488
+Exactly.
+
+98 "Jen Huang" (3984677632)
+00:26:01.488 --> 00:26:08.374
+Okay, so that's good, that's good feedback, so we have to consider whether to consider a swap or an upgrade, yeah.
+
+99 "Joe Rubino" (1802133504)
+00:26:08.374 --> 00:26:25.919
+Yeah, so Brett's got a, a really valid point, but I would just say that if we make sure we're clear up front, you know, at the very beginning of the workflow that, hey, this workflow is only for RMA like devices.
+
+100 "Joe Rubino" (1802133504)
+00:26:25.919 --> 00:26:46.545
+Right or swapping out like devices, because if we're upgrading, if there's an upgrade path, if the account manager works out a deal, you know, we're gonna give you credits for this device, we're gonna upgrade to this device. I mean, I don't, in my opinion I don't know.
+
+101 "Brad Edgeworth" (2900497408)
+00:26:46.545 --> 00:27:07.039
+But a license is a license is my point, right? So if the license is in the smart account and not, that's that's the commercial aspect, we're working strictly on technical, right? Either the license exists or it doesn't. I'm not saying anything about change up.
+
+102 "Brad Edgeworth" (2900497408)
+00:27:07.039 --> 00:27:16.690
+The licensing portal, I'm talking about licensing from the perspective of the manager, like a small to a medium or a small to a lar.
+
+103 "Dave Rooker" (370725376)
+00:27:16.690 --> 00:27:20.869
+Is this only for licensing or is it for actual provisioning of the device?
+
+104 "Brad Edgeworth" (2900497408)
+00:27:20.869 --> 00:27:33.847
+I assume it's gonna be licensing, provisioning the whole 9 yd based off of where this is going, but we stopped too early on the process on being.
+
+105 "Mingchieh Wang" (3924809728)
+00:27:33.847 --> 00:27:36.526
+Oh.
+
+106 "Jen Huang" (3984677632)
+00:27:36.526 --> 00:27:55.187
+I don't think Mike is on the call, so I'm not sure whether we can answer most of the licensing issue, but if like what Joe mentioned, this is Apple to Apple, then it's easy, but if you want to cover most of the use cases, then licensing is has to be in this flow, so.
+
+107 "Jen Huang" (3984677632)
+00:27:55.187 --> 00:28:10.293
+Good, good question. So let's figure out, like I said, this is the early concept stage, but we have to, we have to know what our scope of this flow, yeah. Are we one for like doing one flow for all or this is just dedicated use cases for A to AB2B.
+
+108 "Mingchieh Wang" (3924809728)
+00:28:10.293 --> 00:28:15.988
+Yep, I bring your points to the team.
+
+109 "Joe Rubino" (1802133504)
+00:28:15.988 --> 00:28:38.711
+I will say I've heard customers complain that, you know, oh man, I have to export everything to CSV and change the if this is for an RMA workflow, certainly this is awesome. Like this is much needed for rmas. We've been promising.
+
+110 "Dave Rooker" (370725376)
+00:28:38.711 --> 00:28:41.856
+Customers this. It's been a long time coming too. Yeah.
+
+111 "Joe Rubino" (1802133504)
+00:28:41.856 --> 00:28:58.414
+But to Brad's point, we need to, what is the scope of this? Like, that needs to be defined. We need to make sure that we're very clear about what the scope of this is and what it's for and and have a disclaimer or something in the, you know, when you.
+
+112 "Dave Rooker" (370725376)
+00:28:58.414 --> 00:29:02.486
+Have it named well too, right? Try to use it for unintended used.
+
+113 "Joe Rubino" (1802133504)
+00:29:02.486 --> 00:29:05.148
+Use cases like that migration from a small to a large.
+
+114 "Brad Edgeworth" (2900497408)
+00:29:05.148 --> 00:29:11.309
+Well or maybe there is a RMA workflow, right? Which is pretty simple.
+
+115 "Brad Edgeworth" (2900497408)
+00:29:11.309 --> 00:29:28.909
+Like for like, we're swapping things out, you don't, you know, and then you have a different workflow which you reuse a lot of the logic, and then you have some, then you ask questions is this like what are your scenarios that you go down, right? So.
+
+116 "Joe Rubino" (1802133504)
+00:29:28.909 --> 00:29:44.129
+Yep. Something else to consider too, when you're doing this workflow is a timing issue. Like so, you know, this licensing certainly, like for like whatever but let's say it is an RMA.
+
+117 "Joe Rubino" (1802133504)
+00:29:44.129 --> 00:30:01.799
+We need to make sure that we account for the fact that timing is critical, right? Just during a maintenance window, when the defective device gets swapped out for the new device, you know, depending on the nature of the RMA.
+
+118 "Joe Rubino" (1802133504)
+00:30:01.799 --> 00:30:19.186
+The defective device may still be online and servicing that location. And so at what point does the existing device become invalidated? You know, there, there needs to be maybe.
+
+119 "Brad Edgeworth" (2900497408)
+00:30:19.186 --> 00:30:22.872
+Well like software upgrade where you go through the actions and then you can schedule.
+
+120 "Joe Rubino" (1802133504)
+00:30:22.872 --> 00:30:28.888
+Do you want to go? Yes, thank you Brad. I couldn't find my words. Thank you. I I could say.
+
+121 "Brad Edgeworth" (2900497408)
+00:30:28.888 --> 00:30:30.627
+PQC I lost my alphabets.
+
+122 "Joe Rubino" (1802133504)
+00:30:30.627 --> 00:30:53.068
+So But yeah, so that's it, right? Maybe it gets scheduled because, you know, we're gonna do this Thursday night, and so if we invalidate, if this process invalidates the device that's defective and it's still online servicing traffic, servicing the branch, that could be a black eye.
+
+123 "Jen Huang" (3984677632)
+00:30:53.068 --> 00:31:08.005
+Okay, that that's a good point. Let's, let's go through the rest of the steps to see some of them maybe addressed right because I think this is I'd like to like swap so I think we consider whether the device still online and how do we do the swap.
+
+124 "Joe Rubino" (1802133504)
+00:31:08.005 --> 00:31:23.407
+Yeah, because if part of this invalidates the device and then pushes it to the V bonds and the V smarts, all the devices invalid now, it's like, hey, you know, all of a sudden all the tunnels come down, like, oops.
+
+125 "Mingchieh Wang" (3924809728)
+00:31:23.407 --> 00:31:27.249
+Okay. Can I continue?
+
+126 "Jen Huang" (3984677632)
+00:31:27.249 --> 00:31:28.752
+Yeah, go ahead, please.
+
+127 "Mingchieh Wang" (3924809728)
+00:31:28.752 --> 00:31:33.645
+Okay, so after what I know we have questions for.
+
+128 "Joe Rubino" (1802133504)
+00:31:33.645 --> 00:31:36.753
+By the way?
+
+129 "Mingchieh Wang" (3924809728)
+00:31:36.753 --> 00:31:37.932
+Yeah.
+
+130 "Jen Huang" (3984677632)
+00:31:37.932 --> 00:31:51.534
+It's always valuable information, really appreciate that because those are the field that we can discuss with PM engineers that we need this because from the field they need this, right? So thank you.
+
+131 "Mingchieh Wang" (3924809728)
+00:31:52.149 --> 00:32:12.359
+So the next one is the summarize. They gonna do mentions what was the configuration ok everything here is dummy datas. What's the license change? What is the configurations being applied, those two plus one, we gonna do wipe out.
+
+132 "Mingchieh Wang" (3924809728)
+00:32:12.359 --> 00:32:32.359
+The older device. The reason being is because we considers if, ok, user have the older device, they plug out and then put on the sites, right? But maybe one days they bring the older device and forget what was that and then plug in, and then it will be duplicated IP.
+
+133 "Mingchieh Wang" (3924809728)
+00:32:32.359 --> 00:32:50.166
+The Edges and then we'll be with the last one. So without it now is by default gonna wipe up invalidate and then start the deploy. That's the whole process. Any questions?
+
+134 "Brad Edgeworth" (2900497408)
+00:32:50.166 --> 00:33:10.799
+Yeah, so seeing this, I I think you need to have the ability to, stage a job theoretically, kind of like the software upgrade where hey this is the information and I think another task needs to be.
+
+135 "Brad Edgeworth" (2900497408)
+00:33:10.799 --> 00:33:26.069
+Like, we've saved this information. When do you want to process this? Is this now or you want this to be at a scheduled event or allow the users to trigger, right? To the point that Joe made about maintenance windows. So like.
+
+136 "Brad Edgeworth" (2900497408)
+00:33:26.069 --> 00:33:44.219
+E.g., I could be working as a network engineer, ok, the router's issue I get a full attack blah, blah, blah. Our ma'am scheduled. We have support guy or support contractors, they're gonna come into our data center, they're gonna rack and stack.
+
+137 "Brad Edgeworth" (2900497408)
+00:33:44.219 --> 00:34:03.359
+But we gotta go live, but this doesn't happen till our change window, which is at 01:00 A.M., right? And I don't want to be on the change window, and I wanna have my knock guy be able to push a button or say start, right? Either it's pre scheduled or they execute, right?
+
+138 "Brad Edgeworth" (2900497408)
+00:34:03.359 --> 00:34:23.834
+That goes back with that the other thing I'll add to this just and I'm just thinking aloud here and Dave and Joe keep me honest, would there ever be a need for a rollback, a way to go back in before?
+
+139 "Joe Rubino" (1802133504)
+00:34:23.834 --> 00:34:26.585
+Right? Yeah. Like if the changed phase.
+
+140 "Dave Rooker" (370725376)
+00:34:26.585 --> 00:34:31.566
+Those things happen, right? Yeah, you pull a bad carborator out of the.
+
+141 "Joe Rubino" (1802133504)
+00:34:31.566 --> 00:34:38.189
+Box, you install it and you put you pull a brand new carborator out of the box and you install it and it's broken to.
+
+142 "Brad Edgeworth" (2900497408)
+00:34:38.189 --> 00:34:43.510
+Yeah, so like if you got a router that gets like has one bad port, you're doing an RMA.
+
+143 "Mingchieh Wang" (3924809728)
+00:34:43.510 --> 00:34:45.853
+The RMA, the router that they.
+
+144 "Brad Edgeworth" (2900497408)
+00:34:45.853 --> 00:34:52.045
+Doesn't power on at all, right? How do you get back to at least you've got some connectivity.
+
+145 "Joe Rubino" (1802133504)
+00:34:52.045 --> 00:34:53.333
+There's NO connectivity.
+
+146 "Brad Edgeworth" (2900497408)
+00:34:53.333 --> 00:35:06.808
+So, is that when we run back through the process again? Or like what exactly does that look like, right? Yeah.
+
+147 "Mingchieh Wang" (3924809728)
+00:35:06.808 --> 00:35:09.270
+The backup.
+
+148 "Jen Huang" (3984677632)
+00:35:09.270 --> 00:35:37.699
+I have a follow up question on that one. So based on what what Brad your point about schedule or stage the the task, right? So our our process of flow right now designers you finish the flow and the deploy star, right? If we stage that, which means the deployment will start at certain point of time. So what customer need to do is they make sure on that time the new devices arrive and all devices still on there and they plug in everything.
+
+149 "Jen Huang" (3984677632)
+00:35:37.699 --> 00:35:58.039
+And they have to have a button to hit star, right? Yeah. Okay, so the scenario we're thinking is they are in the maintenance window and in that maintenance window they trigger the workflow. So, and the swap star right away, so I think I guess that's the differences of how customer will use that will be.
+
+150 "Jen Huang" (3984677632)
+00:35:58.039 --> 00:36:07.634
+To schedule the stage and stage to work at certain point of time and start right automatically or we need another button to say, ok, start a deployment.
+
+151 "Brad Edgeworth" (2900497408)
+00:36:07.634 --> 00:36:22.289
+Looking at it, I would say looking at it from the perspective of how we do software upgrades. Software upgrades, you can say do it now or schedule it. And if it's scheduled, it saves it as a task, right? It then runs.
+
+152 "Jen Huang" (3984677632)
+00:36:22.289 --> 00:36:38.968
+Yeah, but the software upgrade is the things is always plugged in, right? So we we always have the connection, but the hardware part is we don't know when the device will arrive and plug it in. So that's the thing we need to make sure that devices arrive and plug it in before the the.
+
+153 "Brad Edgeworth" (2900497408)
+00:36:38.968 --> 00:36:50.219
+Right, so if the engineer goes through this workflow that you've shown right here on the summary, there would be basically a back.
+
+154 "Brad Edgeworth" (2900497408)
+00:36:50.219 --> 00:37:06.089
+Or save job for deployment, right? And then there would be another screen like, I don't know, is there like maybe you add a tab underneath configuration or devices or whatever else that says.
+
+155 "Brad Edgeworth" (2900497408)
+00:37:06.089 --> 00:37:22.409
+Save deployment jobs or whatever else where they could click on it and then they could launch it or something like So you could because the other thing I was gonna ask is, is we're showing it one by one. Are we planning at some point allowing to do like a bulk?
+
+156 "Brad Edgeworth" (2900497408)
+00:37:22.409 --> 00:37:41.759
+Swap, so like let's say I've got, say I'm AutoZone and I've got 5000 routers and I need to swap them all out, but it's gonna be over time. And I know by serial numbers were the shipping. Can I go through and do a bulk import export with like a a CSV file of maybe.
+
+157 "Brad Edgeworth" (2900497408)
+00:37:41.759 --> 00:38:04.055
+This, this serial number to this serial number becomes what? And if we go to this model we talked about we're saving or staging the job, right? We could theoretically have it staged so that when they're ready to go do it at bulk, they could do that. And maybe I'm off base with that again. I'll sanity check with Joe and Dave if, if that's overkill.
+
+158 "Joe Rubino" (1802133504)
+00:38:04.055 --> 00:38:09.172
+I'm not if it's overkill.
+
+159 "Jen Huang" (3984677632)
+00:38:09.172 --> 00:38:27.769
+Good, then, then we can go ahead and design that way because I think what you're asking is, ok, stage your job right here maybe before deployment, right? So when it's arrived then there's somewhere in maybe in the last page of the the workflow, we can say ok deploy because.
+
+160 "Brad Edgeworth" (2900497408)
+00:38:27.769 --> 00:38:50.076
+Yeah, so maybe it's maybe it's back save job, which is the default or deploy now. And then there is a little thing with the work that says deploy now, right? By default, we're gonna erase and validate the device, the source device at the end of the job, right?
+
+161 "Jen Huang" (3984677632)
+00:38:50.076 --> 00:39:07.472
+Okay, that's good. We can discuss with engineer how to do this one because it will make it much easier if we said, ok, we can detect the the new device logged in and we can automatically start the deployment at the maintenance during the maintenance. Okay.
+
+162 "Brad Edgeworth" (2900497408)
+00:39:07.472 --> 00:39:27.210
+I mean another another another food for thought is, so when you talk about a RMA, right? You're talking about erasing the configuration, what if the device doesn't, isn't online? Like let's say the power supply on the whole thing die and you can't replace it.
+
+163 "Brad Edgeworth" (2900497408)
+00:39:27.210 --> 00:39:44.130
+Like, are you accounting for that in your logic workflow? So like maybe there's a check of, hey, the RMA device, the serial number, is already porting back to the, the V bond. It just hasn't been authorized or anything else yet, right?
+
+164 "Brad Edgeworth" (2900497408)
+00:39:44.130 --> 00:39:50.009
+I don't know. I'm just giving you ideas. Food for thought, right?
+
+165 "Jen Huang" (3984677632)
+00:39:50.009 --> 00:39:57.054
+Good, good point, yeah. It's great. I mean, do you have anything else you want to share for this workflow?
+
+166 "Mingchieh Wang" (3924809728)
+00:39:57.054 --> 00:40:04.467
+No, we almost run out of time. You wanted to share your subject.
+
+167 "Jen Huang" (3984677632)
+00:40:04.467 --> 00:40:08.273
+So we can go to be smart and we can share the live protect next time yeah.
+
+168 "Mingchieh Wang" (3924809728)
+00:40:08.273 --> 00:40:30.810
+Okay, sounds good. So, next one is the V smart. So the use case is our providers, they used to have 1005 hundreds device, but now nowadays they intend. They used to they purchased around 4005 thousands, so.
+
+169 "Mingchieh Wang" (3924809728)
+00:40:30.810 --> 00:40:50.810
+Results when does networking not stables and then will be a huge impact. So when the NOC, the IT, the providers in the monitor, they see lots of site.
+
+170 "Mingchieh Wang" (3924809728)
+00:40:50.810 --> 00:40:57.990
+They will figure out they they try to figure out what caused the issues.
+
+171 "Mingchieh Wang" (3924809728)
+00:40:57.990 --> 00:41:17.490
+Okay, so usually they will login to the SD WANs and go to check the device for and they will see these connections, 1st connections and see there's a.
+
+172 "Mingchieh Wang" (3924809728)
+00:41:17.490 --> 00:41:37.490
+1000 or 2000s lock and they will check the events was 1000 2000s, and then they have to download all of the locks and then send back to Cisco for 345 days to figure out what might be caused the issue is policies?
+
+173 "Mingchieh Wang" (3924809728)
+00:41:37.490 --> 00:41:58.950
+No change cost issue or anything else. So that's the pain point. That's why we wanted to introduce the new solution here. So once the issues happen again, they also go to device, that's the device, but now they will see the new device three sixties.
+
+174 "Mingchieh Wang" (3924809728)
+00:41:58.950 --> 00:42:15.120
+And on under device three 60 we have a one page, one tools specifically for vsmart. On this vsmart, we were helping them organize all of the OMP.
+
+175 "Mingchieh Wang" (3924809728)
+00:42:15.120 --> 00:42:31.320
+And then they will see, ok, what was the issues happens, last 08:00 or 04:00, they will come in here, find out the times and figure out, oh, ok, last times the CPU memory goes over.
+
+176 "Mingchieh Wang" (3924809728)
+00:42:31.320 --> 00:42:51.320
+Or what? And then they figure all the times they go to the check the event, the same ideas before, the timing and the event, right? And then they will check the event, oh, ok, what was the event? So they narrow down by the timeframe, narrow down that by the subject, and they click the event.
+
+177 "Mingchieh Wang" (3924809728)
+00:42:51.320 --> 00:43:12.230
+They will let you know ok then these particulars 08:00 to 09:00, that was only like 20 events happens, so they much easy to figure out what was the root cause from three, four to five days to three to 5 min. That was the concept. I will pause here.
+
+178 "Mingchieh Wang" (3924809728)
+00:43:12.230 --> 00:43:19.315
+It's asking questions, ideas, feedback.
+
+179 "Brad Edgeworth" (2900497408)
+00:43:19.315 --> 00:43:43.992
+This looks good. My question is this and Jen, you're probably gonna be the one more knowledgeable about this, on that search button, is that gonna be tied to a single column? Or is that multi search? So could I put in a host name and type in policy to get all my host names with that policy change? Because remember how we talked about that before in the UX council.
+
+180 "Jen Huang" (3984677632)
+00:43:43.992 --> 00:43:58.172
+So Yep before table search only do the string match and only exact stream match yes across all columns.
+
+181 "Brad Edgeworth" (2900497408)
+00:43:58.172 --> 00:43:59.886
+Okay. Yeah.
+
+182 "Mingchieh Wang" (3924809728)
+00:43:59.886 --> 00:44:02.807
+Subjects and type.
+
+183 "Brad Edgeworth" (2900497408)
+00:44:02.807 --> 00:44:12.751
+You see? Yeah, so that that that's my only complaint is, and I don't know when we're gonna get that other issue addressed, but other than that, I think this is good.
+
+184 "Dave Rooker" (370725376)
+00:44:12.751 --> 00:44:16.368
+Looks great. Can't wait to have that as an option.
+
+185 "Joe Rubino" (1802133504)
+00:44:16.368 --> 00:44:19.986
+Serious. Okay.
+
+186 "Mingchieh Wang" (3924809728)
+00:44:19.986 --> 00:44:20.950
+Sounds.
+
+187 "Brad Edgeworth" (2900497408)
+00:44:20.950 --> 00:44:24.333
+So I'm gonna be the other guy. When do we get AI type.
+
+188 "Dave Rooker" (370725376)
+00:44:24.333 --> 00:44:27.889
+Into this. What you want predictive stuff.
+
+189 "Brad Edgeworth" (2900497408)
+00:44:27.889 --> 00:44:30.447
+We.
+
+190 "Dave Rooker" (370725376)
+00:44:30.447 --> 00:44:33.648
+Since the OMP problems about to happen?
+
+191 "Mingchieh Wang" (3924809728)
+00:44:33.648 --> 00:44:38.069
+Before we have the AI, we need to have our live.
+
+192 "Brad Edgeworth" (2900497408)
+00:44:38.069 --> 00:44:39.028
+Sorry.
+
+193 "Mingchieh Wang" (3924809728)
+00:44:39.028 --> 00:44:49.755
+All the right so it's really depending on engineers technologies in. Okay.
+
+194 "Brad Edgeworth" (2900497408)
+00:44:49.755 --> 00:44:51.509
+So true.
+
+195 "Mingchieh Wang" (3924809728)
+00:44:51.509 --> 00:45:09.380
+Yeah, so the idea is in the future we can have one AIs insights here and then actually narrow down, ok, that's 08:00, you have twenties, but which one is caused issues? How what was the solutions and one button.
+
+196 "Mingchieh Wang" (3924809728)
+00:45:09.380 --> 00:45:26.735
+And fix that issues, everything's go back workings and other solutions, but it's our days have a AI assistant on the site, but asking questions, right? I will take a lot of questions and depending how good was your questions, so.
+
+197 "Brad Edgeworth" (2900497408)
+00:45:26.735 --> 00:45:40.955
+So, so those tabs at the top, like overview, WAN, interfaces, like will applications appear here because applications is not relevant to the V smarts.
+
+198 "Brad Edgeworth" (2900497408)
+00:45:42.990 --> 00:45:50.515
+Okay. And like security, is security gonna be relevant? And are there troubleshooting tools?
+
+199 "Mingchieh Wang" (3924809728)
+00:45:50.515 --> 00:46:04.954
+Okay so so three objects you bring it up, the applications, security, and what's the.
+
+200 "Brad Edgeworth" (2900497408)
+00:46:04.954 --> 00:46:43.253
+Well, like, like the the tops you have listed at the top, what what's gonna you know like overview is pretty straightforward I assume that's what I'm looking at right now is the overview. No, that's logs. Overview is gonna be health but like Wayne is that just gonna show the way and interfaces for it and how's that different than interfaces? Like when and interfaces is kind of one and the same in my mind. Cause we're talking about controllers, not edge devices, right? I don't think we need really applications. What's gonna i'm curious what shows up on security. I'm curious what shows up on commands.
+
+201 "Mingchieh Wang" (3924809728)
+00:46:43.253 --> 00:46:44.206
+Come.
+
+202 "Brad Edgeworth" (2900497408)
+00:46:44.206 --> 00:46:54.496
+Or troubleshooting. Okay. Just just some further thought as what that's gonna look like or maybe those go away just cause this is a mock up, right?
+
+203 "Mingchieh Wang" (3924809728)
+00:46:54.496 --> 00:47:03.632
+That let's go back our scenario. So are those will cause these situations?
+
+204 "Brad Edgeworth" (2900497408)
+00:47:03.632 --> 00:47:05.270
+Yeah.
+
+205 "Mingchieh Wang" (3924809728)
+00:47:05.270 --> 00:47:21.855
+Troubleshootings will cost 500 sites going down. I'm I'm not sure. Applications might be, securities might be, but troubleshootings.
+
+206 "Brad Edgeworth" (2900497408)
+00:47:21.855 --> 00:47:46.028
+Yeah, NO, I honestly I haven't clicked on a vsmart to see what tabs show up in a while. I'm just giving you food for thought like if it's not on there today or if it's that doesn't have relevant information, is it accurate, is it needed? Like applications like hang on a sec. Now you gotta be curious.
+
+207 "Mingchieh Wang" (3924809728)
+00:47:46.028 --> 00:47:52.010
+Okay, I gonna bring your ideas back to the team. Yep.
+
+208 "Brad Edgeworth" (2900497408)
+00:47:52.010 --> 00:48:01.055
+Let's see if I got a manager brought up.
+
+209 "Mingchieh Wang" (3924809728)
+00:48:01.055 --> 00:48:28.056
+Any other questions feedback if it's a I always feel free to provide your feedback offline. I'm gonna have to pass the time to Jen.
+
+210 "Jen Huang" (3984677632)
+00:48:28.056 --> 00:48:43.680
+Yeah, I don't know whether you have enough time but I'll quickly share with you if you guys have a couple minutes about the the life protect, right? Because if we don't have enough time, we can share how we can add those topics to the next time. So, this is angel's design.
+
+211 "Jen Huang" (3984677632)
+00:48:43.680 --> 00:48:59.760
+And just have conflicts. So, instead of going to prototype, I'm gonna quickly share with you the twenty.seventeen, sorry, 17 point 18 and 20 seven.one designed differently. So you guys remember that we have a advisory tab during in the monitoring session.
+
+212 "Jen Huang" (3984677632)
+00:48:59.760 --> 00:49:17.550
+And this is the existing format of security advisory and field notice. And in the security advisory, there's gonna be advisory, there's gonna come the control component and then when edge, right? Before we have devices and then now for you decided to separate the control component.
+
+213 "Jen Huang" (3984677632)
+00:49:17.550 --> 00:49:37.550
+And the one edge, right? So in 17 point 18, when we 1st introduced the life protect, what we, what we allow customer to do is only deploy the live protect on the control component. So you can see that if you go to advisory, you see the total affected device or potential affected device, and you can click on these three.
+
+214 "Jen Huang" (3984677632)
+00:49:37.550 --> 00:49:58.280
+Dots to deploy the light product by only the control component for now for 17 point 18. So I should I should probably click on the the prototype easier if we have time. And in 2020 seven.one, you can deploy the web edge as well. So that's the biggest difference.
+
+215 "Jen Huang" (3984677632)
+00:49:58.280 --> 00:50:14.760
+Right now and we have different options you can, you can deploy that protect in the monitoring mode or in the protected mode. So let me actually click on the prototype so it's easier for you guys to see that that.
+
+216 "Jen Huang" (3984677632)
+00:50:14.760 --> 00:50:33.540
+So this is the, this is the, this is the 18. So you click on that, you can see deploy protecting or deployed monitoring, right? If you click on And acknowledge is just I know that, right? So you can filter out whenever you mark as acknowledge.
+
+217 "Jen Huang" (3984677632)
+00:50:33.540 --> 00:50:50.010
+You can use the filter say ok only show me that's not the new one or filter our knowledge one, right? You don't care those things. So if you click on deploy protect, it will tell you, ok, yeah, up updating progress, and once you click on that.
+
+218 "Jen Huang" (3984677632)
+00:50:50.010 --> 00:51:07.170
+You will change to protecting. So you know this is protect. So if you know what like protect function is, right, it's without, without shutdown the device, without doing any new things, we're just going to deploy security configuration to help you before the actual.
+
+219 "Jen Huang" (3984677632)
+00:51:07.170 --> 00:51:23.370
+Patch available, we can help you to protect the device. And that's you you get but the the limitation for 17 point 18 is you cannot deploy one at a time. So assuming you have, ok.
+
+220 "Jen Huang" (3984677632)
+00:51:23.370 --> 00:51:42.330
+You go back to the prototype. Assuming you have multiple controller and managers and the validator are all affected by this advisory, right? Affected control component, you can only deploy show on all of them at once. You cannot share picking any of them, right?
+
+221 "Jen Huang" (3984677632)
+00:51:42.330 --> 00:51:58.260
+People have one or two, you have to be, it has to be the whole set. Okay? I think we're out of time and this is 20, this is going to 17 point 18 directly.
+
+222 "Jen Huang" (3984677632)
+00:51:58.260 --> 00:52:15.120
+Let me close this one. This is a control component view, so we're gonna let you know some of them are deployed on monitoring something on protecting, I believe, because you could have multiple advisory affecting a single device.
+
+223 "Jen Huang" (3984677632)
+00:52:15.120 --> 00:52:34.050
+So that means you will have yeah thanks you you will have to you you can see based on individual control components, like one of them are protecting and one of them are monitoring and two of them in protecting and one available means it's available but you haven't deployed that. So let's give you the total view of what life protect's doing for.
+
+224 "Jen Huang" (3984677632)
+00:52:34.050 --> 00:52:51.413
+Individual component control component. The same view will apply to when edge in 20 seven.one. So we can share the went edge one, but I think we're running out of time. Any feedback so far or you guys wanted to schedule another time to see the whole feature, the whole function?
+
+225 "Brad Edgeworth" (2900497408)
+00:52:51.413 --> 00:52:57.913
+This is good. I've I've got sneak previews of this before, so.
+
+226 "Jen Huang" (3984677632)
+00:52:57.913 --> 00:53:16.013
+Alright, so like I said, when Andrew's back then we'll, we'll find the time to share the entire prototype with you about a life project, this is pretty important like in 20 seven.seventeen point 18 and 20 seven.one. That's all we wanna share today, really appreciate the time. We'll see you in next meeting.
+
+227 "Brad Edgeworth" (2900497408)
+00:53:16.013 --> 00:53:20.252
+Sounds good. Thanks. Thanks.
+
+228 "Yufei Mclaughlin" (3899273984)
+00:53:20.252 --> 00:53:23.968
+Bye everyone.

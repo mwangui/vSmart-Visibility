@@ -13,7 +13,6 @@ import { OmpUsageChart } from './OmpUsageChart';
 import { EventBarChart } from './EventBarChart';
 import { FilterBar } from './FilterBar';
 import { EventTable } from './EventTable';
-import { SelectedPeriodLabel } from './SelectedPeriodLabel';
 
 export function OmpStatistics() {
   return (
@@ -26,16 +25,6 @@ export function OmpStatistics() {
           width: '100%',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            width: '100%',
-          }}
-        >
-          <SelectedPeriodLabel />
-        </div>
-
         <OmpUsageChart />
 
         <div

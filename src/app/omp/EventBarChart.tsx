@@ -19,7 +19,7 @@ import {
 import { HOURS, eventSummaryByHour, type Hour } from './data';
 import { useOmp } from './state';
 import { ChartTooltip, Markers } from './ChartTooltip';
-import { downloadCsv, formatTooltipSubtitle, rowsToCsv } from './utils';
+import { formatTooltipSubtitle } from './utils';
 import { ChartCard, ChartHeader, Legend } from './ChartCard';
 
 const PADDING = { top: 16, right: 24, bottom: 36, left: 44 };
@@ -105,19 +105,13 @@ export function EventBarChart() {
   const hoverIdx = hover ? HOURS.indexOf(hover.hour) : -1;
   const hoverData = hoverIdx >= 0 ? eventSummaryByHour[hoverIdx] : null;
 
-  const handleExport = () => {
-    const headers = [
-      { key: 'hour' as const,                         label: 'Hour' },
-      { key: 'controlConnectionStateChange' as const, label: 'Control connection state change' },
-      { key: 'policyChange' as const,                 label: 'Policy change' },
-      { key: 'ompPeerStateChange' as const,           label: 'OMP peer state change' },
-    ];
-    downloadCsv('event-summary.csv', rowsToCsv(headers, eventSummaryByHour));
-  };
-
+  // Per latest design: the Event chart header has no Export button; the
+  // single page-level Export action lives in the FilterBar above the table
+  // and exports the filtered event-log rows. The OMP usage chart still has
+  // its own Export for the time-series data.
   return (
     <ChartCard>
-      <ChartHeader title="Event" onExport={handleExport} />
+      <ChartHeader title="Event" />
 
       <div
         ref={ref}

@@ -6,9 +6,11 @@
  * to the nearest integer hour, paints a translucent vertical band over that
  * hour column, focuses the data dots, and shows the OMP status tooltip.
  *
- * Per §15.2 Q3 (resolved by EC Review 04/01): when an Event bar is in the
- * selected state, the same hour column on this chart also shows a persistent
- * highlight band — i.e. selection spans Zone A + Zone B.
+ * Important: this chart is intentionally inert with respect to Event-chart
+ * selection. Per latest spec (replaces §15.2 Q3 cross-zone highlight): clicks
+ * on the Event bar chart MUST NOT alter this chart's appearance — no
+ * background tint, no highlighted axis label, no data swap. Only its own
+ * hover state is allowed to change the visual.
  */
 
 import {
@@ -18,7 +20,7 @@ import {
 import { HOURS, ompUsageByHour, type Hour } from './data';
 import { useOmp } from './state';
 import { ChartTooltip, Markers, type TooltipRow } from './ChartTooltip';
-import { downloadCsv, formatTooltipSubtitle, rowsToCsv } from './utils';
+import { format12HourRange, formatTooltipSubtitle } from './utils';
 import { ChartCard, ChartHeader, Legend } from './ChartCard';
 
 const PADDING = { top: 24, right: 24, bottom: 36, left: 44 };
@@ -89,7 +91,8 @@ export function OmpUsageChart() {
   const hoverIdx = hover ? HOURS.indexOf(hover.hour) : -1;
   const hoverData = hoverIdx >= 0 ? ompUsageByHour[hoverIdx] : null;
 
-  const selectedIdx = state.selectedHour ? HOURS.indexOf(state.selectedHour) : -1;
+  // Note: deliberately do NOT read state.selectedHour here. This chart is
+  // independent from the Event bar chart's selection, per latest spec.
 
   const tooltipRows: TooltipRow[] = hoverData
     ? [
@@ -100,18 +103,128 @@ export function OmpUsageChart() {
       ]
     : [];
 
-  const handleExport = () => {
-    const headers = [
-      { key: 'hour' as const,             label: 'Hour' },
-      { key: 'cpuUsage' as const,         label: 'OMP CPU usage (%)' },
-      { key: 'memoryUsage' as const,      label: 'OMP memory usage (%)' },
-      { key: 'cpuAverage' as const,       label: 'OMP CPU average (%)' },
-      { key: 'memoryAverage' as const,    label: 'OMP memory average (%)' },
-      { key: 'totalCpu' as const,         label: 'Total CPU (%)' },
-      { key: 'totalMemory' as const,      label: 'Total memory (%)' },
-      { key: 'warningThreshold' as const, label: 'Warning threshold (%)' },
-    ];
-    downloadCsv('omp-process-usage.csv', rowsToCsv(headers, ompUsageByHour));
+  /**
+   * Export the visible OMP chart as a PDF (per spec: "Download PDF 當前
+   * 使用者看見的 OMP process usage chart (時間跟訊息)"). We:
+   *   1. Clear any hover tooltip so it doesn't leak into the snapshot.
+   *   2. Serialize the live <svg> and rasterize it at 2x via a Blob URL +
+   *      <Image> + <canvas>.drawImage round-trip — this avoids an
+   *      html2canvas dependency.
+   *   3. Build an A4-landscape PDF with title, time range, generated-at
+   *      timestamp, the chart bitmap, and a manual legend that matches the
+   *      five series (CPU/memory usage + CPU/memory average + threshold).
+   */
+  const handleExport = async () => {
+    setHover(null);
+    // Wait two animation frames to make sure the cleared hover state has
+    // committed before we snapshot the SVG.
+    await new Promise<void>(resolve =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+    );
+
+    const svgEl = ref.current?.querySelector('svg');
+    if (!svgEl) return;
+
+    const xml = new XMLSerializer().serializeToString(svgEl);
+    const svgBlob = new Blob([xml], { type: 'image/svg+xml;charset=utf-8' });
+    const svgUrl = URL.createObjectURL(svgBlob);
+    try {
+      const rect = svgEl.getBoundingClientRect();
+      const scale = 2;
+
+      const img = new Image();
+      await new Promise<void>((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = () => reject(new Error('Failed to rasterize chart SVG'));
+        img.src = svgUrl;
+      });
+
+      const canvas = document.createElement('canvas');
+      canvas.width  = Math.round(rect.width  * scale);
+      canvas.height = Math.round(rect.height * scale);
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      const pngDataUrl = canvas.toDataURL('image/png');
+
+      const { jsPDF } = await import('jspdf');
+      const pdf = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' });
+      const pageW = pdf.internal.pageSize.getWidth();
+      const pageH = pdf.internal.pageSize.getHeight();
+      const margin = 36;
+
+      // Title
+      pdf.setFont('helvetica', 'bold');
+      pdf.setFontSize(16);
+      pdf.setTextColor(20);
+      pdf.text('OMP process usage', margin, margin + 16);
+
+      // Subtitle row: time range (left) + generated-at (right)
+      pdf.setFont('helvetica', 'normal');
+      pdf.setFontSize(10);
+      pdf.setTextColor(100);
+      pdf.text(format12HourRange(state.baseDate), margin, margin + 32);
+      pdf.text(
+        `Generated ${new Date().toLocaleString()}`,
+        pageW - margin,
+        margin + 32,
+        { align: 'right' },
+      );
+      pdf.setTextColor(20);
+
+      // Chart image — fit within remaining space, centred horizontally,
+      // leave a band at the bottom for the legend.
+      const headerH = 56;
+      const legendH = 48;
+      const availW  = pageW - margin * 2;
+      const availH  = pageH - margin * 2 - headerH - legendH;
+
+      const aspect = canvas.width / canvas.height;
+      let drawW = availW;
+      let drawH = drawW / aspect;
+      if (drawH > availH) {
+        drawH = availH;
+        drawW = drawH * aspect;
+      }
+      const imgX = margin + (availW - drawW) / 2;
+      const imgY = margin + headerH;
+      pdf.addImage(pngDataUrl, 'PNG', imgX, imgY, drawW, drawH);
+
+      // Legend — colours match design-tokens.css, dashed strokes match the
+      // dashed lines on the actual chart.
+      type LegendRow = {
+        label: string;
+        rgb: [number, number, number];
+        dashed?: boolean;
+      };
+      const legend: LegendRow[] = [
+        { label: 'OMP CPU usage',           rgb: [0x50, 0x5e, 0xd9] },
+        { label: 'OMP memory usage',        rgb: [0x04, 0xa4, 0xb0] },
+        { label: 'OMP CPU average',         rgb: [0xa9, 0x74, 0xf7], dashed: true },
+        { label: 'OMP memory average',      rgb: [0xc2, 0x30, 0x6f], dashed: true },
+        { label: 'Warning threshold (80%)', rgb: [0xcc, 0x86, 0x04], dashed: true },
+      ];
+      pdf.setFontSize(10);
+      const legendY = imgY + drawH + 24;
+      let legendX = margin;
+      for (const item of legend) {
+        pdf.setDrawColor(item.rgb[0], item.rgb[1], item.rgb[2]);
+        pdf.setLineWidth(2);
+        pdf.setLineDashPattern(item.dashed ? [3, 2] : [], 0);
+        pdf.line(legendX, legendY - 3, legendX + 16, legendY - 3);
+        pdf.setLineDashPattern([], 0);
+
+        pdf.setTextColor(20);
+        pdf.text(item.label, legendX + 22, legendY);
+        legendX += 22 + pdf.getTextWidth(item.label) + 16;
+      }
+
+      pdf.save('omp-process-usage.pdf');
+    } finally {
+      URL.revokeObjectURL(svgUrl);
+    }
   };
 
   return (
@@ -149,20 +262,6 @@ export function OmpUsageChart() {
             </g>
           ))}
 
-          {/* Selected (Q3: cross Zone A+B highlight) — drawn under hover band */}
-          {selectedIdx >= 0 ? (
-            <rect
-              x={xFor(selectedIdx) - colW * 0.4}
-              y={PADDING.top}
-              width={colW * 0.8}
-              height={innerH}
-              fill="var(--color-brand-blue-light)"
-              opacity={0.10}
-              className="chart-hover-band chart-hover-band--selected"
-              pointerEvents="none"
-            />
-          ) : null}
-
           {/* Hover vertical band */}
           {hoverIdx >= 0 ? (
             <rect
@@ -177,20 +276,13 @@ export function OmpUsageChart() {
             />
           ) : null}
 
-          {/* Threshold line (dotted) */}
+          {/* Threshold line (dotted) — labelled in the legend below the chart. */}
           <line
             x1={PADDING.left} x2={PADDING.left + innerW}
             y1={yFor(80)} y2={yFor(80)}
             stroke="var(--color-brand-orange)"
             strokeWidth={2} strokeDasharray="3 3"
           />
-          <text
-            x={PADDING.left + 6} y={yFor(80) - 4}
-            fontSize={10} fill="var(--color-brand-orange)"
-            fontWeight={600}
-          >
-            Warning threshold (80%)
-          </text>
 
           {/* Average lines (dotted) */}
           <path d={linePath('cpuAverage')}    fill="none"
@@ -228,24 +320,19 @@ export function OmpUsageChart() {
             );
           })}
 
-          {/* X axis labels */}
-          {HOURS.map((h, i) => {
-            const isSelected = i === selectedIdx;
-            return (
-              <text
-                key={h}
-                x={xFor(i)} y={HEIGHT - PADDING.bottom + 18}
-                fontSize={11}
-                textAnchor="middle"
-                fontWeight={isSelected ? 700 : 400}
-                fill={isSelected
-                  ? 'var(--color-text-heading)'
-                  : 'var(--color-text-secondary)'}
-              >
-                {h}
-              </text>
-            );
-          })}
+          {/* X axis labels — uniform styling, no event-selection feedback */}
+          {HOURS.map((h, i) => (
+            <text
+              key={h}
+              x={xFor(i)} y={HEIGHT - PADDING.bottom + 18}
+              fontSize={11}
+              textAnchor="middle"
+              fontWeight={400}
+              fill="var(--color-text-secondary)"
+            >
+              {h}
+            </text>
+          ))}
         </svg>
 
         {hover && hoverData ? (

@@ -179,3 +179,21 @@
     line-height: 1.5;
   }
 }
+
+/* OMP Statistics: shared link-style action buttons (Export / Refresh).
+   Defined here (vs. inline style) so we can express :hover / :active /
+   :disabled feedback per latest design comp. */
+.omp-link-btn:hover:not(:disabled) {
+  background: var(--color-bg-tertiary, rgba(0, 0, 0, 0.04));
+}
+.omp-link-btn:active:not(:disabled) {
+  background: var(--color-bg-tertiary, rgba(0, 0, 0, 0.08));
+}
+.omp-link-btn:focus-visible {
+  outline: 2px solid var(--color-text-link);
+  outline-offset: 2px;
+}
+.omp-link-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
