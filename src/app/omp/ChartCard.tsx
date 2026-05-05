@@ -227,9 +227,10 @@ export function Legend({ items }: { items: LegendItem[] }) {
           <span
             style={{
               display: 'inline-flex',
-              width: 16,
+              width: 22,
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}
           >
             {item.marker}

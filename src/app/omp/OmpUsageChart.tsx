@@ -96,10 +96,10 @@ export function OmpUsageChart() {
 
   const tooltipRows: TooltipRow[] = hoverData
     ? [
-        { marker: Markers.blueLineDot,      label: 'OMP CPU usage',      value: `${hoverData.cpuUsage}%` },
-        { marker: Markers.cyanLineTriangle, label: 'OMP memory usage',   value: `${hoverData.memoryUsage}%` },
-        { marker: Markers.purpleDot,        label: 'OMP CPU average',    value: `${hoverData.cpuAverage}%` },
-        { marker: Markers.pinkDot,          label: 'OMP memory average', value: `${hoverData.memoryAverage}%` },
+        { marker: Markers.blueLineDot,       label: 'OMP CPU usage',      value: `${hoverData.cpuUsage}%` },
+        { marker: Markers.cyanLineTriangle,  label: 'OMP memory usage',   value: `${hoverData.memoryUsage}%` },
+        { marker: Markers.purpleDottedLine,  label: 'OMP CPU average',    value: `${hoverData.cpuAverage}%` },
+        { marker: Markers.pinkDottedLine,    label: 'OMP memory average', value: `${hoverData.memoryAverage}%` },
       ]
     : [];
 
@@ -363,11 +363,11 @@ export function OmpUsageChart() {
 
       <Legend
         items={[
-          { marker: Markers.blueLineDot,      label: 'OMP CPU usage' },
-          { marker: Markers.cyanLineTriangle, label: 'OMP memory usage' },
-          { marker: Markers.purpleDot,        label: 'OMP CPU average' },
-          { marker: Markers.pinkDot,          label: 'OMP memory average' },
-          { marker: thresholdSwatch,          label: 'Warning threshold' },
+          { marker: Markers.blueLineDot,       label: 'OMP CPU usage' },
+          { marker: Markers.cyanLineTriangle,  label: 'OMP memory usage' },
+          { marker: Markers.purpleDottedLine,  label: 'OMP CPU average' },
+          { marker: Markers.pinkDottedLine,    label: 'OMP memory average' },
+          { marker: thresholdSwatch,           label: 'CPU & memory warning threshold' },
         ]}
       />
     </ChartCard>
@@ -444,12 +444,12 @@ function serializeSvgWithInlineStyles(srcSvg: SVGSVGElement): string {
   return new XMLSerializer().serializeToString(clone);
 }
 
+// Thicker dashed yellow line — visually aligns with the orange warning line
+// drawn at y = 80% on the chart (stroke-dasharray="3 3" stroke-width="2").
 const thresholdSwatch = (
-  <span
-    style={{
-      display: 'inline-block',
-      width: 14, height: 0,
-      borderTop: '2px dashed var(--color-brand-orange)',
-    }}
-  />
+  <svg width="20" height="4" viewBox="0 0 20 4" aria-hidden>
+    <line x1="0" y1="2" x2="20" y2="2"
+          stroke="var(--color-brand-orange)" strokeWidth="2"
+          strokeDasharray="3 3" strokeLinecap="round" />
+  </svg>
 );

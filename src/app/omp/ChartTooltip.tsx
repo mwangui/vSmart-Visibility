@@ -142,7 +142,7 @@ export function ChartTooltip({
                 className="chart-tooltip__marker"
                 style={{
                   display: 'inline-flex',
-                  width: 14,
+                  width: 22,
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
@@ -176,43 +176,50 @@ export function ChartTooltip({
 // Marker presets — shared by OMP usage tooltip rows.
 // -----------------------------------------------------------------------------
 
+// Each marker is a tiny SVG that mirrors the style of its corresponding line
+// on the chart, so the legend / tooltip rows visually match what the user
+// sees plotted: solid line + circle, solid line + triangle, dotted line, etc.
+//
+// Geometry: 20×10 viewBox keeps strokes crisp at the 16-px container width
+// used by both <Legend> and <ChartTooltip>. CSS variables resolve at render
+// time; for the PDF export pipeline they get inlined by serializeSvgWithInlineStyles.
+
 export const Markers = {
+  // Solid blue line with a hollow blue circle in the middle.
   blueLineDot: (
-    <span
-      style={{
-        display: 'inline-block',
-        width: 12,
-        height: 12,
-        borderRadius: 12,
-        border: '2px solid var(--color-brand-blue)',
-        background: 'var(--color-bg-primary)',
-      }}
-    />
-  ),
-  cyanLineTriangle: (
-    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden>
-      <path d="M6 1.5 L11 10.5 L1 10.5 Z"
-            fill="var(--color-bg-primary)"
-            stroke="var(--color-brand-cyan)" strokeWidth="2" />
+    <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden>
+      <line x1="0" y1="5" x2="20" y2="5"
+            stroke="var(--color-brand-blue)" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="10" cy="5" r="3"
+              fill="var(--color-bg-primary)"
+              stroke="var(--color-brand-blue)" strokeWidth="2" />
     </svg>
   ),
-  purpleDot: (
-    <span
-      style={{
-        display: 'inline-block',
-        width: 8, height: 8, borderRadius: 8,
-        background: 'var(--color-brand-purple)',
-      }}
-    />
+  // Solid cyan line with a hollow upward triangle (matches chart data points).
+  cyanLineTriangle: (
+    <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden>
+      <line x1="0" y1="5" x2="20" y2="5"
+            stroke="var(--color-brand-cyan)" strokeWidth="2" strokeLinecap="round" />
+      <path d="M10 1.5 L13.6 8 L6.4 8 Z"
+            fill="var(--color-bg-primary)"
+            stroke="var(--color-brand-cyan)" strokeWidth="2" strokeLinejoin="round" />
+    </svg>
   ),
-  pinkDot: (
-    <span
-      style={{
-        display: 'inline-block',
-        width: 8, height: 8, borderRadius: 8,
-        background: 'var(--color-brand-pink)',
-      }}
-    />
+  // Purple dotted line — represents the CPU average series.
+  purpleDottedLine: (
+    <svg width="20" height="4" viewBox="0 0 20 4" aria-hidden>
+      <line x1="0" y1="2" x2="20" y2="2"
+            stroke="var(--color-brand-purple)" strokeWidth="2"
+            strokeDasharray="2 2" strokeLinecap="round" />
+    </svg>
+  ),
+  // Pink dotted line — represents the memory average series.
+  pinkDottedLine: (
+    <svg width="20" height="4" viewBox="0 0 20 4" aria-hidden>
+      <line x1="0" y1="2" x2="20" y2="2"
+            stroke="var(--color-brand-pink)" strokeWidth="2"
+            strokeDasharray="2 2" strokeLinecap="round" />
+    </svg>
   ),
   swatch: (color: string) => (
     <span
