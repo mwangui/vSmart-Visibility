@@ -17,6 +17,17 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // GHE Pages deploys this app to a project subpath; CI sets GHE_PAGES=true so
+  // bundled asset URLs resolve under that prefix. Local dev keeps the root path.
+  base: process.env.GHE_PAGES === 'true' ? '/pages/mingcwan/27.1-vSmart-Visibility/' : '/',
+
+  // Emit static build artifacts into `docs/` so GHE Pages can serve directly
+  // from `main` branch with Source = /docs (no separate gh-pages branch needed).
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
+
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if
