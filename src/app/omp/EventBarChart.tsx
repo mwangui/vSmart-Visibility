@@ -22,7 +22,10 @@ import { ChartTooltip, Markers } from './ChartTooltip';
 import { formatTooltipSubtitle } from './utils';
 import { ChartCard, ChartHeader, Legend } from './ChartCard';
 
-const PADDING = { top: 16, right: 24, bottom: 36, left: 44 };
+// `left` is wide enough to host the rotated Y-axis title ("Number of events")
+// to the left of the tick labels without overlap. Kept in sync with
+// OmpUsageChart so the x-axis hour columns align between the two charts.
+const PADDING = { top: 16, right: 24, bottom: 36, left: 60 };
 const HEIGHT  = 220;
 
 /** Stack rendering order from top of bar to bottom (visually). */
@@ -126,6 +129,16 @@ export function EventBarChart() {
           aria-label="Event stacked bar chart over 12 hours"
           style={{ display: 'block' }}
         >
+          {/* Y-axis title (rotated, vertically centred in the plot area). */}
+          <text
+            transform={`translate(14, ${PADDING.top + innerH / 2}) rotate(-90)`}
+            textAnchor="middle"
+            fontSize={11}
+            fill="var(--color-text-secondary)"
+          >
+            Number of events
+          </text>
+
           {/* Y axis grid */}
           {ticks(yMax).map(v => (
             <g key={v}>

@@ -3,7 +3,8 @@
  *   "12-hour range: May 02, 2026 00:00 – 12:00"   (no bar selected)
  *   "Selected period: May 02, 2026 05:00 – 06:00" (bar selected)
  *
- * Per design: this is plain black, non-interactive informational text. It
+ * Per design: secondary-text colour (#596069) at regular weight — visually
+ * subordinate to the chart titles, non-interactive informational text. It
  * is NOT a link, NOT a chip, NOT a clickable filter; clearing the time
  * selection happens exclusively through the Refresh button.
  *
@@ -25,8 +26,8 @@ export function SelectedPeriodLabel() {
         alignItems: 'center',
         fontSize: 12,
         lineHeight: '18px',
-        fontWeight: 600,
-        color: 'var(--color-text-primary, #111827)',
+        fontWeight: 400,
+        color: 'var(--color-text-secondary)',
         cursor: 'default',
         userSelect: 'text',
       }}

@@ -77,7 +77,10 @@ export function ChartTooltip({
         zIndex: 'var(--z-index-tooltip, 300)' as unknown as number,
         pointerEvents: 'none',
         background: 'var(--color-bg-primary)',
-        border: '1px solid var(--color-border-primary)',
+        // 2 px outer frame in the primary text token (#23282e). Applies to
+        // both OMP usage and Event chart tooltips since they share this
+        // component.
+        border: '2px solid var(--color-text-primary)',
         borderRadius: 8,
         boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
         padding: 16,
@@ -126,6 +129,10 @@ export function ChartTooltip({
               />
             );
           }
+          // Rows without a marker (e.g. "Total CPU"/"Total memory" summary
+          // rows below the divider) skip the marker spacer entirely so their
+          // labels flush left, instead of indenting under the marker column.
+          const hasMarker = row.marker != null;
           return (
             <div
               key={`r-${i}-${row.label}`}
@@ -138,18 +145,20 @@ export function ChartTooltip({
                 lineHeight: '18px',
               }}
             >
-              <span
-                className="chart-tooltip__marker"
-                style={{
-                  display: 'inline-flex',
-                  width: 22,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                {row.marker ?? null}
-              </span>
+              {hasMarker ? (
+                <span
+                  className="chart-tooltip__marker"
+                  style={{
+                    display: 'inline-flex',
+                    width: 30,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  {row.marker}
+                </span>
+              ) : null}
               <span style={{ flex: '1 1 auto', color: 'var(--color-text-primary)' }}>
                 {row.label}
               </span>
@@ -185,24 +194,25 @@ export function ChartTooltip({
 // time; for the PDF export pipeline they get inlined by serializeSvgWithInlineStyles.
 
 export const Markers = {
-  // Solid blue line with a hollow blue circle in the middle.
+  // Filled blue circle flanked by lighter blue dashed line segments on each side.
   blueLineDot: (
-    <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden>
-      <line x1="0" y1="5" x2="20" y2="5"
-            stroke="var(--color-brand-blue)" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="10" cy="5" r="3"
-              fill="var(--color-bg-primary)"
-              stroke="var(--color-brand-blue)" strokeWidth="2" />
+    <svg width="28" height="10" viewBox="0 0 28 10" aria-hidden>
+      <line x1="0" y1="5" x2="28" y2="5"
+            stroke="var(--color-brand-blue)" strokeWidth="2.5"
+            strokeOpacity="0.5"
+            strokeDasharray="3 3" strokeLinecap="round" />
+      <circle cx="14" cy="5" r="4" fill="var(--color-brand-blue)" />
     </svg>
   ),
-  // Solid cyan line with a hollow upward triangle (matches chart data points).
+  // Filled cyan downward-pointing triangle flanked by lighter dashed segments.
   cyanLineTriangle: (
-    <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden>
-      <line x1="0" y1="5" x2="20" y2="5"
-            stroke="var(--color-brand-cyan)" strokeWidth="2" strokeLinecap="round" />
-      <path d="M10 1.5 L13.6 8 L6.4 8 Z"
-            fill="var(--color-bg-primary)"
-            stroke="var(--color-brand-cyan)" strokeWidth="2" strokeLinejoin="round" />
+    <svg width="28" height="10" viewBox="0 0 28 10" aria-hidden>
+      <line x1="0" y1="5" x2="28" y2="5"
+            stroke="var(--color-brand-cyan)" strokeWidth="2.5"
+            strokeOpacity="0.5"
+            strokeDasharray="3 3" strokeLinecap="round" />
+      <path d="M10 2 L18 2 L14 8.5 Z"
+            fill="var(--color-brand-cyan)" strokeLinejoin="round" />
     </svg>
   ),
   // Purple dotted line — represents the CPU average series.

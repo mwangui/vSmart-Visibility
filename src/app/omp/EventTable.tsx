@@ -98,8 +98,6 @@ export function EventTable() {
       <div
         style={{
           width: '100%',
-          border: '1px solid var(--color-border-primary)',
-          borderRadius: 8,
           overflow: 'hidden',
           background: 'var(--color-bg-primary)',
         }}
@@ -115,7 +113,9 @@ export function EventTable() {
             }}
           >
             <thead>
-              <tr style={{ background: 'var(--color-bg-tertiary)' }}>
+              {/* Header row uses the primary surface (white) with only a
+                  bottom divider — no shaded fill, no outer table frame. */}
+              <tr style={{ background: 'var(--color-bg-primary)' }}>
                 {COLUMNS.map(col => {
                   const isSorted = col.sortable && sortBy === col.key;
                   return (
@@ -124,8 +124,12 @@ export function EventTable() {
                       style={{
                         textAlign: col.align ?? 'left',
                         padding: '10px 12px',
-                        fontWeight: 600,
-                        color: 'var(--color-text-secondary)',
+                        // Header titles per design: 14 px Inter, bold, #23282e.
+                        // fontFamily is inherited from the parent <table> which
+                        // already pins var(--font-family-primary) (= Inter).
+                        fontSize: 14,
+                        fontWeight: 700,
+                        color: 'var(--color-text-primary)',
                         borderBottom: '1px solid var(--color-border-primary)',
                         whiteSpace: 'nowrap',
                         width: col.width,
@@ -424,7 +428,10 @@ function RowActionMenu({
                 borderRadius: 4,
                 boxShadow: '0 4px 10px rgba(0,0,0,0.10)',
                 zIndex: 200, // matches --z-index-popover
-                padding: '4px 0',
+                // No vertical padding: the menuitem hover fill must reach
+                // the popover's edges. `overflow: hidden` clips the button's
+                // hover background to the container's rounded corners.
+                overflow: 'hidden',
                 fontFamily: 'var(--font-family-primary)',
               }}
             >
@@ -436,8 +443,11 @@ function RowActionMenu({
                   onSelectDeviceDetails();
                 }}
                 onMouseEnter={(e) => {
+                  // Hover uses --color-bg-selected (#cce1ff) per design —
+                  // matches the kebab button's active fill so the popover
+                  // hover state and the selected trigger read as one piece.
                   e.currentTarget.style.background =
-                    'var(--color-bg-tertiary)';
+                    'var(--color-bg-selected)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'transparent';

@@ -23,7 +23,10 @@ import { ChartTooltip, Markers, type TooltipRow } from './ChartTooltip';
 import { format12HourRange, formatTooltipSubtitle } from './utils';
 import { ChartCard, ChartHeader, Legend } from './ChartCard';
 
-const PADDING = { top: 24, right: 24, bottom: 36, left: 44 };
+// `left` is wide enough to host the rotated Y-axis title ("CPU / memory (%)")
+// to the left of the tick labels without overlap. Kept in sync with
+// EventBarChart so the x-axis hour columns align between the two charts.
+const PADDING = { top: 24, right: 24, bottom: 36, left: 60 };
 const HEIGHT  = 260;
 const Y_MIN   = 0;
 const Y_MAX   = 100;
@@ -251,6 +254,16 @@ export function OmpUsageChart() {
           aria-label="OMP process usage line chart over 12 hours"
           style={{ display: 'block' }}
         >
+          {/* Y-axis title (rotated, vertically centred in the plot area). */}
+          <text
+            transform={`translate(14, ${PADDING.top + innerH / 2}) rotate(-90)`}
+            textAnchor="middle"
+            fontSize={11}
+            fill="var(--color-text-secondary)"
+          >
+            CPU / memory (%)
+          </text>
+
           {/* Y axis grid */}
           {[0, 25, 50, 75, 100].map(v => (
             <g key={v}>
@@ -307,21 +320,19 @@ export function OmpUsageChart() {
           <path d={linePath('memoryUsage')} fill="none"
                 stroke="var(--color-brand-cyan)" strokeWidth={2} />
 
-          {/* Data dots, with focus state for hovered hour */}
+          {/* Data points — filled markers that match the legend swatches:
+              filled blue circle for CPU usage, filled cyan ▼ triangle for
+              memory usage. Hover state grows them slightly. */}
           {ompUsageByHour.map((d, i) => {
             const focused = i === hoverIdx;
             const r = focused ? 5 : 3.5;
             return (
               <g key={d.hour}>
                 <circle cx={xFor(i)} cy={yFor(d.cpuUsage)} r={r}
-                        fill="var(--color-bg-primary)"
-                        stroke="var(--color-brand-blue)"
-                        strokeWidth={2} />
+                        fill="var(--color-brand-blue)" />
                 <polygon
                   points={trianglePoints(xFor(i), yFor(d.memoryUsage), focused ? 6 : 4)}
-                  fill="var(--color-bg-primary)"
-                  stroke="var(--color-brand-cyan)"
-                  strokeWidth={2}
+                  fill="var(--color-brand-cyan)"
                 />
               </g>
             );
@@ -374,9 +385,11 @@ export function OmpUsageChart() {
   );
 }
 
+// Downward-pointing triangle (▼): horizontal edge on top, apex at the bottom.
+// Matches the filled triangle marker in the legend (Markers.cyanLineTriangle).
 function trianglePoints(cx: number, cy: number, size: number): string {
   const h = size * 1.1;
-  return `${cx},${cy - h} ${cx + size},${cy + h * 0.7} ${cx - size},${cy + h * 0.7}`;
+  return `${cx - size},${cy - h * 0.7} ${cx + size},${cy - h * 0.7} ${cx},${cy + h}`;
 }
 
 /**

@@ -62,22 +62,7 @@ const SECTIONS: SectionDef[] = [
       { label: 'Crash',                 value: 'Not reported' },
       { label: 'CPU load',              value: '30% average' },
       { label: 'Memory utilization',    value: '75% average' },
-      {
-        label: 'Module',
-        value: (
-          <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
-            style={{
-              color: 'var(--color-text-link)',
-              fontWeight: 600,
-              textDecoration: 'none',
-            }}
-          >
-            Controller
-          </a>
-        ),
-      },
+      { label: 'Module',                value: 'Controller' },
     ],
   },
   {
@@ -90,16 +75,23 @@ const SECTIONS: SectionDef[] = [
         value: (
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
             Reachable
-            <span
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
               aria-hidden
-              style={{
-                width: 8,
-                height: 8,
-                borderRadius: '50%',
-                background: 'var(--color-brand-green, #16a34a)',
-                display: 'inline-block',
-              }}
-            />
+              style={{ display: 'inline-block', flexShrink: 0 }}
+            >
+              <circle cx="8" cy="8" r="8" fill="var(--color-brand-green, #5a9c3a)" />
+              <path
+                d="M4.5 8.25 L 7 10.5 L 11.5 5.5"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </span>
         ),
       },
@@ -118,7 +110,6 @@ const SECTIONS: SectionDef[] = [
       { label: 'Last Updated',  value: '29 Apr 2026 4:05:09 AM EDT' },
       { label: 'Latitude',      value: '37.866664' },
       { label: 'Longitude',     value: '−122.777023' },
-      { label: 'Personality',   value: 'Controller' },
     ],
   },
 ];
