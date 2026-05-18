@@ -1248,7 +1248,7 @@ function Icon3() {
 function Type() {
   return (
     <div className="content-stretch flex items-center overflow-clip relative shrink-0" data-name="Type">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[20px] not-italic overflow-hidden relative shrink-0 text-[var(--color-text-primary)] text-[14px] text-ellipsis whitespace-nowrap">12 hours</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[20px] not-italic overflow-hidden relative shrink-0 text-[var(--color-text-primary)] text-[14px] text-ellipsis whitespace-nowrap">24 hours</p>
     </div>
   );
 }

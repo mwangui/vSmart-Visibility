@@ -1,7 +1,14 @@
 /**
  * Shared formatting + CSV helpers for OMP Statistics.
- * All date strings derive from `state.baseDate` — never the literal Feb 16, 2025.
+ * All date strings derive from `state.baseDate` — never a hardcoded literal.
+ *
+ * The page operates on a rolling 24-hour window ending at `baseDate`'s
+ * floored hour, so date formatters that take an `hour` string consult
+ * `resolveHourDate` to figure out whether that label belongs to today or
+ * yesterday (e.g. when baseDate is 18:30 the label '19:00' is yesterday).
  */
+
+import { resolveHourDate } from './data';
 
 const MONTH_SHORT = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -16,23 +23,48 @@ export function formatDateLabel(date: Date): string {
 }
 
 /** "May 02, 05:00:00" — used in chart tooltip subtitle. */
-export function formatTooltipSubtitle(date: Date, hour: string): string {
-  return `${MONTH_SHORT[date.getMonth()]} ${pad2(date.getDate())}, ${hour}:00`;
+export function formatTooltipSubtitle(baseDate: Date, hour: string): string {
+  const d = resolveHourDate(baseDate, hour);
+  return `${MONTH_SHORT[d.getMonth()]} ${pad2(d.getDate())}, ${hour}:00`;
 }
 
-/** "12-hour range: May 02, 2026 00:00 – 12:00" */
-export function format12HourRange(date: Date): string {
-  return `12-hour range: ${formatDateLabel(date)} 00:00 – 12:00`;
+/**
+ * "24-hour range: May 16, 2026 19:00 – May 17, 2026 18:00" — rolling window
+ * ending at `baseDate`'s floored hour. Collapses to a same-day form when the
+ * window does not cross midnight: "24-hour range: May 17, 2026 00:00 – 23:00".
+ */
+export function format24HourRange(baseDate: Date): string {
+  const end = floorToHour(baseDate);
+  const start = new Date(end.getTime() - 23 * 60 * 60 * 1000);
+  const startLabel = `${pad2(start.getHours())}:00`;
+  const endLabel   = `${pad2(end.getHours())}:00`;
+  const sameDay =
+    start.getFullYear() === end.getFullYear() &&
+    start.getMonth()    === end.getMonth() &&
+    start.getDate()     === end.getDate();
+  if (sameDay) {
+    return `24-hour range: ${formatDateLabel(start)} ${startLabel} – ${endLabel}`;
+  }
+  return `24-hour range: ${formatDateLabel(start)} ${startLabel} – ${formatDateLabel(end)} ${endLabel}`;
 }
 
 /**
  * "Selected period: May 02, 2026 05:00 – 06:00" — wraps an hour like '05:00'
- * and renders the closing hour `HH+1:00`.
+ * and renders the closing hour `HH+1:00`. The calendar date is resolved
+ * against the rolling 24h window so labels belonging to yesterday show the
+ * correct date.
  */
-export function formatSelectedPeriod(date: Date, hour: string): string {
+export function formatSelectedPeriod(baseDate: Date, hour: string): string {
+  const d = resolveHourDate(baseDate, hour);
   const h = parseInt(hour.slice(0, 2), 10);
   const next = pad2((h + 1) % 24);
-  return `Selected period: ${formatDateLabel(date)} ${hour} – ${next}:00`;
+  return `Selected period: ${formatDateLabel(d)} ${hour} – ${next}:00`;
+}
+
+function floorToHour(date: Date): Date {
+  const d = new Date(date);
+  d.setMinutes(0, 0, 0);
+  return d;
 }
 
 // -----------------------------------------------------------------------------

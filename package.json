@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "build:pages": "GHE_PAGES=true vite build && cp docs/index.html docs/404.html && touch docs/.nojekyll",
     "dev": "vite"
   },
   "dependencies": {

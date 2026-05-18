@@ -8,7 +8,13 @@ export interface MeResponse {
 
 const headers: HeadersInit = { 'Content-Type': 'application/json' };
 
+// On the static GHE Pages build there is no backend, so the production bundle
+// short-circuits the auth probe. AuthGate falls through to anonymous mode and
+// the dashboard renders without a 404 in DevTools console.
+const HAS_BACKEND = !import.meta.env.PROD || import.meta.env.VITE_HAS_BACKEND === 'true';
+
 export async function fetchMe(signal?: AbortSignal): Promise<MeResponse | null> {
+  if (!HAS_BACKEND) return null;
   const res = await fetch('/api/auth/me', {
     method: 'GET',
     credentials: 'include',

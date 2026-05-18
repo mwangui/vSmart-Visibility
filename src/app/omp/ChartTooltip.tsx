@@ -77,7 +77,10 @@ export function ChartTooltip({
         zIndex: 'var(--z-index-tooltip, 300)' as unknown as number,
         pointerEvents: 'none',
         background: 'var(--color-bg-primary)',
-        border: '1px solid var(--color-border-primary)',
+        // 2 px outer frame in the primary text token (#23282e). Applies to
+        // both OMP usage and Event chart tooltips since they share this
+        // component.
+        border: '2px solid var(--color-text-primary)',
         borderRadius: 8,
         boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
         padding: 16,
@@ -126,6 +129,10 @@ export function ChartTooltip({
               />
             );
           }
+          // Rows without a marker (e.g. "Total CPU"/"Total memory" summary
+          // rows below the divider) skip the marker spacer entirely so their
+          // labels flush left, instead of indenting under the marker column.
+          const hasMarker = row.marker != null;
           return (
             <div
               key={`r-${i}-${row.label}`}
@@ -138,18 +145,20 @@ export function ChartTooltip({
                 lineHeight: '18px',
               }}
             >
-              <span
-                className="chart-tooltip__marker"
-                style={{
-                  display: 'inline-flex',
-                  width: 14,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                {row.marker ?? null}
-              </span>
+              {hasMarker ? (
+                <span
+                  className="chart-tooltip__marker"
+                  style={{
+                    display: 'inline-flex',
+                    width: 30,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  {row.marker}
+                </span>
+              ) : null}
               <span style={{ flex: '1 1 auto', color: 'var(--color-text-primary)' }}>
                 {row.label}
               </span>
@@ -176,43 +185,51 @@ export function ChartTooltip({
 // Marker presets — shared by OMP usage tooltip rows.
 // -----------------------------------------------------------------------------
 
+// Each marker is a tiny SVG that mirrors the style of its corresponding line
+// on the chart, so the legend / tooltip rows visually match what the user
+// sees plotted: solid line + circle, solid line + triangle, dotted line, etc.
+//
+// Geometry: 20×10 viewBox keeps strokes crisp at the 16-px container width
+// used by both <Legend> and <ChartTooltip>. CSS variables resolve at render
+// time; for the PDF export pipeline they get inlined by serializeSvgWithInlineStyles.
+
 export const Markers = {
+  // Filled blue circle flanked by lighter blue dashed line segments on each side.
   blueLineDot: (
-    <span
-      style={{
-        display: 'inline-block',
-        width: 12,
-        height: 12,
-        borderRadius: 12,
-        border: '2px solid var(--color-brand-blue)',
-        background: 'var(--color-bg-primary)',
-      }}
-    />
-  ),
-  cyanLineTriangle: (
-    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden>
-      <path d="M6 1.5 L11 10.5 L1 10.5 Z"
-            fill="var(--color-bg-primary)"
-            stroke="var(--color-brand-cyan)" strokeWidth="2" />
+    <svg width="28" height="10" viewBox="0 0 28 10" aria-hidden>
+      <line x1="0" y1="5" x2="28" y2="5"
+            stroke="var(--color-brand-blue)" strokeWidth="2.5"
+            strokeOpacity="0.5"
+            strokeDasharray="3 3" strokeLinecap="round" />
+      <circle cx="14" cy="5" r="4" fill="var(--color-brand-blue)" />
     </svg>
   ),
-  purpleDot: (
-    <span
-      style={{
-        display: 'inline-block',
-        width: 8, height: 8, borderRadius: 8,
-        background: 'var(--color-brand-purple)',
-      }}
-    />
+  // Filled cyan downward-pointing triangle flanked by lighter dashed segments.
+  cyanLineTriangle: (
+    <svg width="28" height="10" viewBox="0 0 28 10" aria-hidden>
+      <line x1="0" y1="5" x2="28" y2="5"
+            stroke="var(--color-brand-cyan)" strokeWidth="2.5"
+            strokeOpacity="0.5"
+            strokeDasharray="3 3" strokeLinecap="round" />
+      <path d="M10 2 L18 2 L14 8.5 Z"
+            fill="var(--color-brand-cyan)" strokeLinejoin="round" />
+    </svg>
   ),
-  pinkDot: (
-    <span
-      style={{
-        display: 'inline-block',
-        width: 8, height: 8, borderRadius: 8,
-        background: 'var(--color-brand-pink)',
-      }}
-    />
+  // Purple dotted line — represents the CPU average series.
+  purpleDottedLine: (
+    <svg width="20" height="4" viewBox="0 0 20 4" aria-hidden>
+      <line x1="0" y1="2" x2="20" y2="2"
+            stroke="var(--color-brand-purple)" strokeWidth="2"
+            strokeDasharray="2 2" strokeLinecap="round" />
+    </svg>
+  ),
+  // Pink dotted line — represents the memory average series.
+  pinkDottedLine: (
+    <svg width="20" height="4" viewBox="0 0 20 4" aria-hidden>
+      <line x1="0" y1="2" x2="20" y2="2"
+            stroke="var(--color-brand-pink)" strokeWidth="2"
+            strokeDasharray="2 2" strokeLinecap="round" />
+    </svg>
   ),
   swatch: (color: string) => (
     <span

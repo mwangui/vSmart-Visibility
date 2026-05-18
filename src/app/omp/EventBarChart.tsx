@@ -1,7 +1,8 @@
 /**
  * Zone B — Event stacked bar chart (§4 Flow B+C, §5.3, §8.2-8.3).
  *
- * Stack order from top → bottom matches the static Figma export:
+ * Renders 24 stacked bars over the rolling 24-hour window. Stack order from
+ * top → bottom matches the static Figma export:
  *   purple = Policy change
  *   cyan   = OMP peer state change
  *   blue   = Control connection state change
@@ -16,13 +17,15 @@ import {
   useEffect, useRef, useState, useCallback,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import { HOURS, eventSummaryByHour, type Hour } from './data';
 import { useOmp } from './state';
 import { ChartTooltip, Markers } from './ChartTooltip';
 import { formatTooltipSubtitle } from './utils';
 import { ChartCard, ChartHeader, Legend } from './ChartCard';
 
-const PADDING = { top: 16, right: 24, bottom: 36, left: 44 };
+// `left` is wide enough to host the rotated Y-axis title ("Number of events")
+// to the left of the tick labels without overlap. Kept in sync with
+// OmpUsageChart so the x-axis hour columns align between the two charts.
+const PADDING = { top: 16, right: 24, bottom: 36, left: 60 };
 const HEIGHT  = 220;
 
 /** Stack rendering order from top of bar to bottom (visually). */
@@ -33,13 +36,13 @@ const STACK_ORDER = [
 ] as const;
 
 interface HoverInfo {
-  hour: Hour;
+  hour: string;
   mouseX: number;
   mouseY: number;
 }
 
 export function EventBarChart() {
-  const { state, dispatch } = useOmp();
+  const { state, dispatch, hours, eventSummaryByHour } = useOmp();
   const ref = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(1180);
   const [hover, setHover] = useState<HoverInfo | null>(null);
@@ -58,8 +61,10 @@ export function EventBarChart() {
 
   const innerW = width - PADDING.left - PADDING.right;
   const innerH = HEIGHT - PADDING.top - PADDING.bottom;
-  const slotW  = innerW / HOURS.length;
-  const barW   = Math.max(12, slotW * 0.55);
+  const slotW  = innerW / hours.length;
+  // Bars must stay readable when the x-axis doubles from 12 to 24 columns;
+  // the 8px floor prevents zero-width segments at narrow viewports.
+  const barW   = Math.max(8, slotW * 0.55);
 
   const yMax = Math.max(
     50,
@@ -89,20 +94,20 @@ export function EventBarChart() {
 
     const rel = (mouseX - PADDING.left) / slotW;
     const idx = Math.floor(rel);
-    if (idx < 0 || idx >= HOURS.length) {
+    if (idx < 0 || idx >= hours.length) {
       setHover(null);
       return;
     }
-    setHover({ hour: HOURS[idx], mouseX, mouseY });
+    setHover({ hour: hours[idx], mouseX, mouseY });
   };
 
   const handleMouseLeave = () => setHover(null);
 
-  const handleBarClick = (hour: Hour) => {
+  const handleBarClick = (hour: string) => {
     dispatch({ type: 'TOGGLE_SELECTED_HOUR', hour });
   };
 
-  const hoverIdx = hover ? HOURS.indexOf(hover.hour) : -1;
+  const hoverIdx = hover ? hours.indexOf(hover.hour) : -1;
   const hoverData = hoverIdx >= 0 ? eventSummaryByHour[hoverIdx] : null;
 
   // Per latest design: the Event chart header has no Export button; the
@@ -123,9 +128,19 @@ export function EventBarChart() {
           width={width}
           height={HEIGHT}
           role="img"
-          aria-label="Event stacked bar chart over 12 hours"
+          aria-label="Event stacked bar chart over 24 hours"
           style={{ display: 'block' }}
         >
+          {/* Y-axis title (rotated, vertically centred in the plot area). */}
+          <text
+            transform={`translate(14, ${PADDING.top + innerH / 2}) rotate(-90)`}
+            textAnchor="middle"
+            fontSize={11}
+            fill="var(--color-text-secondary)"
+          >
+            Number of events
+          </text>
+
           {/* Y axis grid */}
           {ticks(yMax).map(v => (
             <g key={v}>
@@ -212,9 +227,12 @@ export function EventBarChart() {
             );
           })}
 
-          {/* X axis labels */}
-          {HOURS.map((h, i) => {
+          {/* X axis labels — show every other hour to keep the 24-column
+              axis from overlapping. Selected hours are always shown (even on
+              odd indices) so the bolded label still confirms the selection. */}
+          {hours.map((h, i) => {
             const isSelected = state.selectedHour === h;
+            if (i % 2 !== 0 && !isSelected) return null;
             return (
               <text
                 key={h}

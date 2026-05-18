@@ -1,10 +1,12 @@
 /**
  * Zone A — OMP Process Usage line chart (§4 Flow A, §5.2, §8.1).
  *
- * Renders 4 metric lines (CPU usage / memory usage / CPU avg / memory avg) +
- * a dotted threshold line over 12 hour points. On mousemove the cursor snaps
- * to the nearest integer hour, paints a translucent vertical band over that
- * hour column, focuses the data dots, and shows the OMP status tooltip.
+ * Renders 2 metric lines (CPU usage / memory usage) + a dotted threshold
+ * line over a rolling 24 hour window. On mousemove the cursor snaps to the
+ * nearest integer hour, paints a translucent vertical band over that hour
+ * column, focuses the data dots, and shows the OMP status tooltip — which
+ * is the only place the CPU/memory averages now appear (inline beside the
+ * usage values), per latest spec.
  *
  * Important: this chart is intentionally inert with respect to Event-chart
  * selection. Per latest spec (replaces §15.2 Q3 cross-zone highlight): clicks
@@ -17,25 +19,28 @@ import {
   useEffect, useRef, useState, useCallback,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import { HOURS, ompUsageByHour, type Hour } from './data';
+import type { OmpUsagePoint } from './data';
 import { useOmp } from './state';
 import { ChartTooltip, Markers, type TooltipRow } from './ChartTooltip';
-import { format12HourRange, formatTooltipSubtitle } from './utils';
+import { format24HourRange, formatTooltipSubtitle } from './utils';
 import { ChartCard, ChartHeader, Legend } from './ChartCard';
 
-const PADDING = { top: 24, right: 24, bottom: 36, left: 44 };
+// `left` is wide enough to host the rotated Y-axis title ("CPU / memory (%)")
+// to the left of the tick labels without overlap. Kept in sync with
+// EventBarChart so the x-axis hour columns align between the two charts.
+const PADDING = { top: 24, right: 24, bottom: 36, left: 60 };
 const HEIGHT  = 260;
 const Y_MIN   = 0;
 const Y_MAX   = 100;
 
 interface HoverInfo {
-  hour: Hour;
+  hour: string;
   mouseX: number;
   mouseY: number;
 }
 
 export function OmpUsageChart() {
-  const { state } = useOmp();
+  const { state, hours, ompUsageByHour } = useOmp();
   const ref = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(1180);
   const [hover, setHover] = useState<HoverInfo | null>(null);
@@ -54,8 +59,8 @@ export function OmpUsageChart() {
 
   const innerW = width - PADDING.left - PADDING.right;
   const innerH = HEIGHT - PADDING.top - PADDING.bottom;
-  const stepX  = innerW / (HOURS.length - 1);
-  const colW   = innerW / HOURS.length;
+  const stepX  = innerW / (hours.length - 1);
+  const colW   = innerW / hours.length;
 
   const yFor = useCallback(
     (v: number) => PADDING.top + (1 - (v - Y_MIN) / (Y_MAX - Y_MIN)) * innerH,
@@ -67,11 +72,11 @@ export function OmpUsageChart() {
   );
 
   const linePath = useCallback(
-    (key: keyof typeof ompUsageByHour[number]) =>
+    (key: keyof OmpUsagePoint) =>
       ompUsageByHour
         .map((d, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i)} ${yFor(d[key] as number)}`)
         .join(' '),
-    [xFor, yFor],
+    [ompUsageByHour, xFor, yFor],
   );
 
   const handleMouseMove = (ev: ReactMouseEvent<HTMLDivElement>) => {
@@ -82,24 +87,59 @@ export function OmpUsageChart() {
 
     // Snap to nearest hour by index.
     const rel = (mouseX - PADDING.left) / stepX;
-    const idx = Math.max(0, Math.min(HOURS.length - 1, Math.round(rel)));
-    setHover({ hour: HOURS[idx], mouseX, mouseY });
+    const idx = Math.max(0, Math.min(hours.length - 1, Math.round(rel)));
+    setHover({ hour: hours[idx], mouseX, mouseY });
   };
 
   const handleMouseLeave = () => setHover(null);
 
-  const hoverIdx = hover ? HOURS.indexOf(hover.hour) : -1;
+  const hoverIdx = hover ? hours.indexOf(hover.hour) : -1;
   const hoverData = hoverIdx >= 0 ? ompUsageByHour[hoverIdx] : null;
 
   // Note: deliberately do NOT read state.selectedHour here. This chart is
   // independent from the Event bar chart's selection, per latest spec.
 
+  // Averages no longer render as chart series or legend items; they are
+  // surfaced inline in the tooltip values so the chart stays uncluttered
+  // while still exposing the average context on hover.
   const tooltipRows: TooltipRow[] = hoverData
     ? [
-        { marker: Markers.blueLineDot,      label: 'OMP CPU usage',      value: `${hoverData.cpuUsage}%` },
-        { marker: Markers.cyanLineTriangle, label: 'OMP memory usage',   value: `${hoverData.memoryUsage}%` },
-        { marker: Markers.purpleDot,        label: 'OMP CPU average',    value: `${hoverData.cpuAverage}%` },
-        { marker: Markers.pinkDot,          label: 'OMP memory average', value: `${hoverData.memoryAverage}%` },
+        {
+          marker: Markers.blueLineDot,
+          label: 'OMP CPU usage',
+          value: (
+            <>
+              {hoverData.cpuUsage}%
+              <span
+                style={{
+                  color: 'var(--color-text-secondary)',
+                  fontWeight: 400,
+                  marginLeft: 6,
+                }}
+              >
+                (average {hoverData.cpuAverage}%)
+              </span>
+            </>
+          ),
+        },
+        {
+          marker: Markers.cyanLineTriangle,
+          label: 'OMP memory usage',
+          value: (
+            <>
+              {hoverData.memoryUsage}%
+              <span
+                style={{
+                  color: 'var(--color-text-secondary)',
+                  fontWeight: 400,
+                  marginLeft: 6,
+                }}
+              >
+                (average {hoverData.memoryAverage}%)
+              </span>
+            </>
+          ),
+        },
       ]
     : [];
 
@@ -112,7 +152,7 @@ export function OmpUsageChart() {
    *      html2canvas dependency.
    *   3. Build an A4-landscape PDF with title, time range, generated-at
    *      timestamp, the chart bitmap, and a manual legend that matches the
-   *      five series (CPU/memory usage + CPU/memory average + threshold).
+   *      three series (CPU/memory usage + threshold).
    */
   const handleExport = async () => {
     setHover(null);
@@ -172,7 +212,7 @@ export function OmpUsageChart() {
       pdf.setFont('helvetica', 'normal');
       pdf.setFontSize(10);
       pdf.setTextColor(100);
-      pdf.text(format12HourRange(state.baseDate), margin, margin + 32);
+      pdf.text(format24HourRange(state.baseDate), margin, margin + 32);
       pdf.text(
         `Generated ${new Date().toLocaleString()}`,
         pageW - margin,
@@ -200,7 +240,9 @@ export function OmpUsageChart() {
       pdf.addImage(pngDataUrl, 'PNG', imgX, imgY, drawW, drawH);
 
       // Legend — colours match design-tokens.css, dashed strokes match the
-      // dashed lines on the actual chart.
+      // dashed lines on the actual chart. Mirrors the in-app Legend below the
+      // chart (CPU usage + memory usage + warning threshold); averages were
+      // removed per the same spec change that dropped their on-chart lines.
       type LegendRow = {
         label: string;
         rgb: [number, number, number];
@@ -209,8 +251,6 @@ export function OmpUsageChart() {
       const legend: LegendRow[] = [
         { label: 'OMP CPU usage',           rgb: [0x50, 0x5e, 0xd9] },
         { label: 'OMP memory usage',        rgb: [0x04, 0xa4, 0xb0] },
-        { label: 'OMP CPU average',         rgb: [0xa9, 0x74, 0xf7], dashed: true },
-        { label: 'OMP memory average',      rgb: [0xc2, 0x30, 0x6f], dashed: true },
         { label: 'Warning threshold (80%)', rgb: [0xcc, 0x86, 0x04], dashed: true },
       ];
       pdf.setFontSize(10);
@@ -248,9 +288,19 @@ export function OmpUsageChart() {
           width={width}
           height={HEIGHT}
           role="img"
-          aria-label="OMP process usage line chart over 12 hours"
+          aria-label="OMP process usage line chart over 24 hours"
           style={{ display: 'block' }}
         >
+          {/* Y-axis title (rotated, vertically centred in the plot area). */}
+          <text
+            transform={`translate(14, ${PADDING.top + innerH / 2}) rotate(-90)`}
+            textAnchor="middle"
+            fontSize={11}
+            fill="var(--color-text-secondary)"
+          >
+            CPU / memory (%)
+          </text>
+
           {/* Y axis grid */}
           {[0, 25, 50, 75, 100].map(v => (
             <g key={v}>
@@ -291,14 +341,6 @@ export function OmpUsageChart() {
             strokeWidth={2} strokeDasharray="3 3"
           />
 
-          {/* Average lines (dotted) */}
-          <path d={linePath('cpuAverage')}    fill="none"
-                stroke="var(--color-brand-purple)"
-                strokeWidth={1.5} strokeDasharray="2 2" />
-          <path d={linePath('memoryAverage')} fill="none"
-                stroke="var(--color-brand-pink)"
-                strokeWidth={1.5} strokeDasharray="2 2" />
-
           {/* CPU usage (blue, solid) */}
           <path d={linePath('cpuUsage')} fill="none"
                 stroke="var(--color-brand-blue)" strokeWidth={2} />
@@ -307,39 +349,41 @@ export function OmpUsageChart() {
           <path d={linePath('memoryUsage')} fill="none"
                 stroke="var(--color-brand-cyan)" strokeWidth={2} />
 
-          {/* Data dots, with focus state for hovered hour */}
+          {/* Data points — filled markers that match the legend swatches:
+              filled blue circle for CPU usage, filled cyan ▼ triangle for
+              memory usage. Hover state grows them slightly. */}
           {ompUsageByHour.map((d, i) => {
             const focused = i === hoverIdx;
             const r = focused ? 5 : 3.5;
             return (
               <g key={d.hour}>
                 <circle cx={xFor(i)} cy={yFor(d.cpuUsage)} r={r}
-                        fill="var(--color-bg-primary)"
-                        stroke="var(--color-brand-blue)"
-                        strokeWidth={2} />
+                        fill="var(--color-brand-blue)" />
                 <polygon
                   points={trianglePoints(xFor(i), yFor(d.memoryUsage), focused ? 6 : 4)}
-                  fill="var(--color-bg-primary)"
-                  stroke="var(--color-brand-cyan)"
-                  strokeWidth={2}
+                  fill="var(--color-brand-cyan)"
                 />
               </g>
             );
           })}
 
-          {/* X axis labels — uniform styling, no event-selection feedback */}
-          {HOURS.map((h, i) => (
-            <text
-              key={h}
-              x={xFor(i)} y={HEIGHT - PADDING.bottom + 18}
-              fontSize={11}
-              textAnchor="middle"
-              fontWeight={400}
-              fill="var(--color-text-secondary)"
-            >
-              {h}
-            </text>
-          ))}
+          {/* X axis labels — show every other hour to keep the 24-point axis
+              from overlapping at typical chart widths. The full 24-point
+              data series is still rendered above. */}
+          {hours.map((h, i) =>
+            i % 2 === 0 ? (
+              <text
+                key={h}
+                x={xFor(i)} y={HEIGHT - PADDING.bottom + 18}
+                fontSize={11}
+                textAnchor="middle"
+                fontWeight={400}
+                fill="var(--color-text-secondary)"
+              >
+                {h}
+              </text>
+            ) : null,
+          )}
         </svg>
 
         {hover && hoverData ? (
@@ -356,27 +400,27 @@ export function OmpUsageChart() {
               { label: 'Total CPU',    value: `${hoverData.totalCpu}%` },
               { label: 'Total memory', value: `${hoverData.totalMemory}%` },
             ]}
-            minWidth={240}
+            minWidth={280}
           />
         ) : null}
       </div>
 
       <Legend
         items={[
-          { marker: Markers.blueLineDot,      label: 'OMP CPU usage' },
-          { marker: Markers.cyanLineTriangle, label: 'OMP memory usage' },
-          { marker: Markers.purpleDot,        label: 'OMP CPU average' },
-          { marker: Markers.pinkDot,          label: 'OMP memory average' },
-          { marker: thresholdSwatch,          label: 'Warning threshold' },
+          { marker: Markers.blueLineDot,       label: 'OMP CPU usage' },
+          { marker: Markers.cyanLineTriangle,  label: 'OMP memory usage' },
+          { marker: thresholdSwatch,           label: 'CPU & memory warning threshold' },
         ]}
       />
     </ChartCard>
   );
 }
 
+// Downward-pointing triangle (▼): horizontal edge on top, apex at the bottom.
+// Matches the filled triangle marker in the legend (Markers.cyanLineTriangle).
 function trianglePoints(cx: number, cy: number, size: number): string {
   const h = size * 1.1;
-  return `${cx},${cy - h} ${cx + size},${cy + h * 0.7} ${cx - size},${cy + h * 0.7}`;
+  return `${cx - size},${cy - h * 0.7} ${cx + size},${cy - h * 0.7} ${cx},${cy + h}`;
 }
 
 /**
@@ -444,12 +488,12 @@ function serializeSvgWithInlineStyles(srcSvg: SVGSVGElement): string {
   return new XMLSerializer().serializeToString(clone);
 }
 
+// Thicker dashed yellow line — visually aligns with the orange warning line
+// drawn at y = 80% on the chart (stroke-dasharray="3 3" stroke-width="2").
 const thresholdSwatch = (
-  <span
-    style={{
-      display: 'inline-block',
-      width: 14, height: 0,
-      borderTop: '2px dashed var(--color-brand-orange)',
-    }}
-  />
+  <svg width="20" height="4" viewBox="0 0 20 4" aria-hidden>
+    <line x1="0" y1="2" x2="20" y2="2"
+          stroke="var(--color-brand-orange)" strokeWidth="2"
+          strokeDasharray="3 3" strokeLinecap="round" />
+  </svg>
 );

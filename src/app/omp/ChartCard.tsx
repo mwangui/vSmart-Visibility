@@ -146,14 +146,18 @@ export function RefreshLinkButton({ onClick, ariaLabel }: RefreshLinkButtonProps
 }
 
 function ExportIcon() {
-  // Upload-tray icon: arrow up out of a tray (matches new design comp).
+  // Upload icon: vertical arrow pointing UP, open-top U-shaped tray
+  // beneath. Matches the Export-button comp.
+  //   M7 8V2          → shaft (7,8) to (7,2)
+  //   M3 5L7 2 11 5   → V-shaped arrowhead at the top, opening downward
+  //   M2 10v2h10v-2   → tray: down 2, right 10, up 2 (open-top "[_]")
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
       <path
-        d="M7 1v8m0 0L4 6m3 3 3-3M2 11h10v2H2z"
+        d="M7 8V2M3 5L7 2 11 5M2 10v2h10v-2"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -162,38 +166,50 @@ function ExportIcon() {
 }
 
 function RefreshIcon() {
-  // Circular-arrow refresh icon.
+  // Refresh icon — two clockwise arcs that are visibly SEPARATE
+  // (clear gap on both the left and the right side, matching the
+  // design comp). Each arc ends in a chevron arrowhead.
+  //
+  //  Top arc :  (3,5) ──┐ via top ┌── (11,5)   ← arrowhead
+  //                                                 ↓ gap (4px)
+  //  Bottom  : ◄─ (3,9) ┘ via bot └── (11,9)
+  //               ↑ arrowhead
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
+      {/* Top arc: upper-left to upper-right via the top (clockwise) */}
       <path
-        d="M2 7a5 5 0 0 1 8.5-3.5L12 5"
+        d="M3 5 A 5 5 0 0 1 11 5"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      {/* Top chevron — tip at (11,5), points down-right */}
       <path
-        d="M12 1v4h-4"
+        d="M9 3 L 11 5 L 11 2"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+
+      {/* Bottom arc: lower-right to lower-left via the bottom (clockwise) */}
       <path
-        d="M12 7a5 5 0 0 1-8.5 3.5L2 9"
+        d="M11 9 A 5 5 0 0 1 3 9"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      {/* Bottom chevron — tip at (3,9), points up-left */}
       <path
-        d="M2 13V9h4"
+        d="M5 11 L 3 9 L 3 12"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -227,9 +243,10 @@ export function Legend({ items }: { items: LegendItem[] }) {
           <span
             style={{
               display: 'inline-flex',
-              width: 16,
+              width: 30,
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}
           >
             {item.marker}
