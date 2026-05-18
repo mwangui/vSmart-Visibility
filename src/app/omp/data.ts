@@ -2,22 +2,75 @@
  * OMP Statistics — Mock Database
  *
  * Single source of truth for the three data feeds described in
- * `OMP_Statistics_施工計畫_v0.2.pdf` §5:
- *   1. ompUsageByHour     — 12 hour points × 7 numeric fields
- *   2. eventSummaryByHour — 12 hour points × 3 event-type counts
+ * `OMP_Statistics_施工計畫_v0.2.pdf` §5, extended to a rolling 24-hour window:
+ *   1. ompUsageByHour     — 24 hour points × 7 numeric fields
+ *   2. eventSummaryByHour — 24 hour points × 3 event-type counts
  *   3. mockLogRows        — 200 seeded fake log rows
+ *
+ * The hour labels and row datetimes derive from a `baseDate` (the rolling
+ * window's right edge, rounded down to the hour). The label list rotates so
+ * the chart always shows the most recent 24 hours ending at the user's
+ * current local hour, while the underlying numeric values stay keyed by
+ * hour-of-day so each label keeps a stable, deterministic data point.
  *
  * No values may be hardcoded inside chart / handler / table code; everything
  * downstream reads from this module.
  */
 
-export const HOURS = [
-  '00:00', '01:00', '02:00', '03:00',
-  '04:00', '05:00', '06:00', '07:00',
-  '08:00', '09:00', '10:00', '11:00',
-] as const;
+const PAD2 = (n: number) => (n < 10 ? `0${n}` : `${n}`);
 
-export type Hour = typeof HOURS[number];
+const ALL_HOURS_OF_DAY: readonly string[] = Array.from(
+  { length: 24 },
+  (_, h) => `${PAD2(h)}:00`,
+);
+
+/**
+ * Hour labels are runtime strings of the form "HH:00" (00:00…23:00). Each
+ * rolling 24h window contains every hour-of-day exactly once, so string
+ * equality remains a safe key for filter joins between chart selection and
+ * table rows.
+ */
+export type Hour = string;
+
+/**
+ * Compute the rolling 24h hour-label list ending at `baseDate`'s floored
+ * hour. Example: baseDate = 18:30 on May 17 → ['19:00','20:00',…,'17:00','18:00']
+ * (5 labels from May 16, then 19 labels from May 17).
+ */
+export function getHours(baseDate: Date): readonly string[] {
+  const end = floorToHour(baseDate);
+  const out: string[] = [];
+  for (let i = 23; i >= 0; i--) {
+    const t = new Date(end.getTime() - i * 60 * 60 * 1000);
+    out.push(`${PAD2(t.getHours())}:00`);
+  }
+  return out;
+}
+
+/**
+ * Resolve the actual Date a given rolling-window hour label maps to. Used by
+ * both `generateMockLogRows` (to stamp `eventTime`) and the
+ * tooltip/SelectedPeriod formatters (to show the correct calendar date for a
+ * selected hour that may belong to the previous day).
+ */
+export function resolveHourDate(baseDate: Date, hour: string): Date {
+  const h = parseInt(hour.slice(0, 2), 10);
+  const end = floorToHour(baseDate);
+  const endHour = end.getHours();
+  const isYesterday = h > endHour;
+  const d = new Date(end);
+  if (isYesterday) {
+    d.setDate(d.getDate() - 1);
+  }
+  d.setHours(h, 0, 0, 0);
+  return d;
+}
+
+function floorToHour(date: Date): Date {
+  const d = new Date(date);
+  d.setMinutes(0, 0, 0);
+  return d;
+}
 
 export const EVENT_TYPES = {
   CONTROL_CONNECTION: 'Control connection state change',
@@ -37,7 +90,7 @@ export const EVENT_TYPE_ORDER: EventTypeName[] = [
 ];
 
 // -----------------------------------------------------------------------------
-// 5.2 OMP Usage 12 hours
+// 5.2 OMP Usage — 24 entries keyed by hour-of-day
 // -----------------------------------------------------------------------------
 
 export interface OmpUsagePoint {
@@ -51,23 +104,51 @@ export interface OmpUsagePoint {
   warningThreshold: number;
 }
 
-export const ompUsageByHour: OmpUsagePoint[] = [
-  { hour: '00:00', cpuUsage: 54, memoryUsage: 34, cpuAverage: 49, memoryAverage: 28, totalCpu: 50, totalMemory: 82, warningThreshold: 80 },
-  { hour: '01:00', cpuUsage: 33, memoryUsage: 44, cpuAverage: 47, memoryAverage: 27, totalCpu: 48, totalMemory: 80, warningThreshold: 80 },
-  { hour: '02:00', cpuUsage: 71, memoryUsage: 29, cpuAverage: 51, memoryAverage: 35, totalCpu: 51, totalMemory: 81, warningThreshold: 80 },
-  { hour: '03:00', cpuUsage: 27, memoryUsage: 56, cpuAverage: 45, memoryAverage: 34, totalCpu: 45, totalMemory: 83, warningThreshold: 80 },
-  { hour: '04:00', cpuUsage: 32, memoryUsage: 45, cpuAverage: 47, memoryAverage: 25, totalCpu: 47, totalMemory: 82, warningThreshold: 80 },
-  { hour: '05:00', cpuUsage: 83, memoryUsage: 52, cpuAverage: 43, memoryAverage: 26, totalCpu: 52, totalMemory: 86, warningThreshold: 80 },
-  { hour: '06:00', cpuUsage: 55, memoryUsage: 36, cpuAverage: 44, memoryAverage: 31, totalCpu: 51, totalMemory: 84, warningThreshold: 80 },
-  { hour: '07:00', cpuUsage: 46, memoryUsage: 55, cpuAverage: 41, memoryAverage: 40, totalCpu: 49, totalMemory: 82, warningThreshold: 80 },
-  { hour: '08:00', cpuUsage: 64, memoryUsage: 42, cpuAverage: 54, memoryAverage: 35, totalCpu: 50, totalMemory: 83, warningThreshold: 80 },
-  { hour: '09:00', cpuUsage: 35, memoryUsage: 56, cpuAverage: 48, memoryAverage: 29, totalCpu: 47, totalMemory: 81, warningThreshold: 80 },
-  { hour: '10:00', cpuUsage: 33, memoryUsage: 46, cpuAverage: 54, memoryAverage: 37, totalCpu: 49, totalMemory: 80, warningThreshold: 80 },
-  { hour: '11:00', cpuUsage: 39, memoryUsage: 52, cpuAverage: 45, memoryAverage: 32, totalCpu: 48, totalMemory: 82, warningThreshold: 80 },
-];
+type UsageValues = Omit<OmpUsagePoint, 'hour'>;
+
+/**
+ * Per-hour-of-day usage values. Hours 00-11 retain the original spec values
+ * (preserved for visual continuity with prior screenshots); hours 12-23 model
+ * a typical business-hours workload curve that peaks mid-afternoon and cools
+ * down overnight without breaching the 80% warning threshold too often.
+ */
+const USAGE_BY_HOUR_OF_DAY: Record<string, UsageValues> = {
+  '00:00': { cpuUsage: 54, memoryUsage: 34, cpuAverage: 49, memoryAverage: 28, totalCpu: 50, totalMemory: 82, warningThreshold: 80 },
+  '01:00': { cpuUsage: 33, memoryUsage: 44, cpuAverage: 47, memoryAverage: 27, totalCpu: 48, totalMemory: 80, warningThreshold: 80 },
+  '02:00': { cpuUsage: 71, memoryUsage: 29, cpuAverage: 51, memoryAverage: 35, totalCpu: 51, totalMemory: 81, warningThreshold: 80 },
+  '03:00': { cpuUsage: 27, memoryUsage: 56, cpuAverage: 45, memoryAverage: 34, totalCpu: 45, totalMemory: 83, warningThreshold: 80 },
+  '04:00': { cpuUsage: 32, memoryUsage: 45, cpuAverage: 47, memoryAverage: 25, totalCpu: 47, totalMemory: 82, warningThreshold: 80 },
+  '05:00': { cpuUsage: 83, memoryUsage: 52, cpuAverage: 43, memoryAverage: 26, totalCpu: 52, totalMemory: 86, warningThreshold: 80 },
+  '06:00': { cpuUsage: 55, memoryUsage: 36, cpuAverage: 44, memoryAverage: 31, totalCpu: 51, totalMemory: 84, warningThreshold: 80 },
+  '07:00': { cpuUsage: 46, memoryUsage: 55, cpuAverage: 41, memoryAverage: 40, totalCpu: 49, totalMemory: 82, warningThreshold: 80 },
+  '08:00': { cpuUsage: 64, memoryUsage: 42, cpuAverage: 54, memoryAverage: 35, totalCpu: 50, totalMemory: 83, warningThreshold: 80 },
+  '09:00': { cpuUsage: 35, memoryUsage: 56, cpuAverage: 48, memoryAverage: 29, totalCpu: 47, totalMemory: 81, warningThreshold: 80 },
+  '10:00': { cpuUsage: 33, memoryUsage: 46, cpuAverage: 54, memoryAverage: 37, totalCpu: 49, totalMemory: 80, warningThreshold: 80 },
+  '11:00': { cpuUsage: 39, memoryUsage: 52, cpuAverage: 45, memoryAverage: 32, totalCpu: 48, totalMemory: 82, warningThreshold: 80 },
+  '12:00': { cpuUsage: 67, memoryUsage: 49, cpuAverage: 50, memoryAverage: 38, totalCpu: 53, totalMemory: 84, warningThreshold: 80 },
+  '13:00': { cpuUsage: 72, memoryUsage: 58, cpuAverage: 55, memoryAverage: 41, totalCpu: 56, totalMemory: 85, warningThreshold: 80 },
+  '14:00': { cpuUsage: 78, memoryUsage: 61, cpuAverage: 57, memoryAverage: 44, totalCpu: 58, totalMemory: 86, warningThreshold: 80 },
+  '15:00': { cpuUsage: 81, memoryUsage: 54, cpuAverage: 59, memoryAverage: 42, totalCpu: 57, totalMemory: 85, warningThreshold: 80 },
+  '16:00': { cpuUsage: 69, memoryUsage: 50, cpuAverage: 56, memoryAverage: 39, totalCpu: 55, totalMemory: 83, warningThreshold: 80 },
+  '17:00': { cpuUsage: 58, memoryUsage: 47, cpuAverage: 52, memoryAverage: 38, totalCpu: 52, totalMemory: 82, warningThreshold: 80 },
+  '18:00': { cpuUsage: 49, memoryUsage: 41, cpuAverage: 48, memoryAverage: 36, totalCpu: 50, totalMemory: 81, warningThreshold: 80 },
+  '19:00': { cpuUsage: 44, memoryUsage: 38, cpuAverage: 46, memoryAverage: 34, totalCpu: 48, totalMemory: 80, warningThreshold: 80 },
+  '20:00': { cpuUsage: 41, memoryUsage: 36, cpuAverage: 45, memoryAverage: 33, totalCpu: 47, totalMemory: 80, warningThreshold: 80 },
+  '21:00': { cpuUsage: 38, memoryUsage: 33, cpuAverage: 44, memoryAverage: 31, totalCpu: 46, totalMemory: 80, warningThreshold: 80 },
+  '22:00': { cpuUsage: 36, memoryUsage: 31, cpuAverage: 43, memoryAverage: 30, totalCpu: 45, totalMemory: 79, warningThreshold: 80 },
+  '23:00': { cpuUsage: 41, memoryUsage: 35, cpuAverage: 44, memoryAverage: 30, totalCpu: 47, totalMemory: 80, warningThreshold: 80 },
+};
+
+/**
+ * Materialise the OMP usage series for a rolling 24h window ending at
+ * `baseDate`. The returned list is ordered chronologically (oldest first).
+ */
+export function getOmpUsageByHour(baseDate: Date): OmpUsagePoint[] {
+  return getHours(baseDate).map(hour => ({ hour, ...USAGE_BY_HOUR_OF_DAY[hour] }));
+}
 
 // -----------------------------------------------------------------------------
-// 5.3 Event Summary 12 hours
+// 5.3 Event Summary — 24 entries keyed by hour-of-day
 // -----------------------------------------------------------------------------
 
 export interface EventSummaryPoint {
@@ -77,20 +158,38 @@ export interface EventSummaryPoint {
   policyChange: number;
 }
 
-export const eventSummaryByHour: EventSummaryPoint[] = [
-  { hour: '00:00', controlConnectionStateChange: 18, ompPeerStateChange: 14, policyChange: 21 },
-  { hour: '01:00', controlConnectionStateChange:  9, ompPeerStateChange: 16, policyChange:  5 },
-  { hour: '02:00', controlConnectionStateChange: 21, ompPeerStateChange: 13, policyChange: 18 },
-  { hour: '03:00', controlConnectionStateChange:  7, ompPeerStateChange: 10, policyChange: 24 },
-  { hour: '04:00', controlConnectionStateChange: 19, ompPeerStateChange:  5, policyChange: 22 },
-  { hour: '05:00', controlConnectionStateChange: 16, ompPeerStateChange: 25, policyChange: 27 }, // dramatic peak
-  { hour: '06:00', controlConnectionStateChange: 22, ompPeerStateChange: 13, policyChange: 10 },
-  { hour: '07:00', controlConnectionStateChange: 10, ompPeerStateChange:  6, policyChange:  5 },
-  { hour: '08:00', controlConnectionStateChange:  5, ompPeerStateChange: 23, policyChange: 11 },
-  { hour: '09:00', controlConnectionStateChange:  5, ompPeerStateChange:  6, policyChange: 26 },
-  { hour: '10:00', controlConnectionStateChange: 21, ompPeerStateChange: 12, policyChange: 19 },
-  { hour: '11:00', controlConnectionStateChange:  7, ompPeerStateChange:  8, policyChange:  5 },
-];
+type EventCounts = Omit<EventSummaryPoint, 'hour'>;
+
+const EVENT_SUMMARY_BY_HOUR_OF_DAY: Record<string, EventCounts> = {
+  '00:00': { controlConnectionStateChange: 18, ompPeerStateChange: 14, policyChange: 21 },
+  '01:00': { controlConnectionStateChange:  9, ompPeerStateChange: 16, policyChange:  5 },
+  '02:00': { controlConnectionStateChange: 21, ompPeerStateChange: 13, policyChange: 18 },
+  '03:00': { controlConnectionStateChange:  7, ompPeerStateChange: 10, policyChange: 24 },
+  '04:00': { controlConnectionStateChange: 19, ompPeerStateChange:  5, policyChange: 22 },
+  '05:00': { controlConnectionStateChange: 16, ompPeerStateChange: 25, policyChange: 27 }, // dramatic peak
+  '06:00': { controlConnectionStateChange: 22, ompPeerStateChange: 13, policyChange: 10 },
+  '07:00': { controlConnectionStateChange: 10, ompPeerStateChange:  6, policyChange:  5 },
+  '08:00': { controlConnectionStateChange:  5, ompPeerStateChange: 23, policyChange: 11 },
+  '09:00': { controlConnectionStateChange:  5, ompPeerStateChange:  6, policyChange: 26 },
+  '10:00': { controlConnectionStateChange: 21, ompPeerStateChange: 12, policyChange: 19 },
+  '11:00': { controlConnectionStateChange:  7, ompPeerStateChange:  8, policyChange:  5 },
+  '12:00': { controlConnectionStateChange: 14, ompPeerStateChange: 11, policyChange: 16 },
+  '13:00': { controlConnectionStateChange: 17, ompPeerStateChange: 19, policyChange: 22 },
+  '14:00': { controlConnectionStateChange: 11, ompPeerStateChange: 14, policyChange: 18 },
+  '15:00': { controlConnectionStateChange: 24, ompPeerStateChange: 16, policyChange: 13 },
+  '16:00': { controlConnectionStateChange: 19, ompPeerStateChange: 21, policyChange: 25 },
+  '17:00': { controlConnectionStateChange:  9, ompPeerStateChange: 12, policyChange:  7 },
+  '18:00': { controlConnectionStateChange:  6, ompPeerStateChange:  8, policyChange: 11 },
+  '19:00': { controlConnectionStateChange: 13, ompPeerStateChange:  5, policyChange: 17 },
+  '20:00': { controlConnectionStateChange:  8, ompPeerStateChange:  7, policyChange:  6 },
+  '21:00': { controlConnectionStateChange:  5, ompPeerStateChange:  9, policyChange:  4 },
+  '22:00': { controlConnectionStateChange: 11, ompPeerStateChange:  6, policyChange:  8 },
+  '23:00': { controlConnectionStateChange: 15, ompPeerStateChange: 10, policyChange: 12 },
+};
+
+export function getEventSummaryByHour(baseDate: Date): EventSummaryPoint[] {
+  return getHours(baseDate).map(hour => ({ hour, ...EVENT_SUMMARY_BY_HOUR_OF_DAY[hour] }));
+}
 
 // -----------------------------------------------------------------------------
 // 5.4 Mock Database — 200 seeded fake rows
@@ -114,14 +213,22 @@ const ROUTES_RECEIVED_POOL = [36, 40, 41];
 const PEERS_POOL           = [1, 2, 3];
 
 /**
- * Total = 200, with 05:00 deliberately spiking to 29 (matches the figure 05
- * scenario where Selected period filters 316→29 results).
+ * Per-hour-of-day target counts. Sum = 200. The 05:00 spike (15) preserves
+ * the previous 12h-distribution scenario where Selected period filters
+ * 200→15 results for the dramatic peak hour.
  */
-export const TABLE_ROW_DISTRIBUTION_BY_HOUR: Record<Hour, number> = {
-  '00:00': 18, '01:00': 14, '02:00': 18, '03:00': 13,
-  '04:00': 16, '05:00': 29, '06:00': 16, '07:00': 10,
-  '08:00': 18, '09:00': 15, '10:00': 20, '11:00': 13,
+const ROW_DISTRIBUTION_BY_HOUR_OF_DAY: Record<string, number> = {
+  '00:00':  9, '01:00':  7, '02:00': 10, '03:00':  6,
+  '04:00':  8, '05:00': 15, '06:00':  8, '07:00':  5,
+  '08:00':  9, '09:00':  7, '10:00': 10, '11:00':  6,
+  '12:00':  9, '13:00': 10, '14:00':  9, '15:00': 11,
+  '16:00': 12, '17:00':  7, '18:00':  7, '19:00':  9,
+  '20:00':  6, '21:00':  5, '22:00':  7, '23:00':  8,
 };
+
+export function getRowDistribution(): Record<string, number> {
+  return ROW_DISTRIBUTION_BY_HOUR_OF_DAY;
+}
 
 export interface MockLogRow {
   id: string;
@@ -187,12 +294,12 @@ function formatRowTime(date: Date): string {
 
 /**
  * Allocate the per-hour total into 3 event types proportional to that hour's
- * eventSummaryByHour, rounding down then redistributing the leftover by largest
+ * summary entry, rounding down then redistributing the leftover by largest
  * fractional remainder. Guarantees the per-hour sum exactly equals `total`.
  */
 function splitEventTypes(
   total: number,
-  summary: EventSummaryPoint,
+  summary: EventCounts,
 ): Record<EventTypeName, number> {
   const weights: Array<[EventTypeName, number]> = [
     [EVENT_TYPES.CONTROL_CONNECTION, summary.controlConnectionStateChange],
@@ -236,9 +343,11 @@ export interface GenerateOptions {
 
 /**
  * Generate `totalRows` mock log rows whose hour distribution matches
- * `TABLE_ROW_DISTRIBUTION_BY_HOUR` and whose per-hour event-type breakdown is
- * proportional to `eventSummaryByHour`. Times are anchored to `baseDate` (day
- * portion only) — `Feb 16, 2025` is forbidden by §9.
+ * `ROW_DISTRIBUTION_BY_HOUR_OF_DAY` over the rolling 24h window ending at
+ * `baseDate`. Per-hour event-type breakdown is proportional to
+ * `EVENT_SUMMARY_BY_HOUR_OF_DAY`. Times are stamped on the actual calendar
+ * date the rolling-window hour belongs to (today or yesterday), so rows in
+ * the early labels carry yesterday's date when the window crosses midnight.
  */
 export function generateMockLogRows(
   baseDate: Date,
@@ -248,17 +357,11 @@ export function generateMockLogRows(
   const rows: MockLogRow[] = [];
   let rowIndex = 0;
 
-  const dayAnchor = new Date(
-    baseDate.getFullYear(),
-    baseDate.getMonth(),
-    baseDate.getDate(),
-    0, 0, 0, 0,
-  );
-
-  for (const hour of HOURS) {
-    const desired = TABLE_ROW_DISTRIBUTION_BY_HOUR[hour];
-    const summary = eventSummaryByHour.find(s => s.hour === hour)!;
+  for (const hour of getHours(baseDate)) {
+    const desired = ROW_DISTRIBUTION_BY_HOUR_OF_DAY[hour];
+    const summary = EVENT_SUMMARY_BY_HOUR_OF_DAY[hour];
     const split   = splitEventTypes(desired, summary);
+    const hourAnchor = resolveHourDate(baseDate, hour);
 
     const hourRows: MockLogRow[] = [];
     for (const eventName of EVENT_TYPE_ORDER) {
@@ -266,8 +369,8 @@ export function generateMockLogRows(
       for (let i = 0; i < count; i++) {
         // Spread minutes across the hour deterministically but unevenly.
         const offsetMin = Math.floor(rand() * 60);
-        const eventTime = new Date(dayAnchor);
-        eventTime.setHours(parseInt(hour.slice(0, 2), 10), offsetMin, 0, 0);
+        const eventTime = new Date(hourAnchor);
+        eventTime.setMinutes(offsetMin, 0, 0);
 
         const systemIp  = SYSTEM_IP_POOL [Math.floor(rand() * SYSTEM_IP_POOL.length)];
         const hostname  = HOSTNAME_POOL [Math.floor(rand() * HOSTNAME_POOL.length)];
@@ -316,3 +419,7 @@ export function distinctSystemIps(rows: MockLogRow[]): string[] {
 export function distinctSiteNames(rows: MockLogRow[]): string[] {
   return Array.from(new Set(rows.map(r => r.siteName))).sort();
 }
+
+// Re-export the static hour-of-day list for callers that need the full
+// vocabulary (e.g. validation or test fixtures) independent of a baseDate.
+export { ALL_HOURS_OF_DAY };

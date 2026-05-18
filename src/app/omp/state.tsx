@@ -11,9 +11,14 @@ import {
 import {
   EVENT_TYPE_ORDER,
   type EventTypeName,
+  type EventSummaryPoint,
   type Hour,
   type MockLogRow,
+  type OmpUsagePoint,
   generateMockLogRows,
+  getEventSummaryByHour,
+  getHours,
+  getOmpUsageByHour,
 } from './data';
 
 export type SortableColumn =
@@ -31,7 +36,7 @@ export type SortDirection = 'asc' | 'desc';
 
 export interface OmpState {
   baseDate: Date;
-  selectedHour: Hour | null;          // null = 12-hour range
+  selectedHour: Hour | null;          // null = full 24-hour range
   searchKeyword: string;
   selectedSystemIps: Set<string>;
   selectedSiteNames: Set<string>;
@@ -156,6 +161,12 @@ function reducer(state: OmpState, action: OmpAction): OmpState {
 interface OmpContextValue {
   state: OmpState;
   dispatch: Dispatch<OmpAction>;
+  /** Rolling 24h hour-label list (chronological, oldest first). */
+  hours: readonly string[];
+  /** OMP usage series materialised for the rolling 24h window. */
+  ompUsageByHour: OmpUsagePoint[];
+  /** Event summary series materialised for the rolling 24h window. */
+  eventSummaryByHour: EventSummaryPoint[];
   /** All 200 mock rows; stable across renders for a given baseDate. */
   allRows: MockLogRow[];
   /** Pipeline result: filtered + sorted rows (pre-pagination). */
@@ -176,6 +187,17 @@ interface OmpStateProviderProps {
 export function OmpStateProvider({ children, baseDate }: OmpStateProviderProps) {
   const anchor = useMemo(() => baseDate ?? new Date(), [baseDate]);
   const [state, dispatch] = useReducer(reducer, anchor, initialState);
+
+  // Rolling 24h derived data — computed once per anchor and shared via
+  // context so the chart, table, label, and PDF export all read from one
+  // materialised list rather than re-deriving from `getHours(anchor)` on
+  // every render.
+  const hours = useMemo(() => getHours(anchor), [anchor]);
+  const ompUsageByHour = useMemo(() => getOmpUsageByHour(anchor), [anchor]);
+  const eventSummaryByHour = useMemo(
+    () => getEventSummaryByHour(anchor),
+    [anchor],
+  );
 
   const allRows = useMemo(
     () => generateMockLogRows(anchor),
@@ -205,6 +227,9 @@ export function OmpStateProvider({ children, baseDate }: OmpStateProviderProps) 
   const value: OmpContextValue = {
     state,
     dispatch,
+    hours,
+    ompUsageByHour,
+    eventSummaryByHour,
     allRows,
     filteredRows,
     pageRows,
