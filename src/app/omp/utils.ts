@@ -22,10 +22,10 @@ export function formatDateLabel(date: Date): string {
   return `${MONTH_SHORT[date.getMonth()]} ${pad2(date.getDate())}, ${date.getFullYear()}`;
 }
 
-/** "May 02, 05:00:00" — used in chart tooltip subtitle. */
+/** "May 02, 05:00" — used in chart tooltip subtitle. */
 export function formatTooltipSubtitle(baseDate: Date, hour: string): string {
   const d = resolveHourDate(baseDate, hour);
-  return `${MONTH_SHORT[d.getMonth()]} ${pad2(d.getDate())}, ${hour}:00`;
+  return `${MONTH_SHORT[d.getMonth()]} ${pad2(d.getDate())}, ${hour}`;
 }
 
 /**
@@ -33,19 +33,39 @@ export function formatTooltipSubtitle(baseDate: Date, hour: string): string {
  * ending at `baseDate`'s floored hour. Collapses to a same-day form when the
  * window does not cross midnight: "24-hour range: May 17, 2026 00:00 – 23:00".
  */
-export function format24HourRange(baseDate: Date): string {
+export function format24HourRange(baseDate: Date, rangeHours = 24): string {
   const end = floorToHour(baseDate);
-  const start = new Date(end.getTime() - 23 * 60 * 60 * 1000);
+  const minuteStep = getMinuteBucketStep(rangeHours);
+  if (minuteStep) {
+    const start = new Date(end);
+    start.setHours(end.getHours() - (rangeHours - 1), 0, 0, 0);
+    const endBucket = new Date(end);
+    endBucket.setMinutes(60 - minuteStep, 0, 0);
+    const startLabel = `${pad2(start.getHours())}:00`;
+    const endLabel = `${pad2(endBucket.getHours())}:${pad2(endBucket.getMinutes())}`;
+    const rangeLabel = `${rangeHours}-hour range`;
+    const sameDay =
+      start.getFullYear() === endBucket.getFullYear() &&
+      start.getMonth()    === endBucket.getMonth() &&
+      start.getDate()     === endBucket.getDate();
+    if (sameDay) {
+      return `${rangeLabel}: ${formatDateLabel(start)} ${startLabel} – ${endLabel}`;
+    }
+    return `${rangeLabel}: ${formatDateLabel(start)} ${startLabel} – ${formatDateLabel(endBucket)} ${endLabel}`;
+  }
+
+  const start = new Date(end.getTime() - (rangeHours - 1) * 60 * 60 * 1000);
   const startLabel = `${pad2(start.getHours())}:00`;
   const endLabel   = `${pad2(end.getHours())}:00`;
+  const rangeLabel = `${rangeHours}-hour range`;
   const sameDay =
     start.getFullYear() === end.getFullYear() &&
     start.getMonth()    === end.getMonth() &&
     start.getDate()     === end.getDate();
   if (sameDay) {
-    return `24-hour range: ${formatDateLabel(start)} ${startLabel} – ${endLabel}`;
+    return `${rangeLabel}: ${formatDateLabel(start)} ${startLabel} – ${endLabel}`;
   }
-  return `24-hour range: ${formatDateLabel(start)} ${startLabel} – ${formatDateLabel(end)} ${endLabel}`;
+  return `${rangeLabel}: ${formatDateLabel(start)} ${startLabel} – ${formatDateLabel(end)} ${endLabel}`;
 }
 
 /**
@@ -54,17 +74,32 @@ export function format24HourRange(baseDate: Date): string {
  * against the rolling 24h window so labels belonging to yesterday show the
  * correct date.
  */
-export function formatSelectedPeriod(baseDate: Date, hour: string): string {
+export function formatSelectedPeriod(baseDate: Date, hour: string, rangeHours = 24): string {
   const d = resolveHourDate(baseDate, hour);
   const h = parseInt(hour.slice(0, 2), 10);
+  const m = parseInt(hour.slice(3, 5), 10) || 0;
+
+  const minuteStep = getMinuteBucketStep(rangeHours);
+  if (minuteStep) {
+    const end = new Date(d.getTime() + minuteStep * 60 * 1000);
+    return `Selected period: ${formatDateLabel(d)} ${hour} – ${pad2(end.getHours())}:${pad2(end.getMinutes())}`;
+  }
+
   const next = pad2((h + 1) % 24);
-  return `Selected period: ${formatDateLabel(d)} ${hour} – ${next}:00`;
+  return `Selected period: ${formatDateLabel(d)} ${pad2(h)}:${pad2(m)} – ${next}:00`;
 }
 
 function floorToHour(date: Date): Date {
   const d = new Date(date);
   d.setMinutes(0, 0, 0);
   return d;
+}
+
+function getMinuteBucketStep(rangeHours: number): number | null {
+  if (rangeHours === 1) return 2;
+  if (rangeHours === 3) return 1;
+  if (rangeHours === 6) return 2;
+  return null;
 }
 
 // -----------------------------------------------------------------------------

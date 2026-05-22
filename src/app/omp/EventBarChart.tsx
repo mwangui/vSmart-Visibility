@@ -1,7 +1,8 @@
 /**
  * Zone B — Event stacked bar chart (§4 Flow B+C, §5.3, §8.2-8.3).
  *
- * Renders 24 stacked bars over the rolling 24-hour window. Stack order from
+ * Renders stacked bars over the selected time window. Short ranges use minute
+ * buckets at their configured step; 24 hours remains hourly. Stack order from
  * top → bottom matches the static Figma export:
  *   purple = Policy change
  *   cyan   = OMP peer state change
@@ -109,6 +110,11 @@ export function EventBarChart() {
 
   const hoverIdx = hover ? hours.indexOf(hover.hour) : -1;
   const hoverData = hoverIdx >= 0 ? eventSummaryByHour[hoverIdx] : null;
+  const labelEvery =
+    state.timeRangeHours === 1 ? 5
+    : state.timeRangeHours === 3 ? 15
+    : state.timeRangeHours === 6 ? 15
+    : 2;
 
   // Per latest design: the Event chart header has no Export button; the
   // single page-level Export action lives in the FilterBar above the table
@@ -128,7 +134,7 @@ export function EventBarChart() {
           width={width}
           height={HEIGHT}
           role="img"
-          aria-label="Event stacked bar chart over 24 hours"
+          aria-label={`Event stacked bar chart over ${state.timeRangeHours} hours`}
           style={{ display: 'block' }}
         >
           {/* Y-axis title (rotated, vertically centred in the plot area). */}
@@ -227,12 +233,11 @@ export function EventBarChart() {
             );
           })}
 
-          {/* X axis labels — show every other hour to keep the 24-column
-              axis from overlapping. Selected hours are always shown (even on
-              odd indices) so the bolded label still confirms the selection. */}
+          {/* X axis labels — reduce density for 60-minute views. Selected
+              buckets are always shown so the bolded label confirms selection. */}
           {hours.map((h, i) => {
             const isSelected = state.selectedHour === h;
-            if (i % 2 !== 0 && !isSelected) return null;
+            if (i % labelEvery !== 0 && !isSelected) return null;
             return (
               <text
                 key={h}
@@ -259,7 +264,7 @@ export function EventBarChart() {
             hostWidth={width}
             hostHeight={HEIGHT}
             title="Events status"
-            subtitle={formatTooltipSubtitle(state.baseDate, hover.hour) + ':00'}
+            subtitle={formatTooltipSubtitle(state.baseDate, hover.hour)}
             rows={[
               { marker: Markers.swatch('var(--color-brand-blue)'),
                 label: 'Control connection state change',
