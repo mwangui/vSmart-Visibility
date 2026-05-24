@@ -35,8 +35,12 @@ export function SelectedPeriodLabel() {
       aria-live="polite"
     >
       {isSelected
-        ? formatSelectedPeriod(state.baseDate, state.selectedHour as string)
-        : format24HourRange(state.baseDate)}
+        ? formatSelectedPeriod(
+            state.baseDate,
+            state.selectedHour as string,
+            state.timeRangeHours,
+          )
+        : format24HourRange(state.baseDate, state.timeRangeHours)}
     </span>
   );
 }

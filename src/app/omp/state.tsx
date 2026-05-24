@@ -21,6 +21,12 @@ import {
   getOmpUsageByHour,
 } from './data';
 
+export type TimeRangeHours = 1 | 3 | 6 | 24;
+export const TIME_RANGE_OPTIONS: TimeRangeHours[] = [1, 3, 6, 24];
+
+export const TENANT_OPTIONS = ['All', 'Tenant 1', 'Tenant 2', 'Tenant 3', 'Tenant 4', 'Tenant 5'] as const;
+export type TenantOption = typeof TENANT_OPTIONS[number];
+
 export type SortableColumn =
   | 'eventTime'
   | 'systemIp'
@@ -36,7 +42,9 @@ export type SortDirection = 'asc' | 'desc';
 
 export interface OmpState {
   baseDate: Date;
-  selectedHour: Hour | null;          // null = full 24-hour range
+  timeRangeHours: TimeRangeHours;
+  selectedTenant: TenantOption;
+  selectedHour: Hour | null;          // null = full selected time range
   searchKeyword: string;
   selectedSystemIps: Set<string>;
   selectedSiteNames: Set<string>;
@@ -48,6 +56,8 @@ export interface OmpState {
 }
 
 export type OmpAction =
+  | { type: 'SET_TIME_RANGE'; value: TimeRangeHours }
+  | { type: 'SET_TENANT'; value: TenantOption }
   | { type: 'SET_SELECTED_HOUR'; hour: Hour | null }
   | { type: 'TOGGLE_SELECTED_HOUR'; hour: Hour }
   | { type: 'SET_SEARCH'; value: string }
@@ -65,6 +75,8 @@ export type OmpAction =
 function initialState(baseDate: Date): OmpState {
   return {
     baseDate,
+    timeRangeHours: 24,
+    selectedTenant: 'All',
     selectedHour: null,
     searchKeyword: '',
     selectedSystemIps: new Set<string>(),
@@ -86,6 +98,17 @@ function toggleInSet<T>(set: Set<T>, value: T): Set<T> {
 
 function reducer(state: OmpState, action: OmpAction): OmpState {
   switch (action.type) {
+    case 'SET_TIME_RANGE':
+      return {
+        ...state,
+        timeRangeHours: action.value,
+        selectedHour: null,
+        currentPage: 1,
+      };
+
+    case 'SET_TENANT':
+      return { ...state, selectedTenant: action.value, currentPage: 1 };
+
     case 'SET_SELECTED_HOUR':
       return { ...state, selectedHour: action.hour, currentPage: 1 };
 
@@ -134,6 +157,7 @@ function reducer(state: OmpState, action: OmpAction): OmpState {
         selectedSiteNames: new Set(),
         selectedEventTypes: new Set(),
         selectedHour: null,
+        selectedTenant: 'All',
         currentPage: 1,
       };
 
@@ -167,7 +191,7 @@ interface OmpContextValue {
   ompUsageByHour: OmpUsagePoint[];
   /** Event summary series materialised for the rolling 24h window. */
   eventSummaryByHour: EventSummaryPoint[];
-  /** All 200 mock rows; stable across renders for a given baseDate. */
+  /** Tenant/time-range rows; stable across renders for a given baseDate. */
   allRows: MockLogRow[];
   /** Pipeline result: filtered + sorted rows (pre-pagination). */
   filteredRows: MockLogRow[];
@@ -192,16 +216,25 @@ export function OmpStateProvider({ children, baseDate }: OmpStateProviderProps) 
   // context so the chart, table, label, and PDF export all read from one
   // materialised list rather than re-deriving from `getHours(anchor)` on
   // every render.
-  const hours = useMemo(() => getHours(anchor), [anchor]);
-  const ompUsageByHour = useMemo(() => getOmpUsageByHour(anchor), [anchor]);
+  const hours = useMemo(
+    () => getHours(anchor, state.timeRangeHours),
+    [anchor, state.timeRangeHours],
+  );
+  const ompUsageByHour = useMemo(
+    () => getOmpUsageByHour(anchor, state.timeRangeHours, state.selectedTenant),
+    [anchor, state.timeRangeHours, state.selectedTenant],
+  );
   const eventSummaryByHour = useMemo(
-    () => getEventSummaryByHour(anchor),
-    [anchor],
+    () => getEventSummaryByHour(anchor, state.timeRangeHours, state.selectedTenant),
+    [anchor, state.timeRangeHours, state.selectedTenant],
   );
 
   const allRows = useMemo(
-    () => generateMockLogRows(anchor),
-    [anchor],
+    () => generateMockLogRows(anchor, {
+      rangeHours: state.timeRangeHours,
+      tenant: state.selectedTenant,
+    }),
+    [anchor, state.timeRangeHours, state.selectedTenant],
   );
 
   const filteredRows = useMemo(

@@ -5,13 +5,10 @@
  * `OMP_Statistics_施工計畫_v0.2.pdf` §5, extended to a rolling 24-hour window:
  *   1. ompUsageByHour     — 24 hour points × 7 numeric fields
  *   2. eventSummaryByHour — 24 hour points × 3 event-type counts
- *   3. mockLogRows        — 200 seeded fake log rows
+ *   3. mockLogRows        — seeded fake log rows matching Event counts
  *
- * The hour labels and row datetimes derive from a `baseDate` (the rolling
- * window's right edge, rounded down to the hour). The label list rotates so
- * the chart always shows the most recent 24 hours ending at the user's
- * current local hour, while the underlying numeric values stay keyed by
- * hour-of-day so each label keeps a stable, deterministic data point.
+ * The time labels and row datetimes derive from a `baseDate`. Multi-hour
+ * ranges use hourly buckets; shorter ranges use minute buckets.
  *
  * No values may be hardcoded inside chart / handler / table code; everything
  * downstream reads from this module.
@@ -25,26 +22,47 @@ const ALL_HOURS_OF_DAY: readonly string[] = Array.from(
 );
 
 /**
- * Hour labels are runtime strings of the form "HH:00" (00:00…23:00). Each
- * rolling 24h window contains every hour-of-day exactly once, so string
- * equality remains a safe key for filter joins between chart selection and
- * table rows.
+ * Time labels are runtime strings of the form "HH:mm". The 24-hour range uses
+ * hourly buckets; shorter ranges use minute buckets at their configured step.
  */
 export type Hour = string;
 
 /**
- * Compute the rolling 24h hour-label list ending at `baseDate`'s floored
- * hour. Example: baseDate = 18:30 on May 17 → ['19:00','20:00',…,'17:00','18:00']
- * (5 labels from May 16, then 19 labels from May 17).
+ * Compute the rolling time-label list. Bucket rules:
+ *   1 hour  -> every 2 minutes (30 points)
+ *   3 hours -> every 1 minute  (180 points)
+ *   6 hours -> every 2 minutes (180 points)
+ *   24 hours -> every hour     (24 points)
  */
-export function getHours(baseDate: Date): readonly string[] {
+export function getHours(baseDate: Date, rangeHours = 24): readonly string[] {
+  const minuteStep = getMinuteBucketStep(rangeHours);
+  if (minuteStep) {
+    const end = floorToHour(baseDate);
+    const out: string[] = [];
+    for (let hourOffset = rangeHours - 1; hourOffset >= 0; hourOffset--) {
+      for (let minute = 0; minute < 60; minute += minuteStep) {
+        const t = new Date(end);
+        t.setHours(end.getHours() - hourOffset, minute, 0, 0);
+        out.push(`${PAD2(t.getHours())}:${PAD2(t.getMinutes())}`);
+      }
+    }
+    return out;
+  }
+
   const end = floorToHour(baseDate);
   const out: string[] = [];
-  for (let i = 23; i >= 0; i--) {
+  for (let i = rangeHours - 1; i >= 0; i--) {
     const t = new Date(end.getTime() - i * 60 * 60 * 1000);
     out.push(`${PAD2(t.getHours())}:00`);
   }
   return out;
+}
+
+function getMinuteBucketStep(rangeHours: number): number | null {
+  if (rangeHours === 1) return 2;
+  if (rangeHours === 3) return 1;
+  if (rangeHours === 6) return 2;
+  return null;
 }
 
 /**
@@ -55,6 +73,7 @@ export function getHours(baseDate: Date): readonly string[] {
  */
 export function resolveHourDate(baseDate: Date, hour: string): Date {
   const h = parseInt(hour.slice(0, 2), 10);
+  const minute = parseInt(hour.slice(3, 5), 10) || 0;
   const end = floorToHour(baseDate);
   const endHour = end.getHours();
   const isYesterday = h > endHour;
@@ -62,7 +81,7 @@ export function resolveHourDate(baseDate: Date, hour: string): Date {
   if (isYesterday) {
     d.setDate(d.getDate() - 1);
   }
-  d.setHours(h, 0, 0, 0);
+  d.setHours(h, minute, 0, 0);
   return d;
 }
 
@@ -89,8 +108,43 @@ export const EVENT_TYPE_ORDER: EventTypeName[] = [
   EVENT_TYPES.OMP_PEER_STATE,
 ];
 
+function tenantIndex(tenant = 'All'): number {
+  const match = /^Tenant ([1-5])$/.exec(tenant);
+  return match ? Number(match[1]) : 0;
+}
+
+function clamp(n: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, n));
+}
+
+function hourNumber(hour: string): number {
+  return parseInt(hour.slice(0, 2), 10);
+}
+
+function minuteNumber(hour: string): number {
+  return parseInt(hour.slice(3, 5), 10) || 0;
+}
+
+function hourKey(hour: string): string {
+  return `${hour.slice(0, 2)}:00`;
+}
+
+function seededUnit(...parts: Array<string | number>): number {
+  let hash = 2166136261;
+  const input = parts.join('|');
+  for (let i = 0; i < input.length; i++) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0) / 4294967295;
+}
+
+function seededRange(min: number, max: number, ...parts: Array<string | number>): number {
+  return min + seededUnit(...parts) * (max - min);
+}
+
 // -----------------------------------------------------------------------------
-// 5.2 OMP Usage — 24 entries keyed by hour-of-day
+// 5.2 OMP Usage — hourly or minute buckets keyed by time label
 // -----------------------------------------------------------------------------
 
 export interface OmpUsagePoint {
@@ -143,12 +197,72 @@ const USAGE_BY_HOUR_OF_DAY: Record<string, UsageValues> = {
  * Materialise the OMP usage series for a rolling 24h window ending at
  * `baseDate`. The returned list is ordered chronologically (oldest first).
  */
-export function getOmpUsageByHour(baseDate: Date): OmpUsagePoint[] {
-  return getHours(baseDate).map(hour => ({ hour, ...USAGE_BY_HOUR_OF_DAY[hour] }));
+export function getOmpUsageByHour(
+  baseDate: Date,
+  rangeHours = 24,
+  tenant = 'All',
+): OmpUsagePoint[] {
+  return getHours(baseDate, rangeHours).map(hour => ({
+    hour,
+    ...getTenantUsageValues(hour, tenant),
+  }));
+}
+
+function getTenantUsageValues(hour: string, tenant: string): UsageValues {
+  const base = USAGE_BY_HOUR_OF_DAY[hourKey(hour)];
+  const idx = tenantIndex(tenant);
+  const h = hourNumber(hour);
+  const m = minuteNumber(hour);
+  const phase = seededRange(0, Math.PI * 2, tenant, h, 'phase');
+  const minuteWave = Math.sin((m / 59) * Math.PI * 3 + phase) * 7
+    + Math.sin((m / 59) * Math.PI * 9 + phase / 2) * 3
+    + seededRange(-5, 5, tenant, h, m, 'cpu-noise');
+  const minuteMemoryWave = Math.cos((m / 59) * Math.PI * 2.5 + phase) * 6
+    + Math.sin((m / 59) * Math.PI * 7 + phase) * 2
+    + seededRange(-4, 4, tenant, h, m, 'mem-noise');
+  const spike = seededUnit(tenant, h, m, 'usage-spike') > 0.92
+    ? seededRange(6, 14, tenant, h, m, 'usage-spike-size')
+    : 0;
+  const dip = seededUnit(tenant, h, m, 'usage-dip') > 0.94
+    ? seededRange(5, 12, tenant, h, m, 'usage-dip-size')
+    : 0;
+
+  if (idx === 0) {
+    return {
+      ...base,
+      cpuUsage: clamp(Math.round(base.cpuUsage + minuteWave + spike - dip), 12, 94),
+      memoryUsage: clamp(Math.round(base.memoryUsage + minuteMemoryWave + spike / 2 - dip / 2), 10, 90),
+    };
+  }
+
+  const cpuWave = seededRange(-7, 7, tenant, h, m, 'tenant-cpu')
+    + Math.sin((h + m / 60 + idx) * 1.7) * 5;
+  const memoryWave = seededRange(-6, 6, tenant, h, m, 'tenant-memory')
+    + Math.cos((h + m / 60 + idx) * 1.3) * 4;
+  const cpuUsage = clamp(
+    Math.round(base.cpuUsage * (0.76 + idx * 0.07) + cpuWave + idx * 2 + spike - dip),
+    12,
+    94,
+  );
+  const memoryUsage = clamp(
+    Math.round(base.memoryUsage * (0.80 + idx * 0.05) + memoryWave + idx * 2 + spike / 2 - dip / 2),
+    10,
+    90,
+  );
+
+  return {
+    cpuUsage,
+    memoryUsage,
+    cpuAverage: clamp(Math.round(cpuUsage * (0.70 + idx * 0.03)), 10, 88),
+    memoryAverage: clamp(Math.round(memoryUsage * (0.66 + idx * 0.035)), 10, 86),
+    totalCpu: clamp(Math.round(base.totalCpu * (0.88 + idx * 0.035) + cpuWave / 2), 20, 95),
+    totalMemory: clamp(Math.round(base.totalMemory * (0.86 + idx * 0.025) + memoryWave / 2), 30, 96),
+    warningThreshold: 80,
+  };
 }
 
 // -----------------------------------------------------------------------------
-// 5.3 Event Summary — 24 entries keyed by hour-of-day
+// 5.3 Event Summary — hourly or minute buckets keyed by time label
 // -----------------------------------------------------------------------------
 
 export interface EventSummaryPoint {
@@ -187,12 +301,102 @@ const EVENT_SUMMARY_BY_HOUR_OF_DAY: Record<string, EventCounts> = {
   '23:00': { controlConnectionStateChange: 15, ompPeerStateChange: 10, policyChange: 12 },
 };
 
-export function getEventSummaryByHour(baseDate: Date): EventSummaryPoint[] {
-  return getHours(baseDate).map(hour => ({ hour, ...EVENT_SUMMARY_BY_HOUR_OF_DAY[hour] }));
+export function getEventSummaryByHour(
+  baseDate: Date,
+  rangeHours = 24,
+  tenant = 'All',
+): EventSummaryPoint[] {
+  return getHours(baseDate, rangeHours).map(hour => ({
+    hour,
+    ...getTenantEventCounts(hour, tenant, getMinuteBucketStep(rangeHours) !== null),
+  }));
+}
+
+function getTenantEventCounts(hour: string, tenant: string, minuteGranularity = false): EventCounts {
+  const base = EVENT_SUMMARY_BY_HOUR_OF_DAY[hourKey(hour)];
+  const idx = tenantIndex(tenant);
+  const h = hourNumber(hour);
+  const m = minuteNumber(hour);
+
+  if (minuteGranularity) {
+    return getMinuteEventCounts(base, h, m, idx);
+  }
+
+  if (idx === 0) return base;
+
+  const variant = TENANT_EVENT_VARIANTS[idx - 1];
+  return {
+    controlConnectionStateChange: tenantCount(
+      base.controlConnectionStateChange,
+      variant.control,
+      h,
+      idx,
+      1,
+    ),
+    ompPeerStateChange: tenantCount(
+      base.ompPeerStateChange,
+      variant.omp,
+      h,
+      idx,
+      2,
+    ),
+    policyChange: tenantCount(
+      base.policyChange,
+      variant.policy,
+      h,
+      idx,
+      3,
+    ),
+  };
+}
+
+function getMinuteEventCounts(base: EventCounts, hour: number, minute: number, tenant: number): EventCounts {
+  const scale = tenant === 0 ? 1 : 0.7 + tenant * 0.12;
+  return {
+    controlConnectionStateChange: minuteCount(base.controlConnectionStateChange, hour, minute, tenant, 1, scale),
+    ompPeerStateChange: minuteCount(base.ompPeerStateChange, hour, minute, tenant, 2, scale),
+    policyChange: minuteCount(base.policyChange, hour, minute, tenant, 3, scale),
+  };
+}
+
+const TENANT_EVENT_VARIANTS = [
+  { control: 0.42, omp: 0.28, policy: 0.35 },
+  { control: 0.30, omp: 0.50, policy: 0.26 },
+  { control: 0.55, omp: 0.24, policy: 0.31 },
+  { control: 0.26, omp: 0.34, policy: 0.58 },
+  { control: 0.38, omp: 0.44, policy: 0.43 },
+] as const;
+
+function tenantCount(base: number, factor: number, hour: number, tenant: number, salt: number): number {
+  const wave = Math.sin((hour + tenant * 2 + salt) * 1.35) * 3
+    + seededRange(-4, 4, tenant, hour, salt, 'event-hour');
+  const spike = seededUnit(tenant, hour, salt, 'event-hour-spike') > 0.82
+    ? seededRange(4, 10, tenant, hour, salt, 'event-hour-spike-size')
+    : 0;
+  return Math.max(1, Math.round(base * factor + wave + spike));
+}
+
+function minuteCount(
+  base: number,
+  hour: number,
+  minute: number,
+  tenant: number,
+  salt: number,
+  scale: number,
+): number {
+  const trend = Math.sin((minute / 59) * Math.PI * (2 + salt) + tenant + salt) * 2.4;
+  const jitter = seededRange(-2.2, 2.8, tenant, hour, minute, salt, 'minute-event');
+  const spike = seededUnit(tenant, hour, minute, salt, 'minute-event-spike') > 0.88
+    ? seededRange(3, 8, tenant, hour, minute, salt, 'minute-event-spike-size')
+    : 0;
+  const valley = seededUnit(tenant, hour, minute, salt, 'minute-event-valley') > 0.90
+    ? seededRange(1, 3, tenant, hour, minute, salt, 'minute-event-valley-size')
+    : 0;
+  return Math.max(1, Math.round((base / 10) * scale + trend + jitter + spike - valley));
 }
 
 // -----------------------------------------------------------------------------
-// 5.4 Mock Database — 200 seeded fake rows
+// 5.4 Mock Database — seeded fake rows matching Event chart counts
 // -----------------------------------------------------------------------------
 
 const SYSTEM_IP_POOL = [
@@ -211,24 +415,6 @@ const SITE_NAME_POOL = ['San Jose', 'San Francisco', 'Mountain View'];
 const ROUTES_SENT_POOL     = [53, 62, 70];
 const ROUTES_RECEIVED_POOL = [36, 40, 41];
 const PEERS_POOL           = [1, 2, 3];
-
-/**
- * Per-hour-of-day target counts. Sum = 200. The 05:00 spike (15) preserves
- * the previous 12h-distribution scenario where Selected period filters
- * 200→15 results for the dramatic peak hour.
- */
-const ROW_DISTRIBUTION_BY_HOUR_OF_DAY: Record<string, number> = {
-  '00:00':  9, '01:00':  7, '02:00': 10, '03:00':  6,
-  '04:00':  8, '05:00': 15, '06:00':  8, '07:00':  5,
-  '08:00':  9, '09:00':  7, '10:00': 10, '11:00':  6,
-  '12:00':  9, '13:00': 10, '14:00':  9, '15:00': 11,
-  '16:00': 12, '17:00':  7, '18:00':  7, '19:00':  9,
-  '20:00':  6, '21:00':  5, '22:00':  7, '23:00':  8,
-};
-
-export function getRowDistribution(): Record<string, number> {
-  return ROW_DISTRIBUTION_BY_HOUR_OF_DAY;
-}
 
 export interface MockLogRow {
   id: string;
@@ -292,83 +478,48 @@ function formatRowTime(date: Date): string {
   return `${m} ${d}, ${y} ${pad2(h12)}:${min} ${ampm}`;
 }
 
-/**
- * Allocate the per-hour total into 3 event types proportional to that hour's
- * summary entry, rounding down then redistributing the leftover by largest
- * fractional remainder. Guarantees the per-hour sum exactly equals `total`.
- */
-function splitEventTypes(
-  total: number,
-  summary: EventCounts,
-): Record<EventTypeName, number> {
-  const weights: Array<[EventTypeName, number]> = [
-    [EVENT_TYPES.CONTROL_CONNECTION, summary.controlConnectionStateChange],
-    [EVENT_TYPES.POLICY_CHANGE,      summary.policyChange],
-    [EVENT_TYPES.OMP_PEER_STATE,     summary.ompPeerStateChange],
-  ];
-  const sum = weights.reduce((s, [, w]) => s + w, 0) || 1;
-
-  const exact = weights.map(([name, w]) => ({
-    name,
-    raw: (total * w) / sum,
-    floor: Math.floor((total * w) / sum),
-  }));
-  const allocated = exact.reduce((s, e) => s + e.floor, 0);
-  let leftover = total - allocated;
-
-  const sortedByRemainder = [...exact].sort(
-    (a, b) => (b.raw - b.floor) - (a.raw - a.floor),
-  );
-  const out: Record<EventTypeName, number> = {
-    [EVENT_TYPES.CONTROL_CONNECTION]: 0,
-    [EVENT_TYPES.POLICY_CHANGE]:      0,
-    [EVENT_TYPES.OMP_PEER_STATE]:     0,
-  };
-  for (const e of exact) out[e.name] = e.floor;
-  let i = 0;
-  while (leftover > 0) {
-    out[sortedByRemainder[i % sortedByRemainder.length].name] += 1;
-    leftover -= 1;
-    i += 1;
-  }
-  return out;
-}
-
 export interface GenerateOptions {
-  /** Total rows to generate. Defaults to 200. */
-  totalRows?: number;
+  /** Number of trailing hours to materialise. Defaults to 24. */
+  rangeHours?: number;
+  /** Selected tenant. "All" preserves the aggregate data view. */
+  tenant?: string;
   /** RNG seed; defaults to deterministic 0xC1500. */
   seed?: number;
 }
 
 /**
- * Generate `totalRows` mock log rows whose hour distribution matches
- * `ROW_DISTRIBUTION_BY_HOUR_OF_DAY` over the rolling 24h window ending at
- * `baseDate`. Per-hour event-type breakdown is proportional to
- * `EVENT_SUMMARY_BY_HOUR_OF_DAY`. Times are stamped on the actual calendar
- * date the rolling-window hour belongs to (today or yesterday), so rows in
- * the early labels carry yesterday's date when the window crosses midnight.
+ * Generate mock log rows whose per-hour event-type counts exactly match the
+ * Event chart for the selected tenant and rolling window. Times are stamped on
+ * the actual calendar date the rolling-window hour belongs to (today or
+ * yesterday), so rows in the early labels carry yesterday's date when the
+ * window crosses midnight.
  */
 export function generateMockLogRows(
   baseDate: Date,
-  { totalRows = 200, seed = 0xc1500 }: GenerateOptions = {},
+  { rangeHours = 24, tenant = 'All', seed = 0xc1500 }: GenerateOptions = {},
 ): MockLogRow[] {
-  const rand = mulberry32(seed);
+  const idx = tenantIndex(tenant);
+  const rand = mulberry32(seed + idx * 0x1000 + rangeHours);
   const rows: MockLogRow[] = [];
   let rowIndex = 0;
 
-  for (const hour of getHours(baseDate)) {
-    const desired = ROW_DISTRIBUTION_BY_HOUR_OF_DAY[hour];
-    const summary = EVENT_SUMMARY_BY_HOUR_OF_DAY[hour];
-    const split   = splitEventTypes(desired, summary);
+  for (const hour of getHours(baseDate, rangeHours)) {
+    const minuteStep = getMinuteBucketStep(rangeHours);
+    const summary = getTenantEventCounts(hour, tenant, minuteStep !== null);
+    const split: Record<EventTypeName, number> = {
+      [EVENT_TYPES.CONTROL_CONNECTION]: summary.controlConnectionStateChange,
+      [EVENT_TYPES.POLICY_CHANGE]: summary.policyChange,
+      [EVENT_TYPES.OMP_PEER_STATE]: summary.ompPeerStateChange,
+    };
     const hourAnchor = resolveHourDate(baseDate, hour);
 
     const hourRows: MockLogRow[] = [];
     for (const eventName of EVENT_TYPE_ORDER) {
       const count = split[eventName];
       for (let i = 0; i < count; i++) {
-        // Spread minutes across the hour deterministically but unevenly.
-        const offsetMin = Math.floor(rand() * 60);
+        // Hourly buckets spread rows across the hour. Minute buckets keep rows
+        // inside that exact minute so table filtering matches the chart bucket.
+        const offsetMin = minuteStep ? minuteNumber(hour) : Math.floor(rand() * 60);
         const eventTime = new Date(hourAnchor);
         eventTime.setMinutes(offsetMin, 0, 0);
 
@@ -381,7 +532,7 @@ export function generateMockLogRows(
 
         rowIndex += 1;
         hourRows.push({
-          id: `log-${String(rowIndex).padStart(4, '0')}`,
+          id: `log-t${idx}-${String(rowIndex).padStart(4, '0')}`,
           eventTime,
           eventTimeLabel: formatRowTime(eventTime),
           hour,
@@ -401,9 +552,6 @@ export function generateMockLogRows(
     rows.push(...hourRows);
   }
 
-  // Top up / trim to exactly `totalRows` (defensive — distribution above sums
-  // to exactly totalRows by construction, but keep this as a safety net).
-  if (rows.length > totalRows) rows.length = totalRows;
   return rows;
 }
 

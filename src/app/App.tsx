@@ -2,6 +2,8 @@ import svgPaths from "../imports/4LogOmpStatistics-1/svg-xu79yoskty";
 import imgHeader from "figma:asset/73ec653e128edda67501b4df083e58e8150cd4b3.png";
 import { imgWarningBorder, imgWarningBorder1 } from "../imports/4LogOmpStatistics-1/svg-w8riy";
 import { OmpStatistics } from "./omp/OmpStatistics";
+import { OmpStateProvider } from "./omp/state";
+import { TopFilterBar } from "./omp/TopFilterBar";
 import { AuthProvider, useAuth } from "./auth/AuthProvider";
 import { LoginScreen } from "./auth/LoginScreen";
 // TODO(ai-assistant): re-enable once Cisco EGAI/CIRCUIT LLM client is wired up.
@@ -5067,17 +5069,10 @@ function Container() {
             <div className="bg-[var(--color-brand-blue-light)] h-[3px] rounded-[2px] shrink-0 w-full" data-name="shape" />
           </div>
         </div>
-        <div className="content-stretch flex gap-[8px] items-start relative shrink-0 w-full" data-name="Filter bar">
-          <div className="content-stretch flex flex-col gap-[4px] isolate items-start relative rounded-[6px] shrink-0" data-name="Time filter">
-            <Field />
-          </div>
-          <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-name=".Filters">
-            <div className="content-stretch flex flex-col gap-[4px] isolate items-start relative rounded-[6px] shrink-0" data-name="Select input">
-              <Field1 />
-            </div>
-          </div>
-        </div>
-        <OmpStatistics />
+        <OmpStateProvider>
+          <TopFilterBar />
+          <OmpStatistics />
+        </OmpStateProvider>
       </div>
     </div>
   );
