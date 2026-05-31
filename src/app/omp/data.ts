@@ -160,6 +160,14 @@ export interface OmpUsagePoint {
 
 type UsageValues = Omit<OmpUsagePoint, 'hour'>;
 
+const INDIVIDUAL_TENANTS = [
+  'Tenant 1',
+  'Tenant 2',
+  'Tenant 3',
+  'Tenant 4',
+  'Tenant 5',
+] as const;
+
 /**
  * Per-hour-of-day usage values. Hours 00-11 retain the original spec values
  * (preserved for visual continuity with prior screenshots); hours 12-23 model
@@ -206,6 +214,40 @@ export function getOmpUsageByHour(
     hour,
     ...getTenantUsageValues(hour, tenant),
   }));
+}
+
+export interface TenantUsageRank {
+  tenant: string;
+  cpuUsage: number;
+  memoryUsage: number;
+}
+
+export interface TopTenantUsage {
+  cpu: TenantUsageRank[];
+  memory: TenantUsageRank[];
+}
+
+export function getTopTenantUsageByHour(
+  hour: Hour,
+  limit = 5,
+): TopTenantUsage {
+  const usageByTenant = INDIVIDUAL_TENANTS.map(tenant => {
+    const usage = getTenantUsageValues(hour, tenant);
+    return {
+      tenant,
+      cpuUsage: usage.cpuUsage,
+      memoryUsage: usage.memoryUsage,
+    };
+  });
+
+  return {
+    cpu: [...usageByTenant]
+      .sort((a, b) => b.cpuUsage - a.cpuUsage || a.tenant.localeCompare(b.tenant))
+      .slice(0, limit),
+    memory: [...usageByTenant]
+      .sort((a, b) => b.memoryUsage - a.memoryUsage || a.tenant.localeCompare(b.tenant))
+      .slice(0, limit),
+  };
 }
 
 function getTenantUsageValues(hour: string, tenant: string): UsageValues {

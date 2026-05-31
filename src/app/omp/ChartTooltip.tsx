@@ -20,6 +20,11 @@ export interface TooltipRow {
   value: ReactNode;
 }
 
+export type TooltipContentRow =
+  | TooltipRow
+  | { divider: true }
+  | { sectionTitle: string };
+
 export interface ChartTooltipProps {
   /** Mouse X relative to host container in px (for placement). */
   x: number;
@@ -31,7 +36,7 @@ export interface ChartTooltipProps {
   hostHeight: number;
   title: string;
   subtitle?: string;
-  rows: Array<TooltipRow | { divider: true }>;
+  rows: TooltipContentRow[];
   /** Optional minWidth override; defaults to 200. */
   minWidth?: number;
 }
@@ -127,6 +132,23 @@ export function ChartTooltip({
                   margin: '4px 0',
                 }}
               />
+            );
+          }
+          if ('sectionTitle' in row) {
+            return (
+              <div
+                key={`s-${i}-${row.sectionTitle}`}
+                className="chart-tooltip__section-title"
+                style={{
+                  fontSize: 12,
+                  lineHeight: '18px',
+                  fontWeight: 700,
+                  color: 'var(--color-text-heading)',
+                  marginTop: i === 0 ? 0 : 2,
+                }}
+              >
+                {row.sectionTitle}
+              </div>
             );
           }
           // Rows without a marker (e.g. "Total CPU"/"Total memory" summary

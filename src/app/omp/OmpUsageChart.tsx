@@ -20,9 +20,9 @@ import {
   useEffect, useRef, useState, useCallback,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import type { OmpUsagePoint } from './data';
+import { getTopTenantUsageByHour, type OmpUsagePoint } from './data';
 import { useOmp } from './state';
-import { ChartTooltip, Markers, type TooltipRow } from './ChartTooltip';
+import { ChartTooltip, Markers, type TooltipContentRow } from './ChartTooltip';
 import { format24HourRange, formatTooltipSubtitle } from './utils';
 import { ChartCard, ChartHeader, Legend } from './ChartCard';
 
@@ -100,7 +100,10 @@ export function OmpUsageChart() {
 
   const hoverIdx = hover ? hours.indexOf(hover.hour) : -1;
   const hoverData = hoverIdx >= 0 ? ompUsageByHour[hoverIdx] : null;
-  const isIndividualTenant = state.selectedTenant !== 'All';
+  const isOverallView = state.selectedTenant === 'All';
+  const topTenantUsage = hover && isOverallView
+    ? getTopTenantUsageByHour(hover.hour)
+    : null;
 
   // Note: deliberately do NOT read state.selectedHour here. This chart is
   // independent from the Event bar chart's selection, per latest spec.
@@ -114,48 +117,60 @@ export function OmpUsageChart() {
   // Averages no longer render as chart series or legend items; they are
   // surfaced inline in the tooltip values so the chart stays uncluttered
   // while still exposing the average context on hover.
-  const tooltipRows: TooltipRow[] = hoverData
+  const tooltipRows: TooltipContentRow[] = hoverData
     ? [
         {
           marker: Markers.blueLineDot,
-          label: 'OMP CPU usage',
+          label: isOverallView ? 'Total CPU' : 'OMP CPU usage',
           value: (
             <>
-              {hoverData.cpuUsage}%
-              {isIndividualTenant ? (
-                <span
-                  style={{
-                    color: 'var(--color-text-secondary)',
-                    fontWeight: 400,
-                    marginLeft: 6,
-                  }}
-                >
-                  (average {hoverData.cpuAverage}%)
-                </span>
-              ) : null}
+              {isOverallView ? hoverData.totalCpu : hoverData.cpuUsage}%
+              <span
+                style={{
+                  color: 'var(--color-text-secondary)',
+                  fontWeight: 400,
+                  marginLeft: 6,
+                }}
+              >
+                (average {hoverData.cpuAverage}%)
+              </span>
             </>
           ),
         },
         {
           marker: Markers.cyanLineTriangle,
-          label: 'OMP memory usage',
+          label: isOverallView ? 'Total Memory' : 'OMP memory usage',
           value: (
             <>
-              {hoverData.memoryUsage}%
-              {isIndividualTenant ? (
-                <span
-                  style={{
-                    color: 'var(--color-text-secondary)',
-                    fontWeight: 400,
-                    marginLeft: 6,
-                  }}
-                >
-                  (average {hoverData.memoryAverage}%)
-                </span>
-              ) : null}
+              {isOverallView ? hoverData.totalMemory : hoverData.memoryUsage}%
+              <span
+                style={{
+                  color: 'var(--color-text-secondary)',
+                  fontWeight: 400,
+                  marginLeft: 6,
+                }}
+              >
+                (average {hoverData.memoryAverage}%)
+              </span>
             </>
           ),
         },
+        ...(topTenantUsage
+          ? [
+              { divider: true as const },
+              { sectionTitle: 'Top 5 CPU Usage' },
+              ...topTenantUsage.cpu.map(tenant => ({
+                label: tenant.tenant,
+                value: `${tenant.cpuUsage}%`,
+              })),
+              { divider: true as const },
+              { sectionTitle: 'Top 5 Memory Usage' },
+              ...topTenantUsage.memory.map(tenant => ({
+                label: tenant.tenant,
+                value: `${tenant.memoryUsage}%`,
+              })),
+            ]
+          : []),
       ]
     : [];
 
@@ -267,7 +282,7 @@ export function OmpUsageChart() {
       const legend: LegendRow[] = [
         { label: 'OMP CPU usage',           rgb: [0x50, 0x5e, 0xd9] },
         { label: 'OMP memory usage',        rgb: [0x04, 0xa4, 0xb0] },
-        ...(isIndividualTenant
+        ...(isOverallView
           ? [{ label: 'Warning threshold (80%)', rgb: [0xcc, 0x86, 0x04] as [number, number, number], dashed: true }]
           : []),
       ];
@@ -351,7 +366,7 @@ export function OmpUsageChart() {
             />
           ) : null}
 
-          {isIndividualTenant ? (
+          {isOverallView ? (
             <line
               x1={PADDING.left} x2={PADDING.left + innerW}
               y1={yFor(80)} y2={yFor(80)}
@@ -413,12 +428,16 @@ export function OmpUsageChart() {
             hostHeight={HEIGHT}
             title="OMP status"
             subtitle={formatTooltipSubtitle(state.baseDate, hover.hour)}
-            rows={[
-              ...tooltipRows,
-              { divider: true },
-              { label: 'Total CPU',    value: `${hoverData.totalCpu}%` },
-              { label: 'Total memory', value: `${hoverData.totalMemory}%` },
-            ]}
+            rows={
+              isOverallView
+                ? tooltipRows
+                : [
+                    ...tooltipRows,
+                    { divider: true },
+                    { label: 'Total CPU', value: `${hoverData.totalCpu}%` },
+                    { label: 'Total memory', value: `${hoverData.totalMemory}%` },
+                  ]
+            }
             minWidth={280}
           />
         ) : null}
@@ -428,7 +447,7 @@ export function OmpUsageChart() {
         items={[
           { marker: Markers.blueLineDot,       label: 'OMP CPU usage' },
           { marker: Markers.cyanLineTriangle,  label: 'OMP memory usage' },
-          ...(isIndividualTenant
+          ...(isOverallView
             ? [{ marker: thresholdSwatch, label: 'CPU & memory warning threshold' }]
             : []),
         ]}
