@@ -17,11 +17,15 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  // GHE Pages deploys this app to a project subpath; CI sets GHE_PAGES=true so
-  // bundled asset URLs resolve under that prefix. Local dev keeps the root path.
-  base: process.env.GHE_PAGES === 'true' ? '/pages/mingcwan/27.1-vSmart-Visibility/' : '/',
+  // GitHub Pages and GHE Pages serve this app from different project subpaths.
+  // Local dev keeps the root path so Vite can load /src/main.tsx normally.
+  base: process.env.GITHUB_PAGES === 'true'
+    ? '/vSmart-Visibility/'
+    : process.env.GHE_PAGES === 'true'
+      ? '/pages/mingcwan/27.1-vSmart-Visibility/'
+      : '/',
 
-  // Emit static build artifacts into `docs/` so GHE Pages can serve directly
+  // Emit static build artifacts into `docs/` so Pages can serve directly
   // from `main` branch with Source = /docs (no separate gh-pages branch needed).
   build: {
     outDir: 'docs',
