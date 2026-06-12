@@ -316,7 +316,61 @@ export interface EventSummaryPoint {
 
 type EventCounts = Omit<EventSummaryPoint, 'hour'>;
 
-const EVENT_SUMMARY_BY_HOUR_OF_DAY: Record<string, EventCounts> = {
+const ALL_TENANTS_EVENT_SUMMARY_BY_HOUR_OF_DAY: Record<string, EventCounts> = {
+  '00:00': { controlConnectionStateChange:  610, ompPeerStateChange:  670, policyChange:  700 },
+  '01:00': { controlConnectionStateChange:  240, ompPeerStateChange:  260, policyChange:  260 },
+  '02:00': { controlConnectionStateChange:  480, ompPeerStateChange:  510, policyChange:  490 },
+  '03:00': { controlConnectionStateChange:  160, ompPeerStateChange:  180, policyChange:  180 },
+  '04:00': { controlConnectionStateChange:  760, ompPeerStateChange:  800, policyChange:  820 },
+  '05:00': { controlConnectionStateChange: 1120, ompPeerStateChange: 1160, policyChange: 1140 },
+  '06:00': { controlConnectionStateChange:  410, ompPeerStateChange:  430, policyChange:  440 },
+  '07:00': { controlConnectionStateChange:  100, ompPeerStateChange:  110, policyChange:  110 },
+  '08:00': { controlConnectionStateChange:  270, ompPeerStateChange:  300, policyChange:  310 },
+  '09:00': { controlConnectionStateChange:  190, ompPeerStateChange:  220, policyChange:  230 },
+  '10:00': { controlConnectionStateChange:  540, ompPeerStateChange:  580, policyChange:  600 },
+  '11:00': { controlConnectionStateChange:   55, ompPeerStateChange:   60, policyChange:   65 },
+  '12:00': { controlConnectionStateChange:  190, ompPeerStateChange:  210, policyChange:  220 },
+  '13:00': { controlConnectionStateChange:  360, ompPeerStateChange:  390, policyChange:  410 },
+  '14:00': { controlConnectionStateChange:  900, ompPeerStateChange:  960, policyChange:  980 },
+  '15:00': { controlConnectionStateChange:  680, ompPeerStateChange:  720, policyChange:  740 },
+  '16:00': { controlConnectionStateChange: 1160, ompPeerStateChange: 1190, policyChange: 1210 },
+  '17:00': { controlConnectionStateChange:  130, ompPeerStateChange:  140, policyChange:  150 },
+  '18:00': { controlConnectionStateChange:  290, ompPeerStateChange:  320, policyChange:  320 },
+  '19:00': { controlConnectionStateChange:  850, ompPeerStateChange:  900, policyChange:  930 },
+  '20:00': { controlConnectionStateChange:  370, ompPeerStateChange:  390, policyChange:  420 },
+  '21:00': { controlConnectionStateChange:   80, ompPeerStateChange:   90, policyChange:   90 },
+  '22:00': { controlConnectionStateChange:  160, ompPeerStateChange:  175, policyChange:  185 },
+  '23:00': { controlConnectionStateChange:  420, ompPeerStateChange:  450, policyChange:  470 },
+};
+
+const TENANT_1_EVENT_SUMMARY_BY_HOUR_OF_DAY: Record<string, EventCounts> = {
+  '00:00': { controlConnectionStateChange: 190, ompPeerStateChange: 210, policyChange: 220 },
+  '01:00': { controlConnectionStateChange:  70, ompPeerStateChange:  80, policyChange:  90 },
+  '02:00': { controlConnectionStateChange: 160, ompPeerStateChange: 170, policyChange: 180 },
+  '03:00': { controlConnectionStateChange:  55, ompPeerStateChange:  60, policyChange:  65 },
+  '04:00': { controlConnectionStateChange: 270, ompPeerStateChange: 280, policyChange: 290 },
+  '05:00': { controlConnectionStateChange: 310, ompPeerStateChange: 320, policyChange: 330 },
+  '06:00': { controlConnectionStateChange: 140, ompPeerStateChange: 155, policyChange: 165 },
+  '07:00': { controlConnectionStateChange:  35, ompPeerStateChange:  40, policyChange:  45 },
+  '08:00': { controlConnectionStateChange: 105, ompPeerStateChange: 120, policyChange: 125 },
+  '09:00': { controlConnectionStateChange:  85, ompPeerStateChange:  95, policyChange: 100 },
+  '10:00': { controlConnectionStateChange: 220, ompPeerStateChange: 240, policyChange: 250 },
+  '11:00': { controlConnectionStateChange:  28, ompPeerStateChange:  32, policyChange:  35 },
+  '12:00': { controlConnectionStateChange:  90, ompPeerStateChange: 100, policyChange: 110 },
+  '13:00': { controlConnectionStateChange: 130, ompPeerStateChange: 145, policyChange: 155 },
+  '14:00': { controlConnectionStateChange: 240, ompPeerStateChange: 255, policyChange: 265 },
+  '15:00': { controlConnectionStateChange: 210, ompPeerStateChange: 230, policyChange: 240 },
+  '16:00': { controlConnectionStateChange: 295, ompPeerStateChange: 305, policyChange: 320 },
+  '17:00': { controlConnectionStateChange:  65, ompPeerStateChange:  70, policyChange:  75 },
+  '18:00': { controlConnectionStateChange: 120, ompPeerStateChange: 130, policyChange: 140 },
+  '19:00': { controlConnectionStateChange: 260, ompPeerStateChange: 275, policyChange: 285 },
+  '20:00': { controlConnectionStateChange: 170, ompPeerStateChange: 190, policyChange: 200 },
+  '21:00': { controlConnectionStateChange:  42, ompPeerStateChange:  48, policyChange:  50 },
+  '22:00': { controlConnectionStateChange:  78, ompPeerStateChange:  88, policyChange:  94 },
+  '23:00': { controlConnectionStateChange: 145, ompPeerStateChange: 155, policyChange: 170 },
+};
+
+const INDIVIDUAL_TENANT_BASE_EVENT_SUMMARY_BY_HOUR_OF_DAY: Record<string, EventCounts> = {
   '00:00': { controlConnectionStateChange: 18, ompPeerStateChange: 14, policyChange: 21 },
   '01:00': { controlConnectionStateChange:  9, ompPeerStateChange: 16, policyChange:  5 },
   '02:00': { controlConnectionStateChange: 21, ompPeerStateChange: 13, policyChange: 18 },
@@ -355,8 +409,8 @@ export function getEventSummaryByHour(
 }
 
 function getTenantEventCounts(hour: string, tenant: string, minuteGranularity = false): EventCounts {
-  const base = EVENT_SUMMARY_BY_HOUR_OF_DAY[hourKey(hour)];
   const idx = tenantIndex(tenant);
+  const base = eventProfileForTenant(hour, idx);
   const h = hourNumber(hour);
   const m = minuteNumber(hour);
 
@@ -364,7 +418,7 @@ function getTenantEventCounts(hour: string, tenant: string, minuteGranularity = 
     return getMinuteEventCounts(base, h, m, idx);
   }
 
-  if (idx === 0) return base;
+  if (idx === 0 || idx === 1) return base;
 
   const variant = TENANT_EVENT_VARIANTS[idx - 1];
   return {
@@ -390,6 +444,12 @@ function getTenantEventCounts(hour: string, tenant: string, minuteGranularity = 
       3,
     ),
   };
+}
+
+function eventProfileForTenant(hour: string, tenant: number): EventCounts {
+  if (tenant === 0) return ALL_TENANTS_EVENT_SUMMARY_BY_HOUR_OF_DAY[hourKey(hour)];
+  if (tenant === 1) return TENANT_1_EVENT_SUMMARY_BY_HOUR_OF_DAY[hourKey(hour)];
+  return INDIVIDUAL_TENANT_BASE_EVENT_SUMMARY_BY_HOUR_OF_DAY[hourKey(hour)];
 }
 
 function getMinuteEventCounts(base: EventCounts, hour: number, minute: number, tenant: number): EventCounts {

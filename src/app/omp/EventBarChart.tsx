@@ -67,16 +67,14 @@ export function EventBarChart() {
   // the 8px floor prevents zero-width segments at narrow viewports.
   const barW   = Math.max(8, slotW * 0.55);
 
-  const yMax = Math.max(
-    50,
-    Math.ceil(
-      Math.max(
-        ...eventSummaryByHour.map(d =>
-          d.controlConnectionStateChange + d.ompPeerStateChange + d.policyChange,
-        ),
-      ) / 10,
-    ) * 10 + 10,
+  const maxEventTotal = Math.max(
+    0,
+    ...eventSummaryByHour.map(d =>
+      d.controlConnectionStateChange + d.ompPeerStateChange + d.policyChange,
+    ),
   );
+  const yAxis = getYAxisScale(maxEventTotal);
+  const yMax = yAxis.max;
 
   const yFor = useCallback(
     (v: number) => PADDING.top + (1 - v / yMax) * innerH,
@@ -148,7 +146,7 @@ export function EventBarChart() {
           </text>
 
           {/* Y axis grid */}
-          {ticks(yMax).map(v => (
+          {yAxis.ticks.map(v => (
             <g key={v}>
               <line
                 x1={PADDING.left} x2={PADDING.left + innerW}
@@ -160,7 +158,7 @@ export function EventBarChart() {
                 fontSize={11} textAnchor="end"
                 fill="var(--color-text-tertiary)"
               >
-                {v}
+                {formatAxisCount(v)}
               </text>
             </g>
           ))}
@@ -225,7 +223,7 @@ export function EventBarChart() {
                       fill="#ffffff"
                       pointerEvents="none"
                     >
-                      {seg.value}
+                      {formatBarCount(seg.value)}
                     </text>
                   ) : null,
                 )}
@@ -268,13 +266,13 @@ export function EventBarChart() {
             rows={[
               { marker: Markers.swatch('var(--color-brand-blue)'),
                 label: 'Control connection state change',
-                value: hoverData.controlConnectionStateChange },
+                value: hoverData.controlConnectionStateChange.toLocaleString('en-US') },
               { marker: Markers.swatch('var(--color-brand-cyan)'),
                 label: 'OMP peer state change',
-                value: hoverData.ompPeerStateChange },
+                value: hoverData.ompPeerStateChange.toLocaleString('en-US') },
               { marker: Markers.swatch('var(--color-brand-purple)'),
                 label: 'Policy change',
-                value: hoverData.policyChange },
+                value: hoverData.policyChange.toLocaleString('en-US') },
             ]}
             minWidth={260}
           />
@@ -295,9 +293,38 @@ export function EventBarChart() {
   );
 }
 
-function ticks(yMax: number): number[] {
-  const step = yMax <= 50 ? 10 : yMax <= 100 ? 20 : 25;
+interface YAxisScale {
+  max: number;
+  ticks: number[];
+}
+
+function getYAxisScale(maxValue: number): YAxisScale {
+  if (maxValue <= 100) return buildYAxisScale(100, 20);
+  if (maxValue <= 500) return buildYAxisScale(500, 100);
+  if (maxValue <= 1000) return buildYAxisScale(1000, 200);
+  if (maxValue <= 5000) return buildYAxisScale(Math.ceil(maxValue / 1000) * 1000, 1000);
+  if (maxValue <= 10000) return buildYAxisScale(Math.ceil(maxValue / 2000) * 2000, 2000);
+
+  const step = maxValue <= 50000 ? 5000 : 10000;
+  return buildYAxisScale(Math.ceil(maxValue / step) * step, step);
+}
+
+function buildYAxisScale(max: number, step: number): YAxisScale {
   const out: number[] = [];
-  for (let v = 0; v <= yMax; v += step) out.push(v);
-  return out;
+  for (let v = 0; v <= max; v += step) out.push(v);
+  return { max, ticks: out };
+}
+
+function formatAxisCount(value: number): string {
+  if (value >= 1000) {
+    return `${value / 1000}k`;
+  }
+  return value.toLocaleString('en-US');
+}
+
+function formatBarCount(value: number): string {
+  if (value >= 1000) {
+    return `${(value / 1000).toFixed(value % 1000 === 0 ? 0 : 1)}k`;
+  }
+  return value.toLocaleString('en-US');
 }
